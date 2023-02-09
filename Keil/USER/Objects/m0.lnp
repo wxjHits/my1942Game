@@ -1,0 +1,20 @@
+--cpu Cortex-M0
+".\objects\main.o"
+".\objects\handler.o"
+".\objects\startup_cm0ds.o"
+".\objects\system.o"
+".\objects\camera.o"
+".\objects\key.o"
+".\objects\lcd.o"
+".\objects\led.o"
+".\objects\retarget.o"
+".\objects\spi_flash.o"
+".\objects\systick.o"
+".\objects\timer.o"
+".\objects\uart.o"
+".\objects\malloc.o"
+".\objects\spriteram.o"
+--library_type=microlib --strict --scatter ".\Objects\m0.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\m0.map" -o .\Objects\m0.axf

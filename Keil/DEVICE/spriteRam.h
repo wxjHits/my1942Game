@@ -1,0 +1,26 @@
+#ifndef SPRITERAM_H
+#define SPRITERAM_H
+
+#include <stdint.h>
+//SPTITERAM
+// BASE_ADDR:0x50010000
+
+//-------------------------------------
+#define SPRITERAM_BASE         (0x50010000)
+typedef struct{
+    volatile uint32_t SPRITERAM_VALUE[64];
+}SPRITERAMType;
+
+typedef struct{
+    volatile uint8_t PosX;
+    volatile uint8_t PosY;
+}PLANEType;
+
+#define SPRITERAM ((SPRITERAMType *)SPRITERAM_BASE)
+
+void writeOneSprite(uint8_t num,uint8_t PosX,uint8_t PosY,uint8_t tileIndex,uint8_t byte0);
+
+void myPlaneDraw(uint8_t PosX,uint8_t PosY);
+void boomDraw(uint8_t PosX,uint8_t PosY);
+
+#endif

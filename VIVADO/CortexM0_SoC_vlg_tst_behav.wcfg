@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="CortexM0_SoC_vlg_tst_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="CortexM0_SoC_vlg_tst" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="3493500000fs"></ZoomStartTime>
+      <ZoomEndTime time="4863500001fs"></ZoomEndTime>
+      <Cursor1Time time="4311000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="317"></NameColumnWidth>
+      <ValueColumnWidth column_width="230"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="50" />
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/RSTn" type="logic">
+      <obj_property name="ElementShortName">RSTn</obj_property>
+      <obj_property name="ObjectShortName">RSTn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/SPI_MISO" type="logic">
+      <obj_property name="ElementShortName">SPI_MISO</obj_property>
+      <obj_property name="ObjectShortName">SPI_MISO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HCLK" type="logic">
+      <obj_property name="ElementShortName">HCLK</obj_property>
+      <obj_property name="ObjectShortName">HCLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HRESETn" type="logic">
+      <obj_property name="ElementShortName">HRESETn</obj_property>
+      <obj_property name="ObjectShortName">HRESETn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HSEL" type="logic">
+      <obj_property name="ElementShortName">HSEL</obj_property>
+      <obj_property name="ObjectShortName">HSEL</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HADDR" type="array">
+      <obj_property name="ElementShortName">HADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HTRANS" type="array">
+      <obj_property name="ElementShortName">HTRANS[1:0]</obj_property>
+      <obj_property name="ObjectShortName">HTRANS[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HSIZE" type="array">
+      <obj_property name="ElementShortName">HSIZE[2:0]</obj_property>
+      <obj_property name="ObjectShortName">HSIZE[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HPROT" type="array">
+      <obj_property name="ElementShortName">HPROT[3:0]</obj_property>
+      <obj_property name="ObjectShortName">HPROT[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HWRITE" type="logic">
+      <obj_property name="ElementShortName">HWRITE</obj_property>
+      <obj_property name="ObjectShortName">HWRITE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HWDATA" type="array">
+      <obj_property name="ElementShortName">HWDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HWDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HREADY" type="logic">
+      <obj_property name="ElementShortName">HREADY</obj_property>
+      <obj_property name="ObjectShortName">HREADY</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HREADYOUT" type="logic">
+      <obj_property name="ElementShortName">HREADYOUT</obj_property>
+      <obj_property name="ObjectShortName">HREADYOUT</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HRDATA" type="array">
+      <obj_property name="ElementShortName">HRDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">HRDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/HRESP" type="array">
+      <obj_property name="ElementShortName">HRESP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">HRESP[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/BRAM_RDADDR" type="array">
+      <obj_property name="ElementShortName">BRAM_RDADDR[5:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_RDADDR[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/BRAM_WRADDR" type="array">
+      <obj_property name="ElementShortName">BRAM_WRADDR[5:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_WRADDR[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/BRAM_RDATA" type="array">
+      <obj_property name="ElementShortName">BRAM_RDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_RDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/BRAM_WDATA" type="array">
+      <obj_property name="ElementShortName">BRAM_WDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_WDATA[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/BRAM_WRITE" type="array">
+      <obj_property name="ElementShortName">BRAM_WRITE[3:0]</obj_property>
+      <obj_property name="ObjectShortName">BRAM_WRITE[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/trans_en" type="logic">
+      <obj_property name="ElementShortName">trans_en</obj_property>
+      <obj_property name="ObjectShortName">trans_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/write_en" type="logic">
+      <obj_property name="ElementShortName">write_en</obj_property>
+      <obj_property name="ObjectShortName">write_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/read_en" type="logic">
+      <obj_property name="ElementShortName">read_en</obj_property>
+      <obj_property name="ObjectShortName">read_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/size_dec" type="array">
+      <obj_property name="ElementShortName">size_dec[3:0]</obj_property>
+      <obj_property name="ObjectShortName">size_dec[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/size_reg" type="array">
+      <obj_property name="ElementShortName">size_reg[3:0]</obj_property>
+      <obj_property name="ObjectShortName">size_reg[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/addr_reg" type="array">
+      <obj_property name="ElementShortName">addr_reg[5:0]</obj_property>
+      <obj_property name="ObjectShortName">addr_reg[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/wr_en_reg" type="logic">
+      <obj_property name="ElementShortName">wr_en_reg</obj_property>
+      <obj_property name="ObjectShortName">wr_en_reg</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/ahb_spriteRam_interface_inst/ADDR_WIDTH" type="array">
+      <obj_property name="ElementShortName">ADDR_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/addra" type="array">
+      <obj_property name="ElementShortName">addra[5:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/addrb" type="array">
+      <obj_property name="ElementShortName">addrb[5:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/dina" type="array">
+      <obj_property name="ElementShortName">dina[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dina[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/wea" type="array">
+      <obj_property name="ElementShortName">wea[3:0]</obj_property>
+      <obj_property name="ObjectShortName">wea[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/doutb" type="array">
+      <obj_property name="ElementShortName">doutb[31:0]</obj_property>
+      <obj_property name="ObjectShortName">doutb[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/hitCheck_spriteViewRamIndex" type="array">
+      <obj_property name="ElementShortName">hitCheck_spriteViewRamIndex[5:0]</obj_property>
+      <obj_property name="ObjectShortName">hitCheck_spriteViewRamIndex[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO_hitCheck" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO_hitCheck[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO_hitCheck[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamIndex00" type="array">
+      <obj_property name="ElementShortName">spriteViewRamIndex00[5:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamIndex00[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamIndex01" type="array">
+      <obj_property name="ElementShortName">spriteViewRamIndex01[5:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamIndex01[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamIndex02" type="array">
+      <obj_property name="ElementShortName">spriteViewRamIndex02[5:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamIndex02[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamIndex03" type="array">
+      <obj_property name="ElementShortName">spriteViewRamIndex03[5:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamIndex03[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamIndex04" type="array">
+      <obj_property name="ElementShortName">spriteViewRamIndex04[5:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamIndex04[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamIndex05" type="array">
+      <obj_property name="ElementShortName">spriteViewRamIndex05[5:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamIndex05[5:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO00" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO00[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO00[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO01" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO01[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO01[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO02" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO02[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO02[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO03" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO03[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO03[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO04" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO04[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO04[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRamDataO05" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO05[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO05[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/spriteRam_inst/spriteViewRam" type="array">
+      <obj_property name="ElementShortName">spriteViewRam[0:63][31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRam[0:63][31:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

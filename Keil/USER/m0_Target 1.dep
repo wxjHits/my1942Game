@@ -1,0 +1,83 @@
+Dependencies for Project 'm0', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (..\CORE\CortexM0.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (..\CORE\core_cm0.h)(0x63BC3456)
+I (..\CORE\core_cmInstr.h)(0x63BC3456)
+I (..\CORE\core_cmFunc.h)(0x63BC3456)
+I (..\DEVICE\camera.h)(0x63BC3456)
+I (..\DEVICE\uart.h)(0x63BC3456)
+I (..\DEVICE\led.h)(0x63BC3456)
+I (..\DEVICE\lcd.h)(0x63BC3456)
+I (..\DEVICE\key.h)(0x63BC3456)
+I (..\DEVICE\timer.h)(0x63BC3456)
+I (..\DEVICE\spi_flash.h)(0x63BC3456)
+I (..\DEVICE\systick.h)(0x63BC3456)
+F (..\CORE\handler.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\handler.o --omf_browse .\handler.crf --depend .\handler.d)
+I (..\CORE\CortexM0.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (..\CORE\core_cm0.h)(0x63BC3456)
+I (..\CORE\core_cmInstr.h)(0x63BC3456)
+I (..\CORE\core_cmFunc.h)(0x63BC3456)
+I (..\DEVICE\systick.h)(0x63BC3456)
+I (..\DEVICE\uart.h)(0x63BC3456)
+I (..\DEVICE\camera.h)(0x63BC3456)
+I (..\DEVICE\lcd.h)(0x63BC3456)
+I (..\DEVICE\led.h)(0x63BC3456)
+F (..\CORE\startup_CM0DS.s)(0x63BC3456)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"--pd "__UVISION_VERSION SETA 528" --pd "CMSDK_CM0 SETA 1"--list .\listings\startup_cm0ds.lst --xref -o .\startup_cm0ds.o --depend .\startup_cm0ds.d)
+F (..\CORE\system.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\system.o --omf_browse .\system.crf --depend .\system.d)
+I (..\CORE\CortexM0.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (..\CORE\core_cm0.h)(0x63BC3456)
+I (..\CORE\core_cmInstr.h)(0x63BC3456)
+I (..\CORE\core_cmFunc.h)(0x63BC3456)
+F (..\DEVICE\camera.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\camera.o --omf_browse .\camera.crf --depend .\camera.d)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (..\DEVICE\systick.h)(0x63BC3456)
+I (..\DEVICE\camera.h)(0x63BC3456)
+I (..\DEVICE\camera_initial_reg_file.h)(0x63BC3456)
+F (..\DEVICE\key.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\key.o --omf_browse .\key.crf --depend .\key.d)
+I (..\DEVICE\key.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+F (..\DEVICE\lcd.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\lcd.o --omf_browse .\lcd.crf --depend .\lcd.d)
+I (..\DEVICE\systick.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (..\DEVICE\lcdfont.h)(0x63BC3456)
+I (..\DEVICE\lcd.h)(0x63BC3456)
+F (..\DEVICE\led.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\led.o --omf_browse .\led.crf --depend .\led.d)
+I (..\DEVICE\led.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+F (..\DEVICE\Retarget.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\retarget.o --omf_browse .\retarget.crf --depend .\retarget.d)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (..\DEVICE\uart.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+F (..\DEVICE\spi_flash.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\spi_flash.o --omf_browse .\spi_flash.crf --depend .\spi_flash.d)
+I (..\DEVICE\spi_flash.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+F (..\DEVICE\systick.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\systick.o --omf_browse .\systick.crf --depend .\systick.d)
+I (..\DEVICE\systick.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (..\CORE\CortexM0.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (..\CORE\core_cm0.h)(0x63BC3456)
+I (..\CORE\core_cmInstr.h)(0x63BC3456)
+I (..\CORE\core_cmFunc.h)(0x63BC3456)
+F (..\DEVICE\timer.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\timer.o --omf_browse .\timer.crf --depend .\timer.d)
+I (..\DEVICE\timer.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+F (..\DEVICE\uart.c)(0x63BC3456)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\uart.o --omf_browse .\uart.crf --depend .\uart.d)
+I (..\DEVICE\uart.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
+F (..\DEVICE\malloc.c)(0x63BC2CBE)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\malloc.o --omf_browse .\malloc.crf --depend .\malloc.d)
+I (..\DEVICE\malloc.h)(0x63BC2DD0)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
+I (..\CORE\CortexM0.h)(0x63BC3456)
+I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
+I (..\CORE\core_cm0.h)(0x63BC3456)
+I (..\CORE\core_cmInstr.h)(0x63BC3456)
+I (..\CORE\core_cmFunc.h)(0x63BC3456)

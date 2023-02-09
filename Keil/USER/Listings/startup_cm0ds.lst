@@ -1,0 +1,874 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;/******************************************************
+                       ********************//**
+    2 00000000         ; * @file     startup_CM3DS_MPS2.s
+    3 00000000         ; * @brief    CMSIS Cortex-M3 Core Device Startup File f
+                       or
+    4 00000000         ; *           Device CM3DS_MPS2
+    5 00000000         ; * @version  V3.01
+    6 00000000         ; * @date     06. March 2012
+    7 00000000         ; *
+    8 00000000         ; * @note
+    9 00000000         ; * Copyright (C) 2012,2017 ARM Limited. All rights rese
+                       rved.
+   10 00000000         ; *
+   11 00000000         ; * @par
+   12 00000000         ; * ARM Limited (ARM) is supplying this software for use
+                        with Cortex-M
+   13 00000000         ; * processor based microcontrollers.  This file can be 
+                       freely distributed
+   14 00000000         ; * within development tools that are supporting such AR
+                       M based processors.
+   15 00000000         ; *
+   16 00000000         ; * @par
+   17 00000000         ; * THIS SOFTWARE IS PROVIDED "AS IS".  NO WARRANTIES, W
+                       HETHER EXPRESS, IMPLIED
+   18 00000000         ; * OR STATUTORY, INCLUDING, BUT NOT LIMITED TO, IMPLIED
+                        WARRANTIES OF
+   19 00000000         ; * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+                        APPLY TO THIS SOFTWARE.
+   20 00000000         ; * ARM SHALL NOT, IN ANY CIRCUMSTANCES, BE LIABLE FOR S
+                       PECIAL, INCIDENTAL, OR
+   21 00000000         ; * CONSEQUENTIAL DAMAGES, FOR ANY REASON WHATSOEVER.
+   22 00000000         ; *
+   23 00000000         ; ******************************************************
+                       ************************/
+   24 00000000         ;/*
+   25 00000000         ;//-------- <<< Use Configuration Wizard in Context Menu
+                        >>> ------------------
+   26 00000000         ;*/
+   27 00000000         
+   28 00000000         
+   29 00000000         ; <h> Stack Configuration
+   30 00000000         ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   31 00000000         ; </h>
+   32 00000000         
+   33 00000000 00000400 
+                       Stack_Size
+                               EQU              0x0000400
+   34 00000000         
+   35 00000000                 AREA             STACK, NOINIT, READWRITE, ALIGN
+=3
+   36 00000000         Stack_Mem
+                               SPACE            Stack_Size
+   37 00000400         __initial_sp
+   38 00000400         
+   39 00000400         
+   40 00000400         ; <h> Heap Configuration
+   41 00000400         ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
+   42 00000400         ; </h>
+   43 00000400         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   44 00000400 00000400 
+                       Heap_Size
+                               EQU              0x0000400
+   45 00000400         
+   46 00000400                 AREA             HEAP, NOINIT, READWRITE, ALIGN=
+3
+   47 00000000         __heap_base
+   48 00000000         Heap_Mem
+                               SPACE            Heap_Size
+   49 00000400         __heap_limit
+   50 00000400         
+   51 00000400         
+   52 00000400                 PRESERVE8
+   53 00000400                 THUMB
+   54 00000400         
+   55 00000400         
+   56 00000400         ; Vector Table Mapped to Address 0 at Reset
+   57 00000400         
+   58 00000400                 AREA             RESET, DATA, READONLY
+   59 00000000                 EXPORT           __Vectors
+   60 00000000                 EXPORT           __Vectors_End
+   61 00000000                 EXPORT           __Vectors_Size
+   62 00000000         
+   63 00000000 00000000 
+                       __Vectors
+                               DCD              __initial_sp ; Top of Stack
+   64 00000004 00000000        DCD              Reset_Handler ; Reset Handler
+   65 00000008 00000000        DCD              NMI_Handler ; NMI Handler
+   66 0000000C 00000000        DCD              HardFault_Handler ; Hard Fault 
+                                                            Handler
+   67 00000010 00000000        DCD              MemManage_Handler 
+                                                            ; MPU Fault Handler
+                                                            
+   68 00000014 00000000        DCD              BusFault_Handler 
+                                                            ; Bus Fault Handler
+                                                            
+   69 00000018 00000000        DCD              UsageFault_Handler ; Usage Faul
+                                                            t Handler
+   70 0000001C 00000000        DCD              0           ; Reserved
+   71 00000020 00000000        DCD              0           ; Reserved
+   72 00000024 00000000        DCD              0           ; Reserved
+   73 00000028 00000000        DCD              0           ; Reserved
+   74 0000002C 00000000        DCD              SVC_Handler ; SVCall Handler
+   75 00000030 00000000        DCD              DebugMon_Handler ; Debug Monito
+                                                            r Handler
+   76 00000034 00000000        DCD              0           ; Reserved
+   77 00000038 00000000        DCD              PendSV_Handler ; PendSV Handler
+                                                            
+   78 0000003C 00000000        DCD              SysTick_Handler 
+                                                            ; SysTick Handler
+   79 00000040         
+   80 00000040         ; External Interrupts
+   81 00000040 00000000        DCD              UARTTX_Handler 
+                                                            ; UART RX Handler 
+   82 00000044 00000000        DCD              UARTRX_Handler 
+                                                            ; UART TX Handler
+   83 00000048 00000000        DCD              UARTOVR_Handler ; UART RX and T
+                                                            X OVERRIDE Handler
+   84 0000004C 00000000        DCD              KEY0_Handler ; IRQ3 Handler
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+   85 00000050 00000000        DCD              KEY1_Handler ; IRQ4 Handler
+   86 00000054 00000000        DCD              KEY2_Handler ; IRQ5 Handler
+   87 00000058 00000000        DCD              KEY3_Handler ; IRQ6 Handler
+   88 0000005C 00000000        DCD              TIMER_Handler ; IRQ7 Handler 
+   89 00000060         __Vectors_End
+   90 00000060         
+   91 00000060 00000060 
+                       __Vectors_Size
+                               EQU              __Vectors_End - __Vectors
+   92 00000060         
+   93 00000060                 AREA             |.text|, CODE, READONLY
+   94 00000000         
+   95 00000000         
+   96 00000000         ; Reset Handler
+   97 00000000         
+   98 00000000         Reset_Handler
+                               PROC
+   99 00000000                 EXPORT           Reset_Handler             [WEAK
+]
+  100 00000000                 IMPORT           SystemInit
+  101 00000000                 IMPORT           __main
+  102 00000000 4824            LDR              R0, =SystemInit
+  103 00000002         ; Initialise at least r8, r9 to avoid X in tests
+  104 00000002         ; Only important for simulation where X can cause
+  105 00000002         ; unexpected core behaviour
+  106 00000002 4680            MOV              R8, R0
+  107 00000004 46C1            MOV              R9, R8
+  108 00000006 4780            BLX              R0
+  109 00000008 4823            LDR              R0, =__main
+  110 0000000A 4700            BX               R0
+  111 0000000C                 ENDP
+  112 0000000C         
+  113 0000000C         ; Dummy Exception Handlers (infinite loops which can be 
+                       modified)
+  114 0000000C         
+  115 0000000C         NMI_Handler
+                               PROC
+  116 0000000C                 EXPORT           NMI_Handler               [WEAK
+]
+  117 0000000C                 IMPORT           NMIHandler
+  118 0000000C B500            PUSH             {LR}
+  119 0000000E F7FF FFFE       BL               NMIHandler
+  120 00000012 BD00            POP              {PC}
+  121 00000014                 ENDP
+  122 00000014         
+  123 00000014         HardFault_Handler
+                               PROC
+  124 00000014                 EXPORT           HardFault_Handler         [WEAK
+]
+  125 00000014                 IMPORT           HardFaultHandler
+  126 00000014 B500            PUSH             {LR}
+  127 00000016 F7FF FFFE       BL               HardFaultHandler
+  128 0000001A BD00            POP              {PC}
+  129 0000001C                 ENDP
+  130 0000001C         
+  131 0000001C         MemManage_Handler
+                               PROC
+  132 0000001C                 EXPORT           MemManage_Handler         [WEAK
+]
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  133 0000001C                 IMPORT           MemManageHandler
+  134 0000001C B500            PUSH             {LR}
+  135 0000001E F7FF FFFE       BL               MemManageHandler
+  136 00000022 BD00            POP              {PC}
+  137 00000024                 ENDP
+  138 00000024         
+  139 00000024         BusFault_Handler
+                               PROC
+  140 00000024                 EXPORT           BusFault_Handler          [WEAK
+]
+  141 00000024                 IMPORT           BusFaultHandler
+  142 00000024 B500            PUSH             {LR}
+  143 00000026 F7FF FFFE       BL               BusFaultHandler
+  144 0000002A BD00            POP              {PC}
+  145 0000002C                 ENDP
+  146 0000002C         
+  147 0000002C         UsageFault_Handler
+                               PROC
+  148 0000002C                 EXPORT           UsageFault_Handler        [WEAK
+]
+  149 0000002C                 IMPORT           UsageFaultHandler
+  150 0000002C B500            PUSH             {LR}
+  151 0000002E F7FF FFFE       BL               UsageFaultHandler
+  152 00000032 BD00            POP              {PC}
+  153 00000034                 ENDP
+  154 00000034         
+  155 00000034         SVC_Handler
+                               PROC
+  156 00000034                 EXPORT           SVC_Handler               [WEAK
+]
+  157 00000034                 IMPORT           SVCHandler
+  158 00000034 B500            PUSH             {LR}
+  159 00000036 F7FF FFFE       BL               SVCHandler
+  160 0000003A BD00            POP              {PC}
+  161 0000003C                 ENDP
+  162 0000003C         
+  163 0000003C         DebugMon_Handler
+                               PROC
+  164 0000003C                 EXPORT           DebugMon_Handler          [WEAK
+]
+  165 0000003C                 IMPORT           DebugMonHandler
+  166 0000003C B500            PUSH             {LR}
+  167 0000003E F7FF FFFE       BL               DebugMonHandler
+  168 00000042 BD00            POP              {PC}
+  169 00000044                 ENDP
+  170 00000044         
+  171 00000044         PendSV_Handler
+                               PROC
+  172 00000044                 EXPORT           PendSV_Handler            [WEAK
+]
+  173 00000044                 IMPORT           PendSVHandler
+  174 00000044 B500            PUSH             {LR}
+  175 00000046 F7FF FFFE       BL               PendSVHandler
+  176 0000004A BD00            POP              {PC}
+  177 0000004C                 ENDP
+  178 0000004C         
+  179 0000004C         SysTick_Handler
+                               PROC
+  180 0000004C                 EXPORT           SysTick_Handler           [WEAK
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+]
+  181 0000004C                 IMPORT           SysTickHandler
+  182 0000004C B500            PUSH             {LR}
+  183 0000004E F7FF FFFE       BL               SysTickHandler
+  184 00000052 BD00            POP              {PC}
+  185 00000054                 ENDP
+  186 00000054         
+  187 00000054         UARTRX_Handler
+                               PROC
+  188 00000054                 EXPORT           UARTRX_Handler             [WEA
+K]
+  189 00000054                 IMPORT           UARTRXHandler
+  190 00000054 B500            PUSH             {LR}
+  191 00000056 F7FF FFFE       BL               UARTRXHandler
+  192 0000005A BD00            POP              {PC}
+  193 0000005C                 ENDP
+  194 0000005C         
+  195 0000005C         UARTTX_Handler
+                               PROC
+  196 0000005C                 EXPORT           UARTTX_Handler             [WEA
+K]
+  197 0000005C                 IMPORT           UARTTXHandler
+  198 0000005C B500            PUSH             {LR}
+  199 0000005E F7FF FFFE       BL               UARTTXHandler
+  200 00000062 BD00            POP              {PC}
+  201 00000064                 ENDP
+  202 00000064         
+  203 00000064         UARTOVR_Handler
+                               PROC
+  204 00000064                 EXPORT           UARTOVR_Handler             [WE
+AK]
+  205 00000064                 IMPORT           UARTOVRHandler
+  206 00000064 B500            PUSH             {LR}
+  207 00000066 F7FF FFFE       BL               UARTOVRHandler
+  208 0000006A BD00            POP              {PC}
+  209 0000006C                 ENDP
+  210 0000006C         
+  211 0000006C         KEY0_Handler
+                               PROC
+  212 0000006C                 EXPORT           KEY0_Handler   [WEAK]
+  213 0000006C                 IMPORT           KEY0
+  214 0000006C B507            PUSH             {R0,R1,R2,LR}
+  215 0000006E F7FF FFFE       BL               KEY0
+  216 00000072 BD07            POP              {R0,R1,R2,PC}
+  217 00000074                 ENDP
+  218 00000074         
+  219 00000074         KEY1_Handler
+                               PROC
+  220 00000074                 EXPORT           KEY1_Handler   [WEAK]
+  221 00000074                 IMPORT           KEY1
+  222 00000074 B507            PUSH             {R0,R1,R2,LR}
+  223 00000076 F7FF FFFE       BL               KEY1
+  224 0000007A BD07            POP              {R0,R1,R2,PC}
+  225 0000007C                 ENDP
+  226 0000007C         
+  227 0000007C         KEY2_Handler
+                               PROC
+  228 0000007C                 EXPORT           KEY2_Handler   [WEAK]
+  229 0000007C                 IMPORT           KEY2
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+  230 0000007C B507            PUSH             {R0,R1,R2,LR}
+  231 0000007E F7FF FFFE       BL               KEY2
+  232 00000082 BD07            POP              {R0,R1,R2,PC}
+  233 00000084                 ENDP
+  234 00000084         
+  235 00000084         KEY3_Handler
+                               PROC
+  236 00000084                 EXPORT           KEY3_Handler   [WEAK]
+  237 00000084                 IMPORT           KEY3
+  238 00000084 B507            PUSH             {R0,R1,R2,LR}
+  239 00000086 F7FF FFFE       BL               KEY3
+  240 0000008A BD07            POP              {R0,R1,R2,PC}
+  241 0000008C                 ENDP
+  242 0000008C         
+  243 0000008C         TIMER_Handler
+                               PROC
+  244 0000008C                 EXPORT           TIMER_Handler   [WEAK]
+  245 0000008C                 IMPORT           Timer_Handler
+  246 0000008C B507            PUSH             {R0,R1,R2,LR}
+  247 0000008E F7FF FFFE       BL               Timer_Handler
+  248 00000092 BD07            POP              {R0,R1,R2,PC}
+  249 00000094                 ENDP
+  250 00000094         
+  251 00000094                 ALIGN
+  252 00000094         
+  253 00000094         
+  254 00000094         ; User Initial Stack & Heap
+  255 00000094         
+  256 00000094                 IF               :DEF:__MICROLIB
+  257 00000094         
+  258 00000094                 EXPORT           __initial_sp
+  259 00000094                 EXPORT           __heap_base
+  260 00000094                 EXPORT           __heap_limit
+  261 00000094         
+  262 00000094                 ELSE
+  277                          ENDIF
+  278 00000094         
+  279 00000094         
+  280 00000094                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
+ork --depend=.\objects\startup_cm0ds.d -o.\objects\startup_cm0ds.o -I.\RTE\_Tar
+get_1 -I"D:\Program Files\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\
+CMSDK_CM0\Include" -I"D:\Program Files\Keil_V5\ARM\CMSIS\Include" --predefine="
+__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 528" --predefine="CMSDK_
+CM0 SETA 1" --list=.\listings\startup_cm0ds.lst ..\CORE\startup_CM0DS.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+STACK 00000000
+
+Symbol: STACK
+   Definitions
+      At line 35 in file ..\CORE\startup_CM0DS.s
+   Uses
+      None
+Comment: STACK unused
+Stack_Mem 00000000
+
+Symbol: Stack_Mem
+   Definitions
+      At line 36 in file ..\CORE\startup_CM0DS.s
+   Uses
+      None
+Comment: Stack_Mem unused
+__initial_sp 00000400
+
+Symbol: __initial_sp
+   Definitions
+      At line 37 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 63 in file ..\CORE\startup_CM0DS.s
+      At line 258 in file ..\CORE\startup_CM0DS.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+HEAP 00000000
+
+Symbol: HEAP
+   Definitions
+      At line 46 in file ..\CORE\startup_CM0DS.s
+   Uses
+      None
+Comment: HEAP unused
+Heap_Mem 00000000
+
+Symbol: Heap_Mem
+   Definitions
+      At line 48 in file ..\CORE\startup_CM0DS.s
+   Uses
+      None
+Comment: Heap_Mem unused
+__heap_base 00000000
+
+Symbol: __heap_base
+   Definitions
+      At line 47 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 259 in file ..\CORE\startup_CM0DS.s
+Comment: __heap_base used once
+__heap_limit 00000400
+
+Symbol: __heap_limit
+   Definitions
+      At line 49 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 260 in file ..\CORE\startup_CM0DS.s
+Comment: __heap_limit used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 58 in file ..\CORE\startup_CM0DS.s
+   Uses
+      None
+Comment: RESET unused
+__Vectors 00000000
+
+Symbol: __Vectors
+   Definitions
+      At line 63 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 59 in file ..\CORE\startup_CM0DS.s
+      At line 91 in file ..\CORE\startup_CM0DS.s
+
+__Vectors_End 00000060
+
+Symbol: __Vectors_End
+   Definitions
+      At line 89 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 60 in file ..\CORE\startup_CM0DS.s
+      At line 91 in file ..\CORE\startup_CM0DS.s
+
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+.text 00000000
+
+Symbol: .text
+   Definitions
+      At line 93 in file ..\CORE\startup_CM0DS.s
+   Uses
+      None
+Comment: .text unused
+BusFault_Handler 00000024
+
+Symbol: BusFault_Handler
+   Definitions
+      At line 139 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 68 in file ..\CORE\startup_CM0DS.s
+      At line 140 in file ..\CORE\startup_CM0DS.s
+
+DebugMon_Handler 0000003C
+
+Symbol: DebugMon_Handler
+   Definitions
+      At line 163 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 75 in file ..\CORE\startup_CM0DS.s
+      At line 164 in file ..\CORE\startup_CM0DS.s
+
+HardFault_Handler 00000014
+
+Symbol: HardFault_Handler
+   Definitions
+      At line 123 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 66 in file ..\CORE\startup_CM0DS.s
+      At line 124 in file ..\CORE\startup_CM0DS.s
+
+KEY0_Handler 0000006C
+
+Symbol: KEY0_Handler
+   Definitions
+      At line 211 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 84 in file ..\CORE\startup_CM0DS.s
+      At line 212 in file ..\CORE\startup_CM0DS.s
+
+KEY1_Handler 00000074
+
+Symbol: KEY1_Handler
+   Definitions
+      At line 219 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 85 in file ..\CORE\startup_CM0DS.s
+      At line 220 in file ..\CORE\startup_CM0DS.s
+
+KEY2_Handler 0000007C
+
+Symbol: KEY2_Handler
+   Definitions
+      At line 227 in file ..\CORE\startup_CM0DS.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 86 in file ..\CORE\startup_CM0DS.s
+      At line 228 in file ..\CORE\startup_CM0DS.s
+
+KEY3_Handler 00000084
+
+Symbol: KEY3_Handler
+   Definitions
+      At line 235 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 87 in file ..\CORE\startup_CM0DS.s
+      At line 236 in file ..\CORE\startup_CM0DS.s
+
+MemManage_Handler 0000001C
+
+Symbol: MemManage_Handler
+   Definitions
+      At line 131 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 67 in file ..\CORE\startup_CM0DS.s
+      At line 132 in file ..\CORE\startup_CM0DS.s
+
+NMI_Handler 0000000C
+
+Symbol: NMI_Handler
+   Definitions
+      At line 115 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 65 in file ..\CORE\startup_CM0DS.s
+      At line 116 in file ..\CORE\startup_CM0DS.s
+
+PendSV_Handler 00000044
+
+Symbol: PendSV_Handler
+   Definitions
+      At line 171 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 77 in file ..\CORE\startup_CM0DS.s
+      At line 172 in file ..\CORE\startup_CM0DS.s
+
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 98 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 64 in file ..\CORE\startup_CM0DS.s
+      At line 99 in file ..\CORE\startup_CM0DS.s
+
+SVC_Handler 00000034
+
+Symbol: SVC_Handler
+   Definitions
+      At line 155 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 74 in file ..\CORE\startup_CM0DS.s
+      At line 156 in file ..\CORE\startup_CM0DS.s
+
+SysTick_Handler 0000004C
+
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+Symbol: SysTick_Handler
+   Definitions
+      At line 179 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 78 in file ..\CORE\startup_CM0DS.s
+      At line 180 in file ..\CORE\startup_CM0DS.s
+
+TIMER_Handler 0000008C
+
+Symbol: TIMER_Handler
+   Definitions
+      At line 243 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 88 in file ..\CORE\startup_CM0DS.s
+      At line 244 in file ..\CORE\startup_CM0DS.s
+
+UARTOVR_Handler 00000064
+
+Symbol: UARTOVR_Handler
+   Definitions
+      At line 203 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 83 in file ..\CORE\startup_CM0DS.s
+      At line 204 in file ..\CORE\startup_CM0DS.s
+
+UARTRX_Handler 00000054
+
+Symbol: UARTRX_Handler
+   Definitions
+      At line 187 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 82 in file ..\CORE\startup_CM0DS.s
+      At line 188 in file ..\CORE\startup_CM0DS.s
+
+UARTTX_Handler 0000005C
+
+Symbol: UARTTX_Handler
+   Definitions
+      At line 195 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 81 in file ..\CORE\startup_CM0DS.s
+      At line 196 in file ..\CORE\startup_CM0DS.s
+
+UsageFault_Handler 0000002C
+
+Symbol: UsageFault_Handler
+   Definitions
+      At line 147 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 69 in file ..\CORE\startup_CM0DS.s
+      At line 148 in file ..\CORE\startup_CM0DS.s
+
+19 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+Heap_Size 00000400
+
+Symbol: Heap_Size
+   Definitions
+      At line 44 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 48 in file ..\CORE\startup_CM0DS.s
+Comment: Heap_Size used once
+Stack_Size 00000400
+
+Symbol: Stack_Size
+   Definitions
+      At line 33 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 36 in file ..\CORE\startup_CM0DS.s
+Comment: Stack_Size used once
+__Vectors_Size 00000060
+
+Symbol: __Vectors_Size
+   Definitions
+      At line 91 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 61 in file ..\CORE\startup_CM0DS.s
+Comment: __Vectors_Size used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+BusFaultHandler 00000000
+
+Symbol: BusFaultHandler
+   Definitions
+      At line 141 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 143 in file ..\CORE\startup_CM0DS.s
+Comment: BusFaultHandler used once
+DebugMonHandler 00000000
+
+Symbol: DebugMonHandler
+   Definitions
+      At line 165 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 167 in file ..\CORE\startup_CM0DS.s
+Comment: DebugMonHandler used once
+HardFaultHandler 00000000
+
+Symbol: HardFaultHandler
+   Definitions
+      At line 125 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 127 in file ..\CORE\startup_CM0DS.s
+Comment: HardFaultHandler used once
+KEY0 00000000
+
+Symbol: KEY0
+   Definitions
+      At line 213 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 215 in file ..\CORE\startup_CM0DS.s
+Comment: KEY0 used once
+KEY1 00000000
+
+Symbol: KEY1
+   Definitions
+      At line 221 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 223 in file ..\CORE\startup_CM0DS.s
+Comment: KEY1 used once
+KEY2 00000000
+
+Symbol: KEY2
+   Definitions
+      At line 229 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 231 in file ..\CORE\startup_CM0DS.s
+Comment: KEY2 used once
+KEY3 00000000
+
+Symbol: KEY3
+   Definitions
+      At line 237 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 239 in file ..\CORE\startup_CM0DS.s
+Comment: KEY3 used once
+MemManageHandler 00000000
+
+Symbol: MemManageHandler
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+External symbols
+
+   Definitions
+      At line 133 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 135 in file ..\CORE\startup_CM0DS.s
+Comment: MemManageHandler used once
+NMIHandler 00000000
+
+Symbol: NMIHandler
+   Definitions
+      At line 117 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 119 in file ..\CORE\startup_CM0DS.s
+Comment: NMIHandler used once
+PendSVHandler 00000000
+
+Symbol: PendSVHandler
+   Definitions
+      At line 173 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 175 in file ..\CORE\startup_CM0DS.s
+Comment: PendSVHandler used once
+SVCHandler 00000000
+
+Symbol: SVCHandler
+   Definitions
+      At line 157 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 159 in file ..\CORE\startup_CM0DS.s
+Comment: SVCHandler used once
+SysTickHandler 00000000
+
+Symbol: SysTickHandler
+   Definitions
+      At line 181 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 183 in file ..\CORE\startup_CM0DS.s
+Comment: SysTickHandler used once
+SystemInit 00000000
+
+Symbol: SystemInit
+   Definitions
+      At line 100 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 102 in file ..\CORE\startup_CM0DS.s
+Comment: SystemInit used once
+Timer_Handler 00000000
+
+Symbol: Timer_Handler
+   Definitions
+      At line 245 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 247 in file ..\CORE\startup_CM0DS.s
+Comment: Timer_Handler used once
+UARTOVRHandler 00000000
+
+Symbol: UARTOVRHandler
+   Definitions
+      At line 205 in file ..\CORE\startup_CM0DS.s
+   Uses
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+External symbols
+
+      At line 207 in file ..\CORE\startup_CM0DS.s
+Comment: UARTOVRHandler used once
+UARTRXHandler 00000000
+
+Symbol: UARTRXHandler
+   Definitions
+      At line 189 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 191 in file ..\CORE\startup_CM0DS.s
+Comment: UARTRXHandler used once
+UARTTXHandler 00000000
+
+Symbol: UARTTXHandler
+   Definitions
+      At line 197 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 199 in file ..\CORE\startup_CM0DS.s
+Comment: UARTTXHandler used once
+UsageFaultHandler 00000000
+
+Symbol: UsageFaultHandler
+   Definitions
+      At line 149 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 151 in file ..\CORE\startup_CM0DS.s
+Comment: UsageFaultHandler used once
+__main 00000000
+
+Symbol: __main
+   Definitions
+      At line 101 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 109 in file ..\CORE\startup_CM0DS.s
+Comment: __main used once
+19 symbols
+386 symbols in table
