@@ -11,7 +11,7 @@ CortexM0_SoC i1 (
     .SPI_MISO(SPI_MISO)
 );
 
-initial begin                                                  
+initial begin
     clk = 0;
     RSTn=0;
     #100

@@ -13,8 +13,8 @@
 
 `define RGB_BIT 12 //RGB为12bit
 
-`define GAME_START_POSX 100 //游戏画面开始的x坐标 0~640
-`define GAME_START_POSY 100 //游戏画面开始的y坐标 0~480
+`define GAME_START_POSX 10 //游戏画面开始的x坐标 0~640
+`define GAME_START_POSY 10 //游戏画面开始的y坐标 0~480
 `define GAME_WINDOW_WIDTH 256 //游戏画面宽度
 `define GAME_WINDOW_HEIGHT 240 //游戏画面高度
 `define GAME_GRID_WIDTH     32//(`GAME_WINDOW_WIDTH>>8)

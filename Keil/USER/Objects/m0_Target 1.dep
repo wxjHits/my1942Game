@@ -1,5 +1,5 @@
 Dependencies for Project 'm0', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x63E4FF40)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x63E9E161)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\CORE\CortexM0.h)(0x63E4D47D)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
@@ -15,7 +15,7 @@ I (..\DEVICE\key.h)(0x63E4D47D)
 I (..\DEVICE\timer.h)(0x63E4D47D)
 I (..\DEVICE\spi_flash.h)(0x63E4D47D)
 I (..\DEVICE\systick.h)(0x63E4D47D)
-I (..\DEVICE\spriteRam.h)(0x63E4FE05)
+I (..\DEVICE\spriteRam.h)(0x63E654A6)
 I (..\DEVICE\malloc.h)(0x63E4D47D)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
 F (.\pic_resource.h)(0x63E4D47D)()
@@ -31,7 +31,7 @@ I (..\DEVICE\uart.h)(0x63E4D47D)
 I (..\DEVICE\camera.h)(0x63E4D47D)
 I (..\DEVICE\lcd.h)(0x63E4D47D)
 I (..\DEVICE\led.h)(0x63E4D47D)
-I (..\DEVICE\spriteRam.h)(0x63E4FE05)
+I (..\DEVICE\spriteRam.h)(0x63E654A6)
 F (..\CORE\startup_CM0DS.s)(0x63E4D47D)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"--pd "__UVISION_VERSION SETA 528" --pd "CMSDK_CM0 SETA 1"--list .\listings\startup_cm0ds.lst --xref -o .\objects\startup_cm0ds.o --depend .\objects\startup_cm0ds.d)
 F (..\CORE\system.c)(0x63E4F7A2)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\system.o --omf_browse .\objects\system.crf --depend .\objects\system.d)
 I (..\CORE\CortexM0.h)(0x63E4D47D)
@@ -82,6 +82,6 @@ I (D:\Program Files\Keil_V5\ARM\ARMCC\include\string.h)(0x5CEB79E2)
 F (..\DEVICE\malloc.c)(0x63E4D47D)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\malloc.o --omf_browse .\objects\malloc.crf --depend .\objects\malloc.d)
 I (..\DEVICE\malloc.h)(0x63E4D47D)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-F (..\DEVICE\spriteRam.c)(0x63E507BC)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\spriteram.o --omf_browse .\objects\spriteram.crf --depend .\objects\spriteram.d)
-I (..\DEVICE\spriteRam.h)(0x63E4FE05)
+F (..\DEVICE\spriteRam.c)(0x63E652FA)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\spriteram.o --omf_browse .\objects\spriteram.crf --depend .\objects\spriteram.d)
+I (..\DEVICE\spriteRam.h)(0x63E654A6)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)

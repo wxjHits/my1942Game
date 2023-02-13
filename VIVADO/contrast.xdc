@@ -168,3 +168,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports {rgb[0]}]
 
 
 create_clock -period 20.000 -name clk -waveform {0.000 10.000} [get_ports clk]
+
+set_property PACKAGE_PIN K18 [get_ports clk_50MHz]
+set_property PACKAGE_PIN B16 [get_ports sys_rstn]
+set_property IOSTANDARD LVCMOS33 [get_ports sys_rstn]
+set_property IOSTANDARD LVCMOS33 [get_ports clk_50MHz]

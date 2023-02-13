@@ -1,0 +1,270 @@
+C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/titlDraw.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/titlDraw.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module tileDraw
+
+Top level modules:
+	tileDraw
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/spriteTileRom.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/spriteTileRom.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module spriteTileRom
+
+Top level modules:
+	spriteTileRom
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_timer.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_timer.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module apb_timer
+
+Top level modules:
+	apb_timer
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_mux/AHBlite_SlaveMUX.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_mux/AHBlite_SlaveMUX.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module AHBlite_SlaveMUX
+
+Top level modules:
+	AHBlite_SlaveMUX
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module clk_wiz_0_clk_wiz
+
+Top level modules:
+	clk_wiz_0_clk_wiz
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_mux/AHBlite_Decoder.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_mux/AHBlite_Decoder.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module AHBlite_Decoder
+
+Top level modules:
+	AHBlite_Decoder
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/top_titlDraw.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/top_titlDraw.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module top_tileDraw
+
+Top level modules:
+	top_tileDraw
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_key/apb_key.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_key/apb_key.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module apb_key
+
+Top level modules:
+	apb_key
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl {1 {vcom -work work -2002 -explicit -vopt -stats=none C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.vhdl
+Model Technology ModelSim SE-64 vcom 10.5 Compiler 2016.02 Feb 13 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity clk_wiz_0
+-- Compiling architecture stub of clk_wiz_0
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/spriteRam.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/spriteRam.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module spriteRam
+
+Top level modules:
+	spriteRam
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/palette.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/palette.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module palette
+
+Top level modules:
+	palette
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/cmsdk_apb_uart.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/cmsdk_apb_uart.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module cmsdk_apb_uart
+
+Top level modules:
+	cmsdk_apb_uart
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/topPPU.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/topPPU.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module topPPU
+
+Top level modules:
+	topPPU
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_key/key_filter.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_key/key_filter.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module key_filter
+
+Top level modules:
+	key_filter
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_bridge/cmsdk_apb_slave_mux.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_bridge/cmsdk_apb_slave_mux.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module cmsdk_apb_slave_mux
+
+Top level modules:
+	cmsdk_apb_slave_mux
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/tb/CortexM0_SoC_vlg_tst.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/tb/CortexM0_SoC_vlg_tst.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module CortexM0_SoC_vlg_tst
+
+Top level modules:
+	CortexM0_SoC_vlg_tst
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/CortexM0_SoC.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/CortexM0_SoC.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module CortexM0_SoC
+
+Top level modules:
+	CortexM0_SoC
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v {2 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module clk_wiz_0
+** Warning: C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.v(71): (vlog-13233) Design unit "clk_wiz_0" already exists and will be overwritten. Overwriting a VHDL entity with a Verilog module.
+
+Top level modules:
+	clk_wiz_0
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/hitCheck.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/hitCheck.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module hitCheck
+
+Top level modules:
+	hitCheck
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_spi/apb_spi.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_spi/apb_spi.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module apb_spi
+
+Top level modules:
+	apb_spi
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl {0 {vcom -work work -2002 -explicit -vopt -stats=none C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
+Model Technology ModelSim SE-64 vcom 10.5 Compiler 2016.02 Feb 13 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+** Error: C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl(15): (vcom-1598) Library "unisim" not found.
+** Error: C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl(16): (vcom-1136) Unknown identifier "UNISIM".
+** Error: C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl(17): VHDL Compiler exiting
+
+} {6.0 9.0} {}} C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module clk_wiz_0
+-- Compiling module clk_wiz_0_clk_wiz_0_clk_wiz
+-- Compiling module glbl
+
+Top level modules:
+	clk_wiz_0
+	glbl
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_camera/ahb_camera.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_camera/ahb_camera.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module ahb_camera
+
+Top level modules:
+	ahb_camera
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_lcd.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_lcd.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module ahb_lcd
+
+Top level modules:
+	ahb_lcd
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_camera/CAMERA_Capture.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_camera/CAMERA_Capture.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module CAMERA_Capture
+
+Top level modules:
+	CAMERA_Capture
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_camera/Block_DualPort_RAM.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/ahb_camera/Block_DualPort_RAM.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Block_DualPort_RAM
+
+Top level modules:
+	Block_DualPort_RAM
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module clk_wiz_0
+
+Top level modules:
+	clk_wiz_0
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_key/keyboard_scan.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_key/keyboard_scan.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module keyboard_scan
+
+Top level modules:
+	keyboard_scan
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_led.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_led.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module apb_led
+
+Top level modules:
+	apb_led
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ahb_spriteRam_interface.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ahb_spriteRam_interface.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module ahb_spriteRam_interface
+
+Top level modules:
+	ahb_spriteRam_interface
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/vga_driver.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/vga_driver.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module vga_driver
+
+Top level modules:
+	vga_driver
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_spi/spi.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_peripheral/apb_spi/spi.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module spi
+
+Top level modules:
+	spi
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/apb_bridge/cmsdk_ahb_to_apb.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/apb_bridge/cmsdk_ahb_to_apb.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module cmsdk_ahb_to_apb
+
+Top level modules:
+	cmsdk_ahb_to_apb
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/cortexm0ds_logic.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/cortexm0ds_logic.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module cortexm0ds_logic
+
+Top level modules:
+	cortexm0ds_logic
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_mux/AHBlite_Interconnect.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_mux/AHBlite_Interconnect.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module AHBlite_Interconnect
+
+Top level modules:
+	AHBlite_Interconnect
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/Block_RAM.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/Block_RAM.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module Block_RAM
+
+Top level modules:
+	Block_RAM
+
+} {} {}} C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/AHBlite_Block_RAM.v {1 {vlog -work work -vopt -stats=none C:/Users/hp/Desktop/my1942Game/RTL/src/ahb_peripheral/AHBlite_Block_RAM.v
+Model Technology ModelSim SE-64 vlog 10.5 Compiler 2016.02 Feb 13 2016
+-- Compiling module AHBlite_Block_RAM
+
+Top level modules:
+	AHBlite_Block_RAM
+
+} {} {}}

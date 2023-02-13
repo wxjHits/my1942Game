@@ -8,8 +8,20 @@
 //-------------------------------------
 #define SPRITERAM_BASE         (0x50010000)
 typedef struct{
-    volatile uint32_t SPRITERAM_VALUE[64];
+    volatile uint8_t BYTE0;
+    volatile uint8_t SPRITE_TILEINDEX;
+    volatile uint8_t SPRITE_POSY;
+    volatile uint8_t SPRITE_POSX;
+}SPRITEType;
+
+
+typedef struct{
+    volatile SPRITEType SPRITE[64];
 }SPRITERAMType;
+
+//typedef struct{
+//    volatile uint32_t SPRITERAM_VALUE[64];
+//}SPRITERAMType;
 
 typedef struct{
     volatile uint8_t PosX;
