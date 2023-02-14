@@ -12,7 +12,7 @@ module palette (
 );
     reg  [4*(`RGB_BIT)-1:0] palettemem [0:3];
     initial begin
-	    $readmemh("C:/Users/hp/Desktop/my_1942/palette.txt", palettemem);
+	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/palette.txt", palettemem);
 	end
 
     reg  [4*(`RGB_BIT)-1:0] PaletteColor;

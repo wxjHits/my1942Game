@@ -173,3 +173,6 @@ set_property PACKAGE_PIN K18 [get_ports clk_50MHz]
 set_property PACKAGE_PIN B16 [get_ports sys_rstn]
 set_property IOSTANDARD LVCMOS33 [get_ports sys_rstn]
 set_property IOSTANDARD LVCMOS33 [get_ports clk_50MHz]
+
+set_property PACKAGE_PIN B16 [get_ports rstn]
+set_property IOSTANDARD LVCMOS33 [get_ports rstn]

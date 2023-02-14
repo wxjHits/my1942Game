@@ -12,62 +12,6 @@ module spriteTileRom(
     input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex05,
     input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex06,
     input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex07,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex08,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex09,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex10,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex11,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex12,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex13,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex14,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex15,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex16,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex17,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex18,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex19,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex20,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex21,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex22,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex23,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex24,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex25,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex26,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex27,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex28,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex29,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex30,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex31,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex32,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex33,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex34,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex35,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex36,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex37,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex38,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex39,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex40,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex41,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex42,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex43,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex44,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex45,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex46,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex47,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex48,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex49,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex50,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex51,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex52,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex53,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex54,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex55,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex56,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex57,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex58,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex59,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex60,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex61,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex62,
-    input   wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  tileIndex63,
 
     output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO00,
     output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO01,
@@ -76,68 +20,12 @@ module spriteTileRom(
     output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO04,
     output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO05,
     output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO06,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO07,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO08,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO09,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO10,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO11,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO12,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO13,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO14,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO15,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO16,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO17,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO18,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO19,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO20,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO21,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO22,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO23,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO24,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO25,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO26,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO27,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO28,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO29,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO30,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO31,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO32,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO33,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO34,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO35,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO36,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO37,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO38,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO39,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO40,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO41,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO42,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO43,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO44,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO45,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO46,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO47,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO48,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO49,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO50,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO51,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO52,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO53,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO54,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO55,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO56,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO57,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO58,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO59,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO60,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO61,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO62,
-    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO63
+    output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO07
 );
     /*****图片素材ROM的初始化*****/
     reg  [`SPRITE_TILEDATA_BIT-1:0] spritemem [0:`SPRITE_TILEROM_DEEPTH-1];
     initial begin
-	    $readmemh("C:/Users/hp/Desktop/my_1942/spriteTile.txt", spritemem);
+	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/spriteTile.txt", spritemem);
 	end
 
     assign tileDataO00 = spritemem[tileIndex00];
@@ -148,60 +36,4 @@ module spriteTileRom(
     assign tileDataO05 = spritemem[tileIndex05];
     assign tileDataO06 = spritemem[tileIndex06];
     assign tileDataO07 = spritemem[tileIndex07];
-    assign tileDataO08 = spritemem[tileIndex08];
-    assign tileDataO09 = spritemem[tileIndex09];
-    assign tileDataO10 = spritemem[tileIndex10];
-    assign tileDataO11 = spritemem[tileIndex11];
-    assign tileDataO12 = spritemem[tileIndex12];
-    assign tileDataO13 = spritemem[tileIndex13];
-    assign tileDataO14 = spritemem[tileIndex14];
-    assign tileDataO15 = spritemem[tileIndex15];
-    assign tileDataO16 = spritemem[tileIndex16];
-    assign tileDataO17 = spritemem[tileIndex17];
-    assign tileDataO18 = spritemem[tileIndex18];
-    assign tileDataO19 = spritemem[tileIndex19];
-    assign tileDataO20 = spritemem[tileIndex20];
-    assign tileDataO21 = spritemem[tileIndex21];
-    assign tileDataO22 = spritemem[tileIndex22];
-    assign tileDataO23 = spritemem[tileIndex23];
-    assign tileDataO24 = spritemem[tileIndex24];
-    assign tileDataO25 = spritemem[tileIndex25];
-    assign tileDataO26 = spritemem[tileIndex26];
-    assign tileDataO27 = spritemem[tileIndex27];
-    assign tileDataO28 = spritemem[tileIndex28];
-    assign tileDataO29 = spritemem[tileIndex29];
-    assign tileDataO30 = spritemem[tileIndex30];
-    assign tileDataO31 = spritemem[tileIndex31];
-    assign tileDataO32 = spritemem[tileIndex32];
-    assign tileDataO33 = spritemem[tileIndex33];
-    assign tileDataO34 = spritemem[tileIndex34];
-    assign tileDataO35 = spritemem[tileIndex35];
-    assign tileDataO36 = spritemem[tileIndex36];
-    assign tileDataO37 = spritemem[tileIndex37];
-    assign tileDataO38 = spritemem[tileIndex38];
-    assign tileDataO39 = spritemem[tileIndex39];
-    assign tileDataO40 = spritemem[tileIndex40];
-    assign tileDataO41 = spritemem[tileIndex41];
-    assign tileDataO42 = spritemem[tileIndex42];
-    assign tileDataO43 = spritemem[tileIndex43];
-    assign tileDataO44 = spritemem[tileIndex44];
-    assign tileDataO45 = spritemem[tileIndex45];
-    assign tileDataO46 = spritemem[tileIndex46];
-    assign tileDataO47 = spritemem[tileIndex47];
-    assign tileDataO48 = spritemem[tileIndex48];
-    assign tileDataO49 = spritemem[tileIndex49];
-    assign tileDataO50 = spritemem[tileIndex50];
-    assign tileDataO51 = spritemem[tileIndex51];
-    assign tileDataO52 = spritemem[tileIndex52];
-    assign tileDataO53 = spritemem[tileIndex53];
-    assign tileDataO54 = spritemem[tileIndex54];
-    assign tileDataO55 = spritemem[tileIndex55];
-    assign tileDataO56 = spritemem[tileIndex56];
-    assign tileDataO57 = spritemem[tileIndex57];
-    assign tileDataO58 = spritemem[tileIndex58];
-    assign tileDataO59 = spritemem[tileIndex59];
-    assign tileDataO60 = spritemem[tileIndex60];
-    assign tileDataO61 = spritemem[tileIndex61];
-    assign tileDataO62 = spritemem[tileIndex62];
-    assign tileDataO63 = spritemem[tileIndex63];
 endmodule

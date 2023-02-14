@@ -472,6 +472,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\spriteRam.c</FilePath>
             </File>
+            <File>
+              <FileName>myGame.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\myGame.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

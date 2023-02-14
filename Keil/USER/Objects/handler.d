@@ -10,4 +10,6 @@
 .\objects\handler.o: ..\DEVICE\camera.h
 .\objects\handler.o: ..\DEVICE\lcd.h
 .\objects\handler.o: ..\DEVICE\led.h
+.\objects\handler.o: ..\DEVICE\myGame.h
+.\objects\handler.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\handler.o: ..\DEVICE\spriteRam.h

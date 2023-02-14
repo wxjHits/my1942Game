@@ -101,7 +101,7 @@ wire  [`RGB_BIT-1:0] PaletteColor10;
 wire  [`RGB_BIT-1:0] PaletteColor11;
 
 //çĄŽĺŽä¸?ä¸Şçšçč˛ĺ˝Šĺ??
-// wire [1:0]yy={tileDataI[127-whichBit],tileDataI[63-whichBit]};
+wire [1:0]yy={tileDataI[127-whichBit],tileDataI[63-whichBit]};
 always@(*)begin
     case({tileDataI[127-whichBit],tileDataI[63-whichBit]})
         2'b00:vgaRgbOut=PaletteColor00;

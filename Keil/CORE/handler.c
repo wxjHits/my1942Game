@@ -4,6 +4,8 @@
 #include "camera.h"
 #include "lcd.h"
 #include "led.h"
+
+#include "myGame.h"
 #include "spriteRam.h"
 
 void NMIHandler(void) {
@@ -61,7 +63,10 @@ void UARTOVRHandler(void) {
 }
 
 //KEY INT
-extern PLANEType myplane; 
+extern const uint8_t BULLET_NUMMAX; 
+extern BULLETType bullet;
+
+extern PLANEType myplane;
 void KEY0(void){
     LED_toggle(0);
     if(myplane.PosX<200)
@@ -83,19 +88,29 @@ void KEY1(void){
 
 void KEY2(void){
     LED_toggle(2);
-    if(myplane.PosY<200)
-        myplane.PosY+=5;
+    createOneBullet();
+    // if(myplane.PosY<200)
+    //     myplane.PosY+=5;
 }
 
 void KEY3(void){
     LED_toggle(3);
-    if(myplane.PosY>30)
-        myplane.PosY-=5;
+    createOneEnmeyPlane();
+    // if(myplane.PosY>30)
+    //     myplane.PosY-=5;
 }
 
 //Timer
 void Timer_Handler(void){
     myPlaneDraw(myplane.PosX,myplane.PosY);
+    updateBulletData();
+    updateEnmeyPlaneData();
+    
+    bulletDraw();
+    boomDraw(100,100);
+    enmeyPlaneDraw();
+    gameScoreDraw(20,20,880);
+    
     LED_toggle(7);
 }
 
