@@ -13,3 +13,4 @@
 .\objects\handler.o: ..\DEVICE\myGame.h
 .\objects\handler.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\handler.o: ..\DEVICE\spriteRam.h
+.\objects\handler.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h

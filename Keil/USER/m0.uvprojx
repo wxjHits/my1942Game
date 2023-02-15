@@ -387,11 +387,6 @@
               <FileType>1</FileType>
               <FilePath>.\main.c</FilePath>
             </File>
-            <File>
-              <FileName>pic_resource.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\pic_resource.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>

@@ -22,34 +22,34 @@ Dialog DLL:      TARMCM1.DLL V1.14.1.0
  
 <h2>Project:</h2>
 C:\Users\hp\Desktop\my1942Game\Keil\USER\m0.uvprojx
-Project File Date:  02/13/2023
+Project File Date:  02/15/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-assembling startup_CM0DS.s...
 compiling key.c...
+assembling startup_CM0DS.s...
 compiling camera.c...
+compiling main.c...
+..\DEVICE\myGame.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+main.c(19): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BULLETType bullet[BULLET_NUMMAX];
+main.c(26): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  PLANEType enmeyPlane[ENEMY_NUMMAX];
+main.c(58): warning:  #177-D: variable "y_pos"  was declared but never referenced
+     uint16_t y_pos=0;
+main.c: 4 warnings, 0 errors
 compiling lcd.c...
 compiling led.c...
 compiling system.c...
 compiling Retarget.c...
-compiling main.c...
-..\DEVICE\myGame.h(38): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c(19): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  BULLETType bullet[BULLET_NUMMAX];
-main.c(23): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  PLANEType enmeyPlane[ENEMY_NUMMAX];
-main.c(48): warning:  #177-D: variable "y_pos"  was declared but never referenced
-     uint16_t y_pos=0;
-main.c: 4 warnings, 0 errors
 compiling spi_flash.c...
+compiling timer.c...
 compiling handler.c...
-..\DEVICE\myGame.h(38): warning:  #1-D: last line of file ends without a newline
+..\DEVICE\myGame.h(52): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\CORE\handler.c: 1 warning, 0 errors
-compiling timer.c...
 compiling uart.c...
 compiling malloc.c...
 compiling spriteRam.c...
@@ -58,17 +58,19 @@ compiling spriteRam.c...
 ..\DEVICE\spriteRam.c: 1 warning, 0 errors
 compiling systick.c...
 compiling myGame.c...
-..\DEVICE\myGame.h(38): warning:  #1-D: last line of file ends without a newline
+..\DEVICE\myGame.h(52): warning:  #1-D: last line of file ends without a newline
   #endif
-..\DEVICE\myGame.c(133): warning:  #1-D: last line of file ends without a newline
-  }
-..\DEVICE\myGame.c: 2 warnings, 0 errors
+..\DEVICE\myGame.c(174): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+      enemyMapCreate(&enmeyPlane,enemyPlaneHitMap);
+..\DEVICE\myGame.c(256): warning:  #1-D: last line of file ends without a newline
+  }   
+..\DEVICE\myGame.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=5148 RO-data=1652 RW-data=2812 ZI-data=5428  
+Program Size: Code=6020 RO-data=1652 RW-data=2820 ZI-data=5788  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\m0.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\m0.axf -o image.txt
-".\Objects\m0.axf" - 0 Error(s), 8 Warning(s).
+".\Objects\m0.axf" - 0 Error(s), 9 Warning(s).
 
 <h2>Software Packages used:</h2>
 

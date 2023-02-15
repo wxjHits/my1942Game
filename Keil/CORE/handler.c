@@ -8,6 +8,8 @@
 #include "myGame.h"
 #include "spriteRam.h"
 
+#include "stdlib.h"
+
 void NMIHandler(void) {
     ;
 }
@@ -65,12 +67,23 @@ void UARTOVRHandler(void) {
 //KEY INT
 extern const uint8_t BULLET_NUMMAX; 
 extern BULLETType bullet;
+extern hitMapType bulletsHitMap;
 
 extern PLANEType myplane;
+
+extern hitMapType myPlaneHitMap;
+extern hitMapType enemyPlaneHitMap;
+
+extern const uint8_t ENEMY_NUMMAX; 
+extern PLANEType enmeyPlane;
+
+extern uint32_t GameScore;
+
 void KEY0(void){
     LED_toggle(0);
-    if(myplane.PosX<200)
-        myplane.PosX+=5;
+    
+   if(myplane.PosX>30)
+        myplane.PosX-=5;
     //    photo();
 //    uint16_t x, y;
 //    for (x = 0; x < 240; x++){
@@ -81,8 +94,8 @@ void KEY0(void){
 
 void KEY1(void){
     LED_toggle(1);
-    if(myplane.PosX>30)
-        myplane.PosX-=5;
+    if(myplane.PosX<200)
+        myplane.PosX+=5;
 }
 
 
@@ -95,24 +108,33 @@ void KEY2(void){
 
 void KEY3(void){
     LED_toggle(3);
-    createOneEnmeyPlane();
-    // if(myplane.PosY>30)
-    //     myplane.PosY-=5;
+    // createOneEnmeyPlane();
+    if(myplane.PosY>30)
+        myplane.PosY-=5;
 }
 
 //Timer
 void Timer_Handler(void){
+    uint8_t x=12*(rand()%10)+30;
+    uint8_t y=12*(rand()%10)+10;
+    createOneEnmeyPlane(x,y);
+
     myPlaneDraw(myplane.PosX,myplane.PosY);
-    updateBulletData();
-    updateEnmeyPlaneData();
-    
     bulletDraw();
-    boomDraw(100,100);
     enmeyPlaneDraw();
-    gameScoreDraw(20,20,880);
+
+    enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
+    bulletsMapCreate(&bullet,&bulletsHitMap);
+
+    isMyPlaneHit(&myplane,&enemyPlaneHitMap);
+    isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
+    isBulletsHit(&bullet,enemyPlaneHitMap);
+
+    gameScoreDraw(3,10,GameScore);
+    updateBulletData();
     
-    LED_toggle(7);
 }
+
 
 
 

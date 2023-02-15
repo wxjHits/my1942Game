@@ -3,75 +3,97 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="CortexM0_SoC_vlg_tst_behav.wdb" id="1">
+      <db_ref path="tb_hitCheck_behav.wdb" id="1">
          <top_modules>
-            <top_module name="CortexM0_SoC_vlg_tst" />
             <top_module name="glbl" />
+            <top_module name="tb_hitCheck" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="101421999000fs"></ZoomStartTime>
-      <ZoomEndTime time="113321999001fs"></ZoomEndTime>
-      <Cursor1Time time="143921999000fs"></Cursor1Time>
+      <ZoomStartTime time="237000000fs"></ZoomStartTime>
+      <ZoomEndTime time="321400001fs"></ZoomEndTime>
+      <Cursor1Time time="271000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="317"></NameColumnWidth>
-      <ValueColumnWidth column_width="372"></ValueColumnWidth>
+      <ValueColumnWidth column_width="367"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="13" />
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/vga_clk" type="logic">
-      <obj_property name="ElementShortName">vga_clk</obj_property>
-      <obj_property name="ObjectShortName">vga_clk</obj_property>
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/rstn" type="logic">
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/pixdata" type="array">
-      <obj_property name="ElementShortName">pixdata[11:0]</obj_property>
-      <obj_property name="ObjectShortName">pixdata[11:0]</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheckStart" type="logic">
+      <obj_property name="ElementShortName">hitCheckStart</obj_property>
+      <obj_property name="ObjectShortName">hitCheckStart</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/pix_x" type="array">
-      <obj_property name="ElementShortName">pix_x[11:0]</obj_property>
-      <obj_property name="ObjectShortName">pix_x[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheck_spriteViewRamIndex" type="array">
+      <obj_property name="ElementShortName">hitCheck_spriteViewRamIndex[5:0]</obj_property>
+      <obj_property name="ObjectShortName">hitCheck_spriteViewRamIndex[5:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/pix_y" type="array">
-      <obj_property name="ElementShortName">pix_y[11:0]</obj_property>
-      <obj_property name="ObjectShortName">pix_y[11:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/spriteViewRamDataO_hitCheck" type="array">
+      <obj_property name="ElementShortName">spriteViewRamDataO_hitCheck[31:0]</obj_property>
+      <obj_property name="ObjectShortName">spriteViewRamDataO_hitCheck[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/IsGameWindow" type="logic">
-      <obj_property name="ElementShortName">IsGameWindow</obj_property>
-      <obj_property name="ObjectShortName">IsGameWindow</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/allSpriteHit" type="array">
+      <obj_property name="ElementShortName">allSpriteHit[63:0]</obj_property>
+      <obj_property name="ObjectShortName">allSpriteHit[63:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/hsync" type="logic">
-      <obj_property name="ElementShortName">hsync</obj_property>
-      <obj_property name="ObjectShortName">hsync</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheckBusy" type="logic">
+      <obj_property name="ElementShortName">hitCheckBusy</obj_property>
+      <obj_property name="ObjectShortName">hitCheckBusy</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/vsync" type="logic">
-      <obj_property name="ElementShortName">vsync</obj_property>
-      <obj_property name="ObjectShortName">vsync</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/drawHitMapFlag" type="logic">
+      <obj_property name="ElementShortName">drawHitMapFlag</obj_property>
+      <obj_property name="ObjectShortName">drawHitMapFlag</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/rgb" type="array">
-      <obj_property name="ElementShortName">rgb[11:0]</obj_property>
-      <obj_property name="ObjectShortName">rgb[11:0]</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/createHitStateFlag" type="logic">
+      <obj_property name="ElementShortName">createHitStateFlag</obj_property>
+      <obj_property name="ObjectShortName">createHitStateFlag</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/pixdata_req" type="logic">
-      <obj_property name="ElementShortName">pixdata_req</obj_property>
-      <obj_property name="ObjectShortName">pixdata_req</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheckStartDelay" type="logic">
+      <obj_property name="ElementShortName">hitCheckStartDelay</obj_property>
+      <obj_property name="ObjectShortName">hitCheckStartDelay</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/cnt_h" type="array">
-      <obj_property name="ElementShortName">cnt_h[11:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_h[11:0]</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/gridPosX" type="array">
+      <obj_property name="ElementShortName">gridPosX[4:0]</obj_property>
+      <obj_property name="ObjectShortName">gridPosX[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/cnt_v" type="array">
-      <obj_property name="ElementShortName">cnt_v[11:0]</obj_property>
-      <obj_property name="ObjectShortName">cnt_v[11:0]</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/gridPosY" type="array">
+      <obj_property name="ElementShortName">gridPosY[4:0]</obj_property>
+      <obj_property name="ObjectShortName">gridPosY[4:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/topPPU_inst/u_vga_driver/rgb_valid" type="logic">
-      <obj_property name="ElementShortName">rgb_valid</obj_property>
-      <obj_property name="ObjectShortName">rgb_valid</obj_property>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/tileIndex" type="array">
+      <obj_property name="ElementShortName">tileIndex[4:0]</obj_property>
+      <obj_property name="ObjectShortName">tileIndex[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/tileType" type="array">
+      <obj_property name="ElementShortName">tileType[2:0]</obj_property>
+      <obj_property name="ObjectShortName">tileType[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/mask" type="array">
+      <obj_property name="ElementShortName">mask[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mask[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/heroHitMap" type="array">
+      <obj_property name="ElementShortName">heroHitMap[0:29][31:0]</obj_property>
+      <obj_property name="ObjectShortName">heroHitMap[0:29][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/enemyHitMap" type="array">
+      <obj_property name="ElementShortName">enemyHitMap[0:29][31:0]</obj_property>
+      <obj_property name="ObjectShortName">enemyHitMap[0:29][31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitOccured" type="logic">
+      <obj_property name="ElementShortName">hitOccured</obj_property>
+      <obj_property name="ObjectShortName">hitOccured</obj_property>
    </wvobject>
 </wave_config>
