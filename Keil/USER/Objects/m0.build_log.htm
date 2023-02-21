@@ -22,55 +22,68 @@ Dialog DLL:      TARMCM1.DLL V1.14.1.0
  
 <h2>Project:</h2>
 C:\Users\hp\Desktop\my1942Game\Keil\USER\m0.uvprojx
-Project File Date:  02/15/2023
+Project File Date:  02/21/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling key.c...
 assembling startup_CM0DS.s...
+compiling key.c...
 compiling camera.c...
-compiling main.c...
-..\DEVICE\myGame.h(52): warning:  #1-D: last line of file ends without a newline
-  #endif
-main.c(19): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  BULLETType bullet[BULLET_NUMMAX];
-main.c(26): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  PLANEType enmeyPlane[ENEMY_NUMMAX];
-main.c(58): warning:  #177-D: variable "y_pos"  was declared but never referenced
-     uint16_t y_pos=0;
-main.c: 4 warnings, 0 errors
-compiling lcd.c...
 compiling led.c...
-compiling system.c...
 compiling Retarget.c...
+compiling system.c...
+compiling lcd.c...
+compiling main.c...
+main.c(67): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BULLETType bullet[BULLET_NUMMAX];
+main.c(71): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
+main.c(78): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  PLANEType enmeyPlane[ENEMY_NUMMAX];
+main.c(81): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
+main.c(82): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BOOMType boom[BOOM_NUMMAX];
+main.c(147): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+        enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
+main.c(148): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+        bulletsMapCreate(&bullet,&bulletsHitMap);
+main.c(151): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+        isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
+main.c(152): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+        isBulletsHit(&bullet,enemyPlaneHitMap);
+main.c(155): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+        moveEnmeyPlane(&enmeyPlane);
+main.c(157): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+        updateBoomData(&boom);
+main.c: 11 warnings, 0 errors
+compiling handler.c...
 compiling spi_flash.c...
 compiling timer.c...
-compiling handler.c...
-..\DEVICE\myGame.h(52): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\CORE\handler.c: 1 warning, 0 errors
-compiling uart.c...
 compiling malloc.c...
-compiling spriteRam.c...
-..\DEVICE\spriteRam.c(11): warning:  #1-D: last line of file ends without a newline
-  }
-..\DEVICE\spriteRam.c: 1 warning, 0 errors
+compiling uart.c...
 compiling systick.c...
+compiling spriteRam.c...
+compiling pstwo.c...
 compiling myGame.c...
-..\DEVICE\myGame.h(52): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\DEVICE\myGame.c(174): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+..\DEVICE\myGame.c(119): warning:  #223-D: function "rand" declared implicitly
+          if(enmeyPlane[i].PosY>=myplane.PosY+rand()%10)
+..\DEVICE\myGame.c(319): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
       enemyMapCreate(&enmeyPlane,enemyPlaneHitMap);
-..\DEVICE\myGame.c(256): warning:  #1-D: last line of file ends without a newline
-  }   
-..\DEVICE\myGame.c: 3 warnings, 0 errors
+..\DEVICE\myGame.c(341): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
+          createOneBoom(myplane.PosX,myplane.PosY,&boom);
+..\DEVICE\myGame.c(368): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
+                  createOneBoom((enmeyPlane+i)->PosX,(enmeyPlane+i)->PosY,&boom);
+..\DEVICE\myGame.c(412): warning:  #1-D: last line of file ends without a newline
+  }
+..\DEVICE\myGame.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=6020 RO-data=1652 RW-data=2820 ZI-data=5788  
+Program Size: Code=5680 RO-data=1688 RW-data=2820 ZI-data=5996  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\m0.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\m0.axf -o image.txt
-".\Objects\m0.axf" - 0 Error(s), 9 Warning(s).
+".\Objects\m0.axf" - 0 Error(s), 16 Warning(s).
 
 <h2>Software Packages used:</h2>
 

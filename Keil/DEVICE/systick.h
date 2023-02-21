@@ -15,5 +15,6 @@ extern uint32_t Timer_Ini(void);
 extern uint8_t Timer_Stop(uint32_t *duration_t,uint32_t start_t);
 
 //DELAY
+void delay_us (uint32_t time);
 void delay_ms (uint32_t time);
 #endif

@@ -48,6 +48,15 @@ void delay(uint32_t time){
 	__wfi();
 }
 
+void delay_us (uint32_t time){
+    uint32_t i;
+    i=time;
+    while(i>0){
+        delay(50);
+        i--;
+    }
+}
+
 void delay_ms (uint32_t time){
     uint32_t i;
     i=time;

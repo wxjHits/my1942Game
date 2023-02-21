@@ -472,6 +472,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\myGame.c</FilePath>
             </File>
+            <File>
+              <FileName>pstwo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\pstwo.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

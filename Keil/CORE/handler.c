@@ -70,12 +70,11 @@ extern BULLETType bullet;
 extern hitMapType bulletsHitMap;
 
 extern PLANEType myplane;
-
 extern hitMapType myPlaneHitMap;
-extern hitMapType enemyPlaneHitMap;
 
 extern const uint8_t ENEMY_NUMMAX; 
 extern PLANEType enmeyPlane;
+extern hitMapType enemyPlaneHitMap;
 
 extern uint32_t GameScore;
 
@@ -114,25 +113,28 @@ void KEY3(void){
 }
 
 //Timer
+extern uint32_t fps;
 void Timer_Handler(void){
-    uint8_t x=12*(rand()%10)+30;
-    uint8_t y=12*(rand()%10)+10;
-    createOneEnmeyPlane(x,y);
-
-    myPlaneDraw(myplane.PosX,myplane.PosY);
-    bulletDraw();
-    enmeyPlaneDraw();
-
-    enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
-    bulletsMapCreate(&bullet,&bulletsHitMap);
-
-    isMyPlaneHit(&myplane,&enemyPlaneHitMap);
-    isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
-    isBulletsHit(&bullet,enemyPlaneHitMap);
-
-    gameScoreDraw(3,10,GameScore);
-    updateBulletData();
+    gameFPSDraw(fps);
+    fps=0;
+    // uint8_t x=12*(rand()%10)+30;
+    // uint8_t y=12*(rand()%10)+10;
+    // createOneEnmeyPlane(x,y);
     
+    // myPlaneDraw(myplane.PosX,myplane.PosY);
+    // bulletDraw();
+    // enmeyPlaneDraw();
+
+    // enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
+    // bulletsMapCreate(&bullet,&bulletsHitMap);
+
+    // isMyPlaneHit(&myplane,&enemyPlaneHitMap);
+    // isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
+    // isBulletsHit(&bullet,enemyPlaneHitMap);
+    // gameScoreDraw(3,10,GameScore);
+
+    // moveEnmeyPlane(&enmeyPlane);
+    // updateBulletData();
 }
 
 

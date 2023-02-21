@@ -1,4 +1,4 @@
-// BASE_ADDR:0x40005000
+// BASE_ADDR:0x40003000
 // 0x00 RW    CTRL[1:0]
 //              [2] PWM_out Enable
 //              [1] Timer Interrupt Enable

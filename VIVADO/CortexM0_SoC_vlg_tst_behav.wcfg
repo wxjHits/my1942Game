@@ -3,97 +3,129 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="tb_hitCheck_behav.wdb" id="1">
+      <db_ref path="CortexM0_SoC_vlg_tst_behav.wdb" id="1">
          <top_modules>
+            <top_module name="CortexM0_SoC_vlg_tst" />
             <top_module name="glbl" />
-            <top_module name="tb_hitCheck" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="237000000fs"></ZoomStartTime>
-      <ZoomEndTime time="321400001fs"></ZoomEndTime>
-      <Cursor1Time time="271000000fs"></Cursor1Time>
+      <ZoomStartTime time="99273000000fs"></ZoomStartTime>
+      <ZoomEndTime time="100177000001fs"></ZoomEndTime>
+      <Cursor1Time time="99599000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="317"></NameColumnWidth>
-      <ValueColumnWidth column_width="367"></ValueColumnWidth>
+      <ValueColumnWidth column_width="362"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PCLK" type="logic">
+      <obj_property name="ElementShortName">PCLK</obj_property>
+      <obj_property name="ObjectShortName">PCLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/rstn" type="logic">
-      <obj_property name="ElementShortName">rstn</obj_property>
-      <obj_property name="ObjectShortName">rstn</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PCLKG" type="logic">
+      <obj_property name="ElementShortName">PCLKG</obj_property>
+      <obj_property name="ObjectShortName">PCLKG</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheckStart" type="logic">
-      <obj_property name="ElementShortName">hitCheckStart</obj_property>
-      <obj_property name="ObjectShortName">hitCheckStart</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PRESETn" type="logic">
+      <obj_property name="ElementShortName">PRESETn</obj_property>
+      <obj_property name="ObjectShortName">PRESETn</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheck_spriteViewRamIndex" type="array">
-      <obj_property name="ElementShortName">hitCheck_spriteViewRamIndex[5:0]</obj_property>
-      <obj_property name="ObjectShortName">hitCheck_spriteViewRamIndex[5:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PSEL" type="logic">
+      <obj_property name="ElementShortName">PSEL</obj_property>
+      <obj_property name="ObjectShortName">PSEL</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/spriteViewRamDataO_hitCheck" type="array">
-      <obj_property name="ElementShortName">spriteViewRamDataO_hitCheck[31:0]</obj_property>
-      <obj_property name="ObjectShortName">spriteViewRamDataO_hitCheck[31:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PADDR" type="array">
+      <obj_property name="ElementShortName">PADDR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PADDR[15:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/allSpriteHit" type="array">
-      <obj_property name="ElementShortName">allSpriteHit[63:0]</obj_property>
-      <obj_property name="ObjectShortName">allSpriteHit[63:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PENABLE" type="logic">
+      <obj_property name="ElementShortName">PENABLE</obj_property>
+      <obj_property name="ObjectShortName">PENABLE</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheckBusy" type="logic">
-      <obj_property name="ElementShortName">hitCheckBusy</obj_property>
-      <obj_property name="ObjectShortName">hitCheckBusy</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PWRITE" type="logic">
+      <obj_property name="ElementShortName">PWRITE</obj_property>
+      <obj_property name="ObjectShortName">PWRITE</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/drawHitMapFlag" type="logic">
-      <obj_property name="ElementShortName">drawHitMapFlag</obj_property>
-      <obj_property name="ObjectShortName">drawHitMapFlag</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PWDATA" type="array">
+      <obj_property name="ElementShortName">PWDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PWDATA[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/createHitStateFlag" type="logic">
-      <obj_property name="ElementShortName">createHitStateFlag</obj_property>
-      <obj_property name="ObjectShortName">createHitStateFlag</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/ECOREVNUM" type="array">
+      <obj_property name="ElementShortName">ECOREVNUM[3:0]</obj_property>
+      <obj_property name="ObjectShortName">ECOREVNUM[3:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitCheckStartDelay" type="logic">
-      <obj_property name="ElementShortName">hitCheckStartDelay</obj_property>
-      <obj_property name="ObjectShortName">hitCheckStartDelay</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PRDATA" type="array">
+      <obj_property name="ElementShortName">PRDATA[31:0]</obj_property>
+      <obj_property name="ObjectShortName">PRDATA[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/gridPosX" type="array">
-      <obj_property name="ElementShortName">gridPosX[4:0]</obj_property>
-      <obj_property name="ObjectShortName">gridPosX[4:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PREADY" type="logic">
+      <obj_property name="ElementShortName">PREADY</obj_property>
+      <obj_property name="ObjectShortName">PREADY</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/gridPosY" type="array">
-      <obj_property name="ElementShortName">gridPosY[4:0]</obj_property>
-      <obj_property name="ObjectShortName">gridPosY[4:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PSLVERR" type="logic">
+      <obj_property name="ElementShortName">PSLVERR</obj_property>
+      <obj_property name="ObjectShortName">PSLVERR</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/tileIndex" type="array">
-      <obj_property name="ElementShortName">tileIndex[4:0]</obj_property>
-      <obj_property name="ObjectShortName">tileIndex[4:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PS2_CS" type="logic">
+      <obj_property name="ElementShortName">PS2_CS</obj_property>
+      <obj_property name="ObjectShortName">PS2_CS</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/tileType" type="array">
-      <obj_property name="ElementShortName">tileType[2:0]</obj_property>
-      <obj_property name="ObjectShortName">tileType[2:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PS2_CLK" type="logic">
+      <obj_property name="ElementShortName">PS2_CLK</obj_property>
+      <obj_property name="ObjectShortName">PS2_CLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/mask" type="array">
-      <obj_property name="ElementShortName">mask[31:0]</obj_property>
-      <obj_property name="ObjectShortName">mask[31:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PS2_DO" type="logic">
+      <obj_property name="ElementShortName">PS2_DO</obj_property>
+      <obj_property name="ObjectShortName">PS2_DO</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/heroHitMap" type="array">
-      <obj_property name="ElementShortName">heroHitMap[0:29][31:0]</obj_property>
-      <obj_property name="ObjectShortName">heroHitMap[0:29][31:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/PS2_DI" type="logic">
+      <obj_property name="ElementShortName">PS2_DI</obj_property>
+      <obj_property name="ObjectShortName">PS2_DI</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/enemyHitMap" type="array">
-      <obj_property name="ElementShortName">enemyHitMap[0:29][31:0]</obj_property>
-      <obj_property name="ObjectShortName">enemyHitMap[0:29][31:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/write_enable" type="logic">
+      <obj_property name="ElementShortName">write_enable</obj_property>
+      <obj_property name="ObjectShortName">write_enable</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/i" type="array">
-      <obj_property name="ElementShortName">i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/write_enable00" type="logic">
+      <obj_property name="ElementShortName">write_enable00</obj_property>
+      <obj_property name="ObjectShortName">write_enable00</obj_property>
    </wvobject>
-   <wvobject fp_name="/tb_hitCheck/u_hitCheck/hitOccured" type="logic">
-      <obj_property name="ElementShortName">hitOccured</obj_property>
-      <obj_property name="ObjectShortName">hitOccured</obj_property>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/write_enable04" type="logic">
+      <obj_property name="ElementShortName">write_enable04</obj_property>
+      <obj_property name="ObjectShortName">write_enable04</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/write_enable08" type="logic">
+      <obj_property name="ElementShortName">write_enable08</obj_property>
+      <obj_property name="ObjectShortName">write_enable08</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/reg_ps2_cs" type="logic">
+      <obj_property name="ElementShortName">reg_ps2_cs</obj_property>
+      <obj_property name="ObjectShortName">reg_ps2_cs</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/reg_ps2_clk" type="logic">
+      <obj_property name="ElementShortName">reg_ps2_clk</obj_property>
+      <obj_property name="ObjectShortName">reg_ps2_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/reg_ps2_do" type="logic">
+      <obj_property name="ElementShortName">reg_ps2_do</obj_property>
+      <obj_property name="ObjectShortName">reg_ps2_do</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/reg_ps2_di" type="logic">
+      <obj_property name="ElementShortName">reg_ps2_di</obj_property>
+      <obj_property name="ObjectShortName">reg_ps2_di</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/read_mux_word" type="array">
+      <obj_property name="ElementShortName">read_mux_word[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_mux_word[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/read_mux_le" type="array">
+      <obj_property name="ElementShortName">read_mux_le[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_mux_le[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_apb_pstwo/read_enable" type="logic">
+      <obj_property name="ElementShortName">read_enable</obj_property>
+      <obj_property name="ObjectShortName">read_enable</obj_property>
    </wvobject>
 </wave_config>

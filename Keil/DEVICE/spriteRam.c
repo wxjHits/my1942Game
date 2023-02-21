@@ -9,3 +9,4 @@ void writeOneSprite(uint8_t num,uint8_t PosX,uint8_t PosY,uint8_t tileIndex,uint
     SPRITERAM->SPRITE[num].SPRITE_TILEINDEX=tileIndex;
     SPRITERAM->SPRITE[num].BYTE0=byte0;
 }
+

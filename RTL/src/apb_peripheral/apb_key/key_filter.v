@@ -29,7 +29,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
 always@(posedge sys_clk or negedge sys_rst_n)begin
     if(sys_rst_n == 1'b0)
         key_out <= 1'b0;
-    else if(cnt_20ms == CNT_MAX - 1'b1)
+    else if(cnt_20ms == CNT_MAX)//不能写成cnt_20ms == CNT_MAX-1，这种情况只能产生一个时钟周期的脉冲
         key_out <= 1'b1;
     else
         key_out <= 1'b0;        

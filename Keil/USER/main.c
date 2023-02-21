@@ -8,6 +8,7 @@
 #include "timer.h"
 #include "spi_flash.h"
 #include "systick.h"
+//#include "pstwo.h"
 
 #include "myGame.h"
 #include "spriteRam.h"
@@ -15,18 +16,75 @@
 #include "malloc.h"
 #include "stdlib.h"
 
-const uint8_t BULLET_NUMMAX=3; 
+//
+// const uint8_t routeCircle[18][2]={
+//    10,20, 13,19, 16,17, 18,15, 19,11, 19, 8, 18, 5, 16, 2, 13, 0,
+//    10, 1, 6, 0, 3, 2, 1, 4, 0, 8, 0,11, 1,14, 3,17, 6,19
+// };
+
+const uint8_t routeCircle[18][2]={
+   //  10+60,20+60,
+   //  13+60,19+60,
+   //  16+60,17+60,
+   //  18+60,15+60,
+   //  19+60,11+60,
+   //  19+60, 8+60,
+   //  18+60, 5+60,
+   //  16+60, 2+60,
+   //  13+60, 0+60,
+   //  10+60, 1+60,
+   //   6+60, 0+60,
+   //   3+60, 2+60,
+   //   1+60, 4+60,
+   //   0+60, 8+60,
+   //   0+60,11+60,
+   //   1+60,14+60,
+   //   3+60,17+60,
+   //   6+60,19+60
+
+   40+50,80+50,
+   53+50,77+50,
+   65+50,70+50,
+   74+50,60+50,
+   79+50,46+50,
+   79+50,33+50,
+   74+50,20+50,
+   65+50, 9+50,
+   53+50, 2+50,
+   40+50, 5+50,
+   26+50, 2+50,
+   14+50, 9+50,
+    5+50,19+50,
+    0+50,33+50,
+    0+50,46+50,
+    5+50,59+50,
+   14+50,70+50,
+   26+50,77+50
+};
+
+//我方子弹
+const uint8_t BULLET_NUMMAX=5; 
 BULLETType bullet[BULLET_NUMMAX];
 hitMapType bulletsHitMap;
-
+//敌方子弹
+const uint8_t ENEMY_BULLETS_NUMMAX=5; 
+BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
+hitMapType enmeyBulletsHitMap;
+//我方飞机.
 PLANEType myplane;
 hitMapType myPlaneHitMap;
-
+//敌方飞机
 const uint8_t ENEMY_NUMMAX=5; 
 PLANEType enmeyPlane[ENEMY_NUMMAX];
 hitMapType enemyPlaneHitMap;
+//爆炸单位
+const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
+BOOMType boom[BOOM_NUMMAX];
 
+//分数
 uint32_t GameScore=0;
+//帧率FPS
+uint32_t fps; 
 
 int main(void)
 { 
@@ -36,34 +94,94 @@ int main(void)
     myPlaneInit();
     bulletInit();
     enmeyPlaneInit();
-
-    
    //先执行的是函数SystemInit();
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    SPI_Init(100);
-   LCD_Init();
-   KEY_INIT(0xf);
+   
+   // PS2_Init();		//======ps2驱动端口初始化
+   // PS2_SetInit();	//======ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
+
+   //LCD_Init();
+   //KEY_INIT(0xf);
    NVIC_EnableIRQ(KEY0_IRQn);
    NVIC_EnableIRQ(KEY1_IRQn);
    NVIC_EnableIRQ(KEY2_IRQn);
    NVIC_EnableIRQ(KEY3_IRQn);
 //    CAMERA_Initial();//占用较多的ROM资源,有许多初始化的const uint8_t 数据，共大约
-   TIMER_Init(500000,0,1);
+   TIMER_Init(50000000,0,1);//1000ms
 
    uint8_t *mario_8192=0;
    mario_8192=mymalloc(4096);
    myfree(mario_8192);
-   LCD_Clear(GRAYBLUE);
-   
-   uint16_t y_pos=0;
-            
+   //LCD_Clear(GRAYBLUE);
    while(1)
    {
-        //updateBulletData();
-        ;
-//    if(isMyPlaneHit(&myplane,&enemyPlaneHitMap)){
-//        LED_toggle(7);
-//        boomDraw(myplane.PosX,myplane.PosY);
-//    }
+      // int PS2_LX,PS2_LY,PS2_RX,PS2_RY,PS2_KEY;
+      // PS2_LX=PS2_AnologData(PSS_LX);
+      // PS2_LY=PS2_AnologData(PSS_LY);
+      // PS2_RX=PS2_AnologData(PSS_RX);
+      // PS2_RY=PS2_AnologData(PSS_RY);
+      // PS2_KEY=PS2_DataKey();
+      // printf("%d     PS2_LX:",PS2_LX);
+      // printf("%d     PS2_LY:",PS2_LY);
+      // printf("%d     PS2_RX:",PS2_RX);
+      // printf("%d     PS2_RY:",PS2_RY);
+      // printf("%d \r\nPS2_KEY:",PS2_KEY);
+       
+      uint8_t x=20*(rand()%10)+30;
+      uint8_t y=2*(rand()%10)+10;
+      ROUTEType route;
+      route.route0         = rand()%3+4;
+      route.route1         = rand()%3+1;
+      route.turnLine       = myplane.PosY+rand()%20-10;
+      route.routeCnt       = 0;
+      route.routeCircleCnt = 0;
+       
+      createOneEnmeyPlane(x,y,route);
+      
+      myPlaneDraw(myplane.PosX,myplane.PosY);
+      bulletDraw();
+      enmeyPlaneDraw();
+      boomDraw();
+
+      enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
+      bulletsMapCreate(&bullet,&bulletsHitMap);
+
+      isMyPlaneHit(&myplane,&enemyPlaneHitMap);
+      isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
+      isBulletsHit(&bullet,enemyPlaneHitMap);
+      gameScoreDraw(3,10,GameScore);
+
+      moveEnmeyPlane(&enmeyPlane);
+      updateBulletData();
+      updateBoomData(&boom);
+      //显示“玩家”两个汉字
+      //writeOneSprite(12,0,220,10,0x10);
+      //writeOneSprite(13,10,220,11,0x10);
+
+      uint32_t key_value=READ_KEY();
+
+      if(key_value==1){//按键0按下
+         if(myplane.PosX>30)
+            myplane.PosX-=5;
+      }
+
+      if(key_value==2){//按键1按下
+         if(myplane.PosX<200)
+            myplane.PosX+=5;
+      }
+
+      if(key_value==4){//按键2按下
+         createOneBullet();
+      }
+
+      if(key_value==8){//按键3按下
+         //createOneBullet();
+      }
+
+      fps+=1;    
+      delay_ms(30);
+       
    }
 }
+

@@ -5,8 +5,8 @@
 //时间:2023.02.06
 /****************************/
 `define SPRITE_NUM_MAX 64
-`define SPRITE_TILEROM_DEEPTH 32
-`define SPRITE_TILEROM_ADDRBIT 5 //2^SPRITE_ROM_ADDRBIT=SPRITE_ROM_DEEPTH
+`define SPRITE_TILEROM_DEEPTH 256
+`define SPRITE_TILEROM_ADDRBIT 8 //2^SPRITE_ROM_ADDRBIT=SPRITE_ROM_DEEPTH
 `define SPRITE_TILEDATA_BIT 128 //一个tile为128bit的数据
 `define TILE_W 8 //一个tile的像素宽度
 `define TILE_H 8 //一个tile的像素高度

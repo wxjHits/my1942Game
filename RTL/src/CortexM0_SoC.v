@@ -24,6 +24,11 @@ module CortexM0_SoC (
         output  wire        SPI_CS      ,
         output  wire        SPI_MOSI    ,
         input   wire        SPI_MISO    ,
+        // //PS2
+        // output wire         PS2_CS      ,
+        // output wire         PS2_CLK     ,
+        // output wire         PS2_DO      ,
+        // input  wire         PS2_DI      ,
         //LCD
         output  wire        LCD_CS      ,
         output  wire        LCD_RS      ,
@@ -608,10 +613,10 @@ module CortexM0_SoC (
                             .PRDATA4                            (PRDATA_APBP4),
                             .PSLVERR4                           (PSLVERR_APBP4),
 
-                            .PSEL5                              (),
-                            .PREADY5                            (1'b1),
-                            .PRDATA5                            (32'b0),
-                            .PSLVERR5                           (1'b0),
+                            .PSEL5                              (),         //(PSEL_APBP5),
+                            .PREADY5                            (1'b1),     //(PREADY_APBP5),
+                            .PRDATA5                            (32'b0),    //(PRDATA_APBP5),
+                            .PSLVERR5                           (1'b0),     //(PSLVERR_APBP5),
 
                             .PSEL6                              (),
                             .PREADY6                            (1'b1),
@@ -777,43 +782,63 @@ module CortexM0_SoC (
 
     //APB3 TIMER
     apb_timer u_apb_timer (
+                  .PCLK     (clk),   // PCLK for timer operation
+                  .PCLKG    (clk),   // Gated clock
+                  .PRESETn  (cpuresetn),   // Reset
+
+                  .PSEL     (PSEL_APBP3),   // Device select
+                  .PADDR    (PADDR[15:0]),   // Address
+                  .PENABLE  (PENABLE),   // Transfer control
+                  .PWRITE   (PWRITE),   // Write control
+                  .PWDATA   (PWDATA),   // Write data
+                  .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
+                  .PRDATA   (PRDATA_APBP3),   // Read data
+                  .PREADY   (PREADY_APBP3),   // Device ready
+                  .PSLVERR  (PSLVERR_APBP3),   // Device error response
+
+                  .PWM_out  (),   //PWM mode out
+                  .TIMERINT (TIMERINT)   // Timer interrupt output
+              );
+
+    //APB4 SPI
+    apb_spi u_apb_spi(
                 .PCLK     (clk),   // PCLK for timer operation
                 .PCLKG    (clk),   // Gated clock
                 .PRESETn  (cpuresetn),   // Reset
-
-                .PSEL     (PSEL_APBP3),   // Device select
+                .PSEL     (PSEL_APBP4),   // Device select
                 .PADDR    (PADDR[15:0]),   // Address
                 .PENABLE  (PENABLE),   // Transfer control
                 .PWRITE   (PWRITE),   // Write control
                 .PWDATA   (PWDATA),   // Write data
                 .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
-                .PRDATA   (PRDATA_APBP3),   // Read data
-                .PREADY   (PREADY_APBP3),   // Device ready
-                .PSLVERR  (PSLVERR_APBP3),   // Device error response
-
-                .PWM_out  (),   //PWM mode out
-                .TIMERINT (TIMERINT)   // Timer interrupt output
-        );
-
-    //APB4 SPI
-    apb_spi u_apb_spi(
-                    .PCLK     (clk),   // PCLK for timer operation
-                    .PCLKG    (clk),   // Gated clock
-                    .PRESETn  (cpuresetn),   // Reset
-                    .PSEL     (PSEL_APBP4),   // Device select
-                    .PADDR    (PADDR[15:0]),   // Address
-                    .PENABLE  (PENABLE),   // Transfer control
-                    .PWRITE   (PWRITE),   // Write control
-                    .PWDATA   (PWDATA),   // Write data
-                    .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
-                    .PRDATA   (PRDATA_APBP4),   // Read data
-                    .PREADY   (PREADY_APBP4),   // Device ready
-                    .PSLVERR  (PSLVERR_APBP4),   // Device error response
-                    .SPI_CLK  (SPI_CLK ),   //SPI clk
-                    .SPI_CS   (SPI_CS  ),   //SPI cs
-                    .SPI_MOSI (SPI_MOSI),   //SPI mosi
-                    .SPI_MISO (SPI_MISO)    //SPI miso
-    ); 
+                .PRDATA   (PRDATA_APBP4),   // Read data
+                .PREADY   (PREADY_APBP4),   // Device ready
+                .PSLVERR  (PSLVERR_APBP4),   // Device error response
+                .SPI_CLK  (SPI_CLK ),   //SPI clk
+                .SPI_CS   (SPI_CS  ),   //SPI cs
+                .SPI_MOSI (SPI_MOSI),   //SPI mosi
+                .SPI_MISO (SPI_MISO)    //SPI miso
+            );
+    // //APB5 PS2
+    // apb_pstwo u_apb_pstwo(
+    //             .PCLK       (clk),   // PCLK for timer operation
+    //             .PCLKG      (clk),   // Gated clock
+    //             .PRESETn    (cpuresetn),   // Reset
+    //             .PSEL       (PSEL_APBP5),   // Device select
+    //             .PADDR      (PADDR[15:0]),   // Address
+    //             .PENABLE    (PENABLE),   // Transfer control
+    //             .PWRITE     (PWRITE),   // Write control
+    //             .PWDATA     (PWDATA),   // Write data
+    //             .ECOREVNUM  (4'b0),   // Engineering-change-order revision bits
+    //             .PRDATA     (PRDATA_APBP5),   // Read data
+    //             .PREADY     (PREADY_APBP5),   // Device ready
+    //             .PSLVERR    (PSLVERR_APBP5),   // Device error response
+    //             //PS2
+    //             .PS2_CS     (PS2_CS )     ,
+    //             .PS2_CLK    (PS2_CLK)     ,
+    //             .PS2_DO     (PS2_DO )     ,
+    //             .PS2_DI     (PS2_DI )
+    //         );
     //AHB4 LCD 0x5000_0000
     ahb_lcd lcd(
                 .HCLK       (clk        ),
@@ -900,34 +925,34 @@ module CortexM0_SoC (
     //------------------------------------------------------------------------------
 
     clk_wiz_0 instance_name(
-        .clk_100MHz(clk_100MHz),    
-        .clk_25p2MHz(clk_25p2MHz),  
-        .clk_in1(clk)
-    );
+                  .clk_100MHz(clk_100MHz),
+                  .clk_25p2MHz(clk_25p2MHz),
+                  .clk_in1(clk)
+              );
 
     topPPU topPPU_inst(
-        .clk_50MHz      (clk         ),
-        .clk_100MHz     (clk_100MHz  ),
-        .clk_25p2MHz    (clk_25p2MHz ),
-        .rstn           (RSTn        ),
-        //CPU AHB interface 对spriteRam进行写操作
-        .HCLK           (clk        ),//50MHz
-        .HRESETn        (cpuresetn  ),
-        .HSEL           (HSEL_P5    ),
-        .HADDR          (HADDR_P5   ),
-        .HTRANS         (HTRANS_P5  ),
-        .HSIZE          (HSIZE_P5   ),
-        .HPROT          (HPROT_P5   ),
-        .HWRITE         (HWRITE_P5  ),
-        .HWDATA         (HWDATA_P5  ),
-        .HREADY         (HREADY_P5  ),
-        .HREADYOUT      (HREADYOUT_P5),
-        .HRDATA         (HRDATA_P5  ),
-        .HRESP          (HRESP_P5   ),
-        //VGA PIN
-        .hsync          (hsync      ),//输出行同步信号
-        .vsync          (vsync      ),//输出场同步信号
-        .rgb            (rgb        ) //输出像素点色彩信息
-);
+               .clk_50MHz      (clk         ),
+               .clk_100MHz     (clk_100MHz  ),
+               .clk_25p2MHz    (clk_25p2MHz ),
+               .rstn           (RSTn        ),
+               //CPU AHB interface 对spriteRam进行写操作
+               .HCLK           (clk        ),//50MHz
+               .HRESETn        (cpuresetn  ),
+               .HSEL           (HSEL_P5    ),
+               .HADDR          (HADDR_P5   ),
+               .HTRANS         (HTRANS_P5  ),
+               .HSIZE          (HSIZE_P5   ),
+               .HPROT          (HPROT_P5   ),
+               .HWRITE         (HWRITE_P5  ),
+               .HWDATA         (HWDATA_P5  ),
+               .HREADY         (HREADY_P5  ),
+               .HREADYOUT      (HREADYOUT_P5),
+               .HRDATA         (HRDATA_P5  ),
+               .HRESP          (HRESP_P5   ),
+               //VGA PIN
+               .hsync          (hsync      ),//输出行同步信号
+               .vsync          (vsync      ),//输出场同步信号
+               .rgb            (rgb        ) //输出像素点色彩信息
+           );
 
 endmodule

@@ -38,7 +38,7 @@ module tileDraw(
 
     wire [`BYTE-1:0] posX = spriteViewRamDataO[4*(`BYTE)-1:3*(`BYTE)];
     wire [`BYTE-1:0] posY = spriteViewRamDataO[3*(`BYTE)-1:2*(`BYTE)];
-    assign tileIndex = spriteViewRamDataO[2*(`BYTE)-3-1:1*(`BYTE)];
+    assign tileIndex = spriteViewRamDataO[2*(`BYTE)-1:1*(`BYTE)];
     wire             hFilp = spriteViewRamDataO[7];
     wire             vFilp = spriteViewRamDataO[6];
     wire [1:0]       PaletteChoice = spriteViewRamDataO[5:4];
