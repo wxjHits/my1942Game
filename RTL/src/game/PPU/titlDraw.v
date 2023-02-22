@@ -44,16 +44,29 @@ module tileDraw(
     wire [1:0]       PaletteChoice = spriteViewRamDataO[5:4];
 
 //ç¸ĺŻšäşć¸¸ćĺźĺ§ĺć çšçĺć ?
-reg [`VGA_POSXY_BIT-1:0] gameVgaPosX;
-reg [`VGA_POSXY_BIT-1:0] gameVgaPosY;
-always@(*)begin
+reg [`VGA_POSXY_BIT-1:0] vgaPosX_r;
+reg [`VGA_POSXY_BIT-1:0] vgaPosY_r;
+always@(posedge clk)begin //2023.02.22添加，优化了一下时序，显示效果好了许多
     if(~rstn)begin
-        gameVgaPosX=0;
-        gameVgaPosY=0;
+        vgaPosX_r<=0;
+        vgaPosY_r<=0;
     end
     else begin
-        gameVgaPosX=vgaPosX-`GAME_START_POSX;
-        gameVgaPosY=vgaPosY-`GAME_START_POSY;
+        vgaPosX_r<=vgaPosX;
+        vgaPosY_r<=vgaPosY;
+    end
+end
+
+reg [`VGA_POSXY_BIT-1:0] gameVgaPosX;
+reg [`VGA_POSXY_BIT-1:0] gameVgaPosY;
+always@(posedge clk)begin
+    if(~rstn)begin
+        gameVgaPosX<=0;
+        gameVgaPosY<=0;
+    end
+    else begin
+        gameVgaPosX<=vgaPosX_r-`GAME_START_POSX;
+        gameVgaPosY<=vgaPosY_r-`GAME_START_POSY;
     end
 end
 
@@ -88,6 +101,34 @@ always@(posedge clk)begin
         endcase
     end
 end
+
+// reg [`BYTE-1:0]DistX,DistY;
+// always@(*)begin
+//     if(~rstn)begin
+//         DistX=0;
+//         DistY=0;
+//     end
+//     else if(IsScanRange)begin
+//         case({hFilp,vFilp})
+//             2'b00:begin//ć­Łĺ¸¸ćžç¤ş
+//                 DistX=gameVgaPosX-posX;
+//                 DistY=gameVgaPosY-posY;
+//             end
+//             2'b01:begin//ĺˇŚĺłçżťč˝Ź
+//                 DistX=7-(gameVgaPosX-posX);
+//                 DistY=gameVgaPosY-posY;
+//             end
+//             2'b10:begin//ä¸ä¸çżťč˝Ź
+//                 DistX=gameVgaPosX-posX;
+//                 DistY=7-(gameVgaPosY-posY);
+//             end
+//             2'b11:begin//ä¸ä¸&ĺˇŚĺłçżťč˝Ź
+//                 DistX=7-(gameVgaPosX-posX);
+//                 DistY=7-(gameVgaPosY-posY);
+//             end
+//         endcase
+//     end
+// end
 
 reg [$clog2(`SPRITE_TILEDATA_BIT)-1:0] whichBit;
 always@(*)begin

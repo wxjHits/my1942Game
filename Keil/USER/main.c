@@ -63,7 +63,7 @@ const uint8_t routeCircle[18][2]={
 };
 
 //我方子弹
-const uint8_t BULLET_NUMMAX=5; 
+const uint8_t BULLET_NUMMAX=20; 
 BULLETType bullet[BULLET_NUMMAX];
 hitMapType bulletsHitMap;
 //敌方子弹
@@ -71,7 +71,7 @@ const uint8_t ENEMY_BULLETS_NUMMAX=5;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 hitMapType enmeyBulletsHitMap;
 //我方飞机.
-PLANEType myplane;
+MYPLANEType myplane;
 hitMapType myPlaneHitMap;
 //敌方飞机
 const uint8_t ENEMY_NUMMAX=5; 
@@ -80,7 +80,10 @@ hitMapType enemyPlaneHitMap;
 //爆炸单位
 const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
 BOOMType boom[BOOM_NUMMAX];
-
+//BUFF单位（有且仅有一个）
+BUFFType buff;
+//进行画图时，
+uint8_t spriteRamAddr=0;
 //分数
 uint32_t GameScore=0;
 //帧率FPS
@@ -94,6 +97,7 @@ int main(void)
     myPlaneInit();
     bulletInit();
     enmeyPlaneInit();
+    buffInit(&buff);
    //先执行的是函数SystemInit();
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    SPI_Init(100);
@@ -108,7 +112,7 @@ int main(void)
    NVIC_EnableIRQ(KEY2_IRQn);
    NVIC_EnableIRQ(KEY3_IRQn);
 //    CAMERA_Initial();//占用较多的ROM资源,有许多初始化的const uint8_t 数据，共大约
-   TIMER_Init(50000000,0,1);//1000ms
+   TIMER_Init(10000000,0,1);//1000ms
 
    uint8_t *mario_8192=0;
    mario_8192=mymalloc(4096);
@@ -138,49 +142,57 @@ int main(void)
       route.routeCircleCnt = 0;
        
       createOneEnmeyPlane(x,y,route);
+      createOneBuff(50,100,BUFF_POWER,&buff);
       
-      myPlaneDraw(myplane.PosX,myplane.PosY);
-      bulletDraw();
-      enmeyPlaneDraw();
-      boomDraw();
+      //绘图
+      spriteRamAddr=0;
+      gameScoreDraw(3,10,GameScore,&spriteRamAddr);
+      myPlaneDraw(myplane.PosX,myplane.PosY,&spriteRamAddr);
+      bulletDraw(&spriteRamAddr);
+      enmeyPlaneDraw(&spriteRamAddr);
+      boomDraw(&spriteRamAddr);
+      buffDraw(&spriteRamAddr);
+      for(uint8_t i=spriteRamAddr;i<SPRITE_RAM_ADDR_MAX;i++)
+         writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
 
+      //撞击试验
       enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
       bulletsMapCreate(&bullet,&bulletsHitMap);
-
-      isMyPlaneHit(&myplane,&enemyPlaneHitMap);
+      myPlaneMapCreate(&myplane,&myPlaneHitMap);
+      
+      isMyPlaneHit(&myplane,&enemyPlaneHitMap,&buff,&myPlaneHitMap);
       isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
       isBulletsHit(&bullet,enemyPlaneHitMap);
-      gameScoreDraw(3,10,GameScore);
+      
 
       moveEnmeyPlane(&enmeyPlane);
       updateBulletData();
       updateBoomData(&boom);
+      updateBuffData(&buff);
       //显示“玩家”两个汉字
       //writeOneSprite(12,0,220,10,0x10);
       //writeOneSprite(13,10,220,11,0x10);
 
-      uint32_t key_value=READ_KEY();
+      // uint32_t key_value=READ_KEY();
 
-      if(key_value==1){//按键0按下
-         if(myplane.PosX>30)
-            myplane.PosX-=5;
-      }
+      // if(key_value==1){//按键0按下
+      //    if(myplane.PosX>30)
+      //       myplane.PosX-=5;
+      // }
 
-      if(key_value==2){//按键1按下
-         if(myplane.PosX<200)
-            myplane.PosX+=5;
-      }
+      // if(key_value==2){//按键1按下
+      //    if(myplane.PosX<200)
+      //       myplane.PosX+=5;
+      // }
 
-      if(key_value==4){//按键2按下
-         createOneBullet();
-      }
+      // if(key_value==4){//按键2按下
+      //    createOneBullet();
+      // }
 
-      if(key_value==8){//按键3按下
-         //createOneBullet();
-      }
-
-      fps+=1;    
-      delay_ms(30);
+      // if(key_value==8){//按键3按下
+      //    //createOneBullet();
+      // } 
+      delay_ms(20);
        
    }
 }

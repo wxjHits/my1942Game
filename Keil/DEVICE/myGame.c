@@ -5,13 +5,15 @@
 extern const uint8_t BULLET_NUMMAX; 
 extern BULLETType bullet[3];
 
-extern PLANEType myplane;
+extern MYPLANEType myplane;
 
 extern const uint8_t ENEMY_NUMMAX; 
 extern PLANEType enmeyPlane[5];
 
 extern const uint8_t BOOM_NUMMAX;
 extern BOOMType boom[3];
+
+extern BUFFType buff;
 
 extern const uint8_t routeCircle[18][2];
 
@@ -20,12 +22,48 @@ void bulletInit(void){
         bullet[i].liveFlag=0;
 }
 void createOneBullet(void){
-    for(int i=0;i<BULLET_NUMMAX;i++){
-        if(bullet[i].liveFlag==0&&myplane.liveFlag!=0){
-            bullet[i].PosX=myplane.PosX+8;
-            bullet[i].PosY=myplane.PosY-8;
-            bullet[i].liveFlag=1;
-            break;
+    if(myplane.liveFlag!=0){
+        if(myplane.bulletOnceNum==0){
+            for(int i=0;i<5;i++){
+                if(bullet[i].liveFlag==0){
+                    bullet[i].PosX=myplane.PosX+8;
+                    bullet[i].PosY=myplane.PosY-8;
+                    bullet[i].liveFlag=1;
+                    break;
+                }
+            }
+        }
+        else if(myplane.bulletOnceNum==1){
+            for(int i=0;i<10;i++){
+                if(bullet[i].liveFlag==0&&bullet[i+1].liveFlag==0){
+                    bullet[i].PosX=myplane.PosX+4;
+                    bullet[i].PosY=myplane.PosY-8;
+                    bullet[i].liveFlag=1;
+                    bullet[i+1].PosX=myplane.PosX+12;
+                    bullet[i+1].PosY=myplane.PosY-8;
+                    bullet[i+1].liveFlag=1;
+                    break;
+                }
+            }
+        }
+        else if(myplane.bulletOnceNum==2){
+            for(int i=0;i<20;i++){
+                if(bullet[i].liveFlag==0&&bullet[i+1].liveFlag==0&&bullet[i+2].liveFlag==0&&bullet[i+3].liveFlag==0){
+                    bullet[i].PosX=myplane.PosX-4;
+                    bullet[i].PosY=myplane.PosY-8;
+                    bullet[i].liveFlag=1;
+                    bullet[i+1].PosX=myplane.PosX+4;
+                    bullet[i+1].PosY=myplane.PosY-8;
+                    bullet[i+1].liveFlag=1;
+                    bullet[i+2].PosX=myplane.PosX+12;
+                    bullet[i+2].PosY=myplane.PosY-8;
+                    bullet[i+2].liveFlag=1;
+                    bullet[i+3].PosX=myplane.PosX+20;
+                    bullet[i+3].PosY=myplane.PosY-8;
+                    bullet[i+3].liveFlag=1;
+                    break;
+                }
+            }
         }
     }
 }
@@ -46,13 +84,11 @@ void updateBulletData(void){
     }
 }
 
-void bulletDraw(void){
+void bulletDraw(uint8_t* spriteRamAddr){
     for(int i=0;i<BULLET_NUMMAX;i++){
         if(bullet[i].liveFlag!=0){
-            writeOneSprite(SPRITE_RAM_ADDR_START_BULLET+i,bullet[i].PosX,bullet[i].PosY,0x31,0x10);
-        }
-        else{
-            writeOneSprite(SPRITE_RAM_ADDR_START_BULLET+i,bullet[i].PosX,bullet[i].PosY,0xff,0x10);
+            writeOneSprite((*spriteRamAddr),bullet[i].PosX,bullet[i].PosY,0x31,0x10);
+            (*spriteRamAddr)+=1;
         }
     }
 }
@@ -64,8 +100,8 @@ void myPlaneInit(void){
     myplane.hp=15;
 }
 
-void myPlaneDraw(uint8_t PosX,uint8_t PosY){
-    uint8_t ram_num=SPRITE_RAM_ADDR_START_MYPLANE;
+void myPlaneDraw(uint8_t PosX,uint8_t PosY,uint8_t* spriteRamAddr){
+    uint8_t ram_num=(*spriteRamAddr);
     uint8_t sprite_num = 0x33;
     if(myplane.liveFlag!=0){
         writeOneSprite(ram_num+0,PosX+0,PosY,sprite_num+0,0x30);
@@ -73,15 +109,8 @@ void myPlaneDraw(uint8_t PosX,uint8_t PosY){
         writeOneSprite(ram_num+2,PosX+16,PosY,sprite_num+0,0x70);
         writeOneSprite(ram_num+3,PosX+4,PosY+8,sprite_num+2,0x30);
         writeOneSprite(ram_num+4,PosX+12,PosY+8,sprite_num+3,0x30);
+        *spriteRamAddr+=5;
     }
-    else{
-        writeOneSprite(ram_num+0,PosX-8,PosY,31,0x10);
-        writeOneSprite(ram_num+1,PosX+0,PosY,31,0x10);
-        writeOneSprite(ram_num+2,PosX+8,PosY,31,0x50);
-        writeOneSprite(ram_num+3,PosX-4,PosY+8,31,0x10);
-        writeOneSprite(ram_num+4,PosX+4,PosY+8,31,0x10);
-    }
-    
 }
 
 //敌机相关函数
@@ -95,6 +124,9 @@ void createOneEnmeyPlane(uint8_t PosX,uint8_t PosY,ROUTEType route){
         if(enmeyPlane[i].liveFlag==0){
             // enmeyPlane[i].PosX=myplane.PosX+30;
             // enmeyPlane[i].PosY=myplane.PosY-20;
+
+            enmeyPlane[i].type=rand()%2;
+            enmeyPlane[i].attitude=0;
 
             enmeyPlane[i].PosX=PosX;
             enmeyPlane[i].PosY=PosY;
@@ -114,10 +146,12 @@ void createOneEnmeyPlane(uint8_t PosX,uint8_t PosY,ROUTEType route){
 
 void moveEnmeyPlane(PLANEType* enmeyPlane){
     for(int i=0;i<ENEMY_NUMMAX;i++){
-        // if(enmeyPlane[i].PosY>=enmeyPlane[i].route.turnLine)
-        //     enmeyPlane[i].route.routeCnt=1;
-        if(enmeyPlane[i].PosY>=myplane.PosY+rand()%10)
+
+        if(enmeyPlane[i].PosY>=myplane.PosY+rand()%10){//敌机转折点
             enmeyPlane[i].route.routeCnt=1;
+            if(enmeyPlane[i].attitude>=4)
+                enmeyPlane[i].route.routeCnt=2;
+        }
 
         if(enmeyPlane[i].liveFlag!=0){
             if(enmeyPlane[i].FpsCnt==ENEMY_FPS_MAX){
@@ -134,7 +168,7 @@ void moveEnmeyPlane(PLANEType* enmeyPlane){
                     {
                         case DOWN:
                                 enmeyPlane[i].PosX += 0;
-                                enmeyPlane[i].PosY += 2;
+                                enmeyPlane[i].PosY += 6;
                                 break;
                         case DOWN_LEFT:
                                 enmeyPlane[i].PosX -= 2;
@@ -147,12 +181,17 @@ void moveEnmeyPlane(PLANEType* enmeyPlane){
                         default: break;
                     }
                 }
-                else if(enmeyPlane[i].route.routeCnt==1){
+                else if(enmeyPlane[i].route.routeCnt==1){//敌机动画部分
+                    enmeyPlane[i].PosX += 0;
+                    enmeyPlane[i].PosY += 0;
+                    enmeyPlane[i].attitude+=1;
+                }
+                else if(enmeyPlane[i].route.routeCnt==2){
                     switch (enmeyPlane[i].route.route1)
                     {
                         case UP:
                                 enmeyPlane[i].PosX += 0;
-                                enmeyPlane[i].PosY -= 2;
+                                enmeyPlane[i].PosY -= 6;
                                 break;
                         case UP_LEFT:
                                 enmeyPlane[i].PosX -= 2;
@@ -181,19 +220,72 @@ void moveEnmeyPlane(PLANEType* enmeyPlane){
     }
 }
 
-void enmeyPlaneDraw(void){
+void enmeyPlaneDraw(uint8_t* spriteRamAddr){
     for(int i=0;i<ENEMY_NUMMAX;i++){
-        uint8_t num=0x40;
         if(enmeyPlane[i].liveFlag!=0){
-            writeOneSprite(SPRITE_RAM_ADDR_START_ENEMYPLANE+i*3+0,enmeyPlane[i].PosX,enmeyPlane[i].PosY,num,0x20);
-            writeOneSprite(SPRITE_RAM_ADDR_START_ENEMYPLANE+i*3+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY,num+1,0x20);
-            writeOneSprite(SPRITE_RAM_ADDR_START_ENEMYPLANE+i*3+2,enmeyPlane[i].PosX+4,enmeyPlane[i].PosY-8,num+2,0x20);
+            uint8_t pallet=0;//调色板
+            if(enmeyPlane[i].type==0)
+                pallet=2<<4;
+            else if(enmeyPlane[i].type==1)
+                pallet=1<<4;
+            
+            switch (enmeyPlane[i].attitude)
+            {
+                uint8_t num=0;
+                case 0://正常向下
+                    num=0x40;
+                    writeOneSprite((*spriteRamAddr)+0,enmeyPlane[i].PosX,enmeyPlane[i].PosY,num,pallet);
+                    writeOneSprite((*spriteRamAddr)+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY,num+1,pallet);
+                    writeOneSprite((*spriteRamAddr)+2,enmeyPlane[i].PosX+4,enmeyPlane[i].PosY-8,num+2,pallet);
+                    (*spriteRamAddr)+=3;
+                    break;
+
+                case 1://
+                    num=0x43;
+                    writeOneSprite((*spriteRamAddr)+0,enmeyPlane[i].PosX,enmeyPlane[i].PosY,num,pallet);
+                    writeOneSprite((*spriteRamAddr)+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY,num,pallet|0x40);
+                    writeOneSprite((*spriteRamAddr)+2,enmeyPlane[i].PosX+4,enmeyPlane[i].PosY-8,num+1,pallet);
+                    (*spriteRamAddr)+=3;
+                    break;
+                case 2://
+                    num=0x45;
+                    writeOneSprite((*spriteRamAddr)+0,enmeyPlane[i].PosX,enmeyPlane[i].PosY,num,pallet);
+                    writeOneSprite((*spriteRamAddr)+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY,num,pallet|0x40);
+                    // writeOneSprite((*spriteRamAddr)+2,enmeyPlane[i].PosX+4,enmeyPlane[i].PosY-8,num+1,pallet);
+                    (*spriteRamAddr)+=2;
+                    break;
+                case 3://
+                    num=0x46;
+                    writeOneSprite((*spriteRamAddr)+0,enmeyPlane[i].PosX,enmeyPlane[i].PosY,num,pallet);
+                    writeOneSprite((*spriteRamAddr)+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY,num,pallet|0x40);
+                    writeOneSprite((*spriteRamAddr)+2,enmeyPlane[i].PosX+4,enmeyPlane[i].PosY+8,num+1,pallet);
+                    (*spriteRamAddr)+=3;
+                    break;
+                case 4://
+                    num=0x48;
+                    writeOneSprite((*spriteRamAddr)+0,enmeyPlane[i].PosX,enmeyPlane[i].PosY,num,pallet);
+                    writeOneSprite((*spriteRamAddr)+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY,num,pallet|0x40);
+                    writeOneSprite((*spriteRamAddr)+2,enmeyPlane[i].PosX+4,enmeyPlane[i].PosY+8,num+1,pallet);
+                    (*spriteRamAddr)+=3;
+                    break;
+
+            default:
+                break;
+            }
+            // else if(enmeyPlane[i].type==2){
+            //     uint8_t num=0x90;
+            //     writeOneSprite((*spriteRamAddr)+0,enmeyPlane[i].PosX+0,enmeyPlane[i].PosY+0,num,0x10);
+            //     writeOneSprite((*spriteRamAddr)+1,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY+0,num+1,0x10);
+            //     writeOneSprite((*spriteRamAddr)+2,enmeyPlane[i].PosX+0,enmeyPlane[i].PosY+8,num+2,0x10);
+            //     writeOneSprite((*spriteRamAddr)+3,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY+8,num+3,0x10);
+            //     writeOneSprite((*spriteRamAddr)+4,enmeyPlane[i].PosX+0,enmeyPlane[i].PosY+16,num+4,0x10);
+            //     writeOneSprite((*spriteRamAddr)+5,enmeyPlane[i].PosX+8,enmeyPlane[i].PosY+16,num+5,0x10);
+            //     writeOneSprite((*spriteRamAddr)+6,enmeyPlane[i].PosX-8,enmeyPlane[i].PosY+4,num+6,0x10);
+            //     writeOneSprite((*spriteRamAddr)+7,enmeyPlane[i].PosX+16,enmeyPlane[i].PosY+4,num+6,0x50);
+            //     (*spriteRamAddr)+=8;
+            // }
+            
         }
-        else{
-            writeOneSprite(SPRITE_RAM_ADDR_START_ENEMYPLANE+i*3+0,0,0,0xff,0x20);
-            writeOneSprite(SPRITE_RAM_ADDR_START_ENEMYPLANE+i*3+1,0,0,0xff,0x20);
-            writeOneSprite(SPRITE_RAM_ADDR_START_ENEMYPLANE+i*3+2,0,0,0xff,0x20);
-        }     
     }
 }
 
@@ -225,53 +317,40 @@ void updateBoomData(BOOMType* boom){
             // printf("boom[i].FpsCnt=%d\nboom[i].BoomCnt=%d\n",boom[i].FpsCnt,boom[i].BoomCnt);
             if(boom[i].FpsCnt<BOOM_FPS_MAX)
                 boom[i].FpsCnt+=1;
-            else {
+            else{
                 boom[i].FpsCnt=0;
                 boom[i].BoomCnt+=1;
-                if(boom[i].BoomCnt==4){
+                if(boom[i].BoomCnt>=4){
                     // printf("boom[i].FpsCnt=%d\nboom[i].BoomCnt=%d\n",boom[i].FpsCnt,boom[i].BoomCnt);
                     boom[i].liveFlag=0;
                 }
-                    
             }
         }
     }
 }
-void boomDraw(void){
-    uint8_t num=SPRITE_RAM_ADDR_START_BOOM;
+void boomDraw(uint8_t* spriteRamAddr){
     for(int i=0;i<BOOM_NUMMAX;i++){
         if(boom[i].liveFlag!=0){
-            uint8_t step=2*(boom[i].BoomCnt);
-            writeOneSprite(num+0,boom[i].PosX   ,boom[i].PosY   ,0xe0+step,0x30);
-            writeOneSprite(num+1,boom[i].PosX+8 ,boom[i].PosY   ,0xe1+step,0x30);
-            writeOneSprite(num+2,boom[i].PosX   ,boom[i].PosY+8 ,0xe1+step,0xF0);
-            writeOneSprite(num+3,boom[i].PosX+8 ,boom[i].PosY+8 ,0xe0+step,0xF0);
-            
-            // writeOneSprite(num+0,boom[i].PosX   ,boom[i].PosY   ,19+boom[i].BoomCnt,0x10);
-            // writeOneSprite(num+1,boom[i].PosX+8 ,boom[i].PosY   ,20+boom[i].BoomCnt,0x10);
-            // writeOneSprite(num+2,boom[i].PosX   ,boom[i].PosY+8 ,20+boom[i].BoomCnt,0xD0);
-            // writeOneSprite(num+3,boom[i].PosX+8 ,boom[i].PosY+8 ,19+boom[i].BoomCnt,0xD0);
-            num += 4;
-            // printf("boom[i].FpsCnt=%d\nboom[i].BoomCnt=%d\n",boom[i].FpsCnt,boom[i].BoomCnt);
-        }
-        else{
-            writeOneSprite(num+0,250,239,31,0x10);
-            writeOneSprite(num+1,250,239,31,0x10);
-            writeOneSprite(num+2,250,239,31,0xD0);
-            writeOneSprite(num+3,250,239,31,0xD0);
+            uint8_t step=(boom[i].BoomCnt)<<1;
+            writeOneSprite((*spriteRamAddr)+0,boom[i].PosX   ,boom[i].PosY   ,0xe0+step,0x30);
+            writeOneSprite((*spriteRamAddr)+1,boom[i].PosX+8 ,boom[i].PosY   ,0xe1+step,0x30);
+            writeOneSprite((*spriteRamAddr)+2,boom[i].PosX   ,boom[i].PosY+8 ,0xe1+step,0xF0);
+            writeOneSprite((*spriteRamAddr)+3,boom[i].PosX+8 ,boom[i].PosY+8 ,0xe0+step,0xF0);
+            (*spriteRamAddr)+=4;
         }
     }
 }
 
-void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score){
+void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score,uint8_t* spriteRamAddr){
     uint8_t ge = score%10;
     uint8_t shi = (score/10)%10;
     uint8_t bai = (score/100)%10;
     uint8_t qian = (score/1000)%10;
-    writeOneSprite(SPRITE_RAM_ADDR_START_SCORE+0,PosX,PosY,qian,0x30);
-    writeOneSprite(SPRITE_RAM_ADDR_START_SCORE+1,PosX+8,PosY,bai,0x30);
-    writeOneSprite(SPRITE_RAM_ADDR_START_SCORE+2,PosX+16,PosY,shi,0x30);
-    writeOneSprite(SPRITE_RAM_ADDR_START_SCORE+3,PosX+24,PosY,ge,0x30);
+    writeOneSprite((*spriteRamAddr)+0,PosX,PosY,qian,0x30);
+    writeOneSprite((*spriteRamAddr)+1,PosX+8,PosY,bai,0x30);
+    writeOneSprite((*spriteRamAddr)+2,PosX+16,PosY,shi,0x30);
+    writeOneSprite((*spriteRamAddr)+3,PosX+24,PosY,ge,0x30);
+    *spriteRamAddr+=4;
 }
 
 //碰撞相关函数
@@ -282,12 +361,16 @@ void tileMap(uint8_t PosX,uint8_t PosY,hitMapType* hitMap){
     uint32_t mask = 1<<(gridPosX);
     hitMap->map[gridPosY]=hitMap->map[gridPosY]|mask;
 }
-void myPlaneMapCreate(uint8_t PosX,uint8_t PosY,hitMapType* hitMap){
-    tileMap(PosX,PosY,hitMap);
-    tileMap(PosX+8,PosY,hitMap);
-    tileMap(PosX+16,PosY,hitMap);
-    tileMap(PosX+4,PosY+8,hitMap);
-    tileMap(PosX+12,PosY+8,hitMap);
+void myPlaneMapCreate(MYPLANEType* myPlane,hitMapType* hitMap){
+    for(int i=0;i<30;i++)
+        hitMap->map[i]=0;
+    if(myPlane->liveFlag!=0){
+        tileMap(myPlane->PosX   ,myPlane->PosY,hitMap);
+        tileMap(myPlane->PosX+8 ,myPlane->PosY,hitMap);
+        tileMap(myPlane->PosX+16,myPlane->PosY,hitMap);
+        tileMap(myPlane->PosX+4 ,myPlane->PosY+8,hitMap);
+        tileMap(myPlane->PosX+12,myPlane->PosY+8,hitMap);
+    }
 }
 
 void bulletsMapCreate(BULLETType* bullet,hitMapType* hitMap){
@@ -312,7 +395,7 @@ void enemyMapCreate(PLANEType* enmeyPlane,hitMapType* hitMap){
 }
 
 //我方飞机可以被敌方子弹和敌方飞机摧毁并产生爆炸效果(我方飞机后续可以添加护盾效果,更换调色板表示进行赤红状态,可以承受一次撞击)
-bool isMyPlaneHit(PLANEType* myPlane,hitMapType* enemyPlaneHitMap){
+void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,BUFFType* buff,hitMapType* myPlaneHitMap){
     // for(int i=0;i<32;i++){
     //     enemyPlaneHitMap->map[i]=0;
     // }
@@ -321,20 +404,16 @@ bool isMyPlaneHit(PLANEType* myPlane,hitMapType* enemyPlaneHitMap){
     uint8_t gridPosX=(myPlane->PosX >>3);
     uint8_t gridPosY=myPlane->PosY >>3;
 
-    uint32_t isHitFlag = 
-            (
-                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
-                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+1)))|
-                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+2)))|
-                (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
-                (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
-            )
-            ;
-    // printf("hitMap->map[gridPosY+0]==%x",enemyPlaneHitMap.map[gridPosY+0]);
-    
-    if(isHitFlag==0){
+    //与敌机的撞击测试
+    uint32_t isEnemyHitFlag=(
+                                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
+                                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+1)))|
+                                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+2)))|
+                                (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
+                                (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
+                            );
+    if(isEnemyHitFlag==0){
         myPlane->liveFlag=myPlane->liveFlag;
-        return false;
     }
     else{
         // printf("hitMap->map[gridPosY+0]==%x",enemyPlaneHitMap.map[gridPosY+0]);
@@ -342,7 +421,28 @@ bool isMyPlaneHit(PLANEType* myPlane,hitMapType* enemyPlaneHitMap){
         myPlane->PosX=255;
         myPlane->PosY=239;
         myPlane->liveFlag=0;
-        return true;
+    }
+
+    //与buff的撞击测试
+    uint8_t buffMapGridPosX=buff->PosX>>3;
+    uint8_t buffMapGridPosY=buff->PosY>>3;
+    uint32_t isBuffHitFlag=(
+                                (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+0)))|
+                                (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+1)))|
+                                (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+2)))|
+                                (myPlaneHitMap->map[buffMapGridPosY+1] & (1<<(buffMapGridPosX+0)))|
+                                (myPlaneHitMap->map[buffMapGridPosY+1] & (1<<(buffMapGridPosX+1)))
+                            );
+    if(isBuffHitFlag==0){
+    }
+    else{
+        buff->liveFlag=0;
+        if(buff->buffType==BUFF_POWER&&myPlane->bulletOnceNum<2){
+            myPlane->bulletOnceNum+=1;
+        }
+            
+        else if(buff->buffType==BUFF_HP)
+            myPlane->hp+=1;
     }
 }
 
@@ -399,14 +499,59 @@ void isBulletsHit(BULLETType* bullet,hitMapType hitMap){
     }
 } 
 
-void gameFPSDraw(uint32_t fps){
+void gameFPSDraw(uint32_t fps,uint8_t* spriteRamAddr){
     uint8_t ge = fps%10;
     uint8_t shi = (fps/10)%10;
     uint8_t bai = (fps/100)%10;
     uint8_t qian = (fps/1000)%10;
 
-    writeOneSprite(SPRITE_RAM_ADDR_START_FPS+0,220+0 ,220,qian,0x30);
-    writeOneSprite(SPRITE_RAM_ADDR_START_FPS+1,220+8 ,220,bai,0x30);
-    writeOneSprite(SPRITE_RAM_ADDR_START_FPS+2,220+16,220,shi,0x30);
-    writeOneSprite(SPRITE_RAM_ADDR_START_FPS+3,220+24,220,ge,0x30);
+    writeOneSprite((*spriteRamAddr)+0,220+0 ,220,qian,0x30);
+    writeOneSprite((*spriteRamAddr)+1,220+8 ,220,bai,0x30);
+    writeOneSprite((*spriteRamAddr)+2,220+16,220,shi,0x30);
+    writeOneSprite((*spriteRamAddr)+3,220+24,220,ge,0x30);
+}
+
+void buffInit(BUFFType* buff){
+    buff->liveFlag=0;
+}
+
+void createOneBuff(uint8_t PosX,uint8_t PosY,uint8_t buffType,BUFFType* buff){
+    if(buff->liveFlag==0){
+        buff->liveFlag=1;
+        buff->PosX=PosX;
+        buff->PosY=PosY;
+        buff->buffType=buffType;
+        buff->FpsCnt=0;
+    }
+}
+
+void updateBuffData(BUFFType* buff){
+    if(buff->liveFlag!=0){
+
+        if(buff->FpsCnt>=BUFF_FPS){
+            buff->PosY+=1;
+            buff->FpsCnt=0;
+            if(buff->PosY>BOTTOM_LINE)//超出边界
+                buff->liveFlag=0;
+        }   
+        else
+            buff->FpsCnt+=1;
+    }
+}
+
+void buffDraw(uint8_t* spriteRamAddr){
+    if(buff.liveFlag!=0){
+        if(buff.buffType==BUFF_POWER){
+            writeOneSprite((*spriteRamAddr)+0,buff.PosX+0,buff.PosY-8,BUFF_TYPE0_0,0x00);
+            writeOneSprite((*spriteRamAddr)+1,buff.PosX+0,buff.PosY+0,BUFF_TYPE0_1,0x00);
+            writeOneSprite((*spriteRamAddr)+2,buff.PosX+8,buff.PosY+0,BUFF_TYPE0_2,0x00);
+            *spriteRamAddr+=3;
+        }
+        else if(buff.buffType==BUFF_HP){
+            writeOneSprite((*spriteRamAddr)+0,buff.PosX+0,buff.PosY-8,BUFF_TYPE1_0,0x30);
+            writeOneSprite((*spriteRamAddr)+1,buff.PosX+0,buff.PosY+0,BUFF_TYPE1_1,0x30);
+            writeOneSprite((*spriteRamAddr)+2,buff.PosX+8,buff.PosY+0,BUFF_TYPE1_2,0x30);
+            *spriteRamAddr+=3;
+        }
+    }
 }

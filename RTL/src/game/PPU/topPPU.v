@@ -54,6 +54,7 @@ module topPPU#(
     wire IsGameWindow = (vgaPosX>=`GAME_START_POSX && vgaPosX<`GAME_START_POSX+`GAME_WINDOW_WIDTH) &&
                         (vgaPosY>=`GAME_START_POSY && vgaPosY<`GAME_START_POSY+`GAME_WINDOW_HEIGHT);
 
+
     wire    [4*(`BYTE)-1:0]                 dataToTileDraw      [0:8-1];
     wire    [`SPRITE_TILEROM_ADDRBIT-1:0]   tileIndex           [0:8-1];
     wire    [`SPRITE_TILEDATA_BIT-1:0]      tileDataI           [0:8-1];
@@ -67,7 +68,7 @@ module topPPU#(
                                                 IsScanRange[4] ? vgaRgbOut[4]:(
                                                 IsScanRange[5] ? vgaRgbOut[5]:(
                                                 IsScanRange[6] ? vgaRgbOut[6]:(
-                                                IsScanRange[7] ? vgaRgbOut[7]:12'h0)))))));
+                                                IsScanRange[7] ? vgaRgbOut[7]:12'h22)))))));
 
     genvar  i;
     generate

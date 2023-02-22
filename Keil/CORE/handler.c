@@ -69,7 +69,7 @@ extern const uint8_t BULLET_NUMMAX;
 extern BULLETType bullet;
 extern hitMapType bulletsHitMap;
 
-extern PLANEType myplane;
+extern MYPLANEType myplane;
 extern hitMapType myPlaneHitMap;
 
 extern const uint8_t ENEMY_NUMMAX; 
@@ -81,7 +81,7 @@ extern uint32_t GameScore;
 void KEY0(void){
     LED_toggle(0);
     
-   if(myplane.PosX>30)
+   if(myplane.PosX>LEFT_LINE+5)
         myplane.PosX-=5;
     //    photo();
 //    uint16_t x, y;
@@ -93,7 +93,7 @@ void KEY0(void){
 
 void KEY1(void){
     LED_toggle(1);
-    if(myplane.PosX<200)
+    if(myplane.PosX<RIGHT_LINE-5)
         myplane.PosX+=5;
 }
 
@@ -108,15 +108,34 @@ void KEY2(void){
 void KEY3(void){
     LED_toggle(3);
     // createOneEnmeyPlane();
-    if(myplane.PosY>30)
+    if(myplane.PosY>TOP_LINE)
         myplane.PosY-=5;
 }
 
 //Timer
 extern uint32_t fps;
 void Timer_Handler(void){
-    gameFPSDraw(fps);
-    fps=0;
+    //gameFPSDraw(fps);
+    uint32_t key_value=READ_KEY();
+
+      if(key_value==1){//按键0按下
+         if(myplane.PosX>LEFT_LINE+5)
+            myplane.PosX-=5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+      }
+
+      if(key_value==2){//按键1按下
+         if(myplane.PosX<RIGHT_LINE-5)
+            myplane.PosX+=5;
+      }
+
+      if(key_value==4){//按键2按下
+         createOneBullet();
+      }
+
+      if(key_value==8){//按键3按下
+         //createOneBullet();
+      }
+
     // uint8_t x=12*(rand()%10)+30;
     // uint8_t y=12*(rand()%10)+10;
     // createOneEnmeyPlane(x,y);
