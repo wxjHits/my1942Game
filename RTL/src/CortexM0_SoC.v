@@ -77,9 +77,10 @@ module CortexM0_SoC (
 
     wire [3:0]GPIOINT;
     wire TIMERINT;
+    wire TIMERINT_1;
 
     wire [31:0] IRQ;
-    assign IRQ = {24'b0,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
+    assign IRQ = {23'b0,TIMERINT_1,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
 
     wire RXEV;
     assign RXEV = 1'b0;
@@ -618,10 +619,10 @@ module CortexM0_SoC (
                             .PRDATA5                            (32'b0),    //(PRDATA_APBP5),
                             .PSLVERR5                           (1'b0),     //(PSLVERR_APBP5),
 
-                            .PSEL6                              (),
-                            .PREADY6                            (1'b1),
-                            .PRDATA6                            (32'b0),
-                            .PSLVERR6                           (1'b0),
+                            .PSEL6                              (PSEL_APBP6),
+                            .PREADY6                            (PREADY_APBP6),
+                            .PRDATA6                            (PRDATA_APBP6),
+                            .PSLVERR6                           (PSLVERR_APBP6),
 
                             .PSEL7                              (),
                             .PREADY7                            (1'b1),
@@ -798,6 +799,26 @@ module CortexM0_SoC (
 
                   .PWM_out  (),   //PWM mode out
                   .TIMERINT (TIMERINT)   // Timer interrupt output
+              );
+
+    //APB6 TIMER
+    apb_timer u_apb_timer_1 (
+                  .PCLK     (clk),   // PCLK for timer operation
+                  .PCLKG    (clk),   // Gated clock
+                  .PRESETn  (cpuresetn),   // Reset
+
+                  .PSEL     (PSEL_APBP6),   // Device select
+                  .PADDR    (PADDR[15:0]),   // Address
+                  .PENABLE  (PENABLE),   // Transfer control
+                  .PWRITE   (PWRITE),   // Write control
+                  .PWDATA   (PWDATA),   // Write data
+                  .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
+                  .PRDATA   (PRDATA_APBP6),   // Read data
+                  .PREADY   (PREADY_APBP6),   // Device ready
+                  .PSLVERR  (PSLVERR_APBP6),   // Device error response
+
+                  .PWM_out  (),   //PWM mode out
+                  .TIMERINT (TIMERINT_1)   // Timer interrupt output
               );
 
     //APB4 SPI

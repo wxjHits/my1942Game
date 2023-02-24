@@ -25,6 +25,7 @@ module tileDraw(
     output wire                             IsScanRange,//ĺ˝ĺtitleçćŤćčĺ?
     
     //to VGA_driver.v
+    input wire [`RGB_BIT-1:0] backgroundVgaRgbIn,
     output reg [`RGB_BIT-1:0] vgaRgbOut
 );
     assign spriteViewRamIndex = inSpriteViewRamIndex;
@@ -145,7 +146,7 @@ wire  [`RGB_BIT-1:0] PaletteColor11;
 wire [1:0]yy={tileDataI[127-whichBit],tileDataI[63-whichBit]};
 always@(*)begin
     case({tileDataI[127-whichBit],tileDataI[63-whichBit]})
-        2'b00:vgaRgbOut=PaletteColor00;
+        2'b00:vgaRgbOut=backgroundVgaRgbIn;
         2'b01:vgaRgbOut=PaletteColor01;
         2'b10:vgaRgbOut=PaletteColor10;
         2'b11:vgaRgbOut=PaletteColor11;

@@ -4,6 +4,7 @@
 #include "camera.h"
 #include "lcd.h"
 #include "led.h"
+#include "key.h"
 
 #include "myGame.h"
 #include "spriteRam.h"
@@ -114,49 +115,42 @@ void KEY3(void){
 
 //Timer
 extern uint32_t fps;
+uint8_t timer_cnt;
+uint8_t start;
 void Timer_Handler(void){
     //gameFPSDraw(fps);
     uint32_t key_value=READ_KEY();
-
-      if(key_value==1){//按键0按下
-         if(myplane.PosX>LEFT_LINE+5)
-            myplane.PosX-=5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
-      }
-
-      if(key_value==2){//按键1按下
-         if(myplane.PosX<RIGHT_LINE-5)
-            myplane.PosX+=5;
-      }
-
-      if(key_value==4){//按键2按下
-         createOneBullet();
-      }
-
-      if(key_value==8){//按键3按下
-         //createOneBullet();
-      }
-
-    // uint8_t x=12*(rand()%10)+30;
-    // uint8_t y=12*(rand()%10)+10;
-    // createOneEnmeyPlane(x,y);
-    
-    // myPlaneDraw(myplane.PosX,myplane.PosY);
-    // bulletDraw();
-    // enmeyPlaneDraw();
-
-    // enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
-    // bulletsMapCreate(&bullet,&bulletsHitMap);
-
-    // isMyPlaneHit(&myplane,&enemyPlaneHitMap);
-    // isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
-    // isBulletsHit(&bullet,enemyPlaneHitMap);
-    // gameScoreDraw(3,10,GameScore);
-
-    // moveEnmeyPlane(&enmeyPlane);
-    // updateBulletData();
+    if(timer_cnt>=4){
+        timer_cnt=0;
+        if(key_value==8){//按键2按下
+            if(myplane.actFlag==1);
+            else
+                createOneBullet();
+        }
+        if(key_value==4){//按键3按下
+            start=1;
+        }                 
+    }
+    else{
+        timer_cnt+=1;
+        if(key_value==1){//按键0按下
+            if(myplane.PosX>LEFT_LINE+5)
+                myplane.PosX-=5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+        }
+        if(key_value==2){//按键1按下
+            if(myplane.PosX<RIGHT_LINE-5)
+                myplane.PosX+=5;
+        }
+    }
+    myPlaneAct(&start);
 }
 
-
+void Timer_1_Handler(void){
+    uint32_t key_value=READ_KEY();
+    if(key_value==4){//按键2按下
+         createOneBullet();
+      }
+}
 
 
 

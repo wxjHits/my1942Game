@@ -28,7 +28,8 @@ typedef enum IRQn
   KEY1_IRQn                     = 4,
   KEY2_IRQn                     = 5,
   KEY3_IRQn                     = 6,
-  TIMER_IRQn                    = 7
+  TIMER_IRQn                    = 7,
+  TIMER_1_IRQn                    = 8
 } IRQn_Type;
 
 /*

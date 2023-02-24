@@ -1,6 +1,6 @@
 Dependencies for Project 'm0', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x63F60D5E)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
-I (..\CORE\CortexM0.h)(0x63E4D47D)
+F (.\main.c)(0x63F8C97D)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (..\CORE\CortexM0.h)(0x63F8743E)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
 I (..\CORE\core_cm0.h)(0x63E4D47D)
@@ -12,16 +12,16 @@ I (..\DEVICE\led.h)(0x63E4D47D)
 I (pic_resource.h)(0x63E4D47D)
 I (..\DEVICE\lcd.h)(0x63E4D47D)
 I (..\DEVICE\key.h)(0x63E4D47D)
-I (..\DEVICE\timer.h)(0x63E4D47D)
+I (..\DEVICE\timer.h)(0x63F873BF)
 I (..\DEVICE\spi_flash.h)(0x63E4D47D)
 I (..\DEVICE\systick.h)(0x63F419DF)
-I (..\DEVICE\myGame.h)(0x63F60F17)
+I (..\DEVICE\myGame.h)(0x63F8B8D7)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
 I (..\DEVICE\spriteRam.h)(0x63EA3AE1)
 I (..\DEVICE\malloc.h)(0x63E4D47D)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
-F (..\CORE\handler.c)(0x63F5FBE0)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\handler.o --omf_browse .\objects\handler.crf --depend .\objects\handler.d)
-I (..\CORE\CortexM0.h)(0x63E4D47D)
+F (..\CORE\handler.c)(0x63F8BB67)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\handler.o --omf_browse .\objects\handler.crf --depend .\objects\handler.d)
+I (..\CORE\CortexM0.h)(0x63F8743E)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
 I (..\CORE\core_cm0.h)(0x63E4D47D)
@@ -32,13 +32,14 @@ I (..\DEVICE\uart.h)(0x63E4D47D)
 I (..\DEVICE\camera.h)(0x63E4D47D)
 I (..\DEVICE\lcd.h)(0x63E4D47D)
 I (..\DEVICE\led.h)(0x63E4D47D)
-I (..\DEVICE\myGame.h)(0x63F60F17)
+I (..\DEVICE\key.h)(0x63E4D47D)
+I (..\DEVICE\myGame.h)(0x63F8B8D7)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
 I (..\DEVICE\spriteRam.h)(0x63EA3AE1)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
-F (..\CORE\startup_CM0DS.s)(0x63E4D47D)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"--pd "__UVISION_VERSION SETA 528" --pd "CMSDK_CM0 SETA 1"--list .\listings\startup_cm0ds.lst --xref -o .\objects\startup_cm0ds.o --depend .\objects\startup_cm0ds.d)
-F (..\CORE\system.c)(0x63E4F7A2)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\system.o --omf_browse .\objects\system.crf --depend .\objects\system.d)
-I (..\CORE\CortexM0.h)(0x63E4D47D)
+F (..\CORE\startup_CM0DS.s)(0x63F8746B)(--cpu Cortex-M0 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"--pd "__UVISION_VERSION SETA 528" --pd "CMSDK_CM0 SETA 1"--list .\listings\startup_cm0ds.lst --xref -o .\objects\startup_cm0ds.o --depend .\objects\startup_cm0ds.d)
+F (..\CORE\system.c)(0x63F8741C)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\system.o --omf_browse .\objects\system.crf --depend .\objects\system.d)
+I (..\CORE\CortexM0.h)(0x63F8743E)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
 I (..\CORE\core_cm0.h)(0x63E4D47D)
@@ -70,13 +71,13 @@ I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 F (..\DEVICE\systick.c)(0x63F41983)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\systick.o --omf_browse .\objects\systick.crf --depend .\objects\systick.d)
 I (..\DEVICE\systick.h)(0x63F419DF)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
-I (..\CORE\CortexM0.h)(0x63E4D47D)
+I (..\CORE\CortexM0.h)(0x63F8743E)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
 I (..\CORE\core_cm0.h)(0x63E4D47D)
 I (..\CORE\core_cmInstr.h)(0x63E4D47D)
 I (..\CORE\core_cmFunc.h)(0x63E4D47D)
-F (..\DEVICE\timer.c)(0x63E4D47D)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
-I (..\DEVICE\timer.h)(0x63E4D47D)
+F (..\DEVICE\timer.c)(0x63F873AC)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\timer.o --omf_browse .\objects\timer.crf --depend .\objects\timer.d)
+I (..\DEVICE\timer.h)(0x63F873BF)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 F (..\DEVICE\uart.c)(0x63E4D47D)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\uart.o --omf_browse .\objects\uart.crf --depend .\objects\uart.d)
 I (..\DEVICE\uart.h)(0x63E4D47D)
@@ -90,12 +91,13 @@ F (..\DEVICE\spriteRam.c)(0x63F34D07)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLI
 I (..\DEVICE\spriteRam.h)(0x63EA3AE1)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-F (..\DEVICE\myGame.c)(0x63F6301A)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\mygame.o --omf_browse .\objects\mygame.crf --depend .\objects\mygame.d)
-I (..\DEVICE\myGame.h)(0x63F60F17)
+F (..\DEVICE\myGame.c)(0x63F8BCA5)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\mygame.o --omf_browse .\objects\mygame.crf --depend .\objects\mygame.d)
+I (..\DEVICE\myGame.h)(0x63F8B8D7)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
 I (..\DEVICE\spriteRam.h)(0x63EA3AE1)
 I (..\DEVICE\uart.h)(0x63E4D47D)
+I (..\DEVICE\led.h)(0x63E4D47D)
 F (..\DEVICE\pstwo.c)(0x63F41971)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\pstwo.o --omf_browse .\objects\pstwo.crf --depend .\objects\pstwo.d)
 I (..\DEVICE\systick.h)(0x63F419DF)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)

@@ -1,9 +1,18 @@
 #include "myGame.h"
 #include "spriteRam.h"
 #include "uart.h"
+#include "led.h"
+
+extern const uint8_t ANGLE_NUMMAX;
+extern const int16_t sin_array[10];
+extern const int16_t cos_array[10];
+extern const float tan_array[10];
 
 extern const uint8_t BULLET_NUMMAX; 
 extern BULLETType bullet[3];
+
+extern const uint8_t ENEMY_BULLETS_NUMMAX;
+extern BULLETType enmeyBullets[5];
 
 extern MYPLANEType myplane;
 
@@ -100,19 +109,6 @@ void myPlaneInit(void){
     myplane.hp=15;
 }
 
-void myPlaneDraw(uint8_t PosX,uint8_t PosY,uint8_t* spriteRamAddr){
-    uint8_t ram_num=(*spriteRamAddr);
-    uint8_t sprite_num = 0x33;
-    if(myplane.liveFlag!=0){
-        writeOneSprite(ram_num+0,PosX+0,PosY,sprite_num+0,0x30);
-        writeOneSprite(ram_num+1,PosX+8,PosY,sprite_num+1,0x30);
-        writeOneSprite(ram_num+2,PosX+16,PosY,sprite_num+0,0x70);
-        writeOneSprite(ram_num+3,PosX+4,PosY+8,sprite_num+2,0x30);
-        writeOneSprite(ram_num+4,PosX+12,PosY+8,sprite_num+3,0x30);
-        *spriteRamAddr+=5;
-    }
-}
-
 //敌机相关函数
 void enmeyPlaneInit(void){
     for(int i=0;i<ENEMY_NUMMAX;i++)
@@ -125,6 +121,7 @@ void createOneEnmeyPlane(uint8_t PosX,uint8_t PosY,ROUTEType route){
             // enmeyPlane[i].PosX=myplane.PosX+30;
             // enmeyPlane[i].PosY=myplane.PosY-20;
 
+            
             enmeyPlane[i].type=rand()%2;
             enmeyPlane[i].attitude=0;
 
@@ -139,6 +136,9 @@ void createOneEnmeyPlane(uint8_t PosX,uint8_t PosY,ROUTEType route){
             enmeyPlane[i].route.routeCnt=route.routeCnt;
             enmeyPlane[i].route.routeCircleCnt=route.routeCircleCnt;
 
+            enmeyPlane[i].shootFlag=rand()%5;
+            enmeyPlane[i].shootPosY=enmeyPlane[i].route.turnLine;
+
             break;
         }
     }
@@ -147,10 +147,20 @@ void createOneEnmeyPlane(uint8_t PosX,uint8_t PosY,ROUTEType route){
 void moveEnmeyPlane(PLANEType* enmeyPlane){
     for(int i=0;i<ENEMY_NUMMAX;i++){
 
-        if(enmeyPlane[i].PosY>=myplane.PosY+rand()%10){//敌机转折点
+        //
+        // if(enmeyPlane[i].PosY>=enmeyPlane[i].shootPosY && enmeyPlane[i].shootFlag==1){//敌机发射子弹的点
+        //     createOneEnmeyBullet(&enmeyPlane[i]);
+        //     enmeyPlane[i].shootFlag=0;
+        // }
+
+        if(enmeyPlane[i].PosY>=myplane.PosY-20-rand()%20){//敌机转折点
             enmeyPlane[i].route.routeCnt=1;
             if(enmeyPlane[i].attitude>=4)
                 enmeyPlane[i].route.routeCnt=2;
+            if(enmeyPlane[i].shootFlag==1){
+                createOneEnmeyBullet(&enmeyPlane[i]);
+                enmeyPlane[i].shootFlag=0;
+            }
         }
 
         if(enmeyPlane[i].liveFlag!=0){
@@ -395,54 +405,78 @@ void enemyMapCreate(PLANEType* enmeyPlane,hitMapType* hitMap){
 }
 
 //我方飞机可以被敌方子弹和敌方飞机摧毁并产生爆炸效果(我方飞机后续可以添加护盾效果,更换调色板表示进行赤红状态,可以承受一次撞击)
-void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,BUFFType* buff,hitMapType* myPlaneHitMap){
+void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,hitMapType* enmeyBulletsHitMap,BUFFType* buff,hitMapType* myPlaneHitMap){
     // for(int i=0;i<32;i++){
     //     enemyPlaneHitMap->map[i]=0;
     // }
-    enemyMapCreate(&enmeyPlane,enemyPlaneHitMap);
-
-    uint8_t gridPosX=(myPlane->PosX >>3);
-    uint8_t gridPosY=myPlane->PosY >>3;
-
-    //与敌机的撞击测试
-    uint32_t isEnemyHitFlag=(
-                                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
-                                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+1)))|
-                                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+2)))|
-                                (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
-                                (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
-                            );
-    if(isEnemyHitFlag==0){
-        myPlane->liveFlag=myPlane->liveFlag;
-    }
+    // enemyMapCreate(&enmeyPlane,enemyPlaneHitMap);
+    if(myPlane->actFlag==1)
+        ;
     else{
-        // printf("hitMap->map[gridPosY+0]==%x",enemyPlaneHitMap.map[gridPosY+0]);
-        createOneBoom(myplane.PosX,myplane.PosY,&boom);
-        myPlane->PosX=255;
-        myPlane->PosY=239;
-        myPlane->liveFlag=0;
-    }
+        uint8_t gridPosX=(myPlane->PosX >>3);
+        uint8_t gridPosY=myPlane->PosY >>3;
 
-    //与buff的撞击测试
-    uint8_t buffMapGridPosX=buff->PosX>>3;
-    uint8_t buffMapGridPosY=buff->PosY>>3;
-    uint32_t isBuffHitFlag=(
-                                (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+0)))|
-                                (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+1)))|
-                                (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+2)))|
-                                (myPlaneHitMap->map[buffMapGridPosY+1] & (1<<(buffMapGridPosX+0)))|
-                                (myPlaneHitMap->map[buffMapGridPosY+1] & (1<<(buffMapGridPosX+1)))
-                            );
-    if(isBuffHitFlag==0){
-    }
-    else{
-        buff->liveFlag=0;
-        if(buff->buffType==BUFF_POWER&&myPlane->bulletOnceNum<2){
-            myPlane->bulletOnceNum+=1;
+        //与敌机的撞击测试
+        uint32_t isEnemyHitFlag=(
+                                    (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
+                                    (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+1)))|
+                                    (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+2)))|
+                                    (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
+                                    (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
+                                );
+        if(isEnemyHitFlag==0){
+            myPlane->liveFlag=myPlane->liveFlag;
         }
-            
-        else if(buff->buffType==BUFF_HP)
-            myPlane->hp+=1;
+        else{
+            // printf("hitMap->map[gridPosY+0]==%x",enemyPlaneHitMap.map[gridPosY+0]);
+            createOneBoom(myplane.PosX,myplane.PosY,&boom);
+            myPlane->PosX=255;
+            myPlane->PosY=239;
+            myPlane->liveFlag=0;
+        }
+
+        //与敌机子弹的撞击测试
+        uint32_t isEnemyBulletsHitFlag=(
+                                    (enmeyBulletsHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
+                                    (enmeyBulletsHitMap->map[gridPosY+0] & (1<<(gridPosX+1)))|
+                                    (enmeyBulletsHitMap->map[gridPosY+0] & (1<<(gridPosX+2)))|
+                                    (enmeyBulletsHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
+                                    (enmeyBulletsHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
+                                );
+        if(isEnemyBulletsHitFlag==0){
+            myPlane->liveFlag=myPlane->liveFlag;
+        }
+        else{
+            // printf("hitMap->map[gridPosY+0]==%x",enemyPlaneHitMap.map[gridPosY+0]);
+            createOneBoom(myplane.PosX,myplane.PosY,&boom);
+            myPlane->PosX=255;
+            myPlane->PosY=239;
+            myPlane->liveFlag=0;
+        }
+
+        //与buff的撞击测试
+        uint8_t buffMapGridPosX=buff->PosX>>3;
+        uint8_t buffMapGridPosY=buff->PosY>>3;
+        uint32_t isBuffHitFlag=(
+                                    (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+0)))|
+                                    (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+1)))|
+                                    (myPlaneHitMap->map[buffMapGridPosY+0] & (1<<(buffMapGridPosX+2)))|
+                                    (myPlaneHitMap->map[buffMapGridPosY+1] & (1<<(buffMapGridPosX+0)))|
+                                    (myPlaneHitMap->map[buffMapGridPosY+1] & (1<<(buffMapGridPosX+1)))
+                                );
+        if(isBuffHitFlag==0){
+        }
+        else{
+            buff->liveFlag=0;
+            buff->PosX=255;
+            buff->PosY=239;
+            if(buff->buffType==BUFF_POWER&&myPlane->bulletOnceNum<2){
+                myPlane->bulletOnceNum+=1;
+            }
+
+            else if(buff->buffType==BUFF_HP)
+                myPlane->hp+=1;
+        }
     }
 }
 
@@ -470,13 +504,16 @@ void isEnemyPlaneHit(PLANEType* enmeyPlane,hitMapType bulletsHitMap){
                 (enmeyPlane+i)->PosX=253;
                 (enmeyPlane+i)->PosY=239;
                 GameScore+=10;
+                if(GameScore==50)
+                    createOneBuff(20,120,BUFF_POWER,&buff);
             }
         }
     }
 }
 
 //我方子弹可以被敌方子弹和敌方飞机摧毁(我方子弹最后可以添加无敌效果)
-void isBulletsHit(BULLETType* bullet,hitMapType hitMap){
+// void isBulletsHit(BULLETType* bullet,hitMapType hitMap){
+void isBulletsHit(BULLETType* bullet,hitMapType* enemyPlaneHitMap,hitMapType* enmeyBulletsHitMap){
     for(int i=0;i<BULLET_NUMMAX;i++){
         if((bullet+i)->liveFlag!=0){
             uint8_t gridPosX=((bullet+i)->PosX >>3);
@@ -484,7 +521,8 @@ void isBulletsHit(BULLETType* bullet,hitMapType hitMap){
 
             uint32_t isHitFlag = 
             (
-                (hitMap.map[gridPosY+0] & (1<<(gridPosX+0)))
+                (enemyPlaneHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
+                (enmeyBulletsHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))
             );
             if(isHitFlag==0){
                 (bullet+i)->liveFlag=(bullet+i)->liveFlag;
@@ -553,5 +591,196 @@ void buffDraw(uint8_t* spriteRamAddr){
             writeOneSprite((*spriteRamAddr)+2,buff.PosX+8,buff.PosY+0,BUFF_TYPE1_2,0x30);
             *spriteRamAddr+=3;
         }
+    }
+}
+
+//敌方子弹的相关函数
+void enmeyBulletInit(void){
+    for(int i=0;i<ENEMY_BULLETS_NUMMAX;i++)
+        enmeyBullets[i].liveFlag=0;
+}
+
+void createOneEnmeyBullet(PLANEType* enmeyPlane){
+    for(int i=0;i<ENEMY_BULLETS_NUMMAX;i++){
+        if(enmeyBullets[i].liveFlag==0){
+            enmeyBullets[i].PosX=enmeyPlane->PosX+8;
+            enmeyBullets[i].PosY=enmeyPlane->PosY-8;
+            enmeyBullets[i].liveFlag=1;
+
+            int16_t enemy_x = (enmeyPlane->PosX);
+            int16_t enemy_y = (enmeyPlane->PosY);
+            int16_t myplane_x = myplane.PosX;
+            int16_t myplane_y = myplane.PosY;
+
+            int16_t PosX_SUB = myplane.PosX-(enmeyPlane->PosX);
+            int16_t PosY_SUB = myplane.PosY-(enmeyPlane->PosY);
+            float PosX_SUB_Abs= (PosX_SUB<0)?(-PosX_SUB):PosX_SUB;//绝对值
+            float PosY_SUB_Abs= (PosY_SUB<0)?(-PosY_SUB):PosY_SUB;//绝对值
+            float tanValue = PosY_SUB_Abs/PosX_SUB_Abs;
+            for(int j=0;j<ANGLE_NUMMAX;j++){
+                if(tan_array[j]-tanValue>=0){
+                    enmeyBullets[i].PosX_ADD=cos_array[j];
+                    enmeyBullets[i].PosY_ADD=sin_array[j];
+                    if(PosX_SUB<0)
+                        enmeyBullets[i].PosX_ADD=-enmeyBullets[i].PosX_ADD;
+                    if(PosY_SUB<0)
+                        enmeyBullets[i].PosY_ADD=-enmeyBullets[i].PosY_ADD;
+                    break;
+                }
+            }
+            // enmeyBullets[i].PosX_ADD=1;
+            // enmeyBullets[i].PosY_ADD=1;
+            break;
+        }
+    }
+}
+
+void updateEnemyBulletData(void){
+    for(int i=0;i<ENEMY_BULLETS_NUMMAX;i++){
+        if(enmeyBullets[i].FpsCnt==ENEMY_BULLET_FPS_MAX){
+            enmeyBullets[i].FpsCnt=0;
+            if(enmeyBullets[i].liveFlag!=0){
+                enmeyBullets[i].PosY+=enmeyBullets[i].PosY_ADD;
+                enmeyBullets[i].PosX+=enmeyBullets[i].PosX_ADD;
+                if(enmeyBullets[i].PosY>BOTTOM_LINE||enmeyBullets[i].PosY<TOP_LINE)//超出边界
+                    enmeyBullets[i].liveFlag=0;
+                else if(enmeyBullets[i].PosX>RIGHT_LINE||enmeyBullets[i].PosX<LEFT_LINE)//超出边界
+                    enmeyBullets[i].liveFlag=0;
+            }
+        }
+        else
+            enmeyBullets[i].FpsCnt+=1;
+    }
+}
+
+void enemyBulletsMapCreate(BULLETType* enmeyBullet,hitMapType* hitMap){
+    for(int i=0;i<30;i++)
+        hitMap->map[i]=0;
+    for (int i=0;i<ENEMY_BULLETS_NUMMAX;i++){
+        if(enmeyBullets[i].liveFlag!=0)
+            tileMap((enmeyBullets[i]).PosX,(enmeyBullets[i]).PosY,hitMap);
+    }
+}
+
+void enmeyBulletDraw(uint8_t* spriteRamAddr){
+    for(int i=0;i<ENEMY_BULLETS_NUMMAX;i++){
+        if(enmeyBullets[i].liveFlag!=0){
+            writeOneSprite((*spriteRamAddr),enmeyBullets[i].PosX,enmeyBullets[i].PosY,0x30,0x10);
+            (*spriteRamAddr)+=1;
+        }
+    }
+}
+
+//这里的start应该是先置1后马上置0，目前计划放在定时中断中
+void myPlaneAct(uint8_t* start){
+    if(myplane.actFlag==0){
+        if(*start==1){
+            myplane.actFlag=1;
+            myplane.actFpsCnt=0;
+            myplane.attitude=1;
+            *start=0;
+            LED_toggle(3);
+        }
+    }
+    else{
+        if(myplane.attitude<=4)
+            myplane.PosY-=1;
+        else
+            myplane.PosY+=1;
+    
+        if(myplane.actFpsCnt>=MYPLANE_ACT_FPSCNT_MAX){
+            myplane.actFpsCnt=0;
+            if(myplane.attitude>=MYPLANE_ACT_ATTITUDE_MAX){
+                myplane.actFlag=0;
+                myplane.attitude=0;
+            }
+            else{
+                myplane.attitude+=1;
+            }
+        }
+        else
+            myplane.actFpsCnt+=1;
+    }
+}
+
+void myPlaneDraw(uint8_t PosX,uint8_t PosY,uint8_t* spriteRamAddr){
+    uint8_t ram_num=(*spriteRamAddr);
+    uint8_t spriteRamAddr_add;
+    if(myplane.liveFlag!=0){
+        switch (myplane.attitude)
+        {
+            case 0://正常形式&动画第0帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=5;
+                writeOneSprite(ram_num+0,PosX+0,PosY,MYPLANE_ACT_0_0,0x30);
+                writeOneSprite(ram_num+1,PosX+8,PosY,MYPLANE_ACT_0_1,0x30);
+                writeOneSprite(ram_num+2,PosX+16,PosY,MYPLANE_ACT_0_2,0x70);
+                writeOneSprite(ram_num+3,PosX+4,PosY+8,MYPLANE_ACT_0_3,0x30);
+                writeOneSprite(ram_num+4,PosX+12,PosY+8,MYPLANE_ACT_0_4,0x30);
+            break;
+            case 1://动画第1帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=5;
+                writeOneSprite(ram_num+0,PosX+0,PosY,MYPLANE_ACT_1_0,0x30);
+                writeOneSprite(ram_num+1,PosX+8,PosY,MYPLANE_ACT_1_1,0x30);
+                writeOneSprite(ram_num+2,PosX+16,PosY,MYPLANE_ACT_1_2,0x70);
+                writeOneSprite(ram_num+3,PosX+4,PosY+8,MYPLANE_ACT_1_3,0x30);
+                writeOneSprite(ram_num+4,PosX+12,PosY+8,MYPLANE_ACT_1_4,0x30);
+            break;
+            case 2://动画第2帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=3;
+                writeOneSprite(ram_num+0,PosX+0,PosY,MYPLANE_ACT_2_0,0x30);
+                writeOneSprite(ram_num+1,PosX+8,PosY,MYPLANE_ACT_2_1,0x30);
+                writeOneSprite(ram_num+2,PosX+16,PosY,MYPLANE_ACT_2_2,0x70);
+            break;
+            case 3://动画第4帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=4;
+                writeOneSprite(ram_num+0,PosX+0,PosY,MYPLANE_ACT_3_1,0x30);
+                writeOneSprite(ram_num+1,PosX+8,PosY,MYPLANE_ACT_3_2,0x30);
+                writeOneSprite(ram_num+2,PosX+16,PosY,MYPLANE_ACT_3_3,0x70);
+                writeOneSprite(ram_num+3,PosX+8,PosY-8,MYPLANE_ACT_3_0,0x70);
+            break;
+            case 4://动画第5帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=7;
+                writeOneSprite(ram_num+0,PosX+4,PosY-16,MYPLANE_ACT_4_0,0x30);
+                writeOneSprite(ram_num+1,PosX+12,PosY-16,MYPLANE_ACT_4_1,0x30);
+                writeOneSprite(ram_num+2,PosX+4,PosY-8,MYPLANE_ACT_4_2,0x30);
+                writeOneSprite(ram_num+3,PosX+12,PosY-8,MYPLANE_ACT_4_3,0x30);
+                writeOneSprite(ram_num+4,PosX+0,PosY+0,MYPLANE_ACT_4_4,0x30);
+                writeOneSprite(ram_num+5,PosX+8,PosY+0,MYPLANE_ACT_4_5,0x30);
+                writeOneSprite(ram_num+6,PosX+16,PosY+0,MYPLANE_ACT_4_6,0x30);
+            break;
+            case 5://动画第6帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=6;
+                writeOneSprite(ram_num+0,PosX+4,PosY-8,MYPLANE_ACT_5_0,0x30);
+                writeOneSprite(ram_num+1,PosX+12,PosY-8,MYPLANE_ACT_5_1,0x70);
+                writeOneSprite(ram_num+2,PosX+0,PosY+0,MYPLANE_ACT_5_2,0x30);
+                writeOneSprite(ram_num+3,PosX+8,PosY+0,MYPLANE_ACT_5_3,0x30);
+                writeOneSprite(ram_num+4,PosX+16,PosY+0,MYPLANE_ACT_5_4,0x70);
+            break;
+            case 6://动画第7帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=3;
+                writeOneSprite(ram_num+0,PosX+0,PosY,MYPLANE_ACT_2_0,0x30);
+                writeOneSprite(ram_num+1,PosX+8,PosY,MYPLANE_ACT_2_1,0x30);
+                writeOneSprite(ram_num+2,PosX+16,PosY,MYPLANE_ACT_2_2,0x70);
+            break;
+            case 7://正常形式&动画第0帧
+                // uint8_t sprite_num = 0x33;
+                spriteRamAddr_add=5;
+                writeOneSprite(ram_num+0,PosX+0,PosY,MYPLANE_ACT_0_0,0x30);
+                writeOneSprite(ram_num+1,PosX+8,PosY,MYPLANE_ACT_0_1,0x30);
+                writeOneSprite(ram_num+2,PosX+16,PosY,MYPLANE_ACT_0_2,0x70);
+                writeOneSprite(ram_num+3,PosX+4,PosY+8,MYPLANE_ACT_0_3,0x30);
+                writeOneSprite(ram_num+4,PosX+12,PosY+8,MYPLANE_ACT_0_4,0x30);
+            break;
+        default:
+            break;
+        }
+        *spriteRamAddr+=spriteRamAddr_add;
     }
 }

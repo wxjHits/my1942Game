@@ -15,6 +15,7 @@
 // 0x10 RW    INVERSE Value[31:0]
 //-------------------------------------
 #define TIMER_BASE         (0x40003000)
+#define TIMER_1_BASE         (0x40006000) 
 typedef struct{
     volatile uint32_t TIMER_CTRL;
     volatile uint32_t CURRENT_VALUE;
@@ -23,8 +24,10 @@ typedef struct{
     volatile uint32_t INVERSE_VALUE;
 }TIMERType;
 #define TIMER   ((TIMERType*)TIMER_BASE)
+#define TIMER_1   ((TIMERType*)TIMER_1_BASE)
 
 //TIMER
 void TIMER_Init(uint32_t reload_value,uint32_t inverse_value,uint32_t Intr_en);
+void TIMER_1_Init(uint32_t reload_value,uint32_t inverse_value,uint32_t Intr_en);
 
 #endif

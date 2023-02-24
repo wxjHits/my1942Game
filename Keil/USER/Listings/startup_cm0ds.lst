@@ -155,14 +155,14 @@ ARM Macro Assembler    Page 3
 ]
   100 00000000                 IMPORT           SystemInit
   101 00000000                 IMPORT           __main
-  102 00000000 4824            LDR              R0, =SystemInit
+  102 00000000 4826            LDR              R0, =SystemInit
   103 00000002         ; Initialise at least r8, r9 to avoid X in tests
   104 00000002         ; Only important for simulation where X can cause
   105 00000002         ; unexpected core behaviour
   106 00000002 4680            MOV              R8, R0
   107 00000004 46C1            MOV              R9, R8
   108 00000006 4780            BLX              R0
-  109 00000008 4823            LDR              R0, =__main
+  109 00000008 4825            LDR              R0, =__main
   110 0000000A 4700            BX               R0
   111 0000000C                 ENDP
   112 0000000C         
@@ -352,22 +352,31 @@ ARM Macro Assembler    Page 6
   248 00000092 BD07            POP              {R0,R1,R2,PC}
   249 00000094                 ENDP
   250 00000094         
-  251 00000094                 ALIGN
-  252 00000094         
-  253 00000094         
-  254 00000094         ; User Initial Stack & Heap
-  255 00000094         
-  256 00000094                 IF               :DEF:__MICROLIB
-  257 00000094         
-  258 00000094                 EXPORT           __initial_sp
-  259 00000094                 EXPORT           __heap_base
-  260 00000094                 EXPORT           __heap_limit
-  261 00000094         
-  262 00000094                 ELSE
-  277                          ENDIF
-  278 00000094         
-  279 00000094         
-  280 00000094                 END
+  251 00000094         TIMER_1_Handler
+                               PROC
+  252 00000094                 EXPORT           TIMER_1_Handler   [WEAK]
+  253 00000094                 IMPORT           Timer_1_Handler
+  254 00000094 B507            PUSH             {R0,R1,R2,LR}
+  255 00000096 F7FF FFFE       BL               Timer_1_Handler
+  256 0000009A BD07            POP              {R0,R1,R2,PC}
+  257 0000009C                 ENDP
+  258 0000009C         
+  259 0000009C                 ALIGN
+  260 0000009C         
+  261 0000009C         
+  262 0000009C         ; User Initial Stack & Heap
+  263 0000009C         
+  264 0000009C                 IF               :DEF:__MICROLIB
+  265 0000009C         
+  266 0000009C                 EXPORT           __initial_sp
+  267 0000009C                 EXPORT           __heap_base
+  268 0000009C                 EXPORT           __heap_limit
+  269 0000009C         
+  270 0000009C                 ELSE
+  285                          ENDIF
+  286 0000009C         
+  287 0000009C         
+  288 0000009C                 END
               00000000 
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M0 --apcs=interw
@@ -405,7 +414,7 @@ Symbol: __initial_sp
       At line 37 in file ..\CORE\startup_CM0DS.s
    Uses
       At line 63 in file ..\CORE\startup_CM0DS.s
-      At line 258 in file ..\CORE\startup_CM0DS.s
+      At line 266 in file ..\CORE\startup_CM0DS.s
 
 3 symbols
 
@@ -436,7 +445,7 @@ Symbol: __heap_base
    Definitions
       At line 47 in file ..\CORE\startup_CM0DS.s
    Uses
-      At line 259 in file ..\CORE\startup_CM0DS.s
+      At line 267 in file ..\CORE\startup_CM0DS.s
 Comment: __heap_base used once
 __heap_limit 00000400
 
@@ -444,7 +453,7 @@ Symbol: __heap_limit
    Definitions
       At line 49 in file ..\CORE\startup_CM0DS.s
    Uses
-      At line 260 in file ..\CORE\startup_CM0DS.s
+      At line 268 in file ..\CORE\startup_CM0DS.s
 Comment: __heap_limit used once
 4 symbols
 
@@ -623,6 +632,14 @@ Symbol: SysTick_Handler
       At line 78 in file ..\CORE\startup_CM0DS.s
       At line 180 in file ..\CORE\startup_CM0DS.s
 
+TIMER_1_Handler 00000094
+
+Symbol: TIMER_1_Handler
+   Definitions
+      At line 251 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 252 in file ..\CORE\startup_CM0DS.s
+Comment: TIMER_1_Handler used once
 TIMER_Handler 0000008C
 
 Symbol: TIMER_Handler
@@ -668,7 +685,13 @@ Symbol: UsageFault_Handler
       At line 69 in file ..\CORE\startup_CM0DS.s
       At line 148 in file ..\CORE\startup_CM0DS.s
 
-19 symbols
+
+
+ARM Macro Assembler    Page 4 Alphabetic symbol ordering
+Relocatable symbols
+
+
+20 symbols
 
 
 
@@ -816,12 +839,26 @@ Symbol: SystemInit
    Uses
       At line 102 in file ..\CORE\startup_CM0DS.s
 Comment: SystemInit used once
+Timer_1_Handler 00000000
+
+Symbol: Timer_1_Handler
+   Definitions
+      At line 253 in file ..\CORE\startup_CM0DS.s
+   Uses
+      At line 255 in file ..\CORE\startup_CM0DS.s
+Comment: Timer_1_Handler used once
 Timer_Handler 00000000
 
 Symbol: Timer_Handler
    Definitions
       At line 245 in file ..\CORE\startup_CM0DS.s
    Uses
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+External symbols
+
       At line 247 in file ..\CORE\startup_CM0DS.s
 Comment: Timer_Handler used once
 UARTOVRHandler 00000000
@@ -830,12 +867,6 @@ Symbol: UARTOVRHandler
    Definitions
       At line 205 in file ..\CORE\startup_CM0DS.s
    Uses
-
-
-
-ARM Macro Assembler    Page 3 Alphabetic symbol ordering
-External symbols
-
       At line 207 in file ..\CORE\startup_CM0DS.s
 Comment: UARTOVRHandler used once
 UARTRXHandler 00000000
@@ -870,5 +901,5 @@ Symbol: __main
    Uses
       At line 109 in file ..\CORE\startup_CM0DS.s
 Comment: __main used once
-19 symbols
-386 symbols in table
+20 symbols
+388 symbols in table

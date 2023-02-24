@@ -61,6 +61,7 @@ module topPPU#(
     wire    [8-1:0]           IsScanRange                              ;
     wire    [`RGB_BIT-1:0]                  vgaRgbOut           [0:8-1];
 
+    wire [`RGB_BIT-1:0] backgroundVgaRgbIn=12'h520;
     wire    [`RGB_BIT-1:0]      vgaRgbOutSel =  IsScanRange[0] ? vgaRgbOut[0]:(
                                                 IsScanRange[1] ? vgaRgbOut[1]:(
                                                 IsScanRange[2] ? vgaRgbOut[2]:(
@@ -68,7 +69,7 @@ module topPPU#(
                                                 IsScanRange[4] ? vgaRgbOut[4]:(
                                                 IsScanRange[5] ? vgaRgbOut[5]:(
                                                 IsScanRange[6] ? vgaRgbOut[6]:(
-                                                IsScanRange[7] ? vgaRgbOut[7]:12'h22)))))));
+                                                IsScanRange[7] ? vgaRgbOut[7]:backgroundVgaRgbIn)))))));
 
     genvar  i;
     generate
@@ -82,6 +83,7 @@ module topPPU#(
                 .tileIndex              (tileIndex[i]           ),
                 .tileDataI              (tileDataI[i]           ),
                 .IsScanRange            (IsScanRange[i]         ),
+                .backgroundVgaRgbIn     (backgroundVgaRgbIn     ),
                 .vgaRgbOut              (vgaRgbOut[i]           )
             );
         end

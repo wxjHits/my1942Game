@@ -247,6 +247,14 @@ TIMER_Handler 	PROC
 				BL Timer_Handler
 				POP {R0,R1,R2,PC}
 				ENDP
+
+TIMER_1_Handler PROC
+				EXPORT TIMER_1_Handler 		[WEAK]
+				IMPORT Timer_1_Handler
+				PUSH {R0,R1,R2,LR}
+				BL Timer_1_Handler
+				POP {R0,R1,R2,PC}
+				ENDP
 					
                 ALIGN
 

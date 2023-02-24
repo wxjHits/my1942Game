@@ -16,32 +16,7 @@
 #include "malloc.h"
 #include "stdlib.h"
 
-//
-// const uint8_t routeCircle[18][2]={
-//    10,20, 13,19, 16,17, 18,15, 19,11, 19, 8, 18, 5, 16, 2, 13, 0,
-//    10, 1, 6, 0, 3, 2, 1, 4, 0, 8, 0,11, 1,14, 3,17, 6,19
-// };
-
 const uint8_t routeCircle[18][2]={
-   //  10+60,20+60,
-   //  13+60,19+60,
-   //  16+60,17+60,
-   //  18+60,15+60,
-   //  19+60,11+60,
-   //  19+60, 8+60,
-   //  18+60, 5+60,
-   //  16+60, 2+60,
-   //  13+60, 0+60,
-   //  10+60, 1+60,
-   //   6+60, 0+60,
-   //   3+60, 2+60,
-   //   1+60, 4+60,
-   //   0+60, 8+60,
-   //   0+60,11+60,
-   //   1+60,14+60,
-   //   3+60,17+60,
-   //   6+60,19+60
-
    40+50,80+50,
    53+50,77+50,
    65+50,70+50,
@@ -62,12 +37,18 @@ const uint8_t routeCircle[18][2]={
    26+50,77+50
 };
 
+const uint8_t ANGLE_NUMMAX=10;
+const int16_t sin_array[ANGLE_NUMMAX]={1,2,2,2,3,4,4,4,5,5};
+const int16_t cos_array[ANGLE_NUMMAX]={4,4,4,4,4,3,2,2,1,0};
+const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.67,200};
+
+// angleValueType angle[ANGLE_NUMMAX];
 //我方子弹
-const uint8_t BULLET_NUMMAX=20; 
+const uint8_t BULLET_NUMMAX=20;
 BULLETType bullet[BULLET_NUMMAX];
 hitMapType bulletsHitMap;
 //敌方子弹
-const uint8_t ENEMY_BULLETS_NUMMAX=5; 
+const uint8_t ENEMY_BULLETS_NUMMAX=5;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 hitMapType enmeyBulletsHitMap;
 //我方飞机.
@@ -91,16 +72,14 @@ uint32_t fps;
 
 int main(void)
 { 
-    for(int i=0;i<64;i++){
-        writeOneSprite(i,240,240,31,0x00);
-    }
     myPlaneInit();
     bulletInit();
     enmeyPlaneInit();
+    enmeyBulletInit();
     buffInit(&buff);
    //先执行的是函数SystemInit();
-   uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-   SPI_Init(100);
+   //uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
+   //SPI_Init(100);
    
    // PS2_Init();		//======ps2驱动端口初始化
    // PS2_SetInit();	//======ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
@@ -112,11 +91,12 @@ int main(void)
    NVIC_EnableIRQ(KEY2_IRQn);
    NVIC_EnableIRQ(KEY3_IRQn);
 //    CAMERA_Initial();//占用较多的ROM资源,有许多初始化的const uint8_t 数据，共大约
-   TIMER_Init(10000000,0,1);//1000ms
+   TIMER_Init(3000000,0,1);//1000ms
+   //TIMER_1_Init(10000000,0,1);//1000ms
 
-   uint8_t *mario_8192=0;
-   mario_8192=mymalloc(4096);
-   myfree(mario_8192);
+   //uint8_t *mario_8192=0;
+   //mario_8192=mymalloc(4096);                                                                                                                                                                       
+   //myfree(mario_8192);
    //LCD_Clear(GRAYBLUE);
    while(1)
    {
@@ -134,15 +114,16 @@ int main(void)
        
       uint8_t x=20*(rand()%10)+30;
       uint8_t y=2*(rand()%10)+10;
-      ROUTEType route;
+      ROUTEType route;                         
       route.route0         = rand()%3+4;
       route.route1         = rand()%3+1;
-      route.turnLine       = myplane.PosY+rand()%20-10;
+      route.turnLine       = myplane.PosY-20-rand()%20;
       route.routeCnt       = 0;
       route.routeCircleCnt = 0;
        
       createOneEnmeyPlane(x,y,route);
-      createOneBuff(50,100,BUFF_POWER,&buff);
+      //if(GameScore==50)
+      //   createOneBuff(20,120,BUFF_POWER,&buff);
       
       //绘图
       spriteRamAddr=0;
@@ -150,6 +131,7 @@ int main(void)
       myPlaneDraw(myplane.PosX,myplane.PosY,&spriteRamAddr);
       bulletDraw(&spriteRamAddr);
       enmeyPlaneDraw(&spriteRamAddr);
+      enmeyBulletDraw(&spriteRamAddr);
       boomDraw(&spriteRamAddr);
       buffDraw(&spriteRamAddr);
       for(uint8_t i=spriteRamAddr;i<SPRITE_RAM_ADDR_MAX;i++)
@@ -157,41 +139,21 @@ int main(void)
 
       //撞击试验
       enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
+      enemyBulletsMapCreate(&enmeyBullets,&enmeyBulletsHitMap);
       bulletsMapCreate(&bullet,&bulletsHitMap);
       myPlaneMapCreate(&myplane,&myPlaneHitMap);
       
-      isMyPlaneHit(&myplane,&enemyPlaneHitMap,&buff,&myPlaneHitMap);
+      isMyPlaneHit(&myplane,&enemyPlaneHitMap,&enmeyBulletsHitMap,&buff,&myPlaneHitMap);
       isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
-      isBulletsHit(&bullet,enemyPlaneHitMap);
+      isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
       
-
+      //敌机、敌机子弹、我方子弹、爆炸效果等单位的数据更新
       moveEnmeyPlane(&enmeyPlane);
+      updateEnemyBulletData();
       updateBulletData();
       updateBoomData(&boom);
       updateBuffData(&buff);
-      //显示“玩家”两个汉字
-      //writeOneSprite(12,0,220,10,0x10);
-      //writeOneSprite(13,10,220,11,0x10);
 
-      // uint32_t key_value=READ_KEY();
-
-      // if(key_value==1){//按键0按下
-      //    if(myplane.PosX>30)
-      //       myplane.PosX-=5;
-      // }
-
-      // if(key_value==2){//按键1按下
-      //    if(myplane.PosX<200)
-      //       myplane.PosX+=5;
-      // }
-
-      // if(key_value==4){//按键2按下
-      //    createOneBullet();
-      // }
-
-      // if(key_value==8){//按键3按下
-      //    //createOneBullet();
-      // } 
       delay_ms(20);
        
    }
