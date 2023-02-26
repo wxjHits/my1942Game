@@ -36,3 +36,14 @@ N14       R16         T18      P17       N19      L20       M20        M22
 SPI test
 SPI_CS    SPI_CLK   SPI_MOSI    SPI_MISO
 M21        K21         J14              H13
+
+
+//VGA接口
+VGA_HS  T15     VGA_B0 AB12     VGA_G0 T16    VGA_R0 R17
+VGA_VS  V13     VGA_B1 P16      VGA_G1 V15    VGA_R1 W16
+                VGA_B2 W12      VGA_G2 U15    VGA_R2 W15
+                VGA_B3 Y12      VGA_G3 V14    VGA_R3 U16 
+
+PS2
+CLK CS  DI  DO
+J22 H20 H22 G20

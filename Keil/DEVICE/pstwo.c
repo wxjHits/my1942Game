@@ -7,22 +7,22 @@ uint16_t Handkey;	// 按键值读取，零时存储。
 uint8_t Comd[2]={0x01,0x42};	//开始命令。请求数据
 uint8_t Data[9]={0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00}; //数据存储数组
 uint16_t MASK[]={
-    PSB_SELECT,
+    PSB_SELECT,//1
     PSB_L3,
     PSB_R3 ,
-    PSB_START,
-    PSB_PAD_UP,
-    PSB_PAD_RIGHT,
-    PSB_PAD_DOWN,
-    PSB_PAD_LEFT,
+    PSB_START,//4
+    PSB_PAD_UP,//5
+    PSB_PAD_RIGHT,//6
+    PSB_PAD_DOWN,//7
+    PSB_PAD_LEFT,//8
     PSB_L2,
     PSB_R2,
     PSB_L1,
     PSB_R1 ,
-    PSB_GREEN,
-    PSB_RED,
-    PSB_BLUE,
-    PSB_PINK
+    PSB_GREEN,//13
+    PSB_RED,//14
+    PSB_BLUE,//15
+    PSB_PINK//16
 	};	
  /**************************************************************************
 函数功能：以下是PS2接收器模块的初始化代码

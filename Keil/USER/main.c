@@ -8,7 +8,7 @@
 #include "timer.h"
 #include "spi_flash.h"
 #include "systick.h"
-//#include "pstwo.h"
+#include "pstwo.h"
 
 #include "myGame.h"
 #include "spriteRam.h"
@@ -70,6 +70,8 @@ uint32_t GameScore=0;
 //帧率FPS
 uint32_t fps; 
 
+//PS2 PS2_KEY
+int PS2_KEY=0;
 int main(void)
 { 
     myPlaneInit();
@@ -78,13 +80,13 @@ int main(void)
     enmeyBulletInit();
     buffInit(&buff);
    //先执行的是函数SystemInit();
-   //uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
+   uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    //SPI_Init(100);
    
-   // PS2_Init();		//======ps2驱动端口初始化
-   // PS2_SetInit();	//======ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
+   PS2_Init();		//======ps2驱动端口初始化
+   PS2_SetInit();	//======ps2配置初始化,配置“红绿灯模式”，并选择是否可以修改
 
-   //LCD_Init();
+   // LCD_Init();
    //KEY_INIT(0xf);
    NVIC_EnableIRQ(KEY0_IRQn);
    NVIC_EnableIRQ(KEY1_IRQn);
@@ -97,20 +99,20 @@ int main(void)
    //uint8_t *mario_8192=0;
    //mario_8192=mymalloc(4096);                                                                                                                                                                       
    //myfree(mario_8192);
-   //LCD_Clear(GRAYBLUE);
+   //LCD_Clear(RED);
    while(1)
    {
-      // int PS2_LX,PS2_LY,PS2_RX,PS2_RY,PS2_KEY;
-      // PS2_LX=PS2_AnologData(PSS_LX);
-      // PS2_LY=PS2_AnologData(PSS_LY);
+      int PS2_LX,PS2_LY,PS2_RX,PS2_RY;
+      //PS2_LX=PS2_AnologData(PSS_LX);
+      //PS2_LY=PS2_AnologData(PSS_LY);
       // PS2_RX=PS2_AnologData(PSS_RX);
       // PS2_RY=PS2_AnologData(PSS_RY);
-      // PS2_KEY=PS2_DataKey();
-      // printf("%d     PS2_LX:",PS2_LX);
-      // printf("%d     PS2_LY:",PS2_LY);
+      //PS2_KEY=PS2_DataKey();
+      //printf("%d     PS2_LX:",PS2_LX);
+      //printf("%d     PS2_LY:",PS2_LY);
       // printf("%d     PS2_RX:",PS2_RX);
       // printf("%d     PS2_RY:",PS2_RY);
-      // printf("%d \r\nPS2_KEY:",PS2_KEY);
+      printf("%d \r\nPS2_KEY:",PS2_KEY);
        
       uint8_t x=20*(rand()%10)+30;
       uint8_t y=2*(rand()%10)+10;
@@ -148,6 +150,7 @@ int main(void)
       isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
       
       //敌机、敌机子弹、我方子弹、爆炸效果等单位的数据更新
+      PS2_KEY=PS2_DataKey();
       moveEnmeyPlane(&enmeyPlane);
       updateEnemyBulletData();
       updateBulletData();

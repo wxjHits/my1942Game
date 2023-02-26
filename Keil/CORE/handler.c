@@ -117,29 +117,82 @@ void KEY3(void){
 extern uint32_t fps;
 uint8_t timer_cnt;
 uint8_t start;
+
+extern int PS2_KEY;
+typedef enum{
+    PSB_SELECT=1,//1
+    PSB_L3,
+    PSB_R3 ,
+    PSB_START,//4
+    PSB_PAD_UP,//5
+    PSB_PAD_RIGHT,//6
+    PSB_PAD_DOWN,//7
+    PSB_PAD_LEFT,//8
+    PSB_L2,
+    PSB_R2,
+    PSB_L1,
+    PSB_R1 ,
+    PSB_GREEN,//13
+    PSB_RED,//14
+    PSB_BLUE,//15
+    PSB_PINK//16
+	};
 void Timer_Handler(void){
-    //gameFPSDraw(fps);
-    uint32_t key_value=READ_KEY();
+    // uint32_t key_value=READ_KEY();
+    // if(timer_cnt>=4){
+    //     timer_cnt=0;
+    //     if(key_value==8){//按键2按下
+    //         if(myplane.actFlag==1);
+    //         else
+    //             createOneBullet();
+    //     }
+    //     if(key_value==4){//按键3按下
+    //         start=1;
+    //     }                 
+    // }
+    // else{
+    //     timer_cnt+=1;
+    //     if(key_value==1){//按键0按下
+    //         if(myplane.PosX>LEFT_LINE+5)
+    //             myplane.PosX-=5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+    //     }
+    //     if(key_value==2){//按键1按下
+    //         if(myplane.PosX<RIGHT_LINE-5)
+    //             myplane.PosX+=5;
+    //     }
+    // }
+
+    //PS2手柄操作
+    //PS2_KEY=PS2_DataKey();
     if(timer_cnt>=4){
         timer_cnt=0;
-        if(key_value==8){//按键2按下
-            if(myplane.actFlag==1);
+        if(PS2_KEY==PSB_GREEN){//按键2按下
+            if(myplane.actFlag==1)
+                ;
             else
                 createOneBullet();
         }
-        if(key_value==4){//按键3按下
+        if(PS2_KEY==PSB_RED){//翻滚躲避子弹。敌机
             start=1;
         }                 
     }
     else{
         timer_cnt+=1;
-        if(key_value==1){//按键0按下
+        if(PS2_KEY==PSB_PAD_LEFT){//按键0按下
             if(myplane.PosX>LEFT_LINE+5)
                 myplane.PosX-=5;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         }
-        if(key_value==2){//按键1按下
+        else if(PS2_KEY==PSB_PAD_RIGHT){//按键1按下
             if(myplane.PosX<RIGHT_LINE-5)
                 myplane.PosX+=5;
+        }
+        else if(PS2_KEY==PSB_PAD_UP){//按键1按下
+            if(myplane.PosY>TOP_LINE+5)
+                myplane.PosY-=5;
+        }
+        else if(PS2_KEY==PSB_PAD_DOWN){//按键1按下
+            if(myplane.PosY<BOTTOM_LINE-5)
+                myplane.PosY+=5;
         }
     }
     myPlaneAct(&start);

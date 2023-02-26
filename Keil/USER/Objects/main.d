@@ -14,6 +14,7 @@
 .\objects\main.o: ..\DEVICE\timer.h
 .\objects\main.o: ..\DEVICE\spi_flash.h
 .\objects\main.o: ..\DEVICE\systick.h
+.\objects\main.o: ..\DEVICE\pstwo.h
 .\objects\main.o: ..\DEVICE\myGame.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: ..\DEVICE\spriteRam.h

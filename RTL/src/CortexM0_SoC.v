@@ -24,11 +24,11 @@ module CortexM0_SoC (
         output  wire        SPI_CS      ,
         output  wire        SPI_MOSI    ,
         input   wire        SPI_MISO    ,
-        // //PS2
-        // output wire         PS2_CS      ,
-        // output wire         PS2_CLK     ,
-        // output wire         PS2_DO      ,
-        // input  wire         PS2_DI      ,
+        //PS2
+        output wire         PS2_CS      ,
+        output wire         PS2_CLK     ,
+        output wire         PS2_DO      ,
+        input  wire         PS2_DI      ,
         //LCD
         output  wire        LCD_CS      ,
         output  wire        LCD_RS      ,
@@ -614,10 +614,10 @@ module CortexM0_SoC (
                             .PRDATA4                            (PRDATA_APBP4),
                             .PSLVERR4                           (PSLVERR_APBP4),
 
-                            .PSEL5                              (),         //(PSEL_APBP5),
-                            .PREADY5                            (1'b1),     //(PREADY_APBP5),
-                            .PRDATA5                            (32'b0),    //(PRDATA_APBP5),
-                            .PSLVERR5                           (1'b0),     //(PSLVERR_APBP5),
+                            .PSEL5                              (PSEL_APBP5),     //(),         //(PSEL_APBP5),
+                            .PREADY5                            (PREADY_APBP5),   //(1'b1),     //(PREADY_APBP5),
+                            .PRDATA5                            (PRDATA_APBP5),   //(32'b0),    //(PRDATA_APBP5),
+                            .PSLVERR5                           (PSLVERR_APBP5),  //(1'b0),     //(PSLVERR_APBP5),
 
                             .PSEL6                              (PSEL_APBP6),
                             .PREADY6                            (PREADY_APBP6),
@@ -840,26 +840,26 @@ module CortexM0_SoC (
                 .SPI_MOSI (SPI_MOSI),   //SPI mosi
                 .SPI_MISO (SPI_MISO)    //SPI miso
             );
-    // //APB5 PS2
-    // apb_pstwo u_apb_pstwo(
-    //             .PCLK       (clk),   // PCLK for timer operation
-    //             .PCLKG      (clk),   // Gated clock
-    //             .PRESETn    (cpuresetn),   // Reset
-    //             .PSEL       (PSEL_APBP5),   // Device select
-    //             .PADDR      (PADDR[15:0]),   // Address
-    //             .PENABLE    (PENABLE),   // Transfer control
-    //             .PWRITE     (PWRITE),   // Write control
-    //             .PWDATA     (PWDATA),   // Write data
-    //             .ECOREVNUM  (4'b0),   // Engineering-change-order revision bits
-    //             .PRDATA     (PRDATA_APBP5),   // Read data
-    //             .PREADY     (PREADY_APBP5),   // Device ready
-    //             .PSLVERR    (PSLVERR_APBP5),   // Device error response
-    //             //PS2
-    //             .PS2_CS     (PS2_CS )     ,
-    //             .PS2_CLK    (PS2_CLK)     ,
-    //             .PS2_DO     (PS2_DO )     ,
-    //             .PS2_DI     (PS2_DI )
-    //         );
+    //APB5 PS2
+    apb_pstwo u_apb_pstwo(
+                .PCLK       (clk),   // PCLK for timer operation
+                .PCLKG      (clk),   // Gated clock
+                .PRESETn    (cpuresetn),   // Reset
+                .PSEL       (PSEL_APBP5),   // Device select
+                .PADDR      (PADDR[15:0]),   // Address
+                .PENABLE    (PENABLE),   // Transfer control
+                .PWRITE     (PWRITE),   // Write control
+                .PWDATA     (PWDATA),   // Write data
+                .ECOREVNUM  (4'b0),   // Engineering-change-order revision bits
+                .PRDATA     (PRDATA_APBP5),   // Read data
+                .PREADY     (PREADY_APBP5),   // Device ready
+                .PSLVERR    (PSLVERR_APBP5),   // Device error response
+                //PS2
+                .PS2_CS     (PS2_CS )     ,
+                .PS2_CLK    (PS2_CLK)     ,
+                .PS2_DO     (PS2_DO )     ,
+                .PS2_DI     (PS2_DI )
+            );
     //AHB4 LCD 0x5000_0000
     ahb_lcd lcd(
                 .HCLK       (clk        ),
