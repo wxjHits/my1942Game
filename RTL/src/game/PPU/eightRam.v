@@ -47,6 +47,14 @@ module eightRam(
         end
     end
 
+    // // vgaPosY进行一下时钟同步
+    // reg [`VGA_POSXY_BIT-1:0] vgaPosY_r;
+    // always@(posedge clkEightRam)begin
+    //     if(~rstn)
+    //         vgaPosY_r<=0;
+    //     else
+    //         vgaPosY_r<=vgaPosY;
+    // end
     //游戏画面下一行的寄存
     reg  [`VGA_POSXY_BIT-1:0] vgaPosYNext;//当前行
     always@(posedge clkEightRam)begin
@@ -68,7 +76,7 @@ module eightRam(
             read_en<=0;
         else if(gameWindowDownEdge==1'b1)
             read_en<=1;
-        else if(spriteRamAddrCnt==63|eightRamAddrCnt==7)
+        else if(spriteRamAddrCnt==63||eightRamAddrCnt==7)
             read_en<=0;
         else 
             read_en<=read_en;

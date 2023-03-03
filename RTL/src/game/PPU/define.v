@@ -13,8 +13,8 @@
 
 `define RGB_BIT 12 //RGB为12bit
 
-`define GAME_START_POSX 192 //游戏画面开始的x坐标 0~640
-`define GAME_START_POSY 120 //游戏画面开始的y坐标 0~480
+`define GAME_START_POSX 0 //游戏画面开始的x坐标 0~640
+`define GAME_START_POSY 0 //游戏画面开始的y坐标 0~480
 `define GAME_WINDOW_WIDTH 256 //游戏画面宽度
 `define GAME_WINDOW_HEIGHT 240 //游戏画面高度
 `define GAME_GRID_WIDTH     32//(`GAME_WINDOW_WIDTH>>8)
@@ -23,3 +23,8 @@
 `define VGA_POSXY_BIT 12 //VGA坐标的位宽
 
 `define BYTE 8
+
+//名称表相关宏定义
+`define NAMETABLE_WIDTH 32
+`define NAMETABLE_HEIGHT 30
+`define NAMETABLE_AHBBUS_ADDRWIDTH 8 //（32*30/4）

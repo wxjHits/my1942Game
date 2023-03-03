@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\m0.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\m0.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Sun Feb 26 19:15:49 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Fri Mar 03 15:38:11 2023
 <BR><P>
 <H3>Maximum Stack Usage =        228 bytes + Unknown(Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -32,7 +32,7 @@ Function Pointers
  <LI><a href="#[a]">UARTTX_Handler</a> from startup_cm0ds.o(.text) referenced from startup_cm0ds.o(RESET)
  <LI><a href="#[5]">UsageFault_Handler</a> from startup_cm0ds.o(.text) referenced from startup_cm0ds.o(RESET)
  <LI><a href="#[14]">__main</a> from entry.o(.ARM.Collect$$$$00000000) referenced from startup_cm0ds.o(.text)
- <LI><a href="#[15]">fputc</a> from retarget.o(i.fputc) referenced from printf1.o(i.__0printf$1)
+ <LI><a href="#[15]">fputc</a> from retarget.o(i.fputc) referenced from printfb.o(i.__0printf$bare)
  <LI><a href="#[12]">main</a> from main.o(i.main) referenced from entry9a.o(.ARM.Collect$$$$0000000B)
 </UL>
 <P>
@@ -113,7 +113,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_cm0ds.o(RESET)
 </UL>
 <P><STRONG><a name="[b]"></a>UARTRX_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_cm0ds.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = UARTRX_Handler &rArr; UARTRXHandler &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = UARTRX_Handler &rArr; UARTRXHandler &rArr; LED_toggle
 </UL>
 <BR>[Calls]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRXHandler
 </UL>
@@ -176,7 +176,6 @@ Global Symbols
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;gameScoreDraw
-<LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
@@ -543,7 +542,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[21]"></a>UARTRXHandler</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, handler.o(i.UARTRXHandler))
-<BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = UARTRXHandler &rArr; __2printf
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = UARTRXHandler &rArr; LED_toggle
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_ClearRxIRQ
 <LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LED_toggle
@@ -566,17 +565,16 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
 </UL>
 
-<P><STRONG><a name="[4f]"></a>__0printf$1</STRONG> (Thumb, 24 bytes, Stack size 24 bytes, printf1.o(i.__0printf$1), UNUSED)
+<P><STRONG><a name="[4f]"></a>__0printf$bare</STRONG> (Thumb, 12 bytes, Stack size 8 bytes, printfb.o(i.__0printf$bare), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_printf_core
 </UL>
 
-<P><STRONG><a name="[8b]"></a>__1printf$1</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0printf$1), UNUSED)
+<P><STRONG><a name="[8b]"></a>__1printf$bare</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, printfb.o(i.__0printf$bare), UNUSED)
 
-<P><STRONG><a name="[4d]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 24 bytes, printf1.o(i.__0printf$1))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = __2printf
+<P><STRONG><a name="[4d]"></a>__2printf</STRONG> (Thumb, 0 bytes, Stack size 8 bytes, printfb.o(i.__0printf$bare))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __2printf
 </UL>
 <BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UARTRXHandler
-<LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[63]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, lcd.o(i.__ARM_common_switch8))
@@ -749,7 +747,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;uart_SendChar
 </UL>
-<BR>[Address Reference Count : 1]<UL><LI> printf1.o(i.__0printf$1)
+<BR>[Address Reference Count : 1]<UL><LI> printfb.o(i.__0printf$bare)
 </UL>
 <P><STRONG><a name="[65]"></a>gameScoreDraw</STRONG> (Thumb, 176 bytes, Stack size 40 bytes, mygame.o(i.gameScoreDraw))
 <BR><BR>[Stack]<UL><LI>Max Depth = 56<LI>Call Chain = gameScoreDraw &rArr; writeOneSprite
@@ -783,7 +781,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[12]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[12]"></a>main</STRONG> (Thumb, 462 bytes, Stack size 120 bytes, main.o(i.main))
+<P><STRONG><a name="[12]"></a>main</STRONG> (Thumb, 464 bytes, Stack size 120 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 228<LI>Call Chain = main &rArr; moveEnmeyPlane &rArr; createOneEnmeyBullet &rArr; __aeabi_fsub &rArr; __aeabi_fadd &rArr; _float_epilogue
 </UL>
 <BR>[Calls]<UL><LI><a href="#[52]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;writeOneSprite
@@ -819,7 +817,6 @@ Global Symbols
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PS2_Init
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PS2_DataKey
 <LI><a href="#[71]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_EnableIRQ
-<LI><a href="#[4d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__2printf
 <LI><a href="#[75]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memcpy4
 <LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
 <LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
@@ -937,10 +934,8 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[13]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[50]"></a>_printf_core</STRONG> (Thumb, 332 bytes, Stack size 88 bytes, printf1.o(i._printf_core), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
-</UL>
-<BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$1
+<P><STRONG><a name="[50]"></a>_printf_core</STRONG> (Thumb, 30 bytes, Stack size 24 bytes, printfb.o(i._printf_core), UNUSED)
+<BR><BR>[Called By]<UL><LI><a href="#[4f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__0printf$bare
 </UL>
 <P>
 <H3>

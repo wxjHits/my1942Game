@@ -109,7 +109,7 @@ assign  pix_y = (pixdata_req == 1'b1)
 //         pix_y<=12'hfff;
 //     end
 //     else if(pixdata_req==1'b1)begin
-//         pix_x<=(cnt_h - (H_SYNC + H_BACK + H_LEFT - 2'd1));
+//         pix_x<=(cnt_h - (H_SYNC + H_BACK + H_LEFT - 1'b1));
 //         pix_y<=(cnt_v - (V_SYNC + V_BACK + V_TOP));
 //     end
 //     else begin

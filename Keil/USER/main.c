@@ -112,7 +112,7 @@ int main(void)
       //printf("%d     PS2_LY:",PS2_LY);
       // printf("%d     PS2_RX:",PS2_RX);
       // printf("%d     PS2_RY:",PS2_RY);
-      printf("%d \r\nPS2_KEY:",PS2_KEY);
+      //printf("%d \r\nPS2_KEY:",PS2_KEY);
        
       uint8_t x=20*(rand()%10)+30;
       uint8_t y=2*(rand()%10)+10;
@@ -136,8 +136,12 @@ int main(void)
       enmeyBulletDraw(&spriteRamAddr);
       boomDraw(&spriteRamAddr);
       buffDraw(&spriteRamAddr);
-      for(uint8_t i=spriteRamAddr;i<SPRITE_RAM_ADDR_MAX;i++)
-         writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+
+      for(uint8_t i=spriteRamAddr;i<SPRITE_RAM_ADDR_MAX;i++){
+            
+         writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+         spriteRamAddr++;
+      }
 
       //×²»÷ÊÔÑé
       enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);

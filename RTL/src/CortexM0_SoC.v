@@ -4,7 +4,7 @@
 //描述:SoC-design based on kernel--Cortex_M0
 //时间:create 2022.09.20
 /****************************/
-
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/cpu_define.v"
 module CortexM0_SoC (
         input	wire        clk         ,
         input	wire        RSTn        ,
@@ -397,11 +397,13 @@ module CortexM0_SoC (
     //------------------------------------------------------------------------------
 
     wire [31:0] RAMCODE_RDATA,RAMCODE_WDATA;
-    wire [11:0] RAMCODE_WADDR;
-    wire [11:0] RAMCODE_RADDR;
+    wire [`RAMCODE_ADDRWIDTH-1:0] RAMCODE_WADDR;
+    wire [`RAMCODE_ADDRWIDTH-1:0] RAMCODE_RADDR;
     wire [3:0]  RAMCODE_WRITE;
 
-    AHBlite_Block_RAM RAMCODE_Interface(
+    AHBlite_Block_RAM #(
+                          .ADDR_WIDTH(`RAMCODE_ADDRWIDTH)
+                      )RAMCODE_Interface(
                           /* Connect to Interconnect Port 0 */
                           .HCLK           (clk),
                           .HRESETn        (cpuresetn),
@@ -430,11 +432,13 @@ module CortexM0_SoC (
 
     wire [31:0] RAMDATA_RDATA;
     wire [31:0] RAMDATA_WDATA;
-    wire [11:0] RAMDATA_WADDR;
-    wire [11:0] RAMDATA_RADDR;
+    wire [`RAMDATA_ADDRWIDTH-1:0] RAMDATA_WADDR;
+    wire [`RAMDATA_ADDRWIDTH-1:0] RAMDATA_RADDR;
     wire [3:0]  RAMDATA_WRITE;
 
-    AHBlite_Block_RAM RAMDATA_Interface(
+    AHBlite_Block_RAM #(
+                          .ADDR_WIDTH(`RAMDATA_ADDRWIDTH)
+                      )RAMDATA_Interface(
                           /* Connect to Interconnect Port 1 */
                           .HCLK		(clk),
                           .HRESETn	(cpuresetn),
@@ -462,7 +466,10 @@ module CortexM0_SoC (
     // RAM
     //------------------------------------------------------------------------------
 
-    Block_RAM RAM_CODE(
+    Block_RAM #(
+                  .ADDR_WIDTH(`RAMCODE_ADDRWIDTH)
+              )
+              RAM_CODE(
                   .clka           (clk),
                   .addra          (RAMCODE_WADDR),
                   .addrb          (RAMCODE_RADDR),
@@ -471,7 +478,10 @@ module CortexM0_SoC (
                   .wea            (RAMCODE_WRITE)
               );
 
-    Block_RAM RAM_DATA(
+    Block_RAM #(
+                  .ADDR_WIDTH(`RAMDATA_ADDRWIDTH)
+              )
+              RAM_DATA(
                   .clka           (clk),
                   .addra          (RAMDATA_WADDR),
                   .addrb          (RAMDATA_RADDR),
@@ -842,24 +852,24 @@ module CortexM0_SoC (
             );
     //APB5 PS2
     apb_pstwo u_apb_pstwo(
-                .PCLK       (clk),   // PCLK for timer operation
-                .PCLKG      (clk),   // Gated clock
-                .PRESETn    (cpuresetn),   // Reset
-                .PSEL       (PSEL_APBP5),   // Device select
-                .PADDR      (PADDR[15:0]),   // Address
-                .PENABLE    (PENABLE),   // Transfer control
-                .PWRITE     (PWRITE),   // Write control
-                .PWDATA     (PWDATA),   // Write data
-                .ECOREVNUM  (4'b0),   // Engineering-change-order revision bits
-                .PRDATA     (PRDATA_APBP5),   // Read data
-                .PREADY     (PREADY_APBP5),   // Device ready
-                .PSLVERR    (PSLVERR_APBP5),   // Device error response
-                //PS2
-                .PS2_CS     (PS2_CS )     ,
-                .PS2_CLK    (PS2_CLK)     ,
-                .PS2_DO     (PS2_DO )     ,
-                .PS2_DI     (PS2_DI )
-            );
+                  .PCLK       (clk),   // PCLK for timer operation
+                  .PCLKG      (clk),   // Gated clock
+                  .PRESETn    (cpuresetn),   // Reset
+                  .PSEL       (PSEL_APBP5),   // Device select
+                  .PADDR      (PADDR[15:0]),   // Address
+                  .PENABLE    (PENABLE),   // Transfer control
+                  .PWRITE     (PWRITE),   // Write control
+                  .PWDATA     (PWDATA),   // Write data
+                  .ECOREVNUM  (4'b0),   // Engineering-change-order revision bits
+                  .PRDATA     (PRDATA_APBP5),   // Read data
+                  .PREADY     (PREADY_APBP5),   // Device ready
+                  .PSLVERR    (PSLVERR_APBP5),   // Device error response
+                  //PS2
+                  .PS2_CS     (PS2_CS )     ,
+                  .PS2_CLK    (PS2_CLK)     ,
+                  .PS2_DO     (PS2_DO )     ,
+                  .PS2_DI     (PS2_DI )
+              );
     //AHB4 LCD 0x5000_0000
     ahb_lcd lcd(
                 .HCLK       (clk        ),
