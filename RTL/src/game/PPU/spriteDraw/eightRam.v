@@ -3,7 +3,8 @@
     当VGA在扫面时，该模块存储一行需要扫描的精灵数据，最多8个，也就是FC游戏中，一行最多扫描8个精灵
 */
 
-`include "define.v"
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
+
 module eightRam(
     input wire clkEightRam,
     input wire rstn,

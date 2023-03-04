@@ -2,7 +2,7 @@
     weixuejing 2023.02.06
     调色板
 */
-`include "define.v"
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module palette (
     input  wire [1:0] PaletteChoice,
     output reg  [`RGB_BIT-1:0] PaletteColor00,

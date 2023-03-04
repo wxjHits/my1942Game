@@ -10,3 +10,11 @@ void writeOneSprite(uint8_t num,uint8_t PosX,uint8_t PosY,uint8_t tileIndex,uint
     SPRITERAM->SPRITE[num].BYTE0=byte0;
 }
 
+/*
+    nameTable_X:0~31
+    nameTable_Y:0~29
+    backgroundTileIndex:0~255
+*/
+void writeOneNametable(uint8_t nameTable_X,uint8_t nameTable_Y,uint8_t backgroundTileIndex){
+    NAMETABLE->NAMETABLE_VALUE[nameTable_Y][nameTable_X]=backgroundTileIndex;
+}

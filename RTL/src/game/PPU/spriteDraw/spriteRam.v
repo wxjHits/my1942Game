@@ -13,7 +13,8 @@
 */
 
 
-`include "define.v"
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
+
 module spriteRam(
     //cortex-m0
     input clk,

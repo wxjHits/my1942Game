@@ -119,7 +119,6 @@ assign  pix_y = (pixdata_req == 1'b1)
 // end
 
 //rgb:输出像素点色彩信息
-assign  rgb = (rgb_valid == 1'b1) ? (IsGameWindow ==1'b1 ? pixdata:12'h220) : 12'h0 ;
-
+assign  rgb = (rgb_valid == 1'b1) ? (IsGameWindow ==1'b1 ? pixdata:12'h050) : 12'h0 ;
 
 endmodule

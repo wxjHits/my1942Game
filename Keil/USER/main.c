@@ -100,6 +100,11 @@ int main(void)
    //mario_8192=mymalloc(4096);                                                                                                                                                                       
    //myfree(mario_8192);
    //LCD_Clear(RED);
+
+   writeOneNametable(0,0,4);
+   writeOneNametable(1,0,3);
+   writeOneNametable(2,0,2);
+   writeOneNametable(3,0,1);
    while(1)
    {
       int PS2_LX,PS2_LY,PS2_RX,PS2_RY;

@@ -284,6 +284,20 @@ module CortexM0_SoC (
     wire    [31:0]  HRDATA_P5;
     wire            HRESP_P5;
 
+    wire            HSEL_P6         ;
+    wire    [31:0]  HADDR_P6        ;
+    wire    [2:0]   HBURST_P6       ;
+    wire            HMASTLOCK_P6    ;
+    wire    [3:0]   HPROT_P6        ;
+    wire    [2:0]   HSIZE_P6        ;
+    wire    [1:0]   HTRANS_P6       ;
+    wire    [31:0]  HWDATA_P6       ;
+    wire            HWRITE_P6       ;
+    wire            HREADY_P6       ;
+    wire            HREADYOUT_P6    ;
+    wire    [31:0]  HRDATA_P6       ;
+    wire            HRESP_P6        ;
+
     AHBlite_Interconnect Interconncet(
                              .HCLK           (clk),
                              .HRESETn        (cpuresetn),
@@ -389,7 +403,22 @@ module CortexM0_SoC (
                              .HREADY_P5      (HREADY_P5),
                              .HREADYOUT_P5   (HREADYOUT_P5),
                              .HRDATA_P5      (HRDATA_P5),
-                             .HRESP_P5       (HRESP_P5)
+                             .HRESP_P5       (HRESP_P5),
+
+                            // P5
+                            .HSEL_P6        (HSEL_P6     ),
+                            .HADDR_P6       (HADDR_P6    ),
+                            .HBURST_P6      (HBURST_P6   ),
+                            .HMASTLOCK_P6   (HMASTLOCK_P6),
+                            .HPROT_P6       (HPROT_P6    ),
+                            .HSIZE_P6       (HSIZE_P6    ),
+                            .HTRANS_P6      (HTRANS_P6   ),
+                            .HWDATA_P6      (HWDATA_P6   ),
+                            .HWRITE_P6      (HWRITE_P6   ),
+                            .HREADY_P6      (HREADY_P6   ),
+                            .HREADYOUT_P6   (HREADYOUT_P6),
+                            .HRDATA_P6      (HRDATA_P6   ),
+                            .HRESP_P6       (HRESP_P6    )
                          );
 
     //------------------------------------------------------------------------------
@@ -962,28 +991,42 @@ module CortexM0_SoC (
               );
 
     topPPU topPPU_inst(
-               .clk_50MHz      (clk         ),
-               .clk_100MHz     (clk_100MHz  ),
-               .clk_25p2MHz    (clk_25p2MHz ),
-               .rstn           (RSTn        ),
-               //CPU AHB interface 对spriteRam进行写操作
-               .HCLK           (clk        ),//50MHz
-               .HRESETn        (cpuresetn  ),
-               .HSEL           (HSEL_P5    ),
-               .HADDR          (HADDR_P5   ),
-               .HTRANS         (HTRANS_P5  ),
-               .HSIZE          (HSIZE_P5   ),
-               .HPROT          (HPROT_P5   ),
-               .HWRITE         (HWRITE_P5  ),
-               .HWDATA         (HWDATA_P5  ),
-               .HREADY         (HREADY_P5  ),
-               .HREADYOUT      (HREADYOUT_P5),
-               .HRDATA         (HRDATA_P5  ),
-               .HRESP          (HRESP_P5   ),
-               //VGA PIN
-               .hsync          (hsync      ),//输出行同步信号
-               .vsync          (vsync      ),//输出场同步信号
-               .rgb            (rgb        ) //输出像素点色彩信息
-           );
+            .clk_50MHz          (clk            ),
+            .clk_100MHz         (clk_100MHz     ),
+            .clk_25p2MHz        (clk_25p2MHz    ),
+            .rstn               (RSTn           ),
+            //CPU AHB interface 对spriteRam进行写操作 0x50010000
+            .SPRITE_HCLK        (clk            ),
+            .SPRITE_HRESETn     (cpuresetn      ),
+            .SPRITE_HSEL        (HSEL_P5        ),
+            .SPRITE_HADDR       (HADDR_P5       ),
+            .SPRITE_HTRANS      (HTRANS_P5      ),
+            .SPRITE_HSIZE       (HSIZE_P5       ),
+            .SPRITE_HPROT       (HPROT_P5       ),
+            .SPRITE_HWRITE      (HWRITE_P5      ),
+            .SPRITE_HWDATA      (HWDATA_P5      ),
+            .SPRITE_HREADY      (HREADY_P5      ),
+            .SPRITE_HREADYOUT   (HREADYOUT_P5   ),
+            .SPRITE_HRDATA      (HRDATA_P5      ),
+            .SPRITE_HRESP       (HRESP_P5       ),
+            //CPU AHB interface 对nameTable进行写操作 0x50020000
+            .NAMETABLE_HCLK     (clk            ),
+            .NAMETABLE_HRESETn  (cpuresetn      ),
+            .NAMETABLE_HSEL     (HSEL_P6        ),
+            .NAMETABLE_HADDR    (HADDR_P6       ),
+            .NAMETABLE_HTRANS   (HTRANS_P6      ),
+            .NAMETABLE_HSIZE    (HSIZE_P6       ),
+            .NAMETABLE_HPROT    (HPROT_P6       ),
+            .NAMETABLE_HWRITE   (HWRITE_P6      ),
+            .NAMETABLE_HWDATA   (HWDATA_P6      ),
+            .NAMETABLE_HREADY   (HREADY_P6      ),
+            .NAMETABLE_HREADYOUT(HREADYOUT_P6   ),
+            .NAMETABLE_HRDATA   (HRDATA_P6      ),
+            .NAMETABLE_HRESP    (HRESP_P6       ),
+            //VGA PIN
+            .hsync              (hsync          ),//输出行同步信号
+            .vsync              (vsync          ),//输出场同步信号
+            .rgb                (rgb            ) //输出像素点色彩信息
+    );
 
 endmodule

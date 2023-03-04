@@ -2,7 +2,8 @@
     weixuejing 2023.02.06
     ä¸?ä¸Ştileççťĺść¨Ąĺ?    
 */
-`include "define.v"
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
+
 module tileDraw(
     input wire             clk,//ç¨äşčŽĄçŽçćśéĺżéĄťĺ¤§äşVGAçćŤććśéďźčżć ˇčŽĄçŽčżç¨ĺŻäťĽĺ¤ä¸Şćśéĺ¨ć
     input wire             rstn,
@@ -25,7 +26,7 @@ module tileDraw(
     output wire                             IsScanRange,//ĺ˝ĺtitleçćŤćčĺ?
     
     //to VGA_driver.v
-    input wire [`RGB_BIT-1:0] backgroundVgaRgbIn,
+    // input wire [`RGB_BIT-1:0] backgroundVgaRgbIn,
     output reg [`RGB_BIT-1:0] vgaRgbOut
 );
     assign spriteViewRamIndex = inSpriteViewRamIndex;
@@ -146,7 +147,7 @@ wire  [`RGB_BIT-1:0] PaletteColor11;
 wire [1:0]yy={tileDataI[127-whichBit],tileDataI[63-whichBit]};
 always@(*)begin
     case({tileDataI[127-whichBit],tileDataI[63-whichBit]})
-        2'b00:vgaRgbOut=backgroundVgaRgbIn;
+        2'b00:vgaRgbOut=PaletteColor00;
         2'b01:vgaRgbOut=PaletteColor01;
         2'b10:vgaRgbOut=PaletteColor10;
         2'b11:vgaRgbOut=PaletteColor11;

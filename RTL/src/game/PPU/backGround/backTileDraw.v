@@ -85,7 +85,7 @@ end
 
 //调色板
 palette palette_inst (
-    .PaletteChoice(1),
+    .PaletteChoice(0),
     .PaletteColor00(PaletteColor00),
     .PaletteColor01(PaletteColor01),
     .PaletteColor10(PaletteColor10),
