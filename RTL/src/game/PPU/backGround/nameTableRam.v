@@ -12,7 +12,6 @@ module nameTableRam(
     input [3:0] wea,
     output reg [31:0] doutb,
 
-
     //到tiledraw函数
     input clk_tileDraw,
     input [`NAMETABLE_AHBBUS_ADDRWIDTH-1:0] nameTableRamIndex,
@@ -24,18 +23,18 @@ module nameTableRam(
 	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/backGround/nameTable.txt", nameTableRam);
 	end
 
-/*与CPU M0软核的交互*/
+/*与CPU M0软核的交互 注意与其他的ram写的高低位位置不一样*/
     always@(posedge clk) begin
-        if(wea[0]) nameTableRam[addra][7:0] <= dina[7:0];
+        if(wea[3]) nameTableRam[addra][7:0] <= dina[07:00];
     end
     always@(posedge clk) begin
-        if(wea[1]) nameTableRam[addra][15:8] <= dina[15:8];
+        if(wea[2]) nameTableRam[addra][15:8] <= dina[15:08];
     end
     always@(posedge clk) begin
-        if(wea[2]) nameTableRam[addra][23:16] <= dina[23:16];
+        if(wea[1]) nameTableRam[addra][23:16] <= dina[23:16];
     end
     always@(posedge clk) begin
-        if(wea[3]) nameTableRam[addra][31:24] <= dina[31:24];
+        if(wea[0]) nameTableRam[addra][31:24] <= dina[31:24];
     end
 
     always@(posedge clk) begin

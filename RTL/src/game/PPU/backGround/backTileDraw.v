@@ -84,7 +84,7 @@ always@(*)begin
 end
 
 //调色板
-palette palette_inst (
+paletteBackground paletteBackground_inst (
     .PaletteChoice(0),
     .PaletteColor00(PaletteColor00),
     .PaletteColor01(PaletteColor01),

@@ -38,6 +38,8 @@ typedef struct{
 
 #define NAMETABLE ((NAMETABLE_Type *)NAMETABLE_BASE)
 
+void clearNameTableAll(void);
+void clearNameTableOneline(uint8_t lineNum);
 void writeOneNametable(uint8_t nameTable_X,uint8_t nameTable_Y,uint8_t backgroundTileIndex);
 
 

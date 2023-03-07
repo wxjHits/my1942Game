@@ -15,6 +15,19 @@ void writeOneSprite(uint8_t num,uint8_t PosX,uint8_t PosY,uint8_t tileIndex,uint
     nameTable_Y:0~29
     backgroundTileIndex:0~255
 */
+
+void clearNameTableAll(void){
+    for(uint8_t i=0;i<30;i++){
+        for(uint8_t j=0;j<32;j++)
+            writeOneNametable(j,i,0xFF);
+    }
+}
+
+void clearNameTableOneline(uint8_t lineNum){
+    for(uint8_t j=0;j<32;j++)
+        writeOneNametable(j,lineNum,0xFF);
+}
+
 void writeOneNametable(uint8_t nameTable_X,uint8_t nameTable_Y,uint8_t backgroundTileIndex){
     NAMETABLE->NAMETABLE_VALUE[nameTable_Y][nameTable_X]=backgroundTileIndex;
 }

@@ -156,7 +156,7 @@ always@(*)begin
 end
 
 //č°č˛ćżçéćŠ
-palette palette_inst (
+paletteSprite paletteSprite_inst (
     .PaletteChoice(PaletteChoice),
     .PaletteColor00(PaletteColor00),
     .PaletteColor01(PaletteColor01),

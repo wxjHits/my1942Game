@@ -1,10 +1,10 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Thu Feb  9 19:48:09 2023
+// Date        : Tue Mar  7 08:37:00 2023
 // Host        : LAPTOP-E2CVF122 running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub -rename_top clk_wiz_0 -prefix
-//               clk_wiz_0_ clk_wiz_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
 // Design      : clk_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a75tfgg484-2

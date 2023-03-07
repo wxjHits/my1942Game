@@ -72,6 +72,13 @@ uint32_t fps;
 
 //PS2 PS2_KEY
 int PS2_KEY=0;
+
+//state machine主程序的状态机器
+//0：初始界面状态
+//1:游戏进行界面状态
+//2：暂停状态
+//3：结算状态
+uint8_t game_state=0;
 int main(void)
 { 
     myPlaneInit();
@@ -101,10 +108,13 @@ int main(void)
    //myfree(mario_8192);
    //LCD_Clear(RED);
 
-   writeOneNametable(0,0,4);
-   writeOneNametable(1,0,3);
-   writeOneNametable(2,0,2);
-   writeOneNametable(3,0,1);
+//   writeOneNametable(0,0,0); //nameTable write test!!!
+//   writeOneNametable(1,0,1);
+//   writeOneNametable(2,0,2);
+//   writeOneNametable(3,0,3);
+//   writeOneNametable(4,1,4);
+
+    game_state=0;
    while(1)
    {
       int PS2_LX,PS2_LY,PS2_RX,PS2_RY;

@@ -27,19 +27,13 @@ Project File Date:  03/03/2023
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-assembling startup_CM0DS.s...
-compiling led.c...
 compiling key.c...
+assembling startup_CM0DS.s...
 compiling camera.c...
 compiling lcd.c...
-compiling Retarget.c...
-compiling spi_flash.c...
-compiling timer.c...
-compiling handler.c...
-..\CORE\handler.c(139): warning:  #375-D: declaration requires a typedef name
-  	};
-..\CORE\handler.c: 1 warning, 0 errors
+compiling led.c...
 compiling system.c...
+compiling Retarget.c...
 compiling main.c...
 main.c(41): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   const int16_t sin_array[ANGLE_NUMMAX]={1,2,2,2,3,4,4,4,5,5};
@@ -57,34 +51,40 @@ main.c(62): warning:  #3170-D: use of a const variable in a constant expression 
   const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
 main.c(63): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   BOOMType boom[BOOM_NUMMAX];
-main.c(152): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+main.c(162): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
         enemyMapCreate(&enmeyPlane,&enemyPlaneHitMap);
-main.c(153): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(163): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
         enemyBulletsMapCreate(&enmeyBullets,&enmeyBulletsHitMap);
-main.c(154): warning:  #167-D: argument of type "BULLETType (*)[20]" is incompatible with parameter of type "BULLETType *"
+main.c(164): warning:  #167-D: argument of type "BULLETType (*)[20]" is incompatible with parameter of type "BULLETType *"
         bulletsMapCreate(&bullet,&bulletsHitMap);
-main.c(158): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+main.c(168): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
         isEnemyPlaneHit(&enmeyPlane,bulletsHitMap);
-main.c(159): warning:  #167-D: argument of type "BULLETType (*)[20]" is incompatible with parameter of type "BULLETType *"
+main.c(169): warning:  #167-D: argument of type "BULLETType (*)[20]" is incompatible with parameter of type "BULLETType *"
         isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
-main.c(163): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
+main.c(173): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
         moveEnmeyPlane(&enmeyPlane);
-main.c(166): warning:  #167-D: argument of type "BOOMType (*)[20]" is incompatible with parameter of type "BOOMType *"
+main.c(176): warning:  #167-D: argument of type "BOOMType (*)[20]" is incompatible with parameter of type "BOOMType *"
         updateBoomData(&boom);
-main.c(110): warning:  #177-D: variable "PS2_LX"  was declared but never referenced
+main.c(120): warning:  #177-D: variable "PS2_LX"  was declared but never referenced
         int PS2_LX,PS2_LY,PS2_RX,PS2_RY;
-main.c(110): warning:  #177-D: variable "PS2_LY"  was declared but never referenced
+main.c(120): warning:  #177-D: variable "PS2_LY"  was declared but never referenced
         int PS2_LX,PS2_LY,PS2_RX,PS2_RY;
-main.c(110): warning:  #177-D: variable "PS2_RX"  was declared but never referenced
+main.c(120): warning:  #177-D: variable "PS2_RX"  was declared but never referenced
         int PS2_LX,PS2_LY,PS2_RX,PS2_RY;
-main.c(110): warning:  #177-D: variable "PS2_RY"  was declared but never referenced
+main.c(120): warning:  #177-D: variable "PS2_RY"  was declared but never referenced
         int PS2_LX,PS2_LY,PS2_RX,PS2_RY;
 main.c: 19 warnings, 0 errors
-compiling systick.c...
-compiling uart.c...
+compiling handler.c...
+..\CORE\handler.c(139): warning:  #375-D: declaration requires a typedef name
+  	};
+..\CORE\handler.c: 1 warning, 0 errors
+compiling spi_flash.c...
+compiling timer.c...
 compiling malloc.c...
+compiling uart.c...
+compiling systick.c...
 compiling spriteRam.c...
-..\DEVICE\spriteRam.c(20): warning:  #1-D: last line of file ends without a newline
+..\DEVICE\spriteRam.c(33): warning:  #1-D: last line of file ends without a newline
   }
 ..\DEVICE\spriteRam.c: 1 warning, 0 errors
 compiling pstwo.c...
@@ -107,7 +107,7 @@ compiling myGame.c...
                   createOneBoom((enmeyPlane+i)->PosX,(enmeyPlane+i)->PosY,&boom);
 ..\DEVICE\myGame.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=10588 RO-data=1772 RW-data=2852 ZI-data=2052  
+Program Size: Code=10544 RO-data=1772 RW-data=2852 ZI-data=2052  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\m0.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\m0.axf -o image.txt
@@ -125,7 +125,7 @@ Package Vendor: Keil
   D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

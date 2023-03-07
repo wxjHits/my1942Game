@@ -23,7 +23,7 @@ module spriteTileRom(
     output  wire    [`SPRITE_TILEDATA_BIT-1:0]     tileDataO07
 );
     /*****图片素材ROM的初始化*****/
-    reg  [`SPRITE_TILEDATA_BIT-1:0] spritemem [0:`SPRITE_TILEROM_DEEPTH-1];
+    (* ram_style="block" *)reg  [`SPRITE_TILEDATA_BIT-1:0] spritemem [0:`SPRITE_TILEROM_DEEPTH-1];
     initial begin
 	    // $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/spriteTile.txt", spritemem);
         $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/game1942sprite.txt", spritemem);
