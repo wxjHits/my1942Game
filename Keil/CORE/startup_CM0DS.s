@@ -85,7 +85,8 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
 				DCD     KEY1_Handler			  ; IRQ4 Handler
 				DCD     KEY2_Handler              ; IRQ5 Handler
 				DCD     KEY3_Handler			  ; IRQ6 Handler
-				DCD     TIMER_Handler			  ; IRQ7 Handler	
+				DCD     TIMER_Handler			  ; IRQ7 Handler
+				DCD     VGA_Handler			  	  ; IRQ8 VGA_Handler						
 __Vectors_End
 
 __Vectors_Size  EQU     __Vectors_End - __Vectors
@@ -248,11 +249,11 @@ TIMER_Handler 	PROC
 				POP {R0,R1,R2,PC}
 				ENDP
 
-TIMER_1_Handler PROC
-				EXPORT TIMER_1_Handler 		[WEAK]
-				IMPORT Timer_1_Handler
+VGA_Handler PROC
+				EXPORT VGA_Handler 		[WEAK]
+				IMPORT vga_Handler
 				PUSH {R0,R1,R2,LR}
-				BL Timer_1_Handler
+				BL vga_Handler
 				POP {R0,R1,R2,PC}
 				ENDP
 					

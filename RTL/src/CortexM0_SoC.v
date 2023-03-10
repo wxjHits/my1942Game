@@ -77,10 +77,10 @@ module CortexM0_SoC (
 
     wire [3:0]GPIOINT;
     wire TIMERINT;
-    wire TIMERINT_1;
+    wire VGA_Intr;
 
     wire [31:0] IRQ;
-    assign IRQ = {23'b0,TIMERINT_1,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
+    assign IRQ = {23'b0,VGA_Intr,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
 
     wire RXEV;
     assign RXEV = 1'b0;
@@ -1023,6 +1023,8 @@ module CortexM0_SoC (
             .NAMETABLE_HREADYOUT(HREADYOUT_P6   ),
             .NAMETABLE_HRDATA   (HRDATA_P6      ),
             .NAMETABLE_HRESP    (HRESP_P6       ),
+            //VGA中断信号
+            .VGA_Intr           (VGA_Intr       ),
             //VGA PIN
             .hsync              (hsync          ),//输出行同步信号
             .vsync              (vsync          ),//输出场同步信号

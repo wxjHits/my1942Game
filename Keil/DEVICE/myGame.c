@@ -106,7 +106,11 @@ void myPlaneInit(void){
     myplane.PosX=120;
     myplane.PosY=180;
     myplane.liveFlag=1;
-    myplane.hp=15;
+    myplane.actFlag=0;
+    myplane.actFpsCnt=0;
+    myplane.attitude=0;
+    myplane.bulletOnceNum=0;
+    myplane.hp=1;
 }
 
 //敌机相关函数
@@ -153,15 +157,7 @@ void moveEnmeyPlane(PLANEType* enmeyPlane){
         //     enmeyPlane[i].shootFlag=0;
         // }
 
-        if(enmeyPlane[i].PosY>=myplane.PosY-20-rand()%20){//敌机转折点
-            enmeyPlane[i].route.routeCnt=1;
-            if(enmeyPlane[i].attitude>=4)
-                enmeyPlane[i].route.routeCnt=2;
-            if(enmeyPlane[i].shootFlag==1){
-                createOneEnmeyBullet(&enmeyPlane[i]);
-                enmeyPlane[i].shootFlag=0;
-            }
-        }
+        
 
         if(enmeyPlane[i].liveFlag!=0){
             if(enmeyPlane[i].FpsCnt==ENEMY_FPS_MAX){
@@ -174,6 +170,13 @@ void moveEnmeyPlane(PLANEType* enmeyPlane){
                     )
                     enmeyPlane[i].liveFlag=0;
                 else if(enmeyPlane[i].route.routeCnt==0){
+                    if(enmeyPlane[i].PosY>=myplane.PosY-20-rand()%20){//敌机转折点
+                        enmeyPlane[i].route.routeCnt=1;
+                        if(enmeyPlane[i].shootFlag==1){
+                            createOneEnmeyBullet(&enmeyPlane[i]);
+                            enmeyPlane[i].shootFlag=0;
+                        }
+                    }
                     switch (enmeyPlane[i].route.route0)
                     {
                         case DOWN:
@@ -190,11 +193,16 @@ void moveEnmeyPlane(PLANEType* enmeyPlane){
                                 break;
                         default: break;
                     }
+
                 }
                 else if(enmeyPlane[i].route.routeCnt==1){//敌机动画部分
                     enmeyPlane[i].PosX += 0;
                     enmeyPlane[i].PosY += 0;
-                    enmeyPlane[i].attitude+=1;
+                    if(enmeyPlane[i].attitude<4){
+                        enmeyPlane[i].attitude+=1;
+                        if(enmeyPlane[i].attitude==4)
+                            enmeyPlane[i].route.routeCnt=2;
+                    }
                 }
                 else if(enmeyPlane[i].route.routeCnt==2){
                     switch (enmeyPlane[i].route.route1)
@@ -424,17 +432,6 @@ void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,hitMapType* 
                                     (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
                                     (enemyPlaneHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
                                 );
-        if(isEnemyHitFlag==0){
-            myPlane->liveFlag=myPlane->liveFlag;
-        }
-        else{
-            // printf("hitMap->map[gridPosY+0]==%x",enemyPlaneHitMap.map[gridPosY+0]);
-            createOneBoom(myplane.PosX,myplane.PosY,&boom);
-            myPlane->PosX=255;
-            myPlane->PosY=239;
-            myPlane->liveFlag=0;
-        }
-
         //与敌机子弹的撞击测试
         uint32_t isEnemyBulletsHitFlag=(
                                     (enmeyBulletsHitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
@@ -443,7 +440,8 @@ void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,hitMapType* 
                                     (enmeyBulletsHitMap->map[gridPosY+1] & (1<<(gridPosX+0)))|
                                     (enmeyBulletsHitMap->map[gridPosY+1] & (1<<(gridPosX+1)))
                                 );
-        if(isEnemyBulletsHitFlag==0){
+        
+        if(isEnemyBulletsHitFlag==0 && isEnemyHitFlag==0){
             myPlane->liveFlag=myPlane->liveFlag;
         }
         else{
@@ -473,7 +471,6 @@ void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,hitMapType* 
             if(buff->buffType==BUFF_POWER&&myPlane->bulletOnceNum<2){
                 myPlane->bulletOnceNum+=1;
             }
-
             else if(buff->buffType==BUFF_HP)
                 myPlane->hp+=1;
         }
@@ -782,5 +779,78 @@ void myPlaneDraw(uint8_t PosX,uint8_t PosY,uint8_t* spriteRamAddr){
             break;
         }
         *spriteRamAddr+=spriteRamAddr_add;
+    }
+}
+
+/*******************游戏开始界面显示******************************/
+extern uint8_t GAME_LOGO_1942[5][18];
+extern uint8_t GAME_START_CHAR[8];
+extern uint8_t GAME_STOP_CHAR[8];
+extern uint8_t GAME_VERSION[12];
+void gameStartInterfaceShow(uint8_t x,uint8_t y){
+    uint8_t x0=x,y0=y;
+    for(uint8_t i=0;i<32;i++){//显示 “1942” LOGO
+        for(uint8_t j=0;j<30;j++){
+            if((i>=x0&&i<x0+18)&&(j>=y0&&j<y0+5))
+                writeOneNametable(i,j,GAME_LOGO_1942[j-y0][i-x0]);
+        }
+    }
+    uint8_t x1=x0+6,y1=y0+8;
+    for(uint8_t i=0;i<32;i++){//显示“单人游戏”
+        for(uint8_t j=0;j<30;j++){
+            if((i>=x1&&i<x1+8)&&(j==y1))
+                writeOneNametable(i,j,GAME_START_CHAR[i-x1]);
+        }
+    }
+    uint8_t x2=x1,y2=y1+2;
+    for(uint8_t i=0;i<32;i++){//显示“双人游戏”
+        for(uint8_t j=0;j<30;j++){
+            if((i>=x2&&i<x2+8)&&(j==y2))
+                writeOneNametable(i,j,GAME_STOP_CHAR[i-x2]);
+        }
+    }
+    uint8_t x3=x1-4,y3=y1+8;
+    for(uint8_t i=0;i<32;i++){//显示游戏信息（年份，开发团队）
+        for(uint8_t j=0;j<30;j++){
+            if((i>=x3&&i<x3+12)&&(j==y3))
+                writeOneNametable(i,j,GAME_VERSION[i-x3]);
+        }
+    }
+}
+
+extern GAMECURSORType gameCursor;//游戏的指示光标
+void gameCursorDraw(GAMECURSORType* gameCursor){
+    uint8_t PosX=84;
+    uint8_t PosY=0;
+    switch (gameCursor->state)
+    {
+        case GAME_START:
+            PosY=128;
+            break;
+        case GAME_OTHER:
+            PosY=128+16;
+            break;
+        default:PosY=128;
+            break;
+    }
+    uint8_t num=0x40;
+    writeOneSprite(0,PosX+0,PosY+0,0x40,0xA0);
+    writeOneSprite(1,PosX+8,PosY+0,0x41,0xA0);
+    writeOneSprite(2,PosX+4,PosY+8,0x42,0xA0);
+}
+
+/*******************游戏结算界面显示******************************/
+/*
+    游戏界面显示
+    fpsCnt外部传进行来的帧率计数器
+    drawSpeed:当drawSpeed==fpsCnt时候fpsCnt=0 arrayCnt+=1;
+*/
+extern uint8_t endInterFaceArray[endInterFaceCharNum][3];
+void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt){
+    if((*DrawFlag==1) && (*arrayCnt<endInterFaceCharNum)){
+        writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x10);
+        *arrayCnt+=1;
+        LED_toggle(5);
+        *DrawFlag=0;
     }
 }

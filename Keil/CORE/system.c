@@ -54,6 +54,6 @@ void SystemInit (void)
     NVIC_EnableIRQ(UARTRX_IRQn);
     NVIC_EnableIRQ(UARTTX_IRQn);
     NVIC_EnableIRQ(TIMER_IRQn);
-    NVIC_EnableIRQ(TIMER_1_IRQn);
+    NVIC_EnableIRQ(VGA_IRQn);
 }
 

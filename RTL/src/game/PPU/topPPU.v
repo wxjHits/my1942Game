@@ -32,10 +32,14 @@ module topPPU#(
     input  wire   [3:0]     NAMETABLE_HPROT     ,
     input  wire             NAMETABLE_HWRITE    ,
     input  wire   [31:0]    NAMETABLE_HWDATA    ,
-    input wire              NAMETABLE_HREADY    ,
+    input  wire             NAMETABLE_HREADY    ,
     output wire             NAMETABLE_HREADYOUT ,
     output wire   [31:0]    NAMETABLE_HRDATA    ,
     output wire   [1:0]     NAMETABLE_HRESP     ,
+
+    //中断VGA
+    output wire             VGA_Intr            ,
+
     //VGA PIN
     output  wire            hsync       ,//输出行同步信号
     output  wire            vsync       ,//输出场同步信号
@@ -48,7 +52,7 @@ module topPPU#(
     wire [`VGA_POSXY_BIT-1:0] vgaPosX;
     wire [`VGA_POSXY_BIT-1:0] vgaPosY;
 
-    wire IsGameWindow = (vgaPosX>=`GAME_START_POSX && vgaPosX<`GAME_START_POSX+`GAME_WINDOW_WIDTH) &&
+    wire IsGameWindow = (vgaPosX>=`GAME_START_POSX && vgaPosX<`GAME_START_POSX+`GAME_WINDOW_WIDTH ) &&
                         (vgaPosY>=`GAME_START_POSY && vgaPosY<`GAME_START_POSY+`GAME_WINDOW_HEIGHT);
 
     wire    [`RGB_BIT-1:0]  vgaRgbOut           ;
@@ -128,4 +132,18 @@ module topPPU#(
         .rgb                (rgb                )
     );
 
+    reg VGA_Intr_r0;
+    reg VGA_Intr_r1;
+    always@(posedge clk_50MHz)begin
+        if(~rstn)begin
+            VGA_Intr_r0<=0;
+            VGA_Intr_r1<=0;
+        end
+        else begin
+            VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT);
+            VGA_Intr_r1<=VGA_Intr_r0;
+        end
+    end
+    assign VGA_Intr = VGA_Intr_r0 & (~VGA_Intr_r1);
+    
 endmodule
