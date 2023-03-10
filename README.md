@@ -52,3 +52,4 @@ FPGA：A7
 2023.03.10
 	1）创建了分支stateMachine_soft，记录将主程序改成状态机的过程
 	2）创建了开机界面和结算界面，采用状态机实现（在分支stateMachine_soft上）
+	3）解决了闪屏的问题，在topSpriteDraw.v的spriteVgaRgbOut的选择上，从链式结构换成了MUX结构

@@ -28,7 +28,8 @@ module topSpriteDraw#(
     input  wire  [`VGA_POSXY_BIT-1:0] vgaPosX   ,
     input  wire  [`VGA_POSXY_BIT-1:0] vgaPosY   ,
 
-    output wire  [`RGB_BIT-1:0]       spriteVgaRgbOut
+    // output wire  [`RGB_BIT-1:0]       spriteVgaRgbOut
+    output reg  [`RGB_BIT-1:0]       spriteVgaRgbOut
 );
 
     wire    [ADDR_WIDTH-1:0]    BRAM_RDADDR ;
@@ -47,13 +48,27 @@ module topSpriteDraw#(
     wire    [`RGB_BIT-1:0]                  vgaRgbOut           [0:8-1];
 
     //
-    assign spriteVgaRgbOut =  IsScanRange[0] ? vgaRgbOut[0]:(
-                                                IsScanRange[1] ? vgaRgbOut[1]:(
-                                                IsScanRange[2] ? vgaRgbOut[2]:(
-                                                IsScanRange[3] ? vgaRgbOut[3]:(
-                                                IsScanRange[4] ? vgaRgbOut[4]:(
-                                                IsScanRange[5] ? vgaRgbOut[5]:(
-                                                IsScanRange[6] ? vgaRgbOut[6]:vgaRgbOut[7]))))));
+    // assign spriteVgaRgbOut =  IsScanRange[0] ? vgaRgbOut[0]:(
+    //                                             IsScanRange[1] ? vgaRgbOut[1]:(
+    //                                             IsScanRange[2] ? vgaRgbOut[2]:(
+    //                                             IsScanRange[3] ? vgaRgbOut[3]:(
+    //                                             IsScanRange[4] ? vgaRgbOut[4]:(
+    //                                             IsScanRange[5] ? vgaRgbOut[5]:(
+    //                                             IsScanRange[6] ? vgaRgbOut[6]:vgaRgbOut[7]))))));
+
+    always @(*) begin //闪屏问题的解决2023.03.10
+        casex (IsScanRange)//要用casex
+            8'bxxxx_xxx1: spriteVgaRgbOut=vgaRgbOut[0];
+            8'bxxxx_xx10: spriteVgaRgbOut=vgaRgbOut[1];
+            8'bxxxx_x100: spriteVgaRgbOut=vgaRgbOut[2];
+            8'bxxxx_1000: spriteVgaRgbOut=vgaRgbOut[3];
+            8'bxxx1_0000: spriteVgaRgbOut=vgaRgbOut[4];
+            8'bxx10_0000: spriteVgaRgbOut=vgaRgbOut[5];
+            8'bx100_0000: spriteVgaRgbOut=vgaRgbOut[6];
+            8'b1000_0000: spriteVgaRgbOut=vgaRgbOut[7];
+            default:spriteVgaRgbOut=0;
+        endcase        
+    end
 
     genvar  i;
     generate
