@@ -18,7 +18,8 @@ module nameTableRam(
     output reg [31:0] nameTableRamDataO
 );
 
-    (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:((`NAMETABLE_HEIGHT)*(`NAMETABLE_WIDTH))>>2-1];
+    // (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:((`NAMETABLE_HEIGHT)*(`NAMETABLE_WIDTH))>>2-1];
+    (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:256-1];//适配安路的板子进行的修改，与地址线的位宽保持一致
     initial begin
 	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/backGround/nameTable.txt", nameTableRam);
 	end

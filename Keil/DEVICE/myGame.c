@@ -849,7 +849,7 @@ extern uint8_t endInterFaceArray[endInterFaceCharNum][3];
 void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt){
     if((*DrawFlag==1) && (*arrayCnt<endInterFaceCharNum)){
         writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x10);
-        *arrayCnt+=1;
+        (*arrayCnt)+=1;
         LED_toggle(5);
         *DrawFlag=0;
     }

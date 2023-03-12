@@ -80,13 +80,13 @@ hitMapType bulletsHitMap;
 const uint8_t ENEMY_BULLETS_NUMMAX=5;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 hitMapType enmeyBulletsHitMap;
-//我方飞机.
+//我方飞机
 MYPLANEType myplane;
 hitMapType myPlaneHitMap;
 uint8_t timer_cnt;
 uint8_t start;
 //敌方飞机
-const uint8_t ENEMY_NUMMAX=5; 
+const uint8_t ENEMY_NUMMAX=5;
 PLANEType enmeyPlane[ENEMY_NUMMAX];
 hitMapType enemyPlaneHitMap;
 //爆炸单位
@@ -177,7 +177,7 @@ int main(void)
             }
             for(uint8_t i=0;i<30;i++){
                 for(uint8_t j=0;j<32;j++)
-                    writeOneNametable(j,i,0xCE);
+                    writeOneNametable(j,i,0xCF);
             }
             // TIMER_Init(3000000,0,1);//160ms
          }
@@ -193,7 +193,7 @@ int main(void)
          }
       }
 
-      if(game_state==0){
+      if(game_state==0&&timer_init_flag==0){
          PS2_KEY=PS2_DataKey();
             if(PS2_KEY==PSB_PAD_UP){//按键1按下
                if(gameCursor.state>GAME_START){
@@ -217,7 +217,7 @@ int main(void)
             }
          delay_ms(200);
       }
-      else if(game_state==1){//游戏进行中的状态
+      else if(game_state==1&&timer_init_flag==0){//游戏进行中的状态
          if(gameRunState==0){
 
          uint8_t x=20*(rand()%10)+30;
@@ -247,11 +247,11 @@ int main(void)
                   if(myplane.actFlag==0)
                      createOneBullet();
                }
-               if(PS2_KEY==PSB_RED){//翻滚躲避子弹。敌机
+               else if(PS2_KEY==PSB_RED){//翻滚躲避子弹。敌机
                    start=1;
                }
             }
-            else if(timer_cnt%3==1){
+            if(timer_cnt%3==1){
                if(PS2_KEY==PSB_PAD_LEFT){//按键0按下
                    if(myplane.PosX>LEFT_LINE+20)
                        myplane.PosX-=5;
@@ -308,18 +308,19 @@ int main(void)
             gameRunState=0;
          }
       }
-      else if(game_state==2)
+      else if(game_state==2&&timer_init_flag==0)
       {
          LED_toggle(1);
          endInterFaceDraw(&DrawFlag,&gameEndInterFaceArrayCnt);
          if(gameEndInterFaceArrayCnt>=endInterFaceCharNum){
-            gameEndInterFaceArrayCnt=0;
             LED_toggle(5);
             PS2_KEY=PS2_DataKey();
-            if(PS2_KEY==PSB_GREEN){//按键2按下
+            if(PS2_KEY==PSB_PINK){//按键2按下
                game_state=0;
                timer_init_flag=1;
+               gameEndInterFaceArrayCnt=0;
             }
+            delay_ms(100);
          }
       }
        
