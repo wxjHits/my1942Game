@@ -13,10 +13,13 @@
 
 `define RGB_BIT 12 //RGB为12bit
 
+`define SET_GAME_CANVAS_BIG    //注释掉该行，画面的实际大小为256*240 否则为512*480
 `define GAME_START_POSX 0 //游戏画面开始的x坐标 0~640
 `define GAME_START_POSY 0 //游戏画面开始的y坐标 0~480
 `define GAME_WINDOW_WIDTH 256 //游戏画面宽度
 `define GAME_WINDOW_HEIGHT 240 //游戏画面高度
+`define GAME_WINDOW_WIDTH_BIG 512 //游戏画面宽度
+`define GAME_WINDOW_HEIGHT_BIG 480 //游戏画面高度
 `define GAME_GRID_WIDTH     32//(`GAME_WINDOW_WIDTH>>8)
 `define GAME_GRID_HEIGHT    30//(`GAME_WINDOW_HEIGHT>>8)
 

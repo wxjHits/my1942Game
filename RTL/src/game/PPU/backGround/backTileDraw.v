@@ -71,7 +71,7 @@ wire  [`RGB_BIT-1:0] PaletteColor10;
 wire  [`RGB_BIT-1:0] PaletteColor11;
 
 //该点的2-bit的组合情况
-wire [1:0] twoBitsFlag={backTileDataI[127-whichBit],backTileDataI[63-whichBit]};
+wire [1:0] twoBitsFlag={backTileDataI[63-whichBit],backTileDataI[127-whichBit]};
 
 always@(*)begin
     case(twoBitsFlag)

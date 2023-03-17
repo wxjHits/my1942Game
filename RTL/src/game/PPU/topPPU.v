@@ -1,5 +1,6 @@
 
-`include "define.v"
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
+
 module topPPU#(
     parameter ADDR_WIDTH = 6 //精灵数量只有64个
 )(
@@ -49,8 +50,17 @@ module topPPU#(
 
     wire    vga_clk = clk_25p2MHz;
 
+    wire [`VGA_POSXY_BIT-1:0] pix_x;
+    wire [`VGA_POSXY_BIT-1:0] pix_y;
     wire [`VGA_POSXY_BIT-1:0] vgaPosX;
     wire [`VGA_POSXY_BIT-1:0] vgaPosY;
+    `ifdef SET_GAME_CANVAS_BIG
+        assign vgaPosX=pix_x>>1;
+        assign vgaPosY=pix_y>>1;
+    `else
+        assign vgaPosX=pix_x;
+        assign vgaPosY=pix_y;
+    `endif
 
     wire IsGameWindow = (vgaPosX>=`GAME_START_POSX && vgaPosX<`GAME_START_POSX+`GAME_WINDOW_WIDTH ) &&
                         (vgaPosY>=`GAME_START_POSY && vgaPosY<`GAME_START_POSY+`GAME_WINDOW_HEIGHT);
@@ -92,6 +102,7 @@ module topPPU#(
         .IsGameWindow       (IsGameWindow       ),
         .vgaPosX            (vgaPosX            ),
         .vgaPosY            (vgaPosY            ),
+        // .backGroundVgaRgbOut(backGroundVgaRgbOut),
         .spriteVgaRgbOut    (spriteVgaRgbOut    )
 );
 
@@ -124,8 +135,8 @@ module topPPU#(
         .vga_clk            (vga_clk            ),
         .rstn               (rstn               ),
         .pixdata            (vgaRgbOut          ),
-        .pix_x              (vgaPosX            ),
-        .pix_y              (vgaPosY            ),
+        .pix_x              (pix_x              ),
+        .pix_y              (pix_y              ),
         .IsGameWindow       (IsGameWindow       ),
         .hsync              (hsync              ),
         .vsync              (vsync              ),
@@ -139,10 +150,17 @@ module topPPU#(
             VGA_Intr_r0<=0;
             VGA_Intr_r1<=0;
         end
-        else begin
-            VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT);
-            VGA_Intr_r1<=VGA_Intr_r0;
-        end
+        `ifdef SET_GAME_CANVAS_BIG
+            else begin
+                VGA_Intr_r0<=(pix_x==`GAME_START_POSX+`GAME_WINDOW_WIDTH_BIG-1'b1) && (pix_y==`GAME_START_POSY+`GAME_WINDOW_HEIGHT_BIG-1'b1);
+                VGA_Intr_r1<=VGA_Intr_r0;
+            end
+        `else
+            else begin
+                VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH-1) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT-1);
+                VGA_Intr_r1<=VGA_Intr_r0;
+            end
+        `endif
     end
     assign VGA_Intr = VGA_Intr_r0 & (~VGA_Intr_r1);
     

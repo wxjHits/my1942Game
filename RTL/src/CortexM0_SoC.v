@@ -10,6 +10,7 @@ module CortexM0_SoC (
         input	wire        RSTn        ,
         inout	wire        SWDIO       ,
         input	wire        SWCLK       ,
+        output  wire        SLEEPING    ,   //m0内核处于低功耗睡眠状态的标志位
 
         // UART
         output  wire        TXD         ,
@@ -154,6 +155,7 @@ module CortexM0_SoC (
                          // Power management outputs
                          .CDBGPWRUPREQ   (CDBGPWRUPREQ),
                          .SYSRESETREQ    (SYSRESETREQ),
+                         .SLEEPING       (SLEEPING  ),
 
                          // System bus
                          .HADDR          (HADDR[31:0]),

@@ -45,7 +45,7 @@
 //buff fps
 #define BUFF_FPS 5
 /****************myPlane action**********************/
-#define MYPLANE_ACT_FPSCNT_MAX 7
+#define MYPLANE_ACT_FPSCNT_MAX 10
 #define MYPLANE_ACT_ATTITUDE_MAX 7 //飞机动画一共有几帧
 //飞机动画对应的tile索引
 #define MYPLANE_ACT_0_0 0x33
@@ -128,6 +128,23 @@ typedef struct{
     volatile int16_t PosX;
     volatile int16_t PosY;
     volatile uint8_t liveFlag;
+    volatile uint8_t hp;//初始血量为10
+
+    volatile uint8_t FpsCnt;//用于敌机的数据更新的计数器
+    volatile uint8_t attitude;//中型飞机姿态
+
+    volatile int16_t y_turn0;//y_turn0+Y_DELTA*0
+    volatile int16_t y_turn1;//y_turn0+Y_DELTA*1
+    volatile int16_t y_turn2;//y_turn0+Y_DELTA*2
+    volatile int16_t y_turn3;//y_turn0+Y_DELTA*3
+    volatile int16_t x_turn0;
+    volatile int16_t x_turn1;
+}M_PLANEType;//中型飞机定义
+
+typedef struct{
+    volatile int16_t PosX;
+    volatile int16_t PosY;
+    volatile uint8_t liveFlag;
     volatile uint8_t hp;
     ROUTEType route;
     volatile uint8_t FpsCnt;//用于敌机的数据更新的计数器
@@ -161,34 +178,40 @@ typedef struct{
     uint32_t map [30];
 }hitMapType;
 
+//自定义的abs函数
+int16_t myInt16_abs(int16_t a,int16_t b);
 //初始化
 void myPlaneInit(void);
 void bulletInit(void);
 void enmeyPlaneInit(void);
 void enmeyBulletInit(void);
+void M_enmeyPlaneInit(M_PLANEType* M_enmeyPlane);
 void boomInit(BOOMType* boom);
 void buffInit(BUFFType* buff);
 //创建单位
 void createOneBullet(void);//发射一次子弹
 void createOneEnmeyBullet(PLANEType* enmeyPlane);//敌机发射一次子弹
-void createOneEnmeyPlane(uint8_t PosX,uint8_t PosY,ROUTEType route);
+void createOneEnmeyPlane(PLANEType* enmeyPlaneCanshu);
+// void createOne_M_EnmeyPlane(M_PLANEType* M_enmeyPlaneCanshu);
+void createOne_M_EnmeyPlane(void);
 void createOneBoom(uint8_t PosX,uint8_t PosY,BOOMType* boom);
 void createOneBuff(uint8_t PosX,uint8_t PosY,uint8_t buffType,BUFFType* buff);
 //单位的数据更新
 void updateBulletData(void);
 void updateEnemyBulletData(void);
 void moveEnmeyPlane(PLANEType* enmeyPlane);
+void move_M_EnmeyPlane(M_PLANEType* M_enmeyPlane);
 void updateBoomData(BOOMType* boom);
 void updateBuffData(BUFFType* buff);
 //碰撞检测,后续可以将创建bitmask碰撞图和碰撞检测部分采用硬件实现
 void tileMap(uint8_t PosX,uint8_t PosY,hitMapType* hitMap);
 void myPlaneMapCreate(MYPLANEType* myPlane,hitMapType* hitMap);
 void bulletsMapCreate(BULLETType* bullet,hitMapType* hitMap);
-void enemyMapCreate(PLANEType* enmeyPlane,hitMapType* hitMap);
+void enemyMapCreate(PLANEType* enmeyPlane,M_PLANEType* M_enmeyPlane,hitMapType* hitMap);
 void enemyBulletsMapCreate(BULLETType* enmeyBullet,hitMapType* hitMap);
 
 void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,hitMapType* enmeyBulletsHitMap,BUFFType* buff,hitMapType* myPlaneHitMap);
-void isEnemyPlaneHit(PLANEType* enmeyPlane,hitMapType hitMap);
+void isEnemyPlaneHit(PLANEType* enmeyPlane,M_PLANEType* M_enmeyPlane,hitMapType hitMap);
 void isBulletsHit(BULLETType* bullet,hitMapType* enemyPlaneHitMap,hitMapType* enmeyBulletsHitMap);
 
 //作图函数,每一次作图均从精灵0开始,精灵存活一个，计数器+1,最大为64
@@ -197,6 +220,7 @@ void gameFPSDraw(uint32_t fps,uint8_t* spriteRamAddr);
 void myPlaneDraw(uint8_t PosX,uint8_t PosY,uint8_t* spriteRamAddr);
 void bulletDraw(uint8_t* spriteRamAddr);
 void enmeyPlaneDraw(uint8_t* spriteRamAddr);
+void M_enmeyPlaneDraw(uint8_t* spriteRamAddr,M_PLANEType* M_enmeyPlane);//中型敌机的绘制
 void enmeyBulletDraw(uint8_t* spriteRamAddr);
 void boomDraw(uint8_t* spriteRamAddr);
 void buffDraw(uint8_t* spriteRamAddr);
@@ -216,7 +240,7 @@ void gameCursorDraw(GAMECURSORType* gameCursor);
 
 
 //游戏结算画面，文字应该是隔几帧再进行打印（一个一个打印），和初始界面瞬间显示出来不同
-#define endInterFaceCharNum 13
-void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt);
+#define endInterFaceCharNum 20
+void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDownCnt,float GameHitRate);
 #endif
 

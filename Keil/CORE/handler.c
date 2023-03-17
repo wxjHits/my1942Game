@@ -148,18 +148,20 @@ extern uint8_t DrawFlag;
 void vga_Handler(void){
     if(game_state==1){
         if(gameRunState==1){
+            LED_toggle(2);
             gameRunState=2;
             gameEndFpsCnt+=1;
         }
     }
     else if(game_state==2){
         gameEndInterFaceFpsCnt++;
-        if(gameEndInterFaceFpsCnt==30){
+        if(gameEndInterFaceFpsCnt==10){
             LED_toggle(3);
             gameEndInterFaceFpsCnt=0;
             DrawFlag=1;
         }
     }
+    
     // if(myplane.liveFlag==0)
     //     gameEndFpsCnt+=1;
 }

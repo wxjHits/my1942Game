@@ -29,6 +29,7 @@ module topSpriteDraw#(
     input  wire  [`VGA_POSXY_BIT-1:0] vgaPosY   ,
 
     // output wire  [`RGB_BIT-1:0]       spriteVgaRgbOut
+    // input  wire [`RGB_BIT-1:0] backGroundVgaRgbOut,
     output reg  [`RGB_BIT-1:0]       spriteVgaRgbOut
 );
 
@@ -67,7 +68,7 @@ module topSpriteDraw#(
             8'bx100_0000: spriteVgaRgbOut=vgaRgbOut[6];
             8'b1000_0000: spriteVgaRgbOut=vgaRgbOut[7];
             default:spriteVgaRgbOut=0;
-        endcase        
+        endcase
     end
 
     genvar  i;

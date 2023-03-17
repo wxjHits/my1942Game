@@ -4,7 +4,7 @@ set_property PACKAGE_PIN B16 [get_ports RSTn]
 set_property IOSTANDARD LVCMOS33 [get_ports RSTn]
 set_property PACKAGE_PIN AB22 [get_ports RXD]
 set_property PACKAGE_PIN AB21 [get_ports TXD]
-set_property PACKAGE_PIN H15 [get_ports SWCLK]
+set_property PACKAGE_PIN V20 [get_ports SWCLK]
 set_property IOSTANDARD LVCMOS33 [get_ports RXD]
 set_property IOSTANDARD LVCMOS33 [get_ports SWCLK]
 set_property IOSTANDARD LVCMOS33 [get_ports SWDIO]
@@ -44,7 +44,6 @@ set_property PACKAGE_PIN U22 [get_ports {OUTLED[7]}]
 
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets SWCLK_IBUF]
 
-set_property PACKAGE_PIN J15 [get_ports SWDIO]
 
 #LCD
 set_property PACKAGE_PIN K19 [get_ports LCD_BL_CTR]
@@ -187,3 +186,8 @@ set_property PACKAGE_PIN W12 [get_ports {rgb[2]}]
 set_property PACKAGE_PIN P16 [get_ports {rgb[1]}]
 set_property PACKAGE_PIN AB12 [get_ports {rgb[0]}]
 
+
+set_property PACKAGE_PIN W19 [get_ports SWDIO]
+
+set_property PACKAGE_PIN AA20 [get_ports SLEEPING]
+set_property IOSTANDARD LVCMOS33 [get_ports SLEEPING]
