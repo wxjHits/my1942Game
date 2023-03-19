@@ -12,6 +12,7 @@
 
 #include "myGame.h"
 #include "spriteRam.h"
+#include "ahb_plane.h"
 
 #include "malloc.h"
 #include "stdlib.h"
@@ -82,7 +83,7 @@ const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.6
 
 // angleValueType angle[ANGLE_NUMMAX];
 //�ҷ��ӵ�
-const uint8_t BULLET_NUMMAX=20;
+const uint8_t BULLET_NUMMAX=12;
 BULLETType bullet[BULLET_NUMMAX];
 hitMapType bulletsHitMap;
 //�з��ӵ�
@@ -95,11 +96,11 @@ hitMapType myPlaneHitMap;
 uint8_t timer_cnt;
 uint8_t start;
 //�з��ɻ�
-const uint8_t ENEMY_NUMMAX=5;
+const uint8_t ENEMY_NUMMAX=2;
 PLANEType enmeyPlane[ENEMY_NUMMAX];
 hitMapType enemyPlaneHitMap;
 //中型飞机
-const uint8_t M_ENEMY_NUMMAX=1;
+const uint8_t M_ENEMY_NUMMAX=2;
 M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
 
 //��ը��λ
@@ -165,8 +166,17 @@ int main(void)
 
    game_state=0;
    bool timer_init_flag=1;
-    
+   //  ahb_plane_Init(50,60);
    //  __wfi();
+   // while(1){
+   //    ahb_plane_Update();
+   //    if(AHBPLANE->isLive==0)
+   //       ahb_plane_create();
+   //    else{
+   //       ahb_plane_showAttitude();
+   //    }
+   //    delay_ms(100);
+   // }
 
    while(1)
    {
@@ -267,7 +277,7 @@ int main(void)
          enemyBulletsMapCreate(&enmeyBullets,&enmeyBulletsHitMap);
          bulletsMapCreate(&bullet,&bulletsHitMap);
          myPlaneMapCreate(&myplane,&myPlaneHitMap);
-         //isMyPlaneHit(&myplane,&enemyPlaneHitMap,&enmeyBulletsHitMap,&buff,&myPlaneHitMap);
+         isMyPlaneHit(&myplane,&enemyPlaneHitMap,&enmeyBulletsHitMap,&buff,&myPlaneHitMap);
          isEnemyPlaneHit(&enmeyPlane,&M_enmeyPlane,bulletsHitMap);
          isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
 
@@ -359,7 +369,6 @@ int main(void)
             delay_ms(100);
          }
       }
-       
    }
 }
 

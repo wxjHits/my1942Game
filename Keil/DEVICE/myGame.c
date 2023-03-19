@@ -1,6 +1,7 @@
 #include "stdlib.h"
 #include "myGame.h"
 #include "spriteRam.h"
+#include "ahb_plane.h"
 #include "uart.h"
 #include "led.h"
 
@@ -127,7 +128,7 @@ void myPlaneInit(void){
     myplane.actFlag=0;
     myplane.actFpsCnt=0;
     myplane.attitude=0;
-    myplane.bulletOnceNum=0;
+    myplane.bulletOnceNum=1;
     myplane.hp=1;
 }
 
@@ -138,10 +139,11 @@ void enmeyPlaneInit(void){
 }
 
 void M_enmeyPlaneInit(M_PLANEType* M_enmeyPlane){
-    for (int i = 0; i < M_ENEMY_NUMMAX; i++)
-    {
-        M_enmeyPlane[i].liveFlag=0;
-    }
+    // for (int i = 0; i < M_ENEMY_NUMMAX; i++)
+    // {
+    //     M_enmeyPlane[i].liveFlag=0;
+    // }
+    ahb_plane_Init(50,20);
 }
 
 void createOneEnmeyPlane(PLANEType* enmeyPlaneCanshu){
@@ -168,92 +170,121 @@ void createOneEnmeyPlane(PLANEType* enmeyPlaneCanshu){
 }
 
 void createOne_M_EnmeyPlane(void){
-    for (int i = 0; i < M_ENEMY_NUMMAX; i++){
-        if (M_enmeyPlane[i].liveFlag==0){
-            M_enmeyPlane[i].attitude=0;
-            M_enmeyPlane[i].FpsCnt=0;
-            M_enmeyPlane[i].hp=10;
-            M_enmeyPlane[i].liveFlag=1;
-            M_enmeyPlane[i].PosX=80;
-            M_enmeyPlane[i].PosY=20;
-            M_enmeyPlane[i].x_turn0=M_enmeyPlane[i].PosX+20;
-            M_enmeyPlane[i].x_turn1=M_enmeyPlane[i].PosX+20+80;
-            M_enmeyPlane[i].y_turn0=M_enmeyPlane[i].PosY+50;
-            M_enmeyPlane[i].y_turn1=M_enmeyPlane[i].PosY+50+20;
-            M_enmeyPlane[i].y_turn2=M_enmeyPlane[i].PosY+50+20+40;
-            M_enmeyPlane[i].y_turn3=M_enmeyPlane[i].PosY+50+20+40+20;
-        }
-    }
+    // for (int i = 0; i < M_ENEMY_NUMMAX; i++){
+    //     if (M_enmeyPlane[i].liveFlag==0){
+    //         M_enmeyPlane[i].attitude=0;
+    //         M_enmeyPlane[i].FpsCnt=0;
+    //         M_enmeyPlane[i].hp=10;
+    //         M_enmeyPlane[i].liveFlag=1;
+    //         M_enmeyPlane[i].PosX=80;
+    //         M_enmeyPlane[i].PosY=20;
+    //         M_enmeyPlane[i].x_turn0=M_enmeyPlane[i].PosX+20;
+    //         M_enmeyPlane[i].x_turn1=M_enmeyPlane[i].PosX+20+80;
+    //         M_enmeyPlane[i].y_turn0=M_enmeyPlane[i].PosY+50;
+    //         M_enmeyPlane[i].y_turn1=M_enmeyPlane[i].PosY+50+20;
+    //         M_enmeyPlane[i].y_turn2=M_enmeyPlane[i].PosY+50+20+40;
+    //         M_enmeyPlane[i].y_turn3=M_enmeyPlane[i].PosY+50+20+40+20;
+    //     }
+    // }
+    if(AHBPLANE->isLive==0)
+        ahb_plane_create();
 }
 
 void move_M_EnmeyPlane(M_PLANEType* M_enmeyPlane_){
-    for(int i=0;i<M_ENEMY_NUMMAX;i++){
-        if((M_enmeyPlane_+i)->liveFlag!=0){
-            if((M_enmeyPlane_+i)->FpsCnt==ENEMY_FPS_MAX){
-                (M_enmeyPlane_+i)->FpsCnt=0;
-                if((M_enmeyPlane_+i)->PosX<LEFT_LINE||(M_enmeyPlane_+i)->PosX>RIGHT_LINE||(M_enmeyPlane_+i)->PosY<TOP_LINE||(M_enmeyPlane_+i)->PosY>BOTTOM_LINE)
-                    (M_enmeyPlane_+i)->liveFlag=0;
-                else{//坐标更新
-                    switch ((M_enmeyPlane_+i)->attitude){//状态转换
-                        case 0:
-                            (M_enmeyPlane_+i)->PosX+=0;
-                            (M_enmeyPlane_+i)->PosY+=2;if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn2)<3)
-                            (M_enmeyPlane_+i)->attitude=1;
-                            break;
-                        case 1:
-                            (M_enmeyPlane_+i)->PosX+=1;
-                            (M_enmeyPlane_+i)->PosY+=1;if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn3)<3)
-                            (M_enmeyPlane_+i)->attitude=2;
-                            break;
-                        case 2:
-                            (M_enmeyPlane_+i)->PosX+=2;
-                            (M_enmeyPlane_+i)->PosY+=0;if(myInt16_abs((M_enmeyPlane_+i)->PosX,(M_enmeyPlane_+i)->x_turn1)<3)
-                            (M_enmeyPlane_+i)->attitude=3;
-                            break;
-                        case 3:
-                            (M_enmeyPlane_+i)->PosX+=1;
-                            (M_enmeyPlane_+i)->PosY-=1;if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn2)<3)
-                            (M_enmeyPlane_+i)->attitude=4;
-                            break;
-                        case 4:
-                            (M_enmeyPlane_+i)->PosX+=0;
-                            (M_enmeyPlane_+i)->PosY-=2;if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn1)<3)
-                            (M_enmeyPlane_+i)->attitude=5;
-                            break;
-                        case 5:
-                            (M_enmeyPlane_+i)->PosX-=1;
-                            (M_enmeyPlane_+i)->PosY-=1;if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn0)<3)
-                            (M_enmeyPlane_+i)->attitude=6;
-                            break;
-                        case 6:
-                            (M_enmeyPlane_+i)->PosX-=2;
-                            (M_enmeyPlane_+i)->PosY-=0;if(myInt16_abs((M_enmeyPlane_+i)->PosX,(M_enmeyPlane_+i)->x_turn0)<3)
-                            (M_enmeyPlane_+i)->attitude=7;
-                            break;
-                        case 7:
-                            (M_enmeyPlane_+i)->PosX-=1;
-                            (M_enmeyPlane_+i)->PosY+=1;if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn1)<3)
-                            (M_enmeyPlane_+i)->attitude=8;
-                            break;
-                        case 8:
-                            (M_enmeyPlane_+i)->PosX+=0;
-                            (M_enmeyPlane_+i)->PosY+=2;
-                            // (M_enmeyPlane_+i)->attitude=8;
-                            break;
-                        default:
-                            (M_enmeyPlane_+i)->PosX+=0;
-                            (M_enmeyPlane_+i)->PosY+=2;
-                            (M_enmeyPlane_+i)->attitude=(M_enmeyPlane_+i)->attitude;
-                            LED_toggle(2);
-                            break;
-                    }
-                }
-            }
-            else{
-                M_enmeyPlane[i].FpsCnt+=1;
-            }
-        } 
-    }
+    ahb_plane_Update();
+    // for(int i=0;i<M_ENEMY_NUMMAX;i++){
+    //     if((M_enmeyPlane_+i)->liveFlag!=0){
+    //         if((M_enmeyPlane_+i)->FpsCnt==ENEMY_FPS_MAX){
+    //             (M_enmeyPlane_+i)->FpsCnt=0;
+    //             if((M_enmeyPlane_+i)->PosX<LEFT_LINE||(M_enmeyPlane_+i)->PosX>RIGHT_LINE||(M_enmeyPlane_+i)->PosY<TOP_LINE||(M_enmeyPlane_+i)->PosY>BOTTOM_LINE)
+    //                 (M_enmeyPlane_+i)->liveFlag=0;
+    //             else{//坐标更新
+    //                 switch ((M_enmeyPlane_+i)->attitude){//状态转换
+    //                     case 0:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn2)<1)
+    //                             (M_enmeyPlane_+i)->attitude=1;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX+=0;
+    //                             (M_enmeyPlane_+i)->PosY+=1;
+    //                         }
+    //                         break;
+    //                     case 1:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn3)<1)
+    //                             (M_enmeyPlane_+i)->attitude=2;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX+=1;
+    //                             (M_enmeyPlane_+i)->PosY+=1;
+    //                         }
+    //                         break;
+    //                     case 2:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosX,(M_enmeyPlane_+i)->x_turn1)<1)
+    //                             (M_enmeyPlane_+i)->attitude=3;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX+=1;
+    //                             (M_enmeyPlane_+i)->PosY+=0;
+    //                         }
+    //                         break;
+    //                     case 3:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn2)<1)
+    //                             (M_enmeyPlane_+i)->attitude=4;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX+=1;
+    //                             (M_enmeyPlane_+i)->PosY-=1;
+    //                         }
+                            
+    //                         break;
+    //                     case 4:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn1)<1)
+    //                             (M_enmeyPlane_+i)->attitude=5;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX+=0;
+    //                             (M_enmeyPlane_+i)->PosY-=1;
+    //                         }
+                            
+    //                         break;
+    //                     case 5:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn0)<1)
+    //                             (M_enmeyPlane_+i)->attitude=6;
+    //                         else {
+    //                             (M_enmeyPlane_+i)->PosX-=1;
+    //                             (M_enmeyPlane_+i)->PosY-=1;
+    //                         }
+    //                         break;
+    //                     case 6:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosX,(M_enmeyPlane_+i)->x_turn0)<1)
+    //                             (M_enmeyPlane_+i)->attitude=7;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX-=1;
+    //                             (M_enmeyPlane_+i)->PosY-=0;
+    //                         }
+    //                         break;
+    //                     case 7:
+    //                         if(myInt16_abs((M_enmeyPlane_+i)->PosY,(M_enmeyPlane_+i)->y_turn1)<1)
+    //                             (M_enmeyPlane_+i)->attitude=8;
+    //                         else{
+    //                             (M_enmeyPlane_+i)->PosX-=1;
+    //                             (M_enmeyPlane_+i)->PosY+=1;
+    //                         }
+    //                         break;
+    //                     case 8:
+    //                         (M_enmeyPlane_+i)->PosX+=0;
+    //                         (M_enmeyPlane_+i)->PosY+=1;
+    //                         (M_enmeyPlane_+i)->attitude=8;
+    //                         break;
+    //                     default:
+    //                         (M_enmeyPlane_+i)->PosX+=0;
+    //                         (M_enmeyPlane_+i)->PosY+=0;
+    //                         (M_enmeyPlane_+i)->attitude=(M_enmeyPlane_+i)->attitude;
+    //                         LED_toggle(2);
+    //                         break;
+    //                 }
+    //             }
+    //         }
+    //         else{
+    //             M_enmeyPlane[i].FpsCnt+=1;
+    //         }
+    //     } 
+    // }
 }
 
 void moveEnmeyPlane(PLANEType* enmeyPlane){
@@ -423,117 +454,227 @@ void enmeyPlaneDraw(uint8_t* spriteRamAddr){
 
 //中型敌机的绘制,只有一架
 void M_enmeyPlaneDraw(uint8_t* spriteRamAddr,M_PLANEType* M_enmeyPlane){
-    for(int i=0;i<M_ENEMY_NUMMAX;i++){
-        if(M_enmeyPlane[i].liveFlag!=0){
-            uint8_t pallet=2<<4;//调色板
-            switch (M_enmeyPlane[i].attitude)
-            {
-                case 0://下
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x92,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x93,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+14,0x90,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+14,0x91,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+10,0x96,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+10,0x96,0x20|0xC0);
-                    (*spriteRamAddr)+=8;
-                    break;
-                case 1://右下
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0xa1,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY+ 6,0xa0,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY- 6,0xa2,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX- 2, M_enmeyPlane[i].PosY+ 7,0x9e,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 7, M_enmeyPlane[i].PosY- 2,0x9f,0x20|0x80);
-                    (*spriteRamAddr)+=8;
-                    break;
-                case 2://右
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x9B,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x99,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+ 0,0x97,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x9C,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x9A,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+ 7,0x98,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX+10, M_enmeyPlane[i].PosY- 7,0x9D,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+10, M_enmeyPlane[i].PosY+15,0x9D,0x20|0xC0);
-                    (*spriteRamAddr)+=8;
-                    break;
-                case 3://右上
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0xA1,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY- 6,0xa0,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY+ 6,0xa2,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX- 2, M_enmeyPlane[i].PosY- 7,0x9e,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 7, M_enmeyPlane[i].PosY+ 1,0x9f,0x20|0x00);
-                    (*spriteRamAddr)+=5;
-                    break;
-                case 4://上
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY- 7,0x92,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY- 7,0x93,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY-14,0x90,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY-14,0x91,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY-10,0x96,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY-10,0x96,0x20|0x40);
-                    (*spriteRamAddr)+=8;
-                    break;
-                case 5://左上
-                    // writeOneSprite( 0,20- 0, 100- 0,0xa1,0x20|0x40);
-                    // writeOneSprite( 1,20- 6, 100- 6,0xa0,0x20|0x40);
-                    // writeOneSprite( 2,20+ 6, 100+ 6,0xa2,0x20|0x40);
-                    // writeOneSprite( 3,20+ 2, 100- 7,0x9e,0x20|0x40);
-                    // writeOneSprite( 4,20- 7, 100+ 1,0x9f,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY- 0,0xa1,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY- 6,0xa0,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY+ 6,0xa2,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 2, M_enmeyPlane[i].PosY- 7,0x9e,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX- 7, M_enmeyPlane[i].PosY+ 1,0x9f,0x20|0x40);
-                    (*spriteRamAddr)+=5;
-                    break;
-                case 6://左
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY+ 0,0x9B,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+ 0,0x99,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX-16, M_enmeyPlane[i].PosY+ 0,0x97,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY+ 7,0x9C,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+ 7,0x9A,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX-16, M_enmeyPlane[i].PosY+ 7,0x98,0x20|0x40);
-                    writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX-10, M_enmeyPlane[i].PosY- 7,0x9D,0x20|0x00);
-                    writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX-10, M_enmeyPlane[i].PosY+15,0x9D,0x20|0x80);
-                    (*spriteRamAddr)+=8;
-                    break;
-                case 7://左下
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY- 0,0xA1,0x20|0xC0);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY+ 6,0xa0,0x20|0xC0);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY- 6,0xa2,0x20|0xC0);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 2, M_enmeyPlane[i].PosY+ 7,0x9e,0x20|0xC0);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX- 7, M_enmeyPlane[i].PosY- 1,0x9f,0x20|0xC0);
-                    (*spriteRamAddr)+=5;
-                    break;
-                case 8://下
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x92,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x93,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+14,0x90,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+14,0x91,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+10,0x96,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+10,0x96,0x20|0xC0);
-                    (*spriteRamAddr)+=8;
-                    break;
-            default:
-                    writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x92,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x93,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+14,0x90,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+14,0x91,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+10,0x96,0x20|0x80);
-                    writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+10,0x96,0x20|0xC0);
-                    (*spriteRamAddr)+=8;
-                    break;
-            }
-        }
+    uint8_t atti = AHBPLANE->Attitude;
+    uint8_t posx = AHBPLANE->PosX_out;
+	uint8_t posy = AHBPLANE->PosY_out;
+    switch (atti)
+    {
+        case 0://下
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0x94,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 8, posy+ 0,0x95,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+2,posx+ 0, posy+ 7,0x92,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 8, posy+ 7,0x93,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 0, posy+14,0x90,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+5,posx+ 8, posy+14,0x91,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+6,posx- 8, posy+10,0x96,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+7,posx+16, posy+10,0x96,0x20|0xC0);
+            (*spriteRamAddr)+=8;
+            break;
+        case 1://右下
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0xa1,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 6, posy+ 6,0xa0,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+2,posx- 6, posy- 6,0xa2,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+3,posx- 2, posy+ 7,0x9e,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 7, posy- 2,0x9f,0x20|0x80);
+            (*spriteRamAddr)+=8;
+            break;
+        case 2://右
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0x9B,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 8, posy+ 0,0x99,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+2,posx+16, posy+ 0,0x97,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 0, posy+ 7,0x9C,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 8, posy+ 7,0x9A,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+5,posx+16, posy+ 7,0x98,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+6,posx+10, posy- 7,0x9D,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+7,posx+10, posy+15,0x9D,0x20|0xC0);
+            (*spriteRamAddr)+=8;
+            break;
+        case 3://右上
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0xA1,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 6, posy- 6,0xa0,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+2,posx- 6, posy+ 6,0xa2,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+3,posx- 2, posy- 7,0x9e,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 7, posy+ 1,0x9f,0x20|0x00);
+            (*spriteRamAddr)+=5;
+            break;
+        case 4://上
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0x94,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 8, posy+ 0,0x95,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+2,posx+ 0, posy- 7,0x92,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 8, posy- 7,0x93,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 0, posy-14,0x90,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+5,posx+ 8, posy-14,0x91,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+6,posx- 8, posy-10,0x96,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+7,posx+16, posy-10,0x96,0x20|0x40);
+            (*spriteRamAddr)+=8;
+            break;
+        case 5://左上
+            // writeOneSprite( 0,20- 0, 100- 0,0xa1,0x20|0x40);
+            // writeOneSprite( 1,20- 6, 100- 6,0xa0,0x20|0x40);
+            // writeOneSprite( 2,20+ 6, 100+ 6,0xa2,0x20|0x40);
+            // writeOneSprite( 3,20+ 2, 100- 7,0x9e,0x20|0x40);
+            // writeOneSprite( 4,20- 7, 100+ 1,0x9f,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+0,posx- 0, posy- 0,0xa1,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+1,posx- 6, posy- 6,0xa0,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+2,posx+ 6, posy+ 6,0xa2,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 2, posy- 7,0x9e,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+4,posx- 7, posy+ 1,0x9f,0x20|0x40);
+            (*spriteRamAddr)+=5;
+            break;
+        case 6://左
+            writeOneSprite((*spriteRamAddr)+0,posx- 0, posy+ 0,0x9B,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+1,posx- 8, posy+ 0,0x99,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+2,posx-16, posy+ 0,0x97,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+3,posx- 0, posy+ 7,0x9C,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+4,posx- 8, posy+ 7,0x9A,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+5,posx-16, posy+ 7,0x98,0x20|0x40);
+            writeOneSprite((*spriteRamAddr)+6,posx-10, posy- 7,0x9D,0x20|0x00);
+            writeOneSprite((*spriteRamAddr)+7,posx-10, posy+15,0x9D,0x20|0x80);
+            (*spriteRamAddr)+=8;
+            break;
+        case 7://左下
+            writeOneSprite((*spriteRamAddr)+0,posx- 0, posy- 0,0xA1,0x20|0xC0);
+            writeOneSprite((*spriteRamAddr)+1,posx- 6, posy+ 6,0xa0,0x20|0xC0);
+            writeOneSprite((*spriteRamAddr)+2,posx+ 6, posy- 6,0xa2,0x20|0xC0);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 2, posy+ 7,0x9e,0x20|0xC0);
+            writeOneSprite((*spriteRamAddr)+4,posx- 7, posy- 1,0x9f,0x20|0xC0);
+            (*spriteRamAddr)+=5;
+            break;
+        case 8://下
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0x94,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 8, posy+ 0,0x95,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+2,posx+ 0, posy+ 7,0x92,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 8, posy+ 7,0x93,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 0, posy+14,0x90,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+5,posx+ 8, posy+14,0x91,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+6,posx- 8, posy+10,0x96,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+7,posx+16, posy+10,0x96,0x20|0xC0);
+            (*spriteRamAddr)+=8;
+            break;
+    default:
+            writeOneSprite((*spriteRamAddr)+0,posx+ 0, posy+ 0,0x94,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+1,posx+ 8, posy+ 0,0x95,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+2,posx+ 0, posy+ 7,0x92,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+3,posx+ 8, posy+ 7,0x93,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+4,posx+ 0, posy+14,0x90,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+5,posx+ 8, posy+14,0x91,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+6,posx- 8, posy+10,0x96,0x20|0x80);
+            writeOneSprite((*spriteRamAddr)+7,posx+16, posy+10,0x96,0x20|0xC0);
+            (*spriteRamAddr)+=8;
+            break;
     }
+    // for(int i=0;i<M_ENEMY_NUMMAX;i++){
+    //     if(M_enmeyPlane[i].liveFlag!=0){
+    //         uint8_t pallet=2<<4;//调色板
+    //         uint8_t atti = AHBPLANE->Attitude;
+    //         switch (M_enmeyPlane[i].attitude)
+    //         {
+    //             case 0://下
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x92,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x93,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+14,0x90,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+14,0x91,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+10,0x96,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+10,0x96,0x20|0xC0);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //             case 1://右下
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0xa1,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY+ 6,0xa0,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY- 6,0xa2,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX- 2, M_enmeyPlane[i].PosY+ 7,0x9e,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 7, M_enmeyPlane[i].PosY- 2,0x9f,0x20|0x80);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //             case 2://右
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x9B,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x99,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+ 0,0x97,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x9C,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x9A,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+ 7,0x98,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX+10, M_enmeyPlane[i].PosY- 7,0x9D,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+10, M_enmeyPlane[i].PosY+15,0x9D,0x20|0xC0);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //             case 3://右上
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0xA1,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY- 6,0xa0,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY+ 6,0xa2,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX- 2, M_enmeyPlane[i].PosY- 7,0x9e,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 7, M_enmeyPlane[i].PosY+ 1,0x9f,0x20|0x00);
+    //                 (*spriteRamAddr)+=5;
+    //                 break;
+    //             case 4://上
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY- 7,0x92,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY- 7,0x93,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY-14,0x90,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY-14,0x91,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY-10,0x96,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY-10,0x96,0x20|0x40);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //             case 5://左上
+    //                 // writeOneSprite( 0,20- 0, 100- 0,0xa1,0x20|0x40);
+    //                 // writeOneSprite( 1,20- 6, 100- 6,0xa0,0x20|0x40);
+    //                 // writeOneSprite( 2,20+ 6, 100+ 6,0xa2,0x20|0x40);
+    //                 // writeOneSprite( 3,20+ 2, 100- 7,0x9e,0x20|0x40);
+    //                 // writeOneSprite( 4,20- 7, 100+ 1,0x9f,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY- 0,0xa1,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY- 6,0xa0,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY+ 6,0xa2,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 2, M_enmeyPlane[i].PosY- 7,0x9e,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX- 7, M_enmeyPlane[i].PosY+ 1,0x9f,0x20|0x40);
+    //                 (*spriteRamAddr)+=5;
+    //                 break;
+    //             case 6://左
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY+ 0,0x9B,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+ 0,0x99,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX-16, M_enmeyPlane[i].PosY+ 0,0x97,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY+ 7,0x9C,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+ 7,0x9A,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX-16, M_enmeyPlane[i].PosY+ 7,0x98,0x20|0x40);
+    //                 writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX-10, M_enmeyPlane[i].PosY- 7,0x9D,0x20|0x00);
+    //                 writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX-10, M_enmeyPlane[i].PosY+15,0x9D,0x20|0x80);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //             case 7://左下
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX- 0, M_enmeyPlane[i].PosY- 0,0xA1,0x20|0xC0);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX- 6, M_enmeyPlane[i].PosY+ 6,0xa0,0x20|0xC0);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 6, M_enmeyPlane[i].PosY- 6,0xa2,0x20|0xC0);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 2, M_enmeyPlane[i].PosY+ 7,0x9e,0x20|0xC0);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX- 7, M_enmeyPlane[i].PosY- 1,0x9f,0x20|0xC0);
+    //                 (*spriteRamAddr)+=5;
+    //                 break;
+    //             case 8://下
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x92,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x93,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+14,0x90,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+14,0x91,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+10,0x96,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+10,0x96,0x20|0xC0);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //         default:
+    //                 writeOneSprite((*spriteRamAddr)+0,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 0,0x94,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+1,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 0,0x95,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+2,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+ 7,0x92,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+3,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+ 7,0x93,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+4,M_enmeyPlane[i].PosX+ 0, M_enmeyPlane[i].PosY+14,0x90,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+5,M_enmeyPlane[i].PosX+ 8, M_enmeyPlane[i].PosY+14,0x91,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+6,M_enmeyPlane[i].PosX- 8, M_enmeyPlane[i].PosY+10,0x96,0x20|0x80);
+    //                 writeOneSprite((*spriteRamAddr)+7,M_enmeyPlane[i].PosX+16, M_enmeyPlane[i].PosY+10,0x96,0x20|0xC0);
+    //                 (*spriteRamAddr)+=8;
+    //                 break;
+    //         }
+    //     }
+    // }
 }
 
 //爆炸效果作图函数，后续应该添加爆炸的第几帧，每一帧持续多长时间
@@ -639,15 +780,22 @@ void enemyMapCreate(PLANEType* enmeyPlane,M_PLANEType* M_enmeyPlane,hitMapType* 
             tileMap((enmeyPlane+i)->PosX+4,(enmeyPlane+i)->PosY-8,hitMap);   
         }
     }
-    for (int i = 0; i < M_ENEMY_NUMMAX; i++)
-    {
-        if((M_enmeyPlane+i)->liveFlag!=0){
-            tileMap((M_enmeyPlane+i)->PosX+0,(M_enmeyPlane+i)->PosY+0,hitMap);
-            tileMap((M_enmeyPlane+i)->PosX+8,(M_enmeyPlane+i)->PosY+0,hitMap);
-            tileMap((M_enmeyPlane+i)->PosX+4,(M_enmeyPlane+i)->PosY-8,hitMap);
-        }
+
+    // for (int i = 0; i < M_ENEMY_NUMMAX; i++)//中型飞机
+    // {
+    //     if((M_enmeyPlane+i)->liveFlag!=0){
+    //         tileMap((M_enmeyPlane+i)->PosX+0,(M_enmeyPlane+i)->PosY+0,hitMap);
+    //         tileMap((M_enmeyPlane+i)->PosX+8,(M_enmeyPlane+i)->PosY+0,hitMap);
+    //         tileMap((M_enmeyPlane+i)->PosX+4,(M_enmeyPlane+i)->PosY-8,hitMap);
+    //     }
+    // }
+
+    //中型飞机
+    if(AHBPLANE->isLive!=0){
+        tileMap(AHBPLANE->PosX_out+0,AHBPLANE->PosY_out+0,hitMap);
+        tileMap(AHBPLANE->PosX_out+8,AHBPLANE->PosY_out+0,hitMap);
+        tileMap(AHBPLANE->PosX_out+4,AHBPLANE->PosY_out-8,hitMap);
     }
-    
 }
 
 //我方飞机可以被敌方子弹和敌方飞机摧毁并产生爆炸效果(我方飞机后续可以添加护盾效果,更换调色板表示进行赤红状态,可以承受一次撞击)
@@ -742,10 +890,10 @@ void isEnemyPlaneHit(PLANEType* enmeyPlane,M_PLANEType* M_enmeyPlane,hitMapType 
             }
         }
     }
-    for (int i = 0; i < M_ENEMY_NUMMAX; i++){//中型敌机的碰撞检测
-        if((M_enmeyPlane+i)->liveFlag!=0){
-            uint8_t gridPosX=((M_enmeyPlane+i)->PosX >>3);
-            uint8_t gridPosY=((M_enmeyPlane+i)->PosY >>3);
+        if(AHBPLANE->isLive!=0){
+            AHBPLANE->Hit=0;
+            uint8_t gridPosX=AHBPLANE->PosX_out>>3;
+            uint8_t gridPosY=AHBPLANE->PosY_out>>3;
 
             uint32_t isHitFlag = 
             (
@@ -755,23 +903,45 @@ void isEnemyPlaneHit(PLANEType* enmeyPlane,M_PLANEType* M_enmeyPlane,hitMapType 
                 (hitMap.map[gridPosY+0] & (1<<(gridPosX+2)))
             );
             if(isHitFlag==0){
-                (M_enmeyPlane+i)->liveFlag=(M_enmeyPlane+i)->liveFlag;
+                AHBPLANE->Hit=0;
             }
             else{
-                if((M_enmeyPlane+i)->hp==0){
-                    createOneBoom((M_enmeyPlane+i)->PosX,(M_enmeyPlane+i)->PosY,&boom);
-                    (M_enmeyPlane+i)->liveFlag=0;
-                    (M_enmeyPlane+i)->PosX=253;
-                    (M_enmeyPlane+i)->PosY=239;
-                    GameScore+=50;
-                }
-                else{
-                    createOneBoom((M_enmeyPlane+i)->PosX,(M_enmeyPlane+i)->PosY,&boom);
-                    (M_enmeyPlane+i)->hp--;
-                }
+                createOneBoom(AHBPLANE->PosX_out,AHBPLANE->PosY_out,&boom);
+                AHBPLANE->Hit=1;
+                GameScore+=50;
             }
         }
-    }
+
+    // for (int i = 0; i < M_ENEMY_NUMMAX; i++){//中型敌机的碰撞检测
+    //     if((M_enmeyPlane+i)->liveFlag!=0){
+    //         uint8_t gridPosX=((M_enmeyPlane+i)->PosX >>3);
+    //         uint8_t gridPosY=((M_enmeyPlane+i)->PosY >>3);
+
+    //         uint32_t isHitFlag = 
+    //         (
+    //             (hitMap.map[gridPosY+0] & (1<<(gridPosX+0)))|
+    //             (hitMap.map[gridPosY+0] & (1<<(gridPosX+1)))|
+    //             (hitMap.map[gridPosY-1] & (1<<(gridPosX+1)))|
+    //             (hitMap.map[gridPosY+0] & (1<<(gridPosX+2)))
+    //         );
+    //         if(isHitFlag==0){
+    //             (M_enmeyPlane+i)->liveFlag=(M_enmeyPlane+i)->liveFlag;
+    //         }
+    //         else{
+    //             if((M_enmeyPlane+i)->hp==0){
+    //                 createOneBoom((M_enmeyPlane+i)->PosX,(M_enmeyPlane+i)->PosY,&boom);
+    //                 (M_enmeyPlane+i)->liveFlag=0;
+    //                 (M_enmeyPlane+i)->PosX=253;
+    //                 (M_enmeyPlane+i)->PosY=239;
+    //                 GameScore+=50;
+    //             }
+    //             else{
+    //                 createOneBoom((M_enmeyPlane+i)->PosX,(M_enmeyPlane+i)->PosY,&boom);
+    //                 (M_enmeyPlane+i)->hp--;
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 //我方子弹可以被敌方子弹和敌方飞机摧毁(我方子弹最后可以添加无敌效果)
@@ -1133,7 +1303,7 @@ void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDown
     endInterFaceArray[14][2]=ge  ;
 
     if((*DrawFlag==1) && (*arrayCnt<endInterFaceCharNum)){
-        writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x10);
+        writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x20);
         (*arrayCnt)+=1;
         LED_toggle(5);
         *DrawFlag=0;

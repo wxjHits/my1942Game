@@ -6,8 +6,8 @@ module AHBlite_Decoder
     parameter Port3_en = 1,
     parameter Port4_en = 1,
     parameter Port5_en = 1,
-    parameter Port6_en = 1
-    
+    parameter Port6_en = 1,
+    parameter Port7_en = 1
 )(
     input [31:0] HADDR,
     
@@ -17,7 +17,8 @@ module AHBlite_Decoder
     output wire P3_HSEL,       
     output wire P4_HSEL,
     output wire P5_HSEL,
-    output wire P6_HSEL
+    output wire P6_HSEL,
+    output wire P7_HSEL
 );
 
 //RAMCODE-----------------------------------
@@ -60,6 +61,10 @@ assign P5_HSEL = (HADDR[31:16] == 16'h5001) ? Port5_en : 1'd0;
 
 //0x50020000 GAME_NAMETABLE_RAM 游戏的背景nameTable外设
 assign P6_HSEL = (HADDR[31:16] == 16'h5002) ? Port6_en : 1'd0;
+/***********************************/
+
+//0x50030000 游戏单位的逻辑数据
+assign P7_HSEL = (HADDR[31:16] == 16'h5003) ? Port7_en : 1'd0;
 /***********************************/
 
 endmodule

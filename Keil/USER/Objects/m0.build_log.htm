@@ -22,106 +22,103 @@ Dialog DLL:      TARMCM1.DLL V1.14.1.0
  
 <h2>Project:</h2>
 C:\Users\hp\Desktop\my1942Game\Keil\USER\m0.uvprojx
-Project File Date:  03/03/2023
+Project File Date:  03/19/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
 assembling startup_CM0DS.s...
-compiling key.c...
 compiling camera.c...
-compiling lcd.c...
+compiling key.c...
 compiling led.c...
+compiling lcd.c...
 compiling system.c...
+compiling main.c...
+main.c(80): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  const int16_t sin_array[ANGLE_NUMMAX]={1,2,2,2,3,4,4,4,5,5};
+main.c(81): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  const int16_t cos_array[ANGLE_NUMMAX]={4,4,4,4,4,3,2,2,1,0};
+main.c(82): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.67,200};
+main.c(87): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BULLETType bullet[BULLET_NUMMAX];
+main.c(91): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
+main.c(100): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  PLANEType enmeyPlane[ENEMY_NUMMAX];
+main.c(104): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
+main.c(107): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
+main.c(108): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  BOOMType boom[BOOM_NUMMAX];
+main.c(207): warning:  #167-D: argument of type "M_PLANEType (*)[2]" is incompatible with parameter of type "M_PLANEType *"
+              M_enmeyPlaneInit(&M_enmeyPlane);
+main.c(209): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
+              boomInit(&boom);
+main.c(276): warning:  #167-D: argument of type "PLANEType (*)[2]" is incompatible with parameter of type "PLANEType *"
+           enemyMapCreate(&enmeyPlane,&M_enmeyPlane,&enemyPlaneHitMap);
+main.c(276): warning:  #167-D: argument of type "M_PLANEType (*)[2]" is incompatible with parameter of type "M_PLANEType *"
+           enemyMapCreate(&enmeyPlane,&M_enmeyPlane,&enemyPlaneHitMap);
+main.c(277): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+           enemyBulletsMapCreate(&enmeyBullets,&enmeyBulletsHitMap);
+main.c(278): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+           bulletsMapCreate(&bullet,&bulletsHitMap);
+main.c(281): warning:  #167-D: argument of type "PLANEType (*)[2]" is incompatible with parameter of type "PLANEType *"
+           isEnemyPlaneHit(&enmeyPlane,&M_enmeyPlane,bulletsHitMap);
+main.c(281): warning:  #167-D: argument of type "M_PLANEType (*)[2]" is incompatible with parameter of type "M_PLANEType *"
+           isEnemyPlaneHit(&enmeyPlane,&M_enmeyPlane,bulletsHitMap);
+main.c(282): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+           isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
+main.c(317): warning:  #167-D: argument of type "PLANEType (*)[2]" is incompatible with parameter of type "PLANEType *"
+              moveEnmeyPlane(&enmeyPlane);
+main.c(318): warning:  #167-D: argument of type "M_PLANEType (*)[2]" is incompatible with parameter of type "M_PLANEType *"
+              move_M_EnmeyPlane(&M_enmeyPlane);
+main.c(321): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
+              updateBoomData(&boom);
+main.c(346): warning:  #167-D: argument of type "M_PLANEType (*)[2]" is incompatible with parameter of type "M_PLANEType *"
+              M_enmeyPlaneDraw(&spriteRamAddr,&M_enmeyPlane);
+main.c: 22 warnings, 0 errors
+compiling spi_flash.c...
 compiling Retarget.c...
 compiling handler.c...
 ..\CORE\handler.c(137): warning:  #375-D: declaration requires a typedef name
   	};
 ..\CORE\handler.c: 1 warning, 0 errors
-compiling main.c...
-main.c(79): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  const int16_t sin_array[ANGLE_NUMMAX]={1,2,2,2,3,4,4,4,5,5};
-main.c(80): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  const int16_t cos_array[ANGLE_NUMMAX]={4,4,4,4,4,3,2,2,1,0};
-main.c(81): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.67,200};
-main.c(86): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  BULLETType bullet[BULLET_NUMMAX];
-main.c(90): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
-main.c(99): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  PLANEType enmeyPlane[ENEMY_NUMMAX];
-main.c(103): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
-main.c(106): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
-main.c(107): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  BOOMType boom[BOOM_NUMMAX];
-main.c(197): warning:  #167-D: argument of type "M_PLANEType (*)[1]" is incompatible with parameter of type "M_PLANEType *"
-              M_enmeyPlaneInit(&M_enmeyPlane);
-main.c(199): warning:  #167-D: argument of type "BOOMType (*)[20]" is incompatible with parameter of type "BOOMType *"
-              boomInit(&boom);
-main.c(266): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
-           enemyMapCreate(&enmeyPlane,&M_enmeyPlane,&enemyPlaneHitMap);
-main.c(266): warning:  #167-D: argument of type "M_PLANEType (*)[1]" is incompatible with parameter of type "M_PLANEType *"
-           enemyMapCreate(&enmeyPlane,&M_enmeyPlane,&enemyPlaneHitMap);
-main.c(267): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
-           enemyBulletsMapCreate(&enmeyBullets,&enmeyBulletsHitMap);
-main.c(268): warning:  #167-D: argument of type "BULLETType (*)[20]" is incompatible with parameter of type "BULLETType *"
-           bulletsMapCreate(&bullet,&bulletsHitMap);
-main.c(271): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
-           isEnemyPlaneHit(&enmeyPlane,&M_enmeyPlane,bulletsHitMap);
-main.c(271): warning:  #167-D: argument of type "M_PLANEType (*)[1]" is incompatible with parameter of type "M_PLANEType *"
-           isEnemyPlaneHit(&enmeyPlane,&M_enmeyPlane,bulletsHitMap);
-main.c(272): warning:  #167-D: argument of type "BULLETType (*)[20]" is incompatible with parameter of type "BULLETType *"
-           isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
-main.c(307): warning:  #167-D: argument of type "PLANEType (*)[5]" is incompatible with parameter of type "PLANEType *"
-              moveEnmeyPlane(&enmeyPlane);
-main.c(308): warning:  #167-D: argument of type "M_PLANEType (*)[1]" is incompatible with parameter of type "M_PLANEType *"
-              move_M_EnmeyPlane(&M_enmeyPlane);
-main.c(311): warning:  #167-D: argument of type "BOOMType (*)[20]" is incompatible with parameter of type "BOOMType *"
-              updateBoomData(&boom);
-main.c(336): warning:  #167-D: argument of type "M_PLANEType (*)[1]" is incompatible with parameter of type "M_PLANEType *"
-              M_enmeyPlaneDraw(&spriteRamAddr,&M_enmeyPlane);
-main.c: 22 warnings, 0 errors
-compiling spi_flash.c...
-compiling timer.c...
 compiling uart.c...
-compiling malloc.c...
 compiling spriteRam.c...
 ..\DEVICE\spriteRam.c(33): warning:  #1-D: last line of file ends without a newline
   }
 ..\DEVICE\spriteRam.c: 1 warning, 0 errors
-compiling systick.c...
+compiling malloc.c...
+compiling timer.c...
 compiling pstwo.c...
+compiling ahb_plane.c...
+compiling systick.c...
 compiling myGame.c...
-..\DEVICE\myGame.c(366): warning:  #185-D: dynamic initialization in unreachable code
+..\DEVICE\myGame.c(397): warning:  #185-D: dynamic initialization in unreachable code
                   uint8_t num=0;
-..\DEVICE\myGame.c(364): warning:  #546-D: transfer of control bypasses initialization of:
-            variable "num"  (declared at line 366)
+..\DEVICE\myGame.c(395): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "num"  (declared at line 397)
               switch (enmeyPlane[i].attitude)
               ^
-..\DEVICE\myGame.c(428): warning:  #177-D: variable "pallet"  was declared but never referenced
-              uint8_t pallet=2<<4;//调色�?
-..\DEVICE\myGame.c(687): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
+..\DEVICE\myGame.c(835): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
               createOneBoom(myplane.PosX,myplane.PosY,&boom);
-..\DEVICE\myGame.c(737): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
+..\DEVICE\myGame.c(885): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
                   createOneBoom((enmeyPlane+i)->PosX,(enmeyPlane+i)->PosY,&boom);
-..\DEVICE\myGame.c(762): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
-                      createOneBoom((M_enmeyPlane+i)->PosX,(M_enmeyPlane+i)->PosY,&boom);
-..\DEVICE\myGame.c(769): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
-                      createOneBoom((M_enmeyPlane+i)->PosX,(M_enmeyPlane+i)->PosY,&boom);
-..\DEVICE\myGame.c(1106): warning:  #177-D: variable "num"  was declared but never referenced
+..\DEVICE\myGame.c(909): warning:  #167-D: argument of type "BOOMType (*)[3]" is incompatible with parameter of type "BOOMType *"
+                  createOneBoom(AHBPLANE->PosX_out,AHBPLANE->PosY_out,&boom);
+..\DEVICE\myGame.c(1276): warning:  #177-D: variable "num"  was declared but never referenced
       uint8_t num=0x40;
-..\DEVICE\myGame.c(1141): warning:  #1-D: last line of file ends without a newline
+..\DEVICE\myGame.c(1311): warning:  #1-D: last line of file ends without a newline
   }
-..\DEVICE\myGame.c: 9 warnings, 0 errors
+..\DEVICE\myGame.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=17088 RO-data=1780 RW-data=3048 ZI-data=2072  
+Program Size: Code=15048 RO-data=1780 RW-data=3048 ZI-data=1888  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\m0.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\m0.axf -o image.txt
-".\Objects\m0.axf" - 0 Error(s), 33 Warning(s).
+".\Objects\m0.axf" - 0 Error(s), 31 Warning(s).
 
 <h2>Software Packages used:</h2>
 
