@@ -27,6 +27,9 @@ module temp_top_backgroudDraw(
          (vgaPosY>=`GAME_START_POSY && vgaPosY<`GAME_START_POSY+`GAME_WINDOW_HEIGHT);
 
     wire [`RGB_BIT-1:0] backGroundVgaRgbOut;
+
+    // output reg [11:0] vgaIntrCnt,
+
     topBackGroundDraw u_topBackGroundDraw(
                           .clk_50MHz   (clk_50MHz   ),
                           .clk_100MHz  (clk_100MHz  ),
@@ -36,7 +39,6 @@ module temp_top_backgroudDraw(
                           //from VGA_driver
                           .vgaPosX    (vgaPosX        ),
                           .vgaPosY    (vgaPosY        ),
-
                           .backGroundVgaRgbOut(backGroundVgaRgbOut)
                       );
 

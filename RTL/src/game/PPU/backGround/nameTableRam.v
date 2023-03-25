@@ -15,13 +15,15 @@ module nameTableRam(
     //到tiledraw函数
     input clk_tileDraw,
     input [`NAMETABLE_AHBBUS_ADDRWIDTH-1:0] nameTableRamIndex,
-    output reg [31:0] nameTableRamDataO
+    output reg [31:0] nameTableRamDataO,
+    input wire    [9-1:0]  attributeAddr, //0~32*30/4=240
+    output reg    [4*(`BYTE)-1:0]     attributeTableDataO
 );
 
     // (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:((`NAMETABLE_HEIGHT)*(`NAMETABLE_WIDTH))>>2-1];
-    (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:256-1];//适配安路的板子进行的修改，与地址线的位宽保持一致
+    (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:512-1];//适配安路的板子进行的修改，与地址线的位宽保持一致
     initial begin
-	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/backGround/nameTable.txt", nameTableRam);
+	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/backGround/nameTable_test02.txt", nameTableRam);
 	end
 
 /*与CPU M0软核的交互 注意与其他的ram写的高低位位置不一样*/
@@ -45,6 +47,10 @@ module nameTableRam(
 /*与其他PPU模块的交互*/
     always@(posedge clk_tileDraw) begin
         nameTableRamDataO <= nameTableRam[nameTableRamIndex];
+    end
+
+    always@(posedge clk_tileDraw)begin
+        attributeTableDataO<=nameTableRam[attributeAddr];
     end
 
 endmodule

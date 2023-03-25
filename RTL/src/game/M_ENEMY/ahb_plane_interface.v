@@ -1,14 +1,21 @@
 /********************************************/
-/*   LCD                                    */
+/*   AHB_PLANE                              */
 /*   update_clk     0X5003_0000             */
 /*   create         0X5003_0004             */
 /*   Hit            0X5003_0008             */
 /*   Init_POS_X     0X5003_000C             */
 /*   Init_POS_Y     0X5003_0010             */
-/*   PosX_out       0X5003_0014             */
-/*   PosY_out       0X5003_0018             */
-/*   Attitude       0X5003_001C             */
-/*   isLive         0X5003_0020             */
+/*   Init_HP        0X5003_0014             */
+/*   Init_Y_TURN0   0X5003_0018             */
+/*   Init_Y_TURN1   0X5003_001C             */
+/*   Init_Y_TURN2   0X5003_0020             */
+/*   Init_Y_TURN3   0X5003_0024             */
+/*   Init_X_TURN0   0X5003_0028             */
+/*   Init_X_TURN1   0X5003_002C             */
+/*   PosX_out       0X5003_0030             */
+/*   PosY_out       0X5003_0034             */
+/*   Attitude       0X5003_0038             */
+/*   isLive         0X5003_003C             */
 /********************************************/
 module ahb_plane_interface(
     input  wire                         HCLK,    
@@ -35,7 +42,14 @@ module ahb_plane_interface(
     output reg                          create      ,//创建单位
     output reg                          Hit         ,//被击中
     output reg      [7:0]               Init_POS_X  ,
-    output reg      [7:0]               Init_POS_Y  
+    output reg      [7:0]               Init_POS_Y  ,
+    output reg      [7:0]               Init_HP     ,
+    output reg      [7:0]               Init_Y_TURN0,
+    output reg      [7:0]               Init_Y_TURN1,
+    output reg      [7:0]               Init_Y_TURN2,
+    output reg      [7:0]               Init_Y_TURN3,
+    output reg      [7:0]               Init_X_TURN0,
+    output reg      [7:0]               Init_X_TURN1
 );
 
 assign HRESP = 1'b0;
@@ -66,6 +80,13 @@ wire write_create_en            = addr == 6'h01 & write_en_reg;
 wire write_hit_clk_en           = addr == 6'h02 & write_en_reg;
 wire write_init_pos_x_clk_en    = addr == 6'h03 & write_en_reg;
 wire write_init_pos_y_clk_en    = addr == 6'h04 & write_en_reg;
+wire write_init_hp              = addr == 6'h05 & write_en_reg;
+wire write_init_y_turn0         = addr == 6'h06 & write_en_reg;
+wire write_init_y_turn1         = addr == 6'h07 & write_en_reg;
+wire write_init_y_turn2         = addr == 6'h08 & write_en_reg;
+wire write_init_y_turn3         = addr == 6'h09 & write_en_reg;
+wire write_init_x_turn0         = addr == 6'h0a & write_en_reg;
+wire write_init_x_turn1         = addr == 6'h0b & write_en_reg;
 
 // reg         update_clk  ;
 // reg         create      ;
@@ -92,6 +113,20 @@ always@(posedge HCLK or negedge HRESETn) begin
             Init_POS_X <= HWDATA[7:0];
         if (write_init_pos_y_clk_en)
             Init_POS_Y <= HWDATA[7:0];
+        if (write_init_hp)
+            Init_HP <= HWDATA[7:0];
+        if (write_init_y_turn0)
+            Init_Y_TURN0 <= HWDATA[7:0];
+        if (write_init_y_turn1)
+            Init_Y_TURN1 <= HWDATA[7:0];
+        if (write_init_y_turn2)
+            Init_Y_TURN2 <= HWDATA[7:0];
+        if (write_init_y_turn3)
+            Init_Y_TURN3 <= HWDATA[7:0];
+        if (write_init_x_turn0)
+            Init_X_TURN0 <= HWDATA[7:0];
+        if (write_init_x_turn1)
+            Init_X_TURN1 <= HWDATA[7:0];
     end
 end
 
@@ -104,10 +139,17 @@ assign HRDATA    =  (   addr == 6'h00   ) ?  {31'b0,update_clk      }  :   (
                     (   addr == 6'h02   ) ?  {31'b0,Hit             }  :   (
                     (   addr == 6'h03   ) ?  {24'b0,Init_POS_X      }  :   (
                     (   addr == 6'h04   ) ?  {24'b0,Init_POS_Y      }  :   (
-                    (   addr == 6'h05   ) ?  {24'b0,PosX_out        }  :   (
-                    (   addr == 6'h06   ) ?  {24'b0,PosY_out        }  :   (
-                    (   addr == 6'h07   ) ?  {24'b0,Attitude        }  :   (
-                    (   addr == 6'h08   ) ?  {31'b0,isLive          }  :   32'b0))))))));
+                    (   addr == 6'h05   ) ?  {24'b0,Init_HP         }  :   (
+                    (   addr == 6'h06   ) ?  {24'b0,Init_Y_TURN0    }  :   (
+                    (   addr == 6'h07   ) ?  {24'b0,Init_Y_TURN1    }  :   (
+                    (   addr == 6'h08   ) ?  {24'b0,Init_Y_TURN2    }  :   (
+                    (   addr == 6'h09   ) ?  {24'b0,Init_Y_TURN3    }  :   (
+                    (   addr == 6'h0a   ) ?  {24'b0,Init_X_TURN0    }  :   (
+                    (   addr == 6'h0b   ) ?  {24'b0,Init_X_TURN1    }  :   (
+                    (   addr == 6'h0c   ) ?  {24'b0,PosX_out        }  :   (
+                    (   addr == 6'h0d   ) ?  {24'b0,PosY_out        }  :   (
+                    (   addr == 6'h0e   ) ?  {24'b0,Attitude        }  :   (
+                    (   addr == 6'h0f   ) ?  {31'b0,isLive          }  :   32'b0)))))))))))))));
 
 endmodule
 

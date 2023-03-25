@@ -28,6 +28,13 @@ void clearNameTableOneline(uint8_t lineNum){
         writeOneNametable(j,lineNum,0xFF);
 }
 
-void writeOneNametable(uint8_t nameTable_X,uint8_t nameTable_Y,uint8_t backgroundTileIndex){
+void writeOneNametable(uint16_t nameTable_X,uint16_t nameTable_Y,uint8_t backgroundTileIndex){
     NAMETABLE->NAMETABLE_VALUE[nameTable_Y][nameTable_X]=backgroundTileIndex;
 }
+
+void nameTablePicture(uint16_t y,uint8_t* array){
+        uint16_t x=0;
+        for (x = 0; x < 32; x++){
+            NAMETABLE->NAMETABLE_VALUE[y][x]=*(array+x);
+        }
+};

@@ -11,9 +11,11 @@ module backTileDraw(
     input wire [`VGA_POSXY_BIT-1:0] vgaPosY,
 
     //当前VGA坐标对应的名称表位置
-    output wire    [8-1:0]  nameTableRamIndex, //0~32*30/4=240
+    output reg    [9-1:0]  nameTableRamIndex, //0~32*30/4=240
     input  wire    [4*(`BYTE)-1:0]     nameTableRamDataO,
-    
+    //当前VGA坐标对应的属性表位置
+    output wire    [9-1:0]  attributeAddr, //0~32*30/4=240
+    input  wire    [4*(`BYTE)-1:0]     attributeTableDataO,
     //索引背景的图案表
     output reg    [`BYTE-1:0]  backTileIndex,
     input wire  [128-1:0]  backTileDataI,
@@ -21,6 +23,53 @@ module backTileDraw(
     //to VGA_driver.v
     output reg [`RGB_BIT-1:0] backGroundVgaRgbOut
 );
+    //产生的中断进行计数器计数
+    wire VGA_Intr;
+    reg VGA_Intr_r0;
+    reg VGA_Intr_r1;
+    always@(posedge clk)begin
+        if(~rstn)begin
+            VGA_Intr_r0<=0;
+            VGA_Intr_r1<=0;
+        end
+        else begin
+            VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH-1) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT-1);
+            // VGA_Intr_r0<=(vgaPosX[3:0]==4'd3);
+            VGA_Intr_r1<=VGA_Intr_r0;
+        end
+    end
+    assign VGA_Intr = VGA_Intr_r0 & (~VGA_Intr_r1);
+    //
+    localparam CNT_MAX = 4;
+    reg [7:0] cnt;
+    always@(posedge clk)begin
+        if(~rstn)
+            cnt<=0;
+        else if(VGA_Intr==1'b1)begin
+            if(cnt>=CNT_MAX)
+                cnt<=0;
+            else
+                cnt<=cnt+1'b1;
+        end
+        else
+            cnt<=cnt;
+    end
+    //vga_intr计数器
+    reg [8:0] vgaIntrCnt;//11:3高9bit传数值粗略的行数（），2:0低3位传数值精细的行数，30*8-1 一共计数到239置0，
+    always@(posedge clk)begin
+        if(~rstn)
+            vgaIntrCnt<=230;
+        else if(VGA_Intr&&cnt==CNT_MAX)begin
+            if(vgaIntrCnt==9'd256)
+                vgaIntrCnt<=9'd239;
+            else if(vgaIntrCnt==9'd0)
+                vgaIntrCnt<=9'd495;
+            else
+                vgaIntrCnt<=vgaIntrCnt-1'b1;
+        end
+        else
+            vgaIntrCnt<=vgaIntrCnt;
+    end
 
 //将25.2MHz的数据同步到当前快时钟域下
 reg [`VGA_POSXY_BIT-1:0] vgaPosX_r;
@@ -48,8 +97,30 @@ always@(posedge clk)begin
         gameVgaPosY<=vgaPosY_r-`GAME_START_POSY;
     end
 end
+// gameVgaPosY、gameVgaPosX扫描加对应的选择
+wire [8:0] gameVgaPosY_temp = gameVgaPosY+vgaIntrCnt;
 
-assign nameTableRamIndex = {(gameVgaPosY[8-1:3]), (gameVgaPosX[7:5])};
+always@(posedge clk)begin
+    if(vgaIntrCnt>=0&&vgaIntrCnt<=239)begin
+        if(gameVgaPosY_temp<=9'd239)
+            nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
+        else
+            nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
+    end
+    else if(vgaIntrCnt>=256&&vgaIntrCnt<=495)begin
+        if(gameVgaPosY_temp<=9'd495)
+            nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
+        else
+            nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
+    end
+    // if(gameVgaPosY_temp>=vgaIntrCnt && ((gameVgaPosY_temp<9'd240)||(gameVgaPosY_temp<9'd496)))
+    //     nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
+    // else
+    //     nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
+end
+// assign nameTableRamIndex = jumpFlag ? {gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]}:
+//                                     {gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
+
 always@(*)begin
     case(gameVgaPosX[4:3])
         2'b00:backTileIndex=nameTableRamDataO[31:24];
@@ -61,7 +132,7 @@ end
 
 reg [$clog2(`SPRITE_TILEDATA_BIT)-1:0] whichBit;
 always@(posedge clk)begin
-    whichBit <={1'b0,gameVgaPosY[2:0],gameVgaPosX[2:0]}; 
+    whichBit <={1'b0,gameVgaPosY_temp[2:0],gameVgaPosX[2:0]}; 
 end
 
 //č˛ĺ˝Š
@@ -83,9 +154,39 @@ always@(*)begin
     endcase
 end
 
-//调色板
+/***调色板的选择（根据属性表的解析结果）***/
+//计算属性表的地址
+reg [8:0] attributeAddr_r;
+assign attributeAddr = attributeAddr_r;
+always@(*)begin
+    if(nameTableRamIndex[8]==1'b0)
+        attributeAddr_r =  {nameTableRamIndex[7:5],gameVgaPosX[7]} + 9'd240;
+    else
+        attributeAddr_r =  {nameTableRamIndex[7:5],gameVgaPosX[7]} + 9'd496;
+end
+
+reg [7:0] attibuteByte;
+always@(*)begin
+    case(gameVgaPosX[6:5])
+        2'b00:attibuteByte = attributeTableDataO[31:24];
+        2'b01:attibuteByte = attributeTableDataO[23:16];
+        2'b10:attibuteByte = attributeTableDataO[15:08];
+        2'b11:attibuteByte = attributeTableDataO[07:00];
+    endcase
+end 
+
+reg [1:0] paletteSelect;
+always@(*)begin
+    case({nameTableRamIndex[4],gameVgaPosX[4]})
+        2'b00:paletteSelect=attibuteByte[1:0];
+        2'b01:paletteSelect=attibuteByte[3:2];
+        2'b10:paletteSelect=attibuteByte[5:4];
+        2'b11:paletteSelect=attibuteByte[7:6];
+    endcase
+end
+
 paletteBackground paletteBackground_inst (
-    .PaletteChoice(0),
+    .PaletteChoice(paletteSelect),
     .PaletteColor00(PaletteColor00),
     .PaletteColor01(PaletteColor01),
     .PaletteColor10(PaletteColor10),

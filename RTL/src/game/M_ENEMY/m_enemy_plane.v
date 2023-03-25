@@ -12,6 +12,13 @@ module m_enemyPlane_logic(
     //初始化的数据
     input  wire [7:0]   Init_POS_X  ,
     input  wire [7:0]   Init_POS_Y  ,
+    input  wire [7:0]   Init_HP     ,
+    input  wire [7:0]   Init_Y_TURN0,
+    input  wire [7:0]   Init_Y_TURN1,
+    input  wire [7:0]   Init_Y_TURN2,
+    input  wire [7:0]   Init_Y_TURN3,
+    input  wire [7:0]   Init_X_TURN0,
+    input  wire [7:0]   Init_X_TURN1,
     //
     output wire [7:0]   PosX_out    ,//用于碰撞Mask和绘图
     output wire [7:0]   PosY_out    ,//用于碰撞Mask和绘图
@@ -201,13 +208,13 @@ module m_enemyPlane_logic(
                 pos_x<=Init_POS_X;
                 pos_y<=Init_POS_Y;
                 liveFlag<=1;
-                hp<=3;
-                y_turn0<=Init_POS_Y+50;
-                y_turn1<=Init_POS_Y+50+20;
-                y_turn2<=Init_POS_Y+50+20+40;
-                y_turn3<=Init_POS_Y+50+20+40+20;
-                x_turn0<=Init_POS_X+20;
-                x_turn1<=Init_POS_X+20+80;
+                hp<=Init_HP;
+                y_turn0<=Init_Y_TURN0;//Init_POS_Y+50;
+                y_turn1<=Init_Y_TURN1;//Init_POS_Y+50+20;
+                y_turn2<=Init_Y_TURN2;//Init_POS_Y+50+20+40;
+                y_turn3<=Init_Y_TURN3;//Init_POS_Y+50+20+40+20;
+                x_turn0<=Init_X_TURN0;//Init_POS_X+20;
+                x_turn1<=Init_X_TURN1;//Init_POS_X+20+80;
                 now_state<=ROUTE_00;
             end
         end

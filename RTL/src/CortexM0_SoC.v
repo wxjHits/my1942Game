@@ -1074,45 +1074,66 @@ module CortexM0_SoC (
     wire            Hit         ;//被击中
     wire    [7:0]   Init_POS_X  ;
     wire    [7:0]   Init_POS_Y  ;
+    wire    [7:0]   Init_HP     ;
+    wire    [7:0]   Init_Y_TURN0;
+    wire    [7:0]   Init_Y_TURN1;
+    wire    [7:0]   Init_Y_TURN2;
+    wire    [7:0]   Init_Y_TURN3;
+    wire    [7:0]   Init_X_TURN0;
+    wire    [7:0]   Init_X_TURN1;
 
     ahb_plane_interface u_ahb_plane_interface(
-        .HCLK       (clk        ),
-        .HRESETn    (cpuresetn  ),
-        .HSEL       (HSEL_P7    ),
-        .HADDR      (HADDR_P7   ),
-        .HTRANS     (HTRANS_P7  ),
-        .HSIZE      (HSIZE_P7   ),
-        .HPROT      (HPROT_P7   ),
-        .HWRITE     (HWRITE_P7  ),
-        .HWDATA     (HWDATA_P7  ),
-        .HREADY     (HREADY_P7  ),
-        .HREADYOUT  (HREADYOUT_P7),
-        .HRDATA     (HRDATA_P7  ),
-        .HRESP      (HRESP_P7   ),
+        .HCLK           (clk            ),
+        .HRESETn        (cpuresetn      ),
+        .HSEL           (HSEL_P7        ),
+        .HADDR          (HADDR_P7       ),
+        .HTRANS         (HTRANS_P7      ),
+        .HSIZE          (HSIZE_P7       ),
+        .HPROT          (HPROT_P7       ),
+        .HWRITE         (HWRITE_P7      ),
+        .HWDATA         (HWDATA_P7      ),
+        .HREADY         (HREADY_P7      ),
+        .HREADYOUT      (HREADYOUT_P7   ),
+        .HRDATA         (HRDATA_P7      ),
+        .HRESP          (HRESP_P7       ),
 
-        .PosX_out   (PosX_out   ),//用于碰撞Mask和绘图
-        .PosY_out   (PosY_out   ),//用于碰撞Mask和绘图
-        .Attitude   (Attitude   ),//用于判断当前单位应该是动画的第几帧
-        .isLive     (isLive     ),//用于CPU获取单位状态
-        .update_clk (update_clk ),//数据更新clk
-        .create     (create     ),//创建单位
-        .Hit        (Hit        ),//被击中
-        .Init_POS_X (Init_POS_X ),
-        .Init_POS_Y (Init_POS_Y )
+        .PosX_out       (PosX_out       ),
+        .PosY_out       (PosY_out       ),
+        .Attitude       (Attitude       ),
+        .isLive         (isLive         ),
+        .update_clk     (update_clk     ),
+        .create         (create         ),
+        .Hit            (Hit            ),
+        .Init_POS_X     (Init_POS_X     ),
+        .Init_POS_Y     (Init_POS_Y     ),
+        .Init_HP        (Init_HP        ),
+        .Init_Y_TURN0   (Init_Y_TURN0   ),
+        .Init_Y_TURN1   (Init_Y_TURN1   ),
+        .Init_Y_TURN2   (Init_Y_TURN2   ),
+        .Init_Y_TURN3   (Init_Y_TURN3   ),
+        .Init_X_TURN0   (Init_X_TURN0   ),
+        .Init_X_TURN1   (Init_X_TURN1   )
     );
 
     m_enemyPlane_logic u_m_enemyPlane_logic(
-        .clk (clk )        ,//系统时钟50MHz
-        .rstn(RSTn)        ,
-        .update_clk(update_clk)  ,//数据更新clk
-        .create    (create    )  ,//创建单位
-        .Hit       (Hit       )  ,//被击中
-        .Init_POS_X(Init_POS_X)  ,
-        .Init_POS_Y(Init_POS_Y)  ,
-        .PosX_out(PosX_out)    ,//用于碰撞Mask和绘图
-        .PosY_out(PosY_out)    ,//用于碰撞Mask和绘图
-        .Attitude(Attitude)    ,//用于判断当前单位应该是动画的第几帧
-        .isLive  (isLive  )     //用于CPU获取单位状态
+        .clk            (clk            ),
+        .rstn           (RSTn           ),
+        .update_clk     (update_clk     ),
+        .create         (create         ),
+        .Hit            (Hit            ),
+        .Init_POS_X     (Init_POS_X     ),
+        .Init_POS_Y     (Init_POS_Y     ),
+        .Init_HP        (Init_HP        ),
+        .Init_Y_TURN0   (Init_Y_TURN0   ),
+        .Init_Y_TURN1   (Init_Y_TURN1   ),
+        .Init_Y_TURN2   (Init_Y_TURN2   ),
+        .Init_Y_TURN3   (Init_Y_TURN3   ),
+        .Init_X_TURN0   (Init_X_TURN0   ),
+        .Init_X_TURN1   (Init_X_TURN1   ),
+        .PosX_out       (PosX_out       ),
+        .PosY_out       (PosY_out       ),
+        .Attitude       (Attitude       ),
+        .isLive         (isLive         ) 
 );
 
 endmodule

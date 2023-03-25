@@ -3,468 +3,159 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="CortexM0_SoC_vlg_tst_behav.wdb" id="1">
+      <db_ref path="tb_temp_top_backgroudDraw_behav.wdb" id="1">
          <top_modules>
-            <top_module name="CortexM0_SoC_vlg_tst" />
             <top_module name="glbl" />
+            <top_module name="tb_temp_top_backgroudDraw" />
          </top_modules>
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="146632000000fs"></ZoomStartTime>
-      <ZoomEndTime time="151592000001fs"></ZoomEndTime>
-      <Cursor1Time time="148367000000fs"></Cursor1Time>
+      <ZoomStartTime time="364791998000fs"></ZoomStartTime>
+      <ZoomEndTime time="868291998001fs"></ZoomEndTime>
+      <Cursor1Time time="552539999000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="271"></NameColumnWidth>
-      <ValueColumnWidth column_width="265"></ValueColumnWidth>
+      <ValueColumnWidth column_width="250"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="85" />
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/clk" type="logic">
+   <WVObjectSize size="33" />
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/RSTn" type="logic">
-      <obj_property name="ElementShortName">RSTn</obj_property>
-      <obj_property name="ObjectShortName">RSTn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/SPI_MISO" type="logic">
-      <obj_property name="ElementShortName">SPI_MISO</obj_property>
-      <obj_property name="ObjectShortName">SPI_MISO</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HCLK" type="logic">
-      <obj_property name="ElementShortName">HCLK</obj_property>
-      <obj_property name="ObjectShortName">HCLK</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HRESETn" type="logic">
-      <obj_property name="ElementShortName">HRESETn</obj_property>
-      <obj_property name="ObjectShortName">HRESETn</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HSEL" type="logic">
-      <obj_property name="ElementShortName">HSEL</obj_property>
-      <obj_property name="ObjectShortName">HSEL</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HADDR" type="array">
-      <obj_property name="ElementShortName">HADDR[31:0]</obj_property>
-      <obj_property name="ObjectShortName">HADDR[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HTRANS" type="array">
-      <obj_property name="ElementShortName">HTRANS[1:0]</obj_property>
-      <obj_property name="ObjectShortName">HTRANS[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HSIZE" type="array">
-      <obj_property name="ElementShortName">HSIZE[2:0]</obj_property>
-      <obj_property name="ObjectShortName">HSIZE[2:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HPROT" type="array">
-      <obj_property name="ElementShortName">HPROT[3:0]</obj_property>
-      <obj_property name="ObjectShortName">HPROT[3:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HWRITE" type="logic">
-      <obj_property name="ElementShortName">HWRITE</obj_property>
-      <obj_property name="ObjectShortName">HWRITE</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HWDATA" type="array">
-      <obj_property name="ElementShortName">HWDATA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">HWDATA[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HREADY" type="logic">
-      <obj_property name="ElementShortName">HREADY</obj_property>
-      <obj_property name="ObjectShortName">HREADY</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HREADYOUT" type="logic">
-      <obj_property name="ElementShortName">HREADYOUT</obj_property>
-      <obj_property name="ObjectShortName">HREADYOUT</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HRDATA" type="array">
-      <obj_property name="ElementShortName">HRDATA[31:0]</obj_property>
-      <obj_property name="ObjectShortName">HRDATA[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/HRESP" type="logic">
-      <obj_property name="ElementShortName">HRESP</obj_property>
-      <obj_property name="ObjectShortName">HRESP</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/PosX_out" type="array">
-      <obj_property name="ElementShortName">PosX_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">PosX_out[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/PosY_out" type="array">
-      <obj_property name="ElementShortName">PosY_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">PosY_out[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/Attitude" type="array">
-      <obj_property name="ElementShortName">Attitude[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Attitude[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/isLive" type="logic">
-      <obj_property name="ElementShortName">isLive</obj_property>
-      <obj_property name="ObjectShortName">isLive</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/update_clk" type="logic">
-      <obj_property name="ElementShortName">update_clk</obj_property>
-      <obj_property name="ObjectShortName">update_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/create" type="logic">
-      <obj_property name="ElementShortName">create</obj_property>
-      <obj_property name="ObjectShortName">create</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/Hit" type="logic">
-      <obj_property name="ElementShortName">Hit</obj_property>
-      <obj_property name="ObjectShortName">Hit</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/Init_POS_X" type="array">
-      <obj_property name="ElementShortName">Init_POS_X[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Init_POS_X[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/Init_POS_Y" type="array">
-      <obj_property name="ElementShortName">Init_POS_Y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Init_POS_Y[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/read_en" type="logic">
-      <obj_property name="ElementShortName">read_en</obj_property>
-      <obj_property name="ObjectShortName">read_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_en" type="logic">
-      <obj_property name="ElementShortName">write_en</obj_property>
-      <obj_property name="ObjectShortName">write_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/addr" type="array">
-      <obj_property name="ElementShortName">addr[5:0]</obj_property>
-      <obj_property name="ObjectShortName">addr[5:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_en_reg" type="logic">
-      <obj_property name="ElementShortName">write_en_reg</obj_property>
-      <obj_property name="ObjectShortName">write_en_reg</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_update_clk_en" type="logic">
-      <obj_property name="ElementShortName">write_update_clk_en</obj_property>
-      <obj_property name="ObjectShortName">write_update_clk_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_create_en" type="logic">
-      <obj_property name="ElementShortName">write_create_en</obj_property>
-      <obj_property name="ObjectShortName">write_create_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_hit_clk_en" type="logic">
-      <obj_property name="ElementShortName">write_hit_clk_en</obj_property>
-      <obj_property name="ObjectShortName">write_hit_clk_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_init_pos_x_clk_en" type="logic">
-      <obj_property name="ElementShortName">write_init_pos_x_clk_en</obj_property>
-      <obj_property name="ObjectShortName">write_init_pos_x_clk_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_ahb_plane_interface/write_init_pos_y_clk_en" type="logic">
-      <obj_property name="ElementShortName">write_init_pos_y_clk_en</obj_property>
-      <obj_property name="ObjectShortName">write_init_pos_y_clk_en</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/clk" type="logic">
-      <obj_property name="ElementShortName">clk</obj_property>
-      <obj_property name="ObjectShortName">clk</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/rstn" type="logic">
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/rstn" type="logic">
       <obj_property name="ElementShortName">rstn</obj_property>
       <obj_property name="ObjectShortName">rstn</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/update_clk" type="logic">
-      <obj_property name="ElementShortName">update_clk</obj_property>
-      <obj_property name="ObjectShortName">update_clk</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/vgaPosX" type="array">
+      <obj_property name="ElementShortName">vgaPosX[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaPosX[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/create" type="logic">
-      <obj_property name="ElementShortName">create</obj_property>
-      <obj_property name="ObjectShortName">create</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/vgaPosY" type="array">
+      <obj_property name="ElementShortName">vgaPosY[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaPosY[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/Hit" type="logic">
-      <obj_property name="ElementShortName">Hit</obj_property>
-      <obj_property name="ObjectShortName">Hit</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/Init_POS_X" type="array">
-      <obj_property name="ElementShortName">Init_POS_X[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Init_POS_X[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/Init_POS_Y" type="array">
-      <obj_property name="ElementShortName">Init_POS_Y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Init_POS_Y[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/PosX_out" type="array">
-      <obj_property name="ElementShortName">PosX_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">PosX_out[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/nameTableRamIndex" type="array">
+      <obj_property name="ElementShortName">nameTableRamIndex[8:0]</obj_property>
+      <obj_property name="ObjectShortName">nameTableRamIndex[8:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/PosY_out" type="array">
-      <obj_property name="ElementShortName">PosY_out[7:0]</obj_property>
-      <obj_property name="ObjectShortName">PosY_out[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/nameTableRamDataO" type="array">
+      <obj_property name="ElementShortName">nameTableRamDataO[31:0]</obj_property>
+      <obj_property name="ObjectShortName">nameTableRamDataO[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/attributeAddr" type="array">
+      <obj_property name="ElementShortName">attributeAddr[8:0]</obj_property>
+      <obj_property name="ObjectShortName">attributeAddr[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/attributeTableDataO" type="array">
+      <obj_property name="ElementShortName">attributeTableDataO[31:0]</obj_property>
+      <obj_property name="ObjectShortName">attributeTableDataO[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/backTileIndex" type="array">
+      <obj_property name="ElementShortName">backTileIndex[7:0]</obj_property>
+      <obj_property name="ObjectShortName">backTileIndex[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/backTileDataI" type="array">
+      <obj_property name="ElementShortName">backTileDataI[127:0]</obj_property>
+      <obj_property name="ObjectShortName">backTileDataI[127:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/backGroundVgaRgbOut" type="array">
+      <obj_property name="ElementShortName">backGroundVgaRgbOut[11:0]</obj_property>
+      <obj_property name="ObjectShortName">backGroundVgaRgbOut[11:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/VGA_Intr" type="logic">
+      <obj_property name="ElementShortName">VGA_Intr</obj_property>
+      <obj_property name="ObjectShortName">VGA_Intr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/VGA_Intr_r0" type="logic">
+      <obj_property name="ElementShortName">VGA_Intr_r0</obj_property>
+      <obj_property name="ObjectShortName">VGA_Intr_r0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/VGA_Intr_r1" type="logic">
+      <obj_property name="ElementShortName">VGA_Intr_r1</obj_property>
+      <obj_property name="ObjectShortName">VGA_Intr_r1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/cnt" type="array">
+      <obj_property name="ElementShortName">cnt[7:0]</obj_property>
+      <obj_property name="ObjectShortName">cnt[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/vgaIntrCnt" type="array">
+      <obj_property name="ElementShortName">vgaIntrCnt[8:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaIntrCnt[8:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/vgaPosX_r" type="array">
+      <obj_property name="ElementShortName">vgaPosX_r[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaPosX_r[11:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/Attitude" type="array">
-      <obj_property name="ElementShortName">Attitude[7:0]</obj_property>
-      <obj_property name="ObjectShortName">Attitude[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/isLive" type="logic">
-      <obj_property name="ElementShortName">isLive</obj_property>
-      <obj_property name="ObjectShortName">isLive</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/update_clk_r0" type="logic">
-      <obj_property name="ElementShortName">update_clk_r0</obj_property>
-      <obj_property name="ObjectShortName">update_clk_r0</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/update_clk_r1" type="logic">
-      <obj_property name="ElementShortName">update_clk_r1</obj_property>
-      <obj_property name="ObjectShortName">update_clk_r1</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/update_clk_pluse" type="logic">
-      <obj_property name="ElementShortName">update_clk_pluse</obj_property>
-      <obj_property name="ObjectShortName">update_clk_pluse</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/create_r0" type="logic">
-      <obj_property name="ElementShortName">create_r0</obj_property>
-      <obj_property name="ObjectShortName">create_r0</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/create_r1" type="logic">
-      <obj_property name="ElementShortName">create_r1</obj_property>
-      <obj_property name="ObjectShortName">create_r1</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/create_pluse" type="logic">
-      <obj_property name="ElementShortName">create_pluse</obj_property>
-      <obj_property name="ObjectShortName">create_pluse</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/pos_x" type="array">
-      <obj_property name="ElementShortName">pos_x[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pos_x[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/vgaPosY_r" type="array">
+      <obj_property name="ElementShortName">vgaPosY_r[11:0]</obj_property>
+      <obj_property name="ObjectShortName">vgaPosY_r[11:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/pos_y" type="array">
-      <obj_property name="ElementShortName">pos_y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">pos_y[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/gameVgaPosX" type="array">
+      <obj_property name="ElementShortName">gameVgaPosX[11:0]</obj_property>
+      <obj_property name="ObjectShortName">gameVgaPosX[11:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/liveFlag" type="logic">
-      <obj_property name="ElementShortName">liveFlag</obj_property>
-      <obj_property name="ObjectShortName">liveFlag</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/hp" type="array">
-      <obj_property name="ElementShortName">hp[7:0]</obj_property>
-      <obj_property name="ObjectShortName">hp[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/attitude" type="array">
-      <obj_property name="ElementShortName">attitude[7:0]</obj_property>
-      <obj_property name="ObjectShortName">attitude[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/y_turn0" type="array">
-      <obj_property name="ElementShortName">y_turn0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">y_turn0[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/y_turn1" type="array">
-      <obj_property name="ElementShortName">y_turn1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">y_turn1[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/y_turn2" type="array">
-      <obj_property name="ElementShortName">y_turn2[7:0]</obj_property>
-      <obj_property name="ObjectShortName">y_turn2[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/y_turn3" type="array">
-      <obj_property name="ElementShortName">y_turn3[7:0]</obj_property>
-      <obj_property name="ObjectShortName">y_turn3[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/x_turn0" type="array">
-      <obj_property name="ElementShortName">x_turn0[7:0]</obj_property>
-      <obj_property name="ObjectShortName">x_turn0[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/x_turn1" type="array">
-      <obj_property name="ElementShortName">x_turn1[7:0]</obj_property>
-      <obj_property name="ObjectShortName">x_turn1[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/outEdge" type="logic">
-      <obj_property name="ElementShortName">outEdge</obj_property>
-      <obj_property name="ObjectShortName">outEdge</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/hit_flag" type="logic">
-      <obj_property name="ElementShortName">hit_flag</obj_property>
-      <obj_property name="ObjectShortName">hit_flag</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/now_state" type="array">
-      <obj_property name="ElementShortName">now_state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">now_state[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/next_state" type="array">
-      <obj_property name="ElementShortName">next_state[3:0]</obj_property>
-      <obj_property name="ObjectShortName">next_state[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/plane_pos" type="array">
-      <obj_property name="ElementShortName">plane_pos[7:0]</obj_property>
-      <obj_property name="ObjectShortName">plane_pos[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/turn_pos" type="array">
-      <obj_property name="ElementShortName">turn_pos[7:0]</obj_property>
-      <obj_property name="ObjectShortName">turn_pos[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/gameVgaPosY" type="array">
+      <obj_property name="ElementShortName">gameVgaPosY[12:0]</obj_property>
+      <obj_property name="ObjectShortName">gameVgaPosY[12:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/sub_result" type="array">
-      <obj_property name="ElementShortName">sub_result[7:0]</obj_property>
-      <obj_property name="ObjectShortName">sub_result[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/gameVgaPosY_temp" type="array">
+      <obj_property name="ElementShortName">gameVgaPosY_temp[8:0]</obj_property>
+      <obj_property name="ObjectShortName">gameVgaPosY_temp[8:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/turn_flag_r0" type="logic">
-      <obj_property name="ElementShortName">turn_flag_r0</obj_property>
-      <obj_property name="ObjectShortName">turn_flag_r0</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/jumpFlag" type="logic">
+      <obj_property name="ElementShortName">jumpFlag</obj_property>
+      <obj_property name="ObjectShortName">jumpFlag</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/turn_flag_r1" type="logic">
-      <obj_property name="ElementShortName">turn_flag_r1</obj_property>
-      <obj_property name="ObjectShortName">turn_flag_r1</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/gameVgaPosY_Real" type="array">
+      <obj_property name="ElementShortName">gameVgaPosY_Real[8:0]</obj_property>
+      <obj_property name="ObjectShortName">gameVgaPosY_Real[8:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/turn_flag" type="logic">
-      <obj_property name="ElementShortName">turn_flag</obj_property>
-      <obj_property name="ObjectShortName">turn_flag</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/whichBit" type="array">
+      <obj_property name="ElementShortName">whichBit[6:0]</obj_property>
+      <obj_property name="ObjectShortName">whichBit[6:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/next_pos_x" type="array">
-      <obj_property name="ElementShortName">next_pos_x[7:0]</obj_property>
-      <obj_property name="ObjectShortName">next_pos_x[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/PaletteColor00" type="array">
+      <obj_property name="ElementShortName">PaletteColor00[11:0]</obj_property>
+      <obj_property name="ObjectShortName">PaletteColor00[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/next_pos_y" type="array">
-      <obj_property name="ElementShortName">next_pos_y[7:0]</obj_property>
-      <obj_property name="ObjectShortName">next_pos_y[7:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/PaletteColor01" type="array">
+      <obj_property name="ElementShortName">PaletteColor01[11:0]</obj_property>
+      <obj_property name="ObjectShortName">PaletteColor01[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/dead_flag" type="logic">
-      <obj_property name="ElementShortName">dead_flag</obj_property>
-      <obj_property name="ObjectShortName">dead_flag</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/PaletteColor10" type="array">
+      <obj_property name="ElementShortName">PaletteColor10[11:0]</obj_property>
+      <obj_property name="ObjectShortName">PaletteColor10[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/DEAD" type="array">
-      <obj_property name="ElementShortName">DEAD[3:0]</obj_property>
-      <obj_property name="ObjectShortName">DEAD[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/PaletteColor11" type="array">
+      <obj_property name="ElementShortName">PaletteColor11[11:0]</obj_property>
+      <obj_property name="ObjectShortName">PaletteColor11[11:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_00" type="array">
-      <obj_property name="ElementShortName">ROUTE_00[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_00[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/twoBitsFlag" type="array">
+      <obj_property name="ElementShortName">twoBitsFlag[1:0]</obj_property>
+      <obj_property name="ObjectShortName">twoBitsFlag[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_01" type="array">
-      <obj_property name="ElementShortName">ROUTE_01[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_01[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/attributeAddr_r" type="array">
+      <obj_property name="ElementShortName">attributeAddr_r[8:0]</obj_property>
+      <obj_property name="ObjectShortName">attributeAddr_r[8:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_02" type="array">
-      <obj_property name="ElementShortName">ROUTE_02[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_02[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/attibuteByte" type="array">
+      <obj_property name="ElementShortName">attibuteByte[7:0]</obj_property>
+      <obj_property name="ObjectShortName">attibuteByte[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_03" type="array">
-      <obj_property name="ElementShortName">ROUTE_03[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_03[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/paletteSelect" type="array">
+      <obj_property name="ElementShortName">paletteSelect[1:0]</obj_property>
+      <obj_property name="ObjectShortName">paletteSelect[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_04" type="array">
-      <obj_property name="ElementShortName">ROUTE_04[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_04[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_05" type="array">
-      <obj_property name="ElementShortName">ROUTE_05[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_05[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_06" type="array">
-      <obj_property name="ElementShortName">ROUTE_06[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_06[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_07" type="array">
-      <obj_property name="ElementShortName">ROUTE_07[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_07[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CortexM0_SoC_vlg_tst/i1/u_m_enemyPlane_logic/ROUTE_08" type="array">
-      <obj_property name="ElementShortName">ROUTE_08[3:0]</obj_property>
-      <obj_property name="ObjectShortName">ROUTE_08[3:0]</obj_property>
-      <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
+   <wvobject fp_name="/tb_temp_top_backgroudDraw/u_temp_top_backgroudDraw/u_topBackGroundDraw/u_backTileDraw/CNT_MAX" type="array">
+      <obj_property name="ElementShortName">CNT_MAX[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CNT_MAX[31:0]</obj_property>
    </wvobject>
 </wave_config>

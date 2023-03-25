@@ -906,9 +906,8 @@ void isEnemyPlaneHit(PLANEType* enmeyPlane,M_PLANEType* M_enmeyPlane,hitMapType 
                 AHBPLANE->Hit=0;
             }
             else{
-                createOneBoom(AHBPLANE->PosX_out,AHBPLANE->PosY_out,&boom);
                 AHBPLANE->Hit=1;
-                GameScore+=50;
+                createOneBoom(AHBPLANE->PosX_out,AHBPLANE->PosY_out,&boom);
             }
         }
 

@@ -42,11 +42,12 @@ module topSpriteDraw#(
     wire [$clog2(`SPRITE_NUM_MAX)-1:0] addrReadEightRam;
     wire [31:0] dataToEightRam;
 
-    wire    [4*(`BYTE)-1:0]                 dataToTileDraw      [0:8-1];
-    wire    [`SPRITE_TILEROM_ADDRBIT-1:0]   tileIndex           [0:8-1];
-    wire    [`SPRITE_TILEDATA_BIT-1:0]      tileDataI           [0:8-1];
-    wire    [8-1:0]           IsScanRange                              ;
-    wire    [`RGB_BIT-1:0]                  vgaRgbOut           [0:8-1];
+    wire    [4*(`BYTE)-1:0]                 dataToTileDraw      [0:8-1] ;
+    wire    [`SPRITE_TILEROM_ADDRBIT-1:0]   tileIndex           [0:8-1] ;
+    wire    [`SPRITE_TILEDATA_BIT-1:0]      tileDataI           [0:8-1] ;
+    wire    [8-1:0]           IsScanRange                               ;
+    wire    [7:0]                           vgaIsZeroFlag               ;
+    wire    [`RGB_BIT-1:0]                  vgaRgbOut           [0:8-1] ;
 
     //
     // assign spriteVgaRgbOut =  IsScanRange[0] ? vgaRgbOut[0]:(
@@ -70,6 +71,20 @@ module topSpriteDraw#(
             default:spriteVgaRgbOut=0;
         endcase
     end
+    
+    // always @(*) begin //闪屏问题的解决2023.03.10
+    //     casex (IsScanRange&vgaIsZeroFlag)//要用casex
+    //         8'bxxxx_xxx1: spriteVgaRgbOut=vgaRgbOut[0];
+    //         8'bxxxx_xx10: spriteVgaRgbOut=vgaRgbOut[1];
+    //         8'bxxxx_x100: spriteVgaRgbOut=vgaRgbOut[2];
+    //         8'bxxxx_1000: spriteVgaRgbOut=vgaRgbOut[3];
+    //         8'bxxx1_0000: spriteVgaRgbOut=vgaRgbOut[4];
+    //         8'bxx10_0000: spriteVgaRgbOut=vgaRgbOut[5];
+    //         8'bx100_0000: spriteVgaRgbOut=vgaRgbOut[6];
+    //         8'b1000_0000: spriteVgaRgbOut=vgaRgbOut[7];
+    //         default:spriteVgaRgbOut=0;
+    //     endcase
+    // end
 
     genvar  i;
     generate
@@ -84,6 +99,7 @@ module topSpriteDraw#(
                 .tileDataI              (tileDataI[i]           ),
                 .IsScanRange            (IsScanRange[i]         ),
                 // .backgroundVgaRgbIn     (backgroundVgaRgbIn     ),
+                .vgaIsZeroFlag          (vgaIsZeroFlag[i]       ),
                 .vgaRgbOut              (vgaRgbOut[i]           )
             );
         end

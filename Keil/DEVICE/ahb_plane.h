@@ -4,16 +4,23 @@
 #include <stdint.h>
 
 /********************************************/
-/*   PLANE                                  */
+/*   AHB_PLANE                              */
 /*   update_clk     0X5003_0000             */
 /*   create         0X5003_0004             */
 /*   Hit            0X5003_0008             */
 /*   Init_POS_X     0X5003_000C             */
 /*   Init_POS_Y     0X5003_0010             */
-/*   PosX_out       0X5003_0014             */
-/*   PosY_out       0X5003_0018             */
-/*   Attitude       0X5003_001C             */
-/*   isLive         0X5003_0020             */
+/*   Init_HP        0X5003_0014             */
+/*   Init_Y_TURN0   0X5003_0018             */
+/*   Init_Y_TURN1   0X5003_001C             */
+/*   Init_Y_TURN2   0X5003_0020             */
+/*   Init_Y_TURN3   0X5003_0024             */
+/*   Init_X_TURN0   0X5003_0028             */
+/*   Init_X_TURN1   0X5003_002C             */
+/*   PosX_out       0X5003_0030             */
+/*   PosY_out       0X5003_0034             */
+/*   Attitude       0X5003_0038             */
+/*   isLive         0X5003_003C             */
 /********************************************/
 #define AHBPLANE_BASE         (0x50030000UL)
 typedef struct {
@@ -22,6 +29,13 @@ typedef struct {
     volatile uint32_t Hit; 
     volatile uint32_t Init_POS_X; 
     volatile uint32_t Init_POS_Y;
+    volatile uint32_t Init_HP;
+    volatile uint32_t Init_Y_TURN0;
+    volatile uint32_t Init_Y_TURN1;
+    volatile uint32_t Init_Y_TURN2;
+    volatile uint32_t Init_Y_TURN3;
+    volatile uint32_t Init_X_TURN0;
+    volatile uint32_t Init_X_TURN1;
     volatile uint32_t PosX_out;
     volatile uint32_t PosY_out;
     volatile uint32_t Attitude;

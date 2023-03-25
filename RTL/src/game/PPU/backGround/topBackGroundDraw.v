@@ -58,6 +58,8 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
 
 wire [`NAMETABLE_AHBBUS_ADDRWIDTH-1:0] nameTableRamIndex;
 wire [31:0] nameTableRamDataO;
+wire    [9-1:0]  attributeAddr;
+wire    [4*(`BYTE)-1:0]     attributeTableDataO;
 
 nameTableRam u_nameTableRam(
     //cortex-m0
@@ -71,7 +73,9 @@ nameTableRam u_nameTableRam(
     //到tiledraw函数
     .clk_tileDraw(clk_100MHz),
     .nameTableRamIndex(nameTableRamIndex),
-    .nameTableRamDataO(nameTableRamDataO)
+    .nameTableRamDataO(nameTableRamDataO),
+    .attributeAddr(attributeAddr),
+    .attributeTableDataO(attributeTableDataO)
 );
 
 wire    [`SPRITE_TILEROM_ADDRBIT-1:0]  backTileIndex;
@@ -87,11 +91,13 @@ backTileDraw u_backTileDraw(
     //当前VGA坐标对应的名称表位置
     .nameTableRamIndex(nameTableRamIndex),
     .nameTableRamDataO(nameTableRamDataO),
+    //属性表
+    .attributeAddr(attributeAddr),
+    .attributeTableDataO(attributeTableDataO),
     
     //索引背景的图案表
     .backTileIndex(backTileIndex),
     .backTileDataI(backTileDataI),
-    
     //to VGA_driver.v
     .backGroundVgaRgbOut(backGroundVgaRgbOut)
 );
