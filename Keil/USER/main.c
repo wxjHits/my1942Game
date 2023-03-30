@@ -10,106 +10,53 @@
 #include "systick.h"
 #include "pstwo.h"
 
-#include "myGame.h"
+// #include "myGame.h"
+#include "enemyPlane.h"
+#include "enemyBullet.h"
+#include "myPlane.h"
+#include "gameHitCheck.h"
+#include "boom.h"
+#include "gameInterFace.h"
+
 #include "spriteRam.h"
-#include "ahb_plane.h"
+// #include "ahb_plane.h"
 
 #include "malloc.h"
 #include "stdlib.h"
 
-uint8_t GAME_LOGO_1942[5][18]={
-   0xD1,0xD2,0xD3,0xFF,0xD1,0xDE,0xDF,0xE0,0xFF,0xFF,0xED,0xEE,0xD3,0xFF,0xF8,0xF9,0xF9,0xE0,
-   0xD4,0xD5,0xD6,0xFF,0xE1,0xE2,0xE3,0xE4,0xFF,0xEF,0xF0,0xD5,0xD6,0xFF,0xFA,0xFB,0xFC,0xE4,
-   0xD7,0xD5,0xD6,0xFF,0xE5,0xE6,0xE7,0xE4,0xFF,0xF1,0xF2,0xD9,0xF3,0xFF,0xFD,0xFE,0xC0,0xC1,
-   0xD8,0xD9,0xDA,0xFF,0xE8,0xE9,0xEA,0xEB,0xFF,0xF4,0xF5,0xF6,0xF7,0xFF,0xC2,0xC3,0xC4,0xD0,
-   0xDB,0xDC,0xDD,0xFF,0xDB,0xDC,0xDC,0xEC,0xFF,0xFF,0xDB,0xDC,0xDD,0xFF,0xDB,0xDC,0xDC,0xDD
-};
-uint8_t GAME_VERSION[12]={0x17,0xFF,0x02,0x00,0x02,0x03,0xFF,0x15,0xFF,0x16,0xFF,0x18};
-uint8_t GAME_START_CHAR[8]={0x10,0xFF,0x12,0xFF,0x13,0xFF,0x14,0xFF};
-uint8_t GAME_STOP_CHAR[8]={0x11,0xFF,0x12,0xFF,0x13,0xFF,0x14,0xFF};
-
-uint8_t endInterFaceArray[endInterFaceCharNum][3]={ 
-   32+00,64+00,0x12,//"游"
-   32+16,64+00,0x13,//"戏"
-   32+32,64+00,0x1B,//"击"
-   32+48,64+00,0x1C,//"落"
-
-   32+48+108+00,64+00,0x00,//"qian"
-   32+48+108+ 8,64+00,0x00,//"bai"
-   32+48+108+16,64+00,0x00,//"shi"
-   32+48+108+24,64+00,0x00,//"ge"
-
-   32+00,64+16,0x12,//"游"
-   32+16,64+16,0x13,//"戏"
-   32+32,64+16,0x1D,//"命"
-   32+48,64+16,0x1E,//"中"
-   32+64,64+16,0x1F,//"率"
-
-   32+64+96+ 8,64+16,0x00,//"命中率shi"
-   32+64+96+16,64+16,0x00,//"命中率ge"
-   32+64+96+24,64+16,0x25,//"%"
-
-   110+00,160+00,0x12,//"游"
-   110+16,160+00,0x13,//"戏"
-   110+32,160+00,0x14,//"结"
-   110+48,160+00,0x15,//"束"
-};
-   
-const uint8_t routeCircle[18][2]={
-   40+50,80+50,
-   53+50,77+50,
-   65+50,70+50,
-   74+50,60+50,
-   79+50,46+50,
-   79+50,33+50,
-   74+50,20+50,
-   65+50, 9+50,
-   53+50, 2+50,
-   40+50, 5+50,
-   26+50, 2+50,
-   14+50, 9+50,
-    5+50,19+50,
-    0+50,33+50,
-    0+50,46+50,
-    5+50,59+50,
-   14+50,70+50,
-   26+50,77+50
-};
-
-const uint8_t ANGLE_NUMMAX=10;
-const int16_t sin_array[ANGLE_NUMMAX]={1,2,2,2,3,4,4,4,5,5};
-const int16_t cos_array[ANGLE_NUMMAX]={4,4,4,4,4,3,2,2,1,0};
-const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.67,200};
-
 // angleValueType angle[ANGLE_NUMMAX];
 //�ҷ��ӵ�
-const uint8_t BULLET_NUMMAX=12;
-BULLETType bullet[BULLET_NUMMAX];
-hitMapType bulletsHitMap;
+const uint8_t MYPLANE_BULLET_NUMMAX=12;
+BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
+hitMapType myBulletsHitMap;
 //�з��ӵ�
+//灰色小飞机
+const uint8_t S_GREY_NUMMAX=3;
+S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
+const uint8_t S_GREEN_NUMMAX=1;
+S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
+
 const uint8_t ENEMY_BULLETS_NUMMAX=5;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
-hitMapType enmeyBulletsHitMap;
+hitMapType enemyPlaneAndBullet_HitMap;
 //�ҷ��ɻ�
 MYPLANEType myplane;
 hitMapType myPlaneHitMap;
+
+//爆炸
+const uint8_t BOOM_NUMMAX=MYPLANE_BULLET_NUMMAX;
+BOOMType boom[BOOM_NUMMAX];
+
+// //BUFF
+// BUFFType buff;
+
 uint8_t timer_cnt;
 uint8_t start;
-//�з��ɻ�
-const uint8_t ENEMY_NUMMAX=5;
-PLANEType enmeyPlane[ENEMY_NUMMAX];
-hitMapType enemyPlaneHitMap;
-//中型飞机
-const uint8_t M_ENEMY_NUMMAX=2;
-M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
+// //中型飞机
+// const uint8_t M_ENEMY_NUMMAX=0;
+// M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
 
-//��ը��λ
-const uint8_t BOOM_NUMMAX=BULLET_NUMMAX;
-BOOMType boom[BOOM_NUMMAX];
-//BUFF��λ�����ҽ���һ����
-BUFFType buff;
-
-//��Ϸָʾ���
+// //��Ϸָʾ���
 GAMECURSORType gameCursor;
 
 //���л�ͼʱ��
@@ -121,52 +68,227 @@ uint32_t GameShootDownCnt;
 //游戏命中率
 uint32_t GameShootBulletsCnt;//发射子弹的数量
 float GameHitRate;
-//֡��FPS
+
 uint32_t fps; 
 
-//PS2 PS2_KEY
 int PS2_KEY=0;
 
-//state machine�������״̬����
-//0����ʼ����״̬
-//1:��Ϸ���н���״̬
-//2������״̬
 uint8_t game_state=0;
-uint8_t gameEndFpsCnt;//���ҷ��ɻ�ײ����ĵ�30֡�ص��������
-uint8_t gameEndInterFaceFpsCnt=0;//��������֡�ʼ�����
-uint8_t gameEndInterFaceFpsSpeed=59;//�������ĵڼ�֡����ʾ��һ������
-uint8_t gameEndInterFaceArrayCnt=0;//��������������ʾ���������
+uint8_t gameEndFpsCnt;
+uint8_t gameEndInterFaceFpsCnt=0;
+uint8_t gameEndInterFaceFpsSpeed=59;
+uint8_t gameEndInterFaceArrayCnt=0;
 uint8_t  DrawFlag=0;
-//��Ϸ����״̬
-//0:�����ײ������������
-//1:�ȴ�֡�����ж�
-//2:��ɻ�ͼ
+
 uint8_t gameRunState=0;
 
 extern uint8_t vga_intr_cnt;
+
 int main(void)
 {
-   // ��ִ�е��Ǻ���SystemInit();
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-   // SPI_Init(100);
-   PS2_Init();		//======ps2�����˿ڳ�ʼ��
-   // PS2_SetInit();	//======ps2���ó�ʼ��,���á����̵�ģʽ������ѡ���Ƿ�����޸�
-   // LCD_Init();
-   // KEY_INIT(0xf);
-   // NVIC_EnableIRQ(KEY0_IRQn);
-   // NVIC_EnableIRQ(KEY1_IRQn);
-   // NVIC_EnableIRQ(KEY2_IRQn);
-   // NVIC_EnableIRQ(KEY3_IRQn);
-   // CAMERA_Initial();//ռ�ý϶��ROM��Դ,�������ʼ����const uint8_t ���ݣ�����Լ
-   // TIMER_Init(3000000,0,1);//1000ms
-   // uint8_t *mario_8192=0;
-   // mario_8192=mymalloc(4096);                                                                                                                                                                       
-   // myfree(mario_8192);
-   // LCD_Clear(RED);
+   SPI_Init(100);
+   PS2_Init();
 
    game_state=0;
    bool timer_init_flag=1;
    uint8_t x=10,y=20;
+   while(1)
+   {
+      /****每次到新的界面的初始化*****/
+      if(timer_init_flag==1){
+         timer_init_flag=0;
+         if(game_state==0){
+            for(uint8_t i=0;i<64;i++){
+               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+            }
+            clearNameTableAll();
+            gameCursor.state=0;
+            gameStartInterfaceShow(7,8);
+            gameCursorDraw(&gameCursor);
+         }
+         else if(game_state==1){
+            timer_cnt=0;
+            start=0;
+            gameRunState=0;
+            GameScore=0;
+            GameShootBulletsCnt=0;
+            GameShootDownCnt=0;
+            gameEndFpsCnt=0;
+            GameHitRate=0;
+            myPlane_Init(&myplane);
+            myPlane_bulletInit(&myBullet);
+            s_grey_planeInit(&s_grey_plane);
+            s_green_planeInit(&s_green_plane);
+            enmey_BulletInit(&enmeyBullets);
+            new_boomInit(&boom);
+            // buffInit(&buff);
+            for(uint8_t i=0;i<64;i++){
+               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+            }
+            clearNameTableAll();
+         }
+         else if(game_state==2){
+            for(uint8_t i=0;i<64;i++){
+               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+            }
+            clearNameTableAll();
+            DrawFlag=0;
+            spriteRamAddr=0;
+            gameEndInterFaceFpsCnt=0;
+            gameEndInterFaceArrayCnt=0;
+         }
+      }
+
+/****不同界面的运行*****/
+      //游戏开始选择界面
+      if(game_state==0&&timer_init_flag==0){
+         PS2_KEY=PS2_DataKey();
+            if(PS2_KEY==PSB_PAD_UP){
+               if(gameCursor.state>0){
+                  gameCursor.state-=1;
+                  gameCursorDraw(&gameCursor);
+               }
+            }
+            else if(PS2_KEY==PSB_PAD_DOWN){
+               if(gameCursor.state<1){
+                  gameCursor.state+=1;
+                  gameCursorDraw(&gameCursor);
+               }
+            }
+            else if(PS2_KEY==PSB_GREEN && gameCursor.state==0){
+               timer_init_flag=1;
+               game_state=1;
+            }
+         delay_ms(150);
+      }
+      //游戏运行界面
+      else if(game_state==1&&timer_init_flag==0){
+         if(gameRunState==0){
+            //生成一个
+            S_GREY_PLANEType planeParameter;
+            planeParameter.PosX = rand()%200+15;
+             if(planeParameter.PosX>myplane.PosX)
+                    planeParameter.routeOneDir=DOWN_LEFT;
+               else
+                    planeParameter.routeOneDir=DOWN_RIGHT;
+             planeParameter.isBack=rand()%2;
+            s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
+            s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
+
+            //按键检测
+            PS2_KEY=PS2_DataKey();
+            timer_cnt+=1;
+            if(timer_cnt>=16){
+               timer_cnt=0;
+               if(PS2_KEY==PSB_GREEN){
+                  if(myplane.actFlag==0)
+                     myPlane_createOneBullet(&myplane,&myBullet);
+               }
+               else if(PS2_KEY==PSB_RED){//施放技能
+                   start=1;
+               }
+            }
+            if(timer_cnt%3==1){
+               if(PS2_KEY==PSB_PAD_LEFT){
+                   if(myplane.PosX>LEFT_LINE+20)
+                       myplane.PosX-=5;
+               }
+               else if(PS2_KEY==PSB_PAD_RIGHT){
+                   if(myplane.PosX<RIGHT_LINE-20)
+                       myplane.PosX+=5;
+               }
+               else if(PS2_KEY==PSB_PAD_UP){
+                   if(myplane.PosY>TOP_LINE+20)
+                       myplane.PosY-=5;
+               }
+               else if(PS2_KEY==PSB_PAD_DOWN){
+                   if(myplane.PosY<BOTTOM_LINE-20)
+                       myplane.PosY+=5;
+               }  
+            }
+
+            //数据更新
+            myPlane_Act(&myplane,&start);
+            myPlane_updateBulletData(&myBullet);
+
+            s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
+            s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
+            updateEnemyBulletData(&enmeyBullets);
+            new_updateBoomData(&boom);
+            // updateBuffData(&buff);
+
+            //碰撞检测
+            myBulletsMapCreate(&myBullet,&myBulletsHitMap);
+            enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
+
+            // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            isHit_s_grey_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
+
+            //我方飞机死亡后隔一段实践再退出
+            if(myplane.liveFlag==0){
+               if(gameEndFpsCnt>=240){
+                  timer_init_flag=1;
+                  game_state=2;
+                  // gameEndFpsCnt=0;
+                  for(uint8_t i=0;i<64;i++)
+                     writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+               }
+            }
+            gameRunState=1;
+         }
+         //绘图
+         else if(gameRunState==2){
+            spriteRamAddr=0;
+            gameScoreDraw(3,10,GameScore,&spriteRamAddr);
+            myPlane_Draw(&myplane,&spriteRamAddr);
+            myPlane_bulletDraw(&myBullet,&spriteRamAddr);
+            s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
+            s_green_drawPlane(&s_green_plane,&spriteRamAddr);
+            enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
+            new_boomDraw(&boom,&spriteRamAddr);
+            // buffDraw(&spriteRamAddr);
+            for(uint8_t i=spriteRamAddr;i<64;i++){
+               writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+               spriteRamAddr++;
+            }
+            gameRunState=0;
+         }
+      }
+      //游戏结算界面
+      else if(game_state==2&&timer_init_flag==0)
+      {
+         GameHitRate = ((float)(GameShootDownCnt))/GameShootBulletsCnt;
+         endInterFaceDraw(&DrawFlag,&gameEndInterFaceArrayCnt,GameShootDownCnt,GameHitRate);
+         if(gameEndInterFaceArrayCnt>=endInterFaceCharNum){
+            PS2_KEY=PS2_DataKey();
+            if(PS2_KEY==PSB_PINK){//退出
+               game_state=0;
+               timer_init_flag=1;
+               gameEndInterFaceArrayCnt=0;
+            }
+            delay_ms(100);
+         }
+      }
+   }
+
+}
+
+   // SPI_Flash_Erase_Sector(0x000000);
+   // SPI_Flash_Erase_Sector(0x001000);
+   //  SPI_Flash_Erase_Block(0x000000);
+   // SPI_Flash_Write_Page(write_map+256*0,0x000400,256);
+   // SPI_Flash_Write_Page(write_map+256*1,0x000500,256);
+   // SPI_Flash_Write_Page(write_map+256*2,0x000600,256);
+   // SPI_Flash_Write_Page(write_map+256*3,0x000700,256);
+   // uint8_t *mario_1024=0;
+   // mario_1024=mymalloc(1024);
+   // SPI_Flash_Read(mario_1024,0x000000,1024);
+   // for(uint32_t i=0;i<1024;i++){
+   //    printf("addr=%lu data=%x\n",i,mario_1024[i]);
+   // }
+   // myfree(mario_1024);
+
    // //大型飞机
    // writeOneSprite( 0,x+ 0,y+ 0,0xc0,0x10);
    // writeOneSprite( 1,x+ 0,y+ 7,0xc1,0x10);
@@ -202,223 +324,3 @@ int main(void)
    // writeOneSprite(0,x+ 0,y+ 0,0x50,0x00|0x40);
    // writeOneSprite(1,x+ 8,y+ 0,0x4f,0x00|0x40);
    // writeOneSprite(2,x+ 4,y- 7,0x51,0x00|0x40);
-
-   //  ahb_plane_Init(50,60);
-   //  __wfi();
-   // while(1){
-   //    ahb_plane_Update();
-   //    if(AHBPLANE->isLive==0)
-   //       ahb_plane_create();
-   //    else{
-   //       ahb_plane_showAttitude();
-   //    }
-   //    delay_ms(100);
-   // }
-   // uint8_t array[32]={0xCE,0xCF,0xCF,0xCE,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0x60,0x80,0x80,0x8D,0x8B,0x8F,0x80,0x88,0x8F,0x89,0x89,0x81,0x8B,0x8F,0x8F,0x8C,0x80,0x88,0x80,0x63};
-   // for (uint16_t i = 0; i < 64; i++)
-   // {
-   //    nameTablePicture(i,array);/* code */
-   //    delay_ms(400);
-   // }
-   while(1)
-   {
-      if(timer_init_flag==1){
-         timer_init_flag=0;
-         if(game_state==0){
-            for(uint8_t i=0;i<SPRITE_RAM_ADDR_MAX;i++){
-               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
-            }
-            clearNameTableAll();
-            gameCursor.state=GAME_START;
-            gameStartInterfaceShow(7,8);
-            gameCursorDraw(&gameCursor);
-            // TIMER_Init(5000000,0,1);//100ms
-         }
-         else if(game_state==1){
-            timer_cnt=0;
-            start=0;
-            gameRunState=0;
-            GameScore=0;
-             
-             GameShootBulletsCnt=0;
-             GameShootDownCnt=0;
-             GameHitRate=0;
-            myPlaneInit();
-            bulletInit();
-            enmeyPlaneInit();
-            M_enmeyPlaneInit(&M_enmeyPlane);
-            enmeyBulletInit();
-            boomInit(&boom);
-            buffInit(&buff);
-            for(uint8_t i=0;i<SPRITE_RAM_ADDR_MAX;i++){
-               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
-            }
-            // clearNameTableAll();
-            // uint8_t array[32]={0xCE,0xCF,0xCF,0xCE,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0x60,0x80,0x80,0x8D,0x8B,0x8F,0x80,0x88,0x8F,0x89,0x89,0x81,0x8B,0x8F,0x8F,0x8C,0x80,0x88,0x80,0x63};
-            uint8_t array[32]={0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF,0xCE,0xCF};
-            for (uint16_t i = 32; i <64 ; i++)
-            {
-               nameTablePicture(i,array);/* code */
-               // delay_ms(400);
-            }
-            // TIMER_Init(3000000,0,1);//160ms
-         }
-         else if(game_state==2){
-            for(uint8_t i=0;i<SPRITE_RAM_ADDR_MAX;i++){
-               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
-            }
-            clearNameTableAll();
-            DrawFlag=0;
-            spriteRamAddr=0;
-            gameEndInterFaceFpsCnt=0;
-            gameEndInterFaceArrayCnt=0;
-         }
-      }
-
-      if(game_state==0&&timer_init_flag==0){
-         PS2_KEY=PS2_DataKey();
-            if(PS2_KEY==PSB_PAD_UP){//����1����
-               if(gameCursor.state>GAME_START){
-                  gameCursor.state-=1;
-                  gameCursorDraw(&gameCursor);
-               }
-            }
-            else if(PS2_KEY==PSB_PAD_DOWN){//����1����
-               if(gameCursor.state<GAME_OTHER){
-                  gameCursor.state+=1;
-                  gameCursorDraw(&gameCursor);
-               }
-            }
-            else if(PS2_KEY==PSB_GREEN && gameCursor.state==GAME_START){
-               timer_init_flag=1;
-               game_state=1;
-               for(uint8_t i=0;i<SPRITE_RAM_ADDR_MAX;i++){
-                  writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
-               }
-               clearNameTableAll();
-            }
-         delay_ms(200);
-      }
-      else if(game_state==1&&timer_init_flag==0){//��Ϸ�����е�״̬
-         if(gameRunState==0){
-
-         uint8_t x=20*(rand()%10)+30;
-         uint8_t y=2*(rand()%10)+10;
-         PLANEType enmeyPlaneCanshu;
-         enmeyPlaneCanshu.PosX=x;
-         enmeyPlaneCanshu.PosY=y;
-         enmeyPlaneCanshu.type=rand()%2;
-         enmeyPlaneCanshu.route.route0 = rand()%3+4;
-         if(enmeyPlaneCanshu.type==0){
-            enmeyPlaneCanshu.shootFlag = 0;
-            enmeyPlaneCanshu.route.route1 = rand()%3+4;
-         }
-         else{
-            enmeyPlaneCanshu.shootFlag = 1;
-            enmeyPlaneCanshu.route.route1 = rand()%3+1;
-         }
-         enmeyPlaneCanshu.route.turnLine = myplane.PosY-20;
-        createOneEnmeyPlane(&enmeyPlaneCanshu);
-         //创建一种中型敌机
-         createOne_M_EnmeyPlane();
-         //ײ������
-         enemyMapCreate(&enmeyPlane,&M_enmeyPlane,&enemyPlaneHitMap);
-         enemyBulletsMapCreate(&enmeyBullets,&enmeyBulletsHitMap);
-         bulletsMapCreate(&bullet,&bulletsHitMap);
-         myPlaneMapCreate(&myplane,&myPlaneHitMap);
-         isMyPlaneHit(&myplane,&enemyPlaneHitMap,&enmeyBulletsHitMap,&buff,&myPlaneHitMap);
-         isEnemyPlaneHit(&enmeyPlane,&M_enmeyPlane,bulletsHitMap);
-         isBulletsHit(&bullet,&enemyPlaneHitMap,&enmeyBulletsHitMap);
-
-         //�л����л��ӵ����ҷ��ӵ�����ըЧ���ȵ�λ�����ݸ���
-         PS2_KEY=PS2_DataKey();
-            timer_cnt+=1;
-            if(timer_cnt>=16){
-               timer_cnt=0;
-               if(PS2_KEY==PSB_GREEN){//����2����
-                  if(myplane.actFlag==0)
-                     createOneBullet();
-               }
-               else if(PS2_KEY==PSB_RED){//��������ӵ����л�
-                   start=1;
-               }
-            }
-            if(timer_cnt%3==1){
-               if(PS2_KEY==PSB_PAD_LEFT){//����0����
-                   if(myplane.PosX>LEFT_LINE+20)
-                       myplane.PosX-=5;
-               }
-               else if(PS2_KEY==PSB_PAD_RIGHT){//����1����
-                   if(myplane.PosX<RIGHT_LINE-20)
-                       myplane.PosX+=5;
-               }
-               else if(PS2_KEY==PSB_PAD_UP){//����1����
-                   if(myplane.PosY>TOP_LINE+20)
-                       myplane.PosY-=5;
-               }
-               else if(PS2_KEY==PSB_PAD_DOWN){//����1����
-                   if(myplane.PosY<BOTTOM_LINE-20)
-                       myplane.PosY+=5;
-               }  
-            }
-            myPlaneAct(&start);
-
-            moveEnmeyPlane(&enmeyPlane);
-            move_M_EnmeyPlane(&M_enmeyPlane);
-            updateEnemyBulletData();
-            updateBulletData();
-            updateBoomData(&boom);
-            updateBuffData(&buff);
-
-            //�������
-            if(myplane.liveFlag==0){
-               if(gameEndFpsCnt>=240){
-                  timer_init_flag=1;
-                  game_state=2;
-                  gameEndFpsCnt=0;
-                  for(uint8_t i=0;i<SPRITE_RAM_ADDR_MAX;i++)
-                     writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
-               }
-               else 
-                  ;
-            }
-            gameRunState=1;
-         }
-         //��ͼ
-         else if(gameRunState==2){
-            spriteRamAddr=0;
-            gameScoreDraw(3,10,GameScore,&spriteRamAddr);
-            myPlaneDraw(myplane.PosX,myplane.PosY,&spriteRamAddr);
-            bulletDraw(&spriteRamAddr);
-            boomDraw(&spriteRamAddr);
-            enmeyPlaneDraw(&spriteRamAddr);
-            M_enmeyPlaneDraw(&spriteRamAddr,&M_enmeyPlane);
-            enmeyBulletDraw(&spriteRamAddr);
-            buffDraw(&spriteRamAddr);
-            for(uint8_t i=spriteRamAddr;i<SPRITE_RAM_ADDR_MAX;i++){
-               writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
-               spriteRamAddr++;
-            }
-            gameRunState=0;
-         }
-      }
-      else if(game_state==2&&timer_init_flag==0)
-      {
-         LED_toggle(1);
-         GameHitRate = ((float)(GameShootDownCnt))/GameShootBulletsCnt;
-         endInterFaceDraw(&DrawFlag,&gameEndInterFaceArrayCnt,GameShootDownCnt,GameHitRate);
-         if(gameEndInterFaceArrayCnt>=endInterFaceCharNum){
-            LED_toggle(5);
-            PS2_KEY=PS2_DataKey();
-            if(PS2_KEY==PSB_PINK){//����2����
-               game_state=0;
-               timer_init_flag=1;
-               gameEndInterFaceArrayCnt=0;
-            }
-            delay_ms(100);
-         }
-      }
-   }
-
-}
-

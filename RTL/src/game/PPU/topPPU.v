@@ -72,7 +72,7 @@ module topPPU#(
     wire    [`RGB_BIT-1:0]  spriteVgaRgbOut     ;
     wire    [`RGB_BIT-1:0]  backGroundVgaRgbOut ;
     always@(*)begin
-        if(spriteVgaRgbOut==0)
+        if(spriteVgaRgbOut==12'h209||spriteVgaRgbOut==12'h000)
             vgaRgbSel=backGroundVgaRgbOut;
         else
             vgaRgbSel=spriteVgaRgbOut;

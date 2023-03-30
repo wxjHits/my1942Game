@@ -97,9 +97,9 @@ always@(posedge clk)begin
         gameVgaPosY<=vgaPosY_r-`GAME_START_POSY;
     end
 end
-// gameVgaPosY、gameVgaPosX扫描加对应的选择
-wire [8:0] gameVgaPosY_temp = gameVgaPosY+vgaIntrCnt;
 
+/*****nameTable扫描*****/
+wire [8:0] gameVgaPosY_temp = gameVgaPosY+vgaIntrCnt;
 always@(posedge clk)begin
     if(vgaIntrCnt>=0&&vgaIntrCnt<=239)begin
         if(gameVgaPosY_temp<=9'd239)
@@ -113,13 +113,7 @@ always@(posedge clk)begin
         else
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
     end
-    // if(gameVgaPosY_temp>=vgaIntrCnt && ((gameVgaPosY_temp<9'd240)||(gameVgaPosY_temp<9'd496)))
-    //     nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
-    // else
-    //     nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
 end
-// assign nameTableRamIndex = jumpFlag ? {gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]}:
-//                                     {gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
 
 always@(*)begin
     case(gameVgaPosX[4:3])
@@ -155,7 +149,6 @@ always@(*)begin
 end
 
 /***调色板的选择（根据属性表的解析结果）***/
-//计算属性表的地址
 reg [8:0] attributeAddr_r;
 assign attributeAddr = attributeAddr_r;
 always@(*)begin

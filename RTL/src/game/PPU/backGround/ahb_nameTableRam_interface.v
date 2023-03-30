@@ -10,7 +10,7 @@ module ahb_nameTableRam_interface #(
     input  wire   [3:0]             HPROT,   
     input  wire                     HWRITE,  
     input  wire   [31:0]            HWDATA,   
-    input wire                      HREADY, 
+    input  wire                     HREADY, 
     output wire                     HREADYOUT, 
     output wire   [31:0]            HRDATA,  
     output wire   [1:0]             HRESP,

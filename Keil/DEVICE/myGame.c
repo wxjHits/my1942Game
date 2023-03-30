@@ -1302,7 +1302,7 @@ void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDown
     endInterFaceArray[14][2]=ge  ;
 
     if((*DrawFlag==1) && (*arrayCnt<endInterFaceCharNum)){
-        writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x20);
+        writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x00);
         (*arrayCnt)+=1;
         LED_toggle(5);
         *DrawFlag=0;

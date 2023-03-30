@@ -1,7 +1,7 @@
 // Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-// Date        : Sat Mar 25 20:33:00 2023
+// Date        : Tue Mar 28 14:19:13 2023
 // Host        : LAPTOP-E2CVF122 running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               C:/Users/hp/Desktop/my1942Game/VIVADO/VIVADO.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.v

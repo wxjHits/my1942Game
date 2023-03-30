@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\CORE;..\DEVICE;..\USER</IncludePath>
+              <IncludePath>..\CORE;..\DEVICE;..\USER;..\MY_GAME</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -468,19 +468,44 @@
               <FilePath>..\DEVICE\spriteRam.c</FilePath>
             </File>
             <File>
-              <FileName>myGame.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DEVICE\myGame.c</FilePath>
-            </File>
-            <File>
               <FileName>pstwo.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\DEVICE\pstwo.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>MY_GAME</GroupName>
+          <Files>
             <File>
-              <FileName>ahb_plane.c</FileName>
+              <FileName>boom.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\DEVICE\ahb_plane.c</FilePath>
+              <FilePath>..\MY_GAME\boom.c</FilePath>
+            </File>
+            <File>
+              <FileName>enemyBullet.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\enemyBullet.c</FilePath>
+            </File>
+            <File>
+              <FileName>enemyPlane.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\enemyPlane.c</FilePath>
+            </File>
+            <File>
+              <FileName>gameHitCheck.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\gameHitCheck.c</FilePath>
+            </File>
+            <File>
+              <FileName>gameInterFace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\gameInterFace.c</FilePath>
+            </File>
+            <File>
+              <FileName>myPlane.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\myPlane.c</FilePath>
             </File>
           </Files>
         </Group>
