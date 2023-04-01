@@ -89,6 +89,18 @@ typedef struct{
     volatile uint8_t actDraw;//动作过程绘制的类型
 }S_GREEN_PLANEType;
 
+#define M_STRAIGHT_FPSMAX 2
+typedef struct{
+    volatile uint8_t liveFlag;
+    volatile uint8_t hp;
+    volatile uint8_t FpsCnt;//用于敌机的数据更新的计数器
+    volatile int16_t PosX;
+    volatile int16_t PosY;
+    // volatile uint8_t shootFlag;//敌机会发射子弹
+    volatile int8_t route_AddY;//第一段路径的增量
+    volatile uint8_t typeDraw;//飞机类型
+    volatile uint8_t Color;//飞机色彩
+}M_STRAIGHT_PLANEType;
 
 typedef struct{
     volatile int16_t PosX;

@@ -891,25 +891,25 @@ module CortexM0_SoC (
                   .TIMERINT (TIMERINT_1)   // Timer interrupt output
               );
 
-    //APB4 SPI
-    apb_spi u_apb_spi(
-                .PCLK     (clk),   // PCLK for timer operation
-                .PCLKG    (clk),   // Gated clock
-                .PRESETn  (cpuresetn),   // Reset
-                .PSEL     (PSEL_APBP4),   // Device select
-                .PADDR    (PADDR[15:0]),   // Address
-                .PENABLE  (PENABLE),   // Transfer control
-                .PWRITE   (PWRITE),   // Write control
-                .PWDATA   (PWDATA),   // Write data
-                .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
-                .PRDATA   (PRDATA_APBP4),   // Read data
-                .PREADY   (PREADY_APBP4),   // Device ready
-                .PSLVERR  (PSLVERR_APBP4),   // Device error response
-                .SPI_CLK  (SPI_CLK ),   //SPI clk
-                .SPI_CS   (SPI_CS  ),   //SPI cs
-                .SPI_MOSI (SPI_MOSI),   //SPI mosi
-                .SPI_MISO (SPI_MISO)    //SPI miso
-            );
+    // //APB4 SPI
+    // apb_spi u_apb_spi(
+    //             .PCLK     (clk),   // PCLK for timer operation
+    //             .PCLKG    (clk),   // Gated clock
+    //             .PRESETn  (cpuresetn),   // Reset
+    //             .PSEL     (PSEL_APBP4),   // Device select
+    //             .PADDR    (PADDR[15:0]),   // Address
+    //             .PENABLE  (PENABLE),   // Transfer control
+    //             .PWRITE   (PWRITE),   // Write control
+    //             .PWDATA   (PWDATA),   // Write data
+    //             .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
+    //             .PRDATA   (PRDATA_APBP4),   // Read data
+    //             .PREADY   (PREADY_APBP4),   // Device ready
+    //             .PSLVERR  (PSLVERR_APBP4),   // Device error response
+    //             .SPI_CLK  (SPI_CLK ),   //SPI clk
+    //             .SPI_CS   (SPI_CS  ),   //SPI cs
+    //             .SPI_MOSI (SPI_MOSI),   //SPI mosi
+    //             .SPI_MISO (SPI_MISO)    //SPI miso
+    //         );
     //APB5 PS2
     apb_pstwo u_apb_pstwo(
                   .PCLK       (clk),   // PCLK for timer operation
@@ -1014,7 +1014,6 @@ module CortexM0_SoC (
     //------------------------------------------------------------------------------
     // AHB-5 FOR gameSpriteRam
     //------------------------------------------------------------------------------
-
     clk_wiz_0 instance_name(
                   .clk_100MHz(clk_100MHz),
                   .clk_25p2MHz(clk_25p2MHz),
@@ -1054,6 +1053,11 @@ module CortexM0_SoC (
             .NAMETABLE_HREADYOUT(HREADYOUT_P6   ),
             .NAMETABLE_HRDATA   (HRDATA_P6      ),
             .NAMETABLE_HRESP    (HRESP_P6       ),
+
+            .SPI_CLK            (SPI_CLK        ),
+            .SPI_CS             (SPI_CS         ),
+            .SPI_MOSI           (SPI_MOSI       ),
+            .SPI_MISO           (SPI_MISO       ),
             //VGA中断信号
             .VGA_Intr           (VGA_Intr       ),
             //VGA PIN

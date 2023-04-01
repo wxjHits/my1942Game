@@ -3,75 +3,27 @@
 */
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module backTileDraw(
-    input wire             clk,
-    input wire             rstn,
-
+    input   wire                            clk                 ,
+    input   wire                            rstn                ,
     //from VGA_driver
-    input wire [`VGA_POSXY_BIT-1:0] vgaPosX,
-    input wire [`VGA_POSXY_BIT-1:0] vgaPosY,
-
+    input   wire    [`VGA_POSXY_BIT-1:0]    vgaPosX             ,
+    input   wire    [`VGA_POSXY_BIT-1:0]    vgaPosY             ,
+    //from scrollCtrl.v
+    input   wire    [8:0]                   scrollPtrOut        ,
     //当前VGA坐标对应的名称表位置
-    output reg    [9-1:0]  nameTableRamIndex, //0~32*30/4=240
-    input  wire    [4*(`BYTE)-1:0]     nameTableRamDataO,
+    output  reg     [9-1:0]                 nameTableRamIndex   , //0~32*30/4=240
+    input   wire    [4*(`BYTE)-1:0]         nameTableRamDataO   ,
     //当前VGA坐标对应的属性表位置
-    output wire    [9-1:0]  attributeAddr, //0~32*30/4=240
-    input  wire    [4*(`BYTE)-1:0]     attributeTableDataO,
+    output  wire    [9-1:0]                 attributeAddr       , //0~32*30/4=240
+    input   wire    [4*(`BYTE)-1:0]         attributeTableDataO ,
     //索引背景的图案表
-    output reg    [`BYTE-1:0]  backTileIndex,
-    input wire  [128-1:0]  backTileDataI,
-    
+    output  reg     [`BYTE-1:0]             backTileIndex       ,
+    input   wire    [128-1:0]               backTileDataI       ,
     //to VGA_driver.v
-    output reg [`RGB_BIT-1:0] backGroundVgaRgbOut
+    output  reg     [`RGB_BIT-1:0]          backGroundVgaRgbOut 
 );
-    //产生的中断进行计数器计数
-    wire VGA_Intr;
-    reg VGA_Intr_r0;
-    reg VGA_Intr_r1;
-    always@(posedge clk)begin
-        if(~rstn)begin
-            VGA_Intr_r0<=0;
-            VGA_Intr_r1<=0;
-        end
-        else begin
-            VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH-1) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT-1);
-            // VGA_Intr_r0<=(vgaPosX[3:0]==4'd3);
-            VGA_Intr_r1<=VGA_Intr_r0;
-        end
-    end
-    assign VGA_Intr = VGA_Intr_r0 & (~VGA_Intr_r1);
-    //
-    localparam CNT_MAX = 4;
-    reg [7:0] cnt;
-    always@(posedge clk)begin
-        if(~rstn)
-            cnt<=0;
-        else if(VGA_Intr==1'b1)begin
-            if(cnt>=CNT_MAX)
-                cnt<=0;
-            else
-                cnt<=cnt+1'b1;
-        end
-        else
-            cnt<=cnt;
-    end
-    //vga_intr计数器
-    reg [8:0] vgaIntrCnt;//11:3高9bit传数值粗略的行数（），2:0低3位传数值精细的行数，30*8-1 一共计数到239置0，
-    always@(posedge clk)begin
-        if(~rstn)
-            vgaIntrCnt<=230;
-        else if(VGA_Intr&&cnt==CNT_MAX)begin
-            if(vgaIntrCnt==9'd256)
-                vgaIntrCnt<=9'd239;
-            else if(vgaIntrCnt==9'd0)
-                vgaIntrCnt<=9'd495;
-            else
-                vgaIntrCnt<=vgaIntrCnt-1'b1;
-        end
-        else
-            vgaIntrCnt<=vgaIntrCnt;
-    end
 
-//将25.2MHz的数据同步到当前快时钟域下
+/*****将25.2MHz的数据同步到当前快时钟域下*****/
 reg [`VGA_POSXY_BIT-1:0] vgaPosX_r;
 reg [`VGA_POSXY_BIT-1:0] vgaPosY_r;
 always@(posedge clk)begin //2023.02.22添加，优化了一下时序，显示效果好了许多
@@ -99,15 +51,15 @@ always@(posedge clk)begin
 end
 
 /*****nameTable扫描*****/
-wire [8:0] gameVgaPosY_temp = gameVgaPosY+vgaIntrCnt;
+wire [8:0] gameVgaPosY_temp = gameVgaPosY+scrollPtrOut;
 always@(posedge clk)begin
-    if(vgaIntrCnt>=0&&vgaIntrCnt<=239)begin
+    if(scrollPtrOut>=0&&scrollPtrOut<=239)begin
         if(gameVgaPosY_temp<=9'd239)
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
         else
-            nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
+            nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};//+16
     end
-    else if(vgaIntrCnt>=256&&vgaIntrCnt<=495)begin
+    else if(scrollPtrOut>=256&&scrollPtrOut<=495)begin
         if(gameVgaPosY_temp<=9'd495)
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
         else
@@ -148,7 +100,7 @@ always@(*)begin
     endcase
 end
 
-/***调色板的选择（根据属性表的解析结果）***/
+/*****调色板的选择（根据属性表的解析结果）*****/
 reg [8:0] attributeAddr_r;
 assign attributeAddr = attributeAddr_r;
 always@(*)begin
@@ -185,4 +137,5 @@ paletteBackground paletteBackground_inst (
     .PaletteColor10(PaletteColor10),
     .PaletteColor11(PaletteColor11)
 );
+
 endmodule

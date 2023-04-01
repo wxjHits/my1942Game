@@ -38,3 +38,7 @@ void nameTablePicture(uint16_t y,uint8_t* array){
             NAMETABLE->NAMETABLE_VALUE[y][x]=*(array+x);
         }
 };
+
+void scroll_Init(uint32_t scrollCntMax,uint32_t flashAddrStart,uint32_t mapBackgroundMax){
+    NAMETABLE->scrollCntMax;
+}

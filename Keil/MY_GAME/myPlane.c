@@ -13,7 +13,7 @@ void myPlane_Init(MYPLANEType* myPlane){
 void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
     if(myPlane->liveFlag!=0){
         if(myPlane->bulletOnceNum==0){
-            for(int i=0;i<5;i++){
+            for(int i=0;i<4;i++){
                 if((mybullet+i)->liveFlag==0){
                     (mybullet+i)->PosX=myPlane->PosX+8;
                     (mybullet+i)->PosY=myPlane->PosY-8;
@@ -24,7 +24,7 @@ void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
             }
         }
         else if(myPlane->bulletOnceNum==1){
-            for(int i=0;i<10;i++){
+            for(int i=0;i<8;i++){
                 if((mybullet+i)->liveFlag==0&&(mybullet+i+1)->liveFlag==0){
                     (mybullet+i)->PosX=myPlane->PosX+4;
                     (mybullet+i)->PosY=myPlane->PosY-8;
@@ -38,7 +38,7 @@ void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
             }
         }
         else if(myPlane->bulletOnceNum==2){
-            for(int i=0;i<20;i++){
+            for(int i=0;i<16;i++){
                 if(mybullet->liveFlag==0&&(mybullet+i+1)->liveFlag==0&&(mybullet+i+2)->liveFlag==0&&(mybullet+i+3)->liveFlag==0){
                     mybullet->PosX=myPlane->PosX-4;
                     mybullet->PosY=myPlane->PosY-8;

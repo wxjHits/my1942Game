@@ -134,7 +134,7 @@ void vga_Handler(void){
         if(gameRunState==1){
             LED_toggle(2);
             gameRunState=2;
-            if(myplane.liveFlag==0)
+            if(myplane.liveFlag==0||NAMETABLE->scrollingFlag==0)
                 gameEndFpsCnt+=1;
         }
     }

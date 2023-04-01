@@ -22,19 +22,24 @@ Dialog DLL:      TARMCM1.DLL V1.14.1.0
  
 <h2>Project:</h2>
 C:\Users\hp\Desktop\my1942Game\Keil\USER\m0.uvprojx
-Project File Date:  03/30/2023
+Project File Date:  04/01/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-assembling startup_CM0DS.s...
 compiling key.c...
+assembling startup_CM0DS.s...
 compiling camera.c...
 compiling lcd.c...
-compiling led.c...
+compiling system.c...
 compiling handler.c...
+compiling led.c...
+compiling Retarget.c...
+compiling spi_flash.c...
+compiling timer.c...
+compiling uart.c...
 compiling main.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\MY_GAME\enemyBullet.h(14): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -46,87 +51,87 @@ compiling main.c...
   #endif
 ..\MY_GAME\gameInterFace.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
-main.c(30): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+main.c(31): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
-main.c(35): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+main.c(36): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
-main.c(37): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+main.c(38): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
 main.c(40): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
+main.c(43): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
-main.c(47): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+main.c(50): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   const uint8_t BOOM_NUMMAX=MYPLANE_BULLET_NUMMAX;
-main.c(48): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+main.c(51): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   BOOMType boom[BOOM_NUMMAX];
-main.c(120): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(181): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myPlane_bulletInit(&myBullet);
-main.c(121): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(182): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_planeInit(&s_grey_plane);
-main.c(122): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(183): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               s_green_planeInit(&s_green_plane);
-main.c(123): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(184): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[1]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+              m_straight_planeInit(&m_straight_plane);
+main.c(185): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
               enmey_BulletInit(&enmeyBullets);
-main.c(124): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
+main.c(186): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
               new_boomInit(&boom);
-main.c(176): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(247): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-main.c(177): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
-              s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
-main.c(186): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(250): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+                 s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
+main.c(251): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[1]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+                 m_straight_createOnePlane(&m_straight_plane,50+rand()%50);
+main.c(260): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                        myPlane_createOneBullet(&myplane,&myBullet);
-main.c(213): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(287): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myPlane_updateBulletData(&myBullet);
-main.c(215): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(289): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-main.c(215): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(289): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
               s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-main.c(216): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(290): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
-main.c(216): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(290): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
               s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
-main.c(217): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(291): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[1]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+              m_straight_movePlane(&m_straight_plane);
+main.c(292): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
               updateEnemyBulletData(&enmeyBullets);
-main.c(218): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
+main.c(293): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
               new_updateBoomData(&boom);
-main.c(222): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(297): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myBulletsMapCreate(&myBullet,&myBulletsHitMap);
-main.c(223): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(298): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(223): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(298): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(223): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(298): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(226): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(301): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
               isHit_s_grey_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(226): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(301): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               isHit_s_grey_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(226): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
+main.c(301): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
               isHit_s_grey_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(245): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(320): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myPlane_bulletDraw(&myBullet,&spriteRamAddr);
-main.c(246): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(321): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[3]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
-main.c(247): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(322): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               s_green_drawPlane(&s_green_plane,&spriteRamAddr);
-main.c(248): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
+main.c(323): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[1]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+              m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
+main.c(324): warning:  #167-D: argument of type "BULLETType (*)[5]" is incompatible with parameter of type "BULLETType *"
               enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
-main.c(249): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
+main.c(325): warning:  #167-D: argument of type "BOOMType (*)[12]" is incompatible with parameter of type "BOOMType *"
               new_boomDraw(&boom,&spriteRamAddr);
-main.c(95): warning:  #177-D: variable "x"  was declared but never referenced
-     uint8_t x=10,y=20;
-main.c(95): warning:  #177-D: variable "y"  was declared but never referenced
-     uint8_t x=10,y=20;
-main.c(326): warning:  #1-D: last line of file ends without a newline
+main.c(402): warning:  #1-D: last line of file ends without a newline
      // writeOneSprite(2,x+ 4,y- 7,0x51,0x00|0x40);
-main.c: 42 warnings, 0 errors
-compiling Retarget.c...
-compiling system.c...
-compiling spi_flash.c...
-compiling timer.c...
-compiling uart.c...
-compiling systick.c...
+main.c: 45 warnings, 0 errors
 compiling boom.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\MY_GAME\boom.h(14): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -135,44 +140,15 @@ compiling boom.c...
 ..\MY_GAME\boom.c(47): warning:  #1-D: last line of file ends without a newline
   }
 ..\MY_GAME\boom.c: 4 warnings, 0 errors
-compiling malloc.c...
 compiling spriteRam.c...
-..\DEVICE\spriteRam.c(40): warning:  #1-D: last line of file ends without a newline
-  };
-..\DEVICE\spriteRam.c: 1 warning, 0 errors
-compiling pstwo.c...
-compiling gameHitCheck.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\MY_GAME\gameHitCheck.h(17): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\MY_GAME\boom.h(14): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\MY_GAME\gameHitCheck.c(118): warning:  #1-D: last line of file ends without a newline
+..\DEVICE\spriteRam.c(44): warning:  #1-D: last line of file ends without a newline
   }
-..\MY_GAME\gameHitCheck.c: 4 warnings, 0 errors
-compiling enemyPlane.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\MY_GAME\enemyBullet.h(14): warning:  #1-D: last line of file ends without a newline
-  #endif
-..\MY_GAME\enemyPlane.c(185): warning:  #185-D: dynamic initialization in unreachable code
-                  uint8_t num=0;
-..\MY_GAME\enemyPlane.c(183): warning:  #546-D: transfer of control bypasses initialization of:
-            variable "num"  (declared at line 185)
-              switch ( (plane+i)->actDraw)
-              ^
-..\MY_GAME\enemyPlane.c(356): warning:  #185-D: dynamic initialization in unreachable code
-                  uint8_t num=0;
-..\MY_GAME\enemyPlane.c(356): warning:  #550-D: variable "num"  was set but never used
-                  uint8_t num=0;
-..\MY_GAME\enemyPlane.c(354): warning:  #546-D: transfer of control bypasses initialization of:
-            variable "num"  (declared at line 356)
-              switch ( (plane+i)->actDraw)
-              ^
-..\MY_GAME\enemyPlane.c: 7 warnings, 0 errors
+..\DEVICE\spriteRam.c: 1 warning, 0 errors
+compiling systick.c...
+compiling malloc.c...
+compiling pstwo.c...
 compiling enemyBullet.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\MY_GAME\enemyBullet.h(14): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -186,7 +162,7 @@ compiling enemyBullet.c...
               writeOneSprite((*spriteRamAddr),(bullet+i)->PosX,(bullet+i)->PosY,0x30,0x10);
 ..\MY_GAME\enemyBullet.c: 6 warnings, 0 errors
 compiling gameInterFace.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\MY_GAME\gameInterFace.h(24): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -211,8 +187,18 @@ compiling gameInterFace.c...
 ..\MY_GAME\gameInterFace.c(137): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\MY_GAME\gameInterFace.c: 12 warnings, 0 errors
+compiling gameHitCheck.c...
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\MY_GAME\gameHitCheck.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\MY_GAME\boom.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\MY_GAME\gameHitCheck.c(118): warning:  #1-D: last line of file ends without a newline
+  }
+..\MY_GAME\gameHitCheck.c: 4 warnings, 0 errors
 compiling myPlane.c...
-..\MY_GAME\gameStruct.h(101): warning:  #1-D: last line of file ends without a newline
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\MY_GAME\myPlane.h(54): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -225,12 +211,34 @@ compiling myPlane.c...
 ..\MY_GAME\myPlane.c(201): warning:  #1-D: last line of file ends without a newline
   }
 ..\MY_GAME\myPlane.c: 6 warnings, 0 errors
+compiling enemyPlane.c...
+..\MY_GAME\gameStruct.h(113): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\MY_GAME\enemyBullet.h(14): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\MY_GAME\enemyPlane.c(194): warning:  #185-D: dynamic initialization in unreachable code
+                  uint8_t num=0;
+..\MY_GAME\enemyPlane.c(192): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "num"  (declared at line 194)
+              switch ( (plane+i)->actDraw)
+              ^
+..\MY_GAME\enemyPlane.c(392): warning:  #185-D: dynamic initialization in unreachable code
+                  uint8_t num=0;
+..\MY_GAME\enemyPlane.c(392): warning:  #550-D: variable "num"  was set but never used
+                  uint8_t num=0;
+..\MY_GAME\enemyPlane.c(390): warning:  #546-D: transfer of control bypasses initialization of:
+            variable "num"  (declared at line 392)
+              switch ( (plane+i)->actDraw)
+              ^
+..\MY_GAME\enemyPlane.c(533): warning:  #1-D: last line of file ends without a newline
+  }
+..\MY_GAME\enemyPlane.c: 8 warnings, 0 errors
 linking...
-Program Size: Code=13200 RO-data=1744 RW-data=3044 ZI-data=1764  
+Program Size: Code=14752 RO-data=1744 RW-data=6116 ZI-data=1780  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\m0.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\m0.axf -o image.txt
-".\Objects\m0.axf" - 0 Error(s), 82 Warning(s).
+".\Objects\m0.axf" - 0 Error(s), 86 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -244,7 +252,7 @@ Package Vendor: Keil
   D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:02
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

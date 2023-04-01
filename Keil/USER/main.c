@@ -17,6 +17,7 @@
 #include "gameHitCheck.h"
 #include "boom.h"
 #include "gameInterFace.h"
+#include "backgroundPicture.h"
 
 #include "spriteRam.h"
 // #include "ahb_plane.h"
@@ -35,6 +36,8 @@ const uint8_t S_GREY_NUMMAX=3;
 S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
 const uint8_t S_GREEN_NUMMAX=1;
 S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
+const uint8_t M_STRAIGHT_NUMMAX=1;
+M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
 
 const uint8_t ENEMY_BULLETS_NUMMAX=5;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
@@ -79,20 +82,77 @@ uint8_t gameEndInterFaceFpsCnt=0;
 uint8_t gameEndInterFaceFpsSpeed=59;
 uint8_t gameEndInterFaceArrayCnt=0;
 uint8_t  DrawFlag=0;
-
+bool timer_init_flag=1;
 uint8_t gameRunState=0;
 
 extern uint8_t vga_intr_cnt;
 
+
+extern uint8_t Data[9];//手柄获取的数据
 int main(void)
 {
-   uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-   SPI_Init(100);
-   PS2_Init();
+   uint8_t x=20,y=40;
+   writeOneSprite(0,x+ 0,y+ 0,0x90,0x00);
+   writeOneSprite(1,x+ 8,y+ 0,0x91,0x00);
+   writeOneSprite(2,x+ 0,y+ 8,0x92,0x00);
+   writeOneSprite(3,x+ 8,y+ 8,0x93,0x00);
+   writeOneSprite(4,x+ 0,y+16,0x94,0x00);
+   writeOneSprite(5,x+ 8,y+16,0x95,0x00);
+   writeOneSprite(6,x- 8,y+ 3,0x96,0x00);
+   writeOneSprite(7,x+16,y+ 3,0x96,0x40);
 
-   game_state=0;
-   bool timer_init_flag=1;
-   uint8_t x=10,y=20;
+   uint8_t xx=80,yy=40;
+   writeOneSprite(10+0,xx+ 0,yy+ 0,0xb3,0x00|0x20);
+   writeOneSprite(10+1,xx+ 0,yy- 8,0xb1,0x00|0x20);
+   writeOneSprite(10+2,xx+ 0,yy+ 8,0xb5,0x00|0x20);
+   writeOneSprite(10+3,xx- 8,yy+ 0,0xb2,0x00|0x20);
+   writeOneSprite(10+4,xx+ 8,yy+ 0,0xb2,0x40|0x20);
+
+   uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
+   // SPI_Init(100);
+   // SPI_Flash_Erase_Block(0x000000);
+   // SPI_Flash_Erase_Block(0x001000);
+   // SPI_Flash_Erase_Block(0x002000);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000000,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000100,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000200,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000300,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000400,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000500,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000600,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000700,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000800,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000900,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000a00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000b00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000c00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000d00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000e00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000f00,256);
+   
+   // SPI_Flash_Write_Page(map_daoyu+256*0,0x001000,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*1,0x001100,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*2,0x001200,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*3,0x001300,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001400,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001500,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001600,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001700,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*0,0x001800,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*1,0x001900,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*2,0x001a00,256);
+   // SPI_Flash_Write_Page(map_daoyu+256*3,0x001b00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001c00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001d00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001e00,256);
+   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001f00,256);
+
+   // SPI_Flash_Write_Page(map_jianchuan+256*0,0x002000,256);
+   // SPI_Flash_Write_Page(map_jianchuan+256*1,0x002100,256);
+   // SPI_Flash_Write_Page(map_jianchuan+256*2,0x002200,256);
+   // SPI_Flash_Write_Page(map_jianchuan+256*3,0x002300,256);
+   
+   PS2_Init();
    while(1)
    {
       /****每次到新的界面的初始化*****/
@@ -116,10 +176,12 @@ int main(void)
             GameShootDownCnt=0;
             gameEndFpsCnt=0;
             GameHitRate=0;
+
             myPlane_Init(&myplane);
             myPlane_bulletInit(&myBullet);
             s_grey_planeInit(&s_grey_plane);
             s_green_planeInit(&s_green_plane);
+            m_straight_planeInit(&m_straight_plane);
             enmey_BulletInit(&enmeyBullets);
             new_boomInit(&boom);
             // buffInit(&buff);
@@ -127,11 +189,20 @@ int main(void)
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
             clearNameTableAll();
+            for(int i=0;i<32;i++){
+               for(int j=0;j<32;j++)
+                  writeOneNametable(j,i,map_jianchuan[i*32+j]);
+            }
+            NAMETABLE->scrollCntMax=4;
+            NAMETABLE->flashAddrStart=0x00000000;
+            NAMETABLE->mapBackgroundMax=8;
+            NAMETABLE->scrollEn=1;
          }
          else if(game_state==2){
             for(uint8_t i=0;i<64;i++){
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
+            NAMETABLE->scrollEn=0;
             clearNameTableAll();
             DrawFlag=0;
             spriteRamAddr=0;
@@ -174,14 +245,17 @@ int main(void)
                     planeParameter.routeOneDir=DOWN_RIGHT;
              planeParameter.isBack=rand()%2;
             s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-            s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
-
+            
+            if(NAMETABLE->mapScrollPtr==120){
+               s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
+               m_straight_createOnePlane(&m_straight_plane,50+rand()%50);
+            }
             //按键检测
             PS2_KEY=PS2_DataKey();
             timer_cnt+=1;
             if(timer_cnt>=16){
                timer_cnt=0;
-               if(PS2_KEY==PSB_GREEN){
+               if((Data[4]&0x10)==0){//PS2_KEY==PSB_GREEN||保证移动的同时能够发射子弹
                   if(myplane.actFlag==0)
                      myPlane_createOneBullet(&myplane,&myBullet);
                }
@@ -214,6 +288,7 @@ int main(void)
 
             s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
             s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
+            m_straight_movePlane(&m_straight_plane);
             updateEnemyBulletData(&enmeyBullets);
             new_updateBoomData(&boom);
             // updateBuffData(&buff);
@@ -226,7 +301,7 @@ int main(void)
             isHit_s_grey_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
 
             //我方飞机死亡后隔一段实践再退出
-            if(myplane.liveFlag==0){
+            if(myplane.liveFlag==0||NAMETABLE->scrollingFlag==0){
                if(gameEndFpsCnt>=240){
                   timer_init_flag=1;
                   game_state=2;
@@ -245,6 +320,7 @@ int main(void)
             myPlane_bulletDraw(&myBullet,&spriteRamAddr);
             s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
             s_green_drawPlane(&s_green_plane,&spriteRamAddr);
+            m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
             enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
             new_boomDraw(&boom,&spriteRamAddr);
             // buffDraw(&spriteRamAddr);

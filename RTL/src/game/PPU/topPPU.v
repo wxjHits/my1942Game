@@ -38,6 +38,11 @@ module topPPU#(
     output wire   [31:0]    NAMETABLE_HRDATA    ,
     output wire   [1:0]     NAMETABLE_HRESP     ,
 
+    //to SPI_FLASH
+    output  wire            SPI_CLK         ,
+    output  wire            SPI_CS          ,
+    output  wire            SPI_MOSI        ,
+    input   wire            SPI_MISO        ,
     //中断VGA
     output wire             VGA_Intr            ,
 
@@ -128,7 +133,12 @@ module topPPU#(
     //from VGA_driver
         .vgaPosX            (vgaPosX            ),
         .vgaPosY            (vgaPosY            ),
-        .backGroundVgaRgbOut(backGroundVgaRgbOut)
+        .backGroundVgaRgbOut(backGroundVgaRgbOut),
+        //flash spi
+        .SPI_CLK            (SPI_CLK ),
+        .SPI_CS             (SPI_CS  ),
+        .SPI_MOSI           (SPI_MOSI),
+        .SPI_MISO           (SPI_MISO)
     );
 
     vga_driver  u_vga_driver(

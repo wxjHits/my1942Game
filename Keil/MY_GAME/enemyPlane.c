@@ -6,6 +6,15 @@
 #include "uart.h"
 #include "led.h"
 
+
+
+
+
+
+
+
+
+
 /*****灰色小飞机*****/
 extern const uint8_t S_GREY_NUMMAX;
 void s_grey_planeInit(S_GREY_PLANEType* plane){
@@ -177,7 +186,7 @@ void s_grey_movePlane(S_GREY_PLANEType* plane,MYPLANEType* myPlane,BULLETType* b
     }
 }
 void s_grey_drawPlane(S_GREY_PLANEType* plane,uint8_t* spriteRamAddr){
-    for(int i=0;i<S_GREEN_FPSMAX;i++){
+    for(int i=0;i<S_GREY_NUMMAX;i++){
         if( (plane+i)->liveFlag!=0){
             uint8_t pallet=0;//调色板
             switch ( (plane+i)->actDraw)
@@ -245,6 +254,31 @@ void s_grey_drawPlane(S_GREY_PLANEType* plane,uint8_t* spriteRamAddr){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*****绿色小飞机*****/
 extern const uint8_t S_GREEN_NUMMAX;
 void s_green_planeInit(S_GREEN_PLANEType* plane){
@@ -264,7 +298,7 @@ void s_green_createOnePlane(S_GREEN_PLANEType* plane,int16_t myPlanePosX,int16_t
             (plane+i)->liveFlag=1;
             (plane+i)->FpsCnt=0;
             (plane+i)->PosX = LEFT_LINE+10;
-            (plane+i)->PosY = myPlanePosY-40-rand()%60;
+            (plane+i)->PosY = myPlanePosY-60-rand()%30;
 
             (plane+i)->route=0;
             (plane+i)->routeOneDir_AddX=rand()%2+2;
@@ -277,6 +311,8 @@ void s_green_createOnePlane(S_GREEN_PLANEType* plane,int16_t myPlanePosX,int16_t
             (plane+i)->turnPoint_4 = (plane+i)->turnPoint_1 - 30;
 
             (plane+i)->actDraw=0;
+
+            break;
         }
     }
 }
@@ -387,6 +423,107 @@ void s_green_drawPlane(S_GREEN_PLANEType* plane,uint8_t* spriteRamAddr){
                     writeOneSprite((*spriteRamAddr)+1,(plane+i)->PosX+0,(plane+i)->PosY+7,0x5a,0x20|0x00);
                     writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+8,(plane+i)->PosY+3,0x5b,0x20|0x00);
                     (*spriteRamAddr)+=3;
+                    break;
+            default:
+                break;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****从下到上直飞的中型飞机*****/
+extern const uint8_t M_STRAIGHT_NUMMAX;
+void m_straight_planeInit(M_STRAIGHT_PLANEType* plane){
+    for (int i = 0; i < M_STRAIGHT_NUMMAX; i++){
+        (plane+i)->PosX=0;
+        (plane+i)->PosY=0;
+        (plane+i)->route_AddY=0;
+        (plane+i)->liveFlag=0;
+        (plane+i)->hp=5;
+        (plane+i)->FpsCnt=0;
+        (plane+i)->typeDraw=0;
+        (plane+i)->Color=0;
+    }
+}
+void m_straight_createOnePlane(M_STRAIGHT_PLANEType* plane,int16_t occurPosX){
+    for (int i = 0; i < M_STRAIGHT_NUMMAX; i++){
+        if((plane+i)->liveFlag==0){
+            (plane+i)->liveFlag=1;
+            (plane+i)->hp=5;
+            (plane+i)->FpsCnt=0;
+            (plane+i)->PosX = occurPosX ;
+            (plane+i)->PosY = BOTTOM_LINE-5;
+            (plane+i)->route_AddY=1;
+            (plane+i)->typeDraw=rand()%2;
+            (plane+i)->Color=rand()%2;
+
+            break;
+        }
+    }
+}
+void m_straight_movePlane(M_STRAIGHT_PLANEType* plane){
+    for(int i=0;i<M_STRAIGHT_NUMMAX;i++){
+        if((plane+i)->liveFlag!=0){
+            if((plane+i)->FpsCnt==M_STRAIGHT_FPSMAX){
+                (plane+i)->FpsCnt=0;
+                if  ((plane+i)->PosX<LEFT_LINE||(plane+i)->PosX>RIGHT_LINE||((plane+i)->PosY+8)<TOP_LINE||((plane+i)->PosY)>BOTTOM_LINE)
+                    (plane+i)->liveFlag=0;//出界检测
+                else
+                    (plane+i)->PosY-=(plane+i)->route_AddY;
+            }
+            else
+                (plane+i)->FpsCnt+=1;
+        }
+    }
+}
+void m_straight_drawPlane(M_STRAIGHT_PLANEType* plane,uint8_t* spriteRamAddr){
+    for(int i=0;i<M_STRAIGHT_NUMMAX;i++){
+        if( (plane+i)->liveFlag!=0){
+            uint8_t color;
+            if((plane+i)->Color==0)
+                color=0x00;
+            else
+                color=0x20;
+            switch ((plane+i)->typeDraw)
+            {
+                case 0://
+                    writeOneSprite((*spriteRamAddr)+0,(plane+i)->PosX+ 0,(plane+i)->PosY+ 0,0x90,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+1,(plane+i)->PosX+ 8,(plane+i)->PosY+ 0,0x91,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+ 0,(plane+i)->PosY+ 8,0x92,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+3,(plane+i)->PosX+ 8,(plane+i)->PosY+ 8,0x93,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+4,(plane+i)->PosX+ 0,(plane+i)->PosY+16,0x94,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+5,(plane+i)->PosX+ 8,(plane+i)->PosY+16,0x95,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+6,(plane+i)->PosX- 8,(plane+i)->PosY+ 3,0x96,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+7,(plane+i)->PosX+16,(plane+i)->PosY+ 3,0x96,color|0x40);
+                    (*spriteRamAddr)+=8;
+                    break;
+                case 1://
+                    writeOneSprite((*spriteRamAddr)+0,(plane+i)->PosX+ 0,(plane+i)->PosY+ 0,0xb3,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+1,(plane+i)->PosX+ 0,(plane+i)->PosY- 8,0xb1,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+ 0,(plane+i)->PosY+ 8,0xb5,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+3,(plane+i)->PosX- 8,(plane+i)->PosY+ 0,0xb2,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+4,(plane+i)->PosX+ 8,(plane+i)->PosY+ 0,0xb2,color|0x40);
+                    (*spriteRamAddr)+=5;
                     break;
             default:
                 break;

@@ -23,6 +23,7 @@
 .\objects\main.o: ..\MY_GAME\gameHitCheck.h
 .\objects\main.o: ..\MY_GAME\boom.h
 .\objects\main.o: ..\MY_GAME\gameInterFace.h
+.\objects\main.o: ..\MY_GAME\backgroundPicture.h
 .\objects\main.o: ..\DEVICE\spriteRam.h
 .\objects\main.o: ..\DEVICE\malloc.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h
