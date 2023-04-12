@@ -27,6 +27,7 @@ module topBackGroundDraw #(
     //to topPPU
     output wire [`RGB_BIT-1:0] backGroundVgaRgbOut,
     //to SPI_FLASH
+    output  wire            scrollEn        ,// 用于软件还是硬件控制SPI_FLASH
     output  wire            SPI_CLK         ,
     output  wire            SPI_CS          ,
     output  wire            SPI_MOSI        ,
@@ -40,7 +41,7 @@ module topBackGroundDraw #(
     wire   [3:0]             BRAM_WRITE     ;
 
     //AHB-Lite W/R scrollCtrl模块
-    wire                    scrollEn        ;// Write & Read
+    // wire                    scrollEn        ;// Write & Read
     wire    [07:0]          scrollCntMax    ;// Write & Read
     wire    [23:0]          flashAddrStart  ;// Write & Read
     wire    [07:0]          mapBackgroundMax;// Write & Read

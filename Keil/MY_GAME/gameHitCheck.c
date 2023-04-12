@@ -116,3 +116,4 @@ void isHit_s_grey_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANETy
         }
     }
 }
+

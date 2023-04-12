@@ -2,6 +2,9 @@
 #define GAME_INTERFACE
 
 #include "gameInterFace.h"
+#include "spriteRam.h"
+// #include "backgroundPicture.h"
+
 void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score,uint8_t* spriteRamAddr){
     uint8_t ge = score%10;
     uint8_t shi = (score/10)%10;
@@ -26,32 +29,7 @@ uint8_t GAME_VERSION[12]={0x17,0xFF,0x02,0x00,0x02,0x03,0xFF,0x15,0xFF,0x16,0xFF
 uint8_t GAME_START_CHAR[8]={0x10,0xFF,0x12,0xFF,0x13,0xFF,0x14,0xFF};
 uint8_t GAME_STOP_CHAR[8]={0x11,0xFF,0x12,0xFF,0x13,0xFF,0x14,0xFF};
 
-uint8_t endInterFaceArray[20][3]={ 
-   32+00,64+00,0x12,//"游"
-   32+16,64+00,0x13,//"戏"
-   32+32,64+00,0x1B,//"击"
-   32+48,64+00,0x1C,//"落"
-
-   32+48+108+00,64+00,0x00,//"qian"
-   32+48+108+ 8,64+00,0x00,//"bai"
-   32+48+108+16,64+00,0x00,//"shi"
-   32+48+108+24,64+00,0x00,//"ge"
-
-   32+00,64+16,0x12,//"游"
-   32+16,64+16,0x13,//"戏"
-   32+32,64+16,0x1D,//"命"
-   32+48,64+16,0x1E,//"中"
-   32+64,64+16,0x1F,//"率"
-
-   32+64+96+ 8,64+16,0x00,//"命中率shi"
-   32+64+96+16,64+16,0x00,//"命中率ge"
-   32+64+96+24,64+16,0x25,//"%"
-
-   110+00,160+00,0x12,//"游"
-   110+16,160+00,0x13,//"戏"
-   110+32,160+00,0x14,//"结"
-   110+48,160+00,0x15,//"束"
-};
+extern uint8_t map_start[1024];
 void gameStartInterfaceShow(uint8_t x,uint8_t y){
     uint8_t x0=x,y0=y;
     for(uint8_t i=0;i<32;i++){//显示 “1942” LOGO
@@ -81,6 +59,11 @@ void gameStartInterfaceShow(uint8_t x,uint8_t y){
                 writeOneNametable(i,j,GAME_VERSION[i-x3]);
         }
     }
+
+    for(int i=0;i<32;i++){
+       for(int j=0;j<32;j++)
+          writeOneNametable(j,i,map_start[i*32+j]);
+    }
 }
 
 extern GAMECURSORType gameCursor;//游戏的指示光标
@@ -98,7 +81,6 @@ void gameCursorDraw(GAMECURSORType* gameCursor){
         default:PosY=128;
             break;
     }
-    uint8_t num=0x40;
     writeOneSprite(0,PosX+0,PosY+0,0x40,0xA0);
     writeOneSprite(1,PosX+8,PosY+0,0x41,0xA0);
     writeOneSprite(2,PosX+4,PosY+8,0x42,0xA0);
@@ -110,6 +92,33 @@ void gameCursorDraw(GAMECURSORType* gameCursor){
     fpsCnt外部传进行来的帧率计数器
     drawSpeed:当drawSpeed==fpsCnt时候fpsCnt=0 arrayCnt+=1;
 */
+uint8_t endInterFaceArray[20][3]={ 
+   32+00,64+00,0x12,//"游"
+   32+16,64+00,0x13,//"戏"
+   32+32,64+00,0x1B,//"击"
+   32+48,64+00,0x1C,//"落"
+
+   32+48+108+00,64+00,0x00,//"qian"
+   32+48+108+ 8,64+00,0x00,//"bai"
+   32+48+108+16,64+00,0x00,//"shi"
+   32+48+108+24,64+00,0x00,//"ge"
+
+   32+00,64+16,0x12,//"游"
+   32+16,64+16,0x13,//"戏"
+   32+32,64+16,0x1D,//"命"
+   32+48,64+16,0x1E,//"中"
+   32+64,64+16,0x1F,//"率"
+
+   32+64+96+ 8,64+16,0x00,//"命中率shi"
+   32+64+96+16,64+16,0x00,//"命中率ge"
+   32+64+96+24,64+16,0x25,//"%"
+
+   110+00,160+00,0x12,//"游"
+   110+16,160+00,0x13,//"戏"
+   110+32,160+00,0x14,//"结"
+   110+48,160+00,0x15,//"束"
+};
+
 extern uint8_t endInterFaceArray[endInterFaceCharNum][3];
 void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDownCnt,float GameHitRate){
     uint8_t ge   = GameShootDownCnt%10;
@@ -130,7 +139,7 @@ void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDown
     if((*DrawFlag==1) && (*arrayCnt<endInterFaceCharNum)){
         writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x00);
         (*arrayCnt)+=1;
-        LED_toggle(5);
+        // LED_toggle(5);
         *DrawFlag=0;
     }
 }

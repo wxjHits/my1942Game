@@ -12,3 +12,4 @@ void updateEnemyBulletData(BULLETType* bullet);
 void enmeyBulletDraw(BULLETType* bullet,uint8_t* spriteRamAddr);
 
 #endif
+

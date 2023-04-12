@@ -152,25 +152,9 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>314</LineNumber>
+          <LineNumber>104</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>10166</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>..\MY_GAME\enemyPlane.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\m0\../MY_GAME/enemyPlane.c\314</Expression>
-        </Bp>
-        <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>109</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>4604</Address>
+          <Address>8432</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -179,7 +163,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>.\main.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\m0\main.c\109</Expression>
+          <Expression>\\m0\main.c\104</Expression>
         </Bp>
       </Breakpoint>
       <WatchWindow1>

@@ -1,4 +1,6 @@
 #include "myPlane.h"
+#include "spriteRam.h"
+#include "led.h"
 
 void myPlane_Init(MYPLANEType* myPlane){
     myPlane->PosX=120;

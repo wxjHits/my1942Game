@@ -18,36 +18,34 @@
 #include "boom.h"
 #include "gameInterFace.h"
 #include "backgroundPicture.h"
-
 #include "spriteRam.h"
 // #include "ahb_plane.h"
 
 #include "malloc.h"
 #include "stdlib.h"
 
-// angleValueType angle[ANGLE_NUMMAX];
-//�ҷ��ӵ�
-const uint8_t MYPLANE_BULLET_NUMMAX=12;
-BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
-hitMapType myBulletsHitMap;
-//�з��ӵ�
-//灰色小飞机
-const uint8_t S_GREY_NUMMAX=3;
-S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
-const uint8_t S_GREEN_NUMMAX=1;
-S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
-const uint8_t M_STRAIGHT_NUMMAX=1;
-M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
 
+MYPLANEType myplane;//我方飞机
+const uint8_t MYPLANE_BULLET_NUMMAX=12;//我方子弹
+BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
+
+const uint8_t S_GREY_NUMMAX=3;//灰色小飞机
+S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
+const uint8_t S_GREEN_NUMMAX=1;//绿色小飞机
+S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
+const uint8_t M_STRAIGHT_NUMMAX=1;//中型直飞飞机
+M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
+const uint8_t B_GREEN_NUMMAX=1;//绿色大飞机
+B_GREEN_PLANEType b_green_plane;
 const uint8_t ENEMY_BULLETS_NUMMAX=5;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
-hitMapType enemyPlaneAndBullet_HitMap;
-//�ҷ��ɻ�
-MYPLANEType myplane;
+
 hitMapType myPlaneHitMap;
+hitMapType myBulletsHitMap;
+hitMapType enemyPlaneAndBullet_HitMap;
 
 //爆炸
-const uint8_t BOOM_NUMMAX=MYPLANE_BULLET_NUMMAX;
+const uint8_t BOOM_NUMMAX=12;
 BOOMType boom[BOOM_NUMMAX];
 
 // //BUFF
@@ -59,18 +57,14 @@ uint8_t start;
 // const uint8_t M_ENEMY_NUMMAX=0;
 // M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
 
-// //��Ϸָʾ���
-GAMECURSORType gameCursor;
+uint8_t spriteRamAddr=0;//draw绘图时
 
-//���л�ͼʱ��
-uint8_t spriteRamAddr=0;
-//����
-uint32_t GameScore=0;
-//游戏击落数
-uint32_t GameShootDownCnt;
-//游戏命中率
+GAMECURSORType gameCursor;//游戏界面的“箭头”
+uint32_t GameScore=0;//游戏分数
+
 uint32_t GameShootBulletsCnt;//发射子弹的数量
-float GameHitRate;
+uint32_t GameShootDownCnt;//游戏击落数
+float GameHitRate;//游戏命中率
 
 uint32_t fps; 
 
@@ -87,72 +81,59 @@ uint8_t gameRunState=0;
 
 extern uint8_t vga_intr_cnt;
 
-
 extern uint8_t Data[9];//手柄获取的数据
 int main(void)
 {
-   uint8_t x=20,y=40;
-   writeOneSprite(0,x+ 0,y+ 0,0x90,0x00);
-   writeOneSprite(1,x+ 8,y+ 0,0x91,0x00);
-   writeOneSprite(2,x+ 0,y+ 8,0x92,0x00);
-   writeOneSprite(3,x+ 8,y+ 8,0x93,0x00);
-   writeOneSprite(4,x+ 0,y+16,0x94,0x00);
-   writeOneSprite(5,x+ 8,y+16,0x95,0x00);
-   writeOneSprite(6,x- 8,y+ 3,0x96,0x00);
-   writeOneSprite(7,x+16,y+ 3,0x96,0x40);
-
-   uint8_t xx=80,yy=40;
-   writeOneSprite(10+0,xx+ 0,yy+ 0,0xb3,0x00|0x20);
-   writeOneSprite(10+1,xx+ 0,yy- 8,0xb1,0x00|0x20);
-   writeOneSprite(10+2,xx+ 0,yy+ 8,0xb5,0x00|0x20);
-   writeOneSprite(10+3,xx- 8,yy+ 0,0xb2,0x00|0x20);
-   writeOneSprite(10+4,xx+ 8,yy+ 0,0xb2,0x40|0x20);
-
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-   // SPI_Init(100);
-   // SPI_Flash_Erase_Block(0x000000);
-   // SPI_Flash_Erase_Block(0x001000);
-   // SPI_Flash_Erase_Block(0x002000);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000000,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000100,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000200,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000300,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000400,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000500,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000600,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000700,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000800,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000900,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000a00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000b00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000c00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000d00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000e00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000f00,256);
-   
-   // SPI_Flash_Write_Page(map_daoyu+256*0,0x001000,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*1,0x001100,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*2,0x001200,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*3,0x001300,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001400,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001500,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001600,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001700,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*0,0x001800,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*1,0x001900,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*2,0x001a00,256);
-   // SPI_Flash_Write_Page(map_daoyu+256*3,0x001b00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001c00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001d00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001e00,256);
-   // SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001f00,256);
-
-   // SPI_Flash_Write_Page(map_jianchuan+256*0,0x002000,256);
-   // SPI_Flash_Write_Page(map_jianchuan+256*1,0x002100,256);
-   // SPI_Flash_Write_Page(map_jianchuan+256*2,0x002200,256);
-   // SPI_Flash_Write_Page(map_jianchuan+256*3,0x002300,256);
-   
    PS2_Init();
+   SPI_Init(100);NAMETABLE->scrollEn=0;
+   SPI_Flash_Erase_Block(0x000000);
+   SPI_Flash_Erase_Block(0x001000);
+   SPI_Flash_Erase_Block(0x002000);
+   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000000,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000100,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000200,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000300,256);
+   uint8_t *mario_1024=0;
+   mario_1024=mymalloc(1024);
+   SPI_Flash_Read(mario_1024,0x000000,1024);
+   for(uint32_t i=0;i<1024;i++){
+      printf("addr=%lu data=%x\n",i,mario_1024[i]);
+   }
+   myfree(mario_1024);
+   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000400,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000500,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000600,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000700,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000800,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000900,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000a00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000b00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000c00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000d00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000e00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000f00,256);
+   SPI_Flash_Write_Page(map_daoyu+256*0,0x001000,256);
+   SPI_Flash_Write_Page(map_daoyu+256*1,0x001100,256);
+   SPI_Flash_Write_Page(map_daoyu+256*2,0x001200,256);
+   SPI_Flash_Write_Page(map_daoyu+256*3,0x001300,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001400,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001500,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001600,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001700,256);
+   SPI_Flash_Write_Page(map_daoyu+256*0,0x001800,256);
+   SPI_Flash_Write_Page(map_daoyu+256*1,0x001900,256);
+   SPI_Flash_Write_Page(map_daoyu+256*2,0x001a00,256);
+   SPI_Flash_Write_Page(map_daoyu+256*3,0x001b00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001c00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001d00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001e00,256);
+   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001f00,256);
+   SPI_Flash_Write_Page(map_jianchuan+256*0,0x002000,256);
+   SPI_Flash_Write_Page(map_jianchuan+256*1,0x002100,256);
+   SPI_Flash_Write_Page(map_jianchuan+256*2,0x002200,256);
+   SPI_Flash_Write_Page(map_jianchuan+256*3,0x002300,256);
+
    while(1)
    {
       /****每次到新的界面的初始化*****/
@@ -182,6 +163,7 @@ int main(void)
             s_grey_planeInit(&s_grey_plane);
             s_green_planeInit(&s_green_plane);
             m_straight_planeInit(&m_straight_plane);
+            b_green_planeInit(&b_green_plane);
             enmey_BulletInit(&enmeyBullets);
             new_boomInit(&boom);
             // buffInit(&buff);
@@ -193,7 +175,7 @@ int main(void)
                for(int j=0;j<32;j++)
                   writeOneNametable(j,i,map_jianchuan[i*32+j]);
             }
-            NAMETABLE->scrollCntMax=4;
+            NAMETABLE->scrollCntMax=1;
             NAMETABLE->flashAddrStart=0x00000000;
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
@@ -245,10 +227,11 @@ int main(void)
                     planeParameter.routeOneDir=DOWN_RIGHT;
              planeParameter.isBack=rand()%2;
             s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-            
             if(NAMETABLE->mapScrollPtr==120){
                s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
                m_straight_createOnePlane(&m_straight_plane,50+rand()%50);
+               b_green_createOnePlane(&b_green_plane);
+               // b_green_drawPlane(&b_green_plane,&spriteRamAddr);
             }
             //按键检测
             PS2_KEY=PS2_DataKey();
@@ -289,6 +272,7 @@ int main(void)
             s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
             s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
             m_straight_movePlane(&m_straight_plane);
+            b_green_movePlane(&b_green_plane);
             updateEnemyBulletData(&enmeyBullets);
             new_updateBoomData(&boom);
             // updateBuffData(&buff);
@@ -321,6 +305,7 @@ int main(void)
             s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
             s_green_drawPlane(&s_green_plane,&spriteRamAddr);
             m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
+            b_green_drawPlane(&b_green_plane,&spriteRamAddr);
             enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
             new_boomDraw(&boom,&spriteRamAddr);
             // buffDraw(&spriteRamAddr);
@@ -400,3 +385,5 @@ int main(void)
    // writeOneSprite(0,x+ 0,y+ 0,0x50,0x00|0x40);
    // writeOneSprite(1,x+ 8,y+ 0,0x4f,0x00|0x40);
    // writeOneSprite(2,x+ 4,y- 7,0x51,0x00|0x40);
+   
+   

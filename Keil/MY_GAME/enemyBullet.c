@@ -1,4 +1,5 @@
 #include "enemyBullet.h"
+#include "spriteRam.h"
 
 extern const uint8_t ENEMY_BULLETS_NUMMAX;
 

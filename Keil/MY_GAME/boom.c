@@ -1,5 +1,5 @@
 #include "boom.h"
-
+#include "spriteRam.h"
 extern const uint8_t BOOM_NUMMAX;
 
 void new_boomInit(BOOMType* boom){

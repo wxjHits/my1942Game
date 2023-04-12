@@ -102,6 +102,25 @@ typedef struct{
     volatile uint8_t Color;//飞机色彩
 }M_STRAIGHT_PLANEType;
 
+#define B_GREEN_FPSMAX 2
+typedef struct{
+    volatile uint8_t liveFlag;
+    volatile uint8_t hp;
+    volatile uint8_t FpsCnt;//用于敌机的数据更新的计数器
+    volatile int16_t PosX;
+    volatile int16_t PosY;
+    volatile uint8_t route;//第一段，直飞入场；第二段，画面上半部分徘徊（为平行四边形）；第三段退场
+    volatile uint8_t route1_state;//第二段徘徊状态的状态，0，1，2，3
+    volatile uint8_t route1_allStateCnt;//第二段徘徊状态圈数计数器，转3圈后退出（如果没有被击毁）
+    volatile int16_t route0_AddY;//第一段路径的增量,进入画面
+    volatile int16_t route1_turnY_0;
+    volatile int16_t route1_turnY_1;
+    volatile int16_t route1_turnX_0;
+    volatile int16_t route1_turnX_1;
+    volatile int16_t route1_turnX_2;
+    volatile int16_t route1_turnX_3;
+}B_GREEN_PLANEType;
+
 typedef struct{
     volatile int16_t PosX;
     volatile int16_t PosY;
@@ -111,3 +130,4 @@ typedef struct{
 }BOOMType;
 
 #endif
+

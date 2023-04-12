@@ -55,6 +55,20 @@ module CortexM0_SoC (
 
     );
 
+    wire SOFT_SPI_CLK ;
+    wire SOFT_SPI_CS  ;
+    wire SOFT_SPI_MOSI;
+    wire SOFT_SPI_MISO;
+    wire scrollEn     ;
+    wire HARD_SPI_CLK ;
+    wire HARD_SPI_CS  ;
+    wire HARD_SPI_MOSI;
+    wire HARD_SPI_MISO;
+    assign SPI_CLK  = (scrollEn==1'b1) ? HARD_SPI_CLK :SOFT_SPI_CLK ;
+    assign SPI_CS   = (scrollEn==1'b1) ? HARD_SPI_CS  :SOFT_SPI_CS  ;
+    assign SPI_MOSI = (scrollEn==1'b1) ? HARD_SPI_MOSI:SOFT_SPI_MOSI;
+    assign HARD_SPI_MISO = (scrollEn==1'b1) ? SPI_MISO : 1'b0;
+    assign SOFT_SPI_MISO = (scrollEn==1'b1) ? 1'b0 : SPI_MISO;
     //------------------------------------------------------------------------------
     // DEBUG IOBUF
     //------------------------------------------------------------------------------
@@ -891,25 +905,25 @@ module CortexM0_SoC (
                   .TIMERINT (TIMERINT_1)   // Timer interrupt output
               );
 
-    // //APB4 SPI
-    // apb_spi u_apb_spi(
-    //             .PCLK     (clk),   // PCLK for timer operation
-    //             .PCLKG    (clk),   // Gated clock
-    //             .PRESETn  (cpuresetn),   // Reset
-    //             .PSEL     (PSEL_APBP4),   // Device select
-    //             .PADDR    (PADDR[15:0]),   // Address
-    //             .PENABLE  (PENABLE),   // Transfer control
-    //             .PWRITE   (PWRITE),   // Write control
-    //             .PWDATA   (PWDATA),   // Write data
-    //             .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
-    //             .PRDATA   (PRDATA_APBP4),   // Read data
-    //             .PREADY   (PREADY_APBP4),   // Device ready
-    //             .PSLVERR  (PSLVERR_APBP4),   // Device error response
-    //             .SPI_CLK  (SPI_CLK ),   //SPI clk
-    //             .SPI_CS   (SPI_CS  ),   //SPI cs
-    //             .SPI_MOSI (SPI_MOSI),   //SPI mosi
-    //             .SPI_MISO (SPI_MISO)    //SPI miso
-    //         );
+    //APB4 SPI 
+    apb_spi u_apb_spi(
+                .PCLK     (clk),   // PCLK for timer operation
+                .PCLKG    (clk),   // Gated clock
+                .PRESETn  (cpuresetn),   // Reset
+                .PSEL     (PSEL_APBP4),   // Device select
+                .PADDR    (PADDR[15:0]),   // Address
+                .PENABLE  (PENABLE),   // Transfer control
+                .PWRITE   (PWRITE),   // Write control
+                .PWDATA   (PWDATA),   // Write data
+                .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
+                .PRDATA   (PRDATA_APBP4),   // Read data
+                .PREADY   (PREADY_APBP4),   // Device ready
+                .PSLVERR  (PSLVERR_APBP4),   // Device error response
+                .SPI_CLK  (SOFT_SPI_CLK ),   //SPI clk
+                .SPI_CS   (SOFT_SPI_CS  ),   //SPI cs
+                .SPI_MOSI (SOFT_SPI_MOSI),   //SPI mosi
+                .SPI_MISO (SOFT_SPI_MISO)    //SPI miso
+            );
     //APB5 PS2
     apb_pstwo u_apb_pstwo(
                   .PCLK       (clk),   // PCLK for timer operation
@@ -1054,10 +1068,11 @@ module CortexM0_SoC (
             .NAMETABLE_HRDATA   (HRDATA_P6      ),
             .NAMETABLE_HRESP    (HRESP_P6       ),
 
-            .SPI_CLK            (SPI_CLK        ),
-            .SPI_CS             (SPI_CS         ),
-            .SPI_MOSI           (SPI_MOSI       ),
-            .SPI_MISO           (SPI_MISO       ),
+            .scrollEn           (scrollEn       ),
+            .SPI_CLK            (HARD_SPI_CLK   ),
+            .SPI_CS             (HARD_SPI_CS    ),
+            .SPI_MOSI           (HARD_SPI_MOSI  ),
+            .SPI_MISO           (HARD_SPI_MISO  ),
             //VGA中断信号
             .VGA_Intr           (VGA_Intr       ),
             //VGA PIN

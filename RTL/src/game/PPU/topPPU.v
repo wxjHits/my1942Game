@@ -39,6 +39,7 @@ module topPPU#(
     output wire   [1:0]     NAMETABLE_HRESP     ,
 
     //to SPI_FLASH
+    output  wire            scrollEn        ,// 用于软件还是硬件控制SPI_FLASH
     output  wire            SPI_CLK         ,
     output  wire            SPI_CS          ,
     output  wire            SPI_MOSI        ,
@@ -135,6 +136,7 @@ module topPPU#(
         .vgaPosY            (vgaPosY            ),
         .backGroundVgaRgbOut(backGroundVgaRgbOut),
         //flash spi
+        .scrollEn           (scrollEn),// 用于软件还是硬件控制SPI_FLASH
         .SPI_CLK            (SPI_CLK ),
         .SPI_CS             (SPI_CS  ),
         .SPI_MOSI           (SPI_MOSI),

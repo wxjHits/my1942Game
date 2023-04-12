@@ -1,10 +1,9 @@
-对于PH1A60	需要用到的口	核心板	解决方案	
-	FPGA下载			
-	SWD软核调试接口		进行连线	2
-	串口UART			
-	VGA/HDMI		想买一个VGA模块连线	RGB444/565
-	PS2		连杜邦线即可	4
-	SPI_FLASH			4
-	摄像头			
-	LED/SWITCH（至少1个）			
-	8bitDAC			>=8 8bitDAC
+对于PH1A60	需要用到的口	核心板	解决方案			安路板卡&底板
+	FPGA下载					
+	SWD软核调试接口		进行连线	2		
+	串口UART					
+	VGA/HDMI		想买一个VGA模块连线	RGB444/565		
+	PS2		连杜邦线即可	4		
+	SPI_FLASH			4		
+	摄像头					
+	LED/SWITCH（至少1个）					
