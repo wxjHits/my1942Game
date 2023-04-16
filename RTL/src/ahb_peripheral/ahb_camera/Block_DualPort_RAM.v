@@ -1,5 +1,7 @@
 module Block_DualPort_RAM #(
-    parameter ADDR_WIDTH = 16)(
+    // parameter ADDR_WIDTH = 16
+    parameter ADDR_WIDTH = 8
+    )(
     input clka,
     input clkb,
     input [ADDR_WIDTH-1:0] addrb,

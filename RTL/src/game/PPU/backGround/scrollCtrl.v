@@ -24,7 +24,7 @@
     output  wire            SPI_MOSI        ,
     input   wire            SPI_MISO        ,
     //vga帧率中断
-    input  wire     vgaIntr ,
+    input   wire            vgaIntr         ,
     //to backTileDraw.v
     output wire [8:0]   scrollPtrOut
 );
@@ -91,12 +91,12 @@ end
     //scrollPtr计数器,名称表的指针0~239 & 256~495
     always@(posedge clk)begin
         if(~scrollEn)begin
-            scrollPtr<=10;
+            scrollPtr<=0;
             scrollPtr_delay<=0;
         end
         else begin
             if(vgaIntrPluse==1'b1 && cnt==scrollCntMax)begin
-                if(scrollPtr==9'd256)
+                if(scrollPtr==9'd256)//256
                     scrollPtr<=9'd239;
                 else if(scrollPtr==9'd0)
                     scrollPtr<=9'd495;

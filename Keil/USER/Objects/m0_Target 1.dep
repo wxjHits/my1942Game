@@ -1,5 +1,5 @@
 Dependencies for Project 'm0', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x6436C81B)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x6437A7C3)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (..\CORE\CortexM0.h)(0x640D9693)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdio.h)(0x5CEB79E2)
@@ -18,10 +18,10 @@ I (..\DEVICE\systick.h)(0x63F419DF)
 I (..\DEVICE\pstwo.h)(0x63F417C9)
 I (..\MY_GAME\enemyPlane.h)(0x642D3089)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\MY_GAME\enemyBullet.h)(0x6436B858)
 I (..\MY_GAME\myPlane.h)(0x6436B7DB)
-I (..\MY_GAME\gameHitCheck.h)(0x6436B7BE)
+I (..\MY_GAME\gameHitCheck.h)(0x6437A5F4)
 I (..\MY_GAME\boom.h)(0x6436B7BE)
 I (..\MY_GAME\gameInterFace.h)(0x6436B7F8)
 I (..\MY_GAME\backgroundPicture.h)(0x642D223E)
@@ -107,40 +107,40 @@ F (..\MY_GAME\boom.c)(0x6436B844)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g
 I (..\MY_GAME\boom.h)(0x6436B7BE)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\DEVICE\spriteRam.h)(0x64282ED9)
 F (..\MY_GAME\enemyBullet.c)(0x6436B99C)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\enemybullet.o --omf_browse .\objects\enemybullet.crf --depend .\objects\enemybullet.d)
 I (..\MY_GAME\enemyBullet.h)(0x6436B858)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\DEVICE\spriteRam.h)(0x64282ED9)
 F (..\MY_GAME\enemyPlane.c)(0x6436B81D)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\enemyplane.o --omf_browse .\objects\enemyplane.crf --depend .\objects\enemyplane.d)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdlib.h)(0x5CEB79E2)
 I (..\MY_GAME\enemyPlane.h)(0x642D3089)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\MY_GAME\enemyBullet.h)(0x6436B858)
 I (..\DEVICE\spriteRam.h)(0x64282ED9)
 I (..\DEVICE\uart.h)(0x63E4D47D)
 I (..\DEVICE\led.h)(0x63E4D47D)
-F (..\MY_GAME\gameHitCheck.c)(0x6436B727)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\gamehitcheck.o --omf_browse .\objects\gamehitcheck.crf --depend .\objects\gamehitcheck.d)
-I (..\MY_GAME\gameHitCheck.h)(0x6436B7BE)
+F (..\MY_GAME\gameHitCheck.c)(0x6437A6CD)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\gamehitcheck.o --omf_browse .\objects\gamehitcheck.crf --depend .\objects\gamehitcheck.d)
+I (..\MY_GAME\gameHitCheck.h)(0x6437A5F4)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\MY_GAME\boom.h)(0x6436B7BE)
-F (..\MY_GAME\gameInterFace.c)(0x6436B7F8)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\gameinterface.o --omf_browse .\objects\gameinterface.crf --depend .\objects\gameinterface.d)
+F (..\MY_GAME\gameInterFace.c)(0x64375BAF)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\gameinterface.o --omf_browse .\objects\gameinterface.crf --depend .\objects\gameinterface.d)
 I (..\MY_GAME\gameInterFace.h)(0x6436B7F8)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\DEVICE\spriteRam.h)(0x64282ED9)
 F (..\MY_GAME\myPlane.c)(0x6436B7D3)(--c99 --gnu -c --cpu Cortex-M0 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\CORE -I ..\DEVICE -I ..\USER -I ..\MY_GAME-I.\RTE\_Target_1-I"D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM0\Include"-I"D:\Program Files\Keil_V5\ARM\CMSIS\Include"-D__UVISION_VERSION="528" -DCMSDK_CM0-o .\objects\myplane.o --omf_browse .\objects\myplane.crf --depend .\objects\myplane.d)
 I (..\MY_GAME\myPlane.h)(0x6436B7DB)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdint.h)(0x5CEB79E2)
 I (D:\Program Files\Keil_V5\ARM\ARMCC\include\stdbool.h)(0x5CEB79DE)
-I (..\MY_GAME\gameStruct.h)(0x6436B7BE)
+I (..\MY_GAME\gameStruct.h)(0x6437A6B6)
 I (..\DEVICE\spriteRam.h)(0x64282ED9)
 I (..\DEVICE\led.h)(0x63E4D47D)

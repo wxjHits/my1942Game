@@ -86,7 +86,8 @@ int main(void)
 {
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    PS2_Init();
-   SPI_Init(100);NAMETABLE->scrollEn=0;
+   SPI_Init(100);
+   NAMETABLE->scrollEn=0;
    SPI_Flash_Erase_Block(0x000000);
    SPI_Flash_Erase_Block(0x001000);
    SPI_Flash_Erase_Block(0x002000);
@@ -282,8 +283,9 @@ int main(void)
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
             // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
-            isHit_s_grey_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-
+            isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
+            isHit_myBullets(&myBullet,&enemyPlaneAndBullet_HitMap);
+            
             //我方飞机死亡后隔一段实践再退出
             if(myplane.liveFlag==0||NAMETABLE->scrollingFlag==0){
                if(gameEndFpsCnt>=240){

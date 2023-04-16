@@ -68,7 +68,7 @@ void gameStartInterfaceShow(uint8_t x,uint8_t y){
 
 extern GAMECURSORType gameCursor;//游戏的指示光标
 void gameCursorDraw(GAMECURSORType* gameCursor){
-    uint8_t PosX=84;
+    uint8_t PosX=80;
     uint8_t PosY=0;
     switch (gameCursor->state)
     {

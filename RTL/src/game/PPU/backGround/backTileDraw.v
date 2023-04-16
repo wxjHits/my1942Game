@@ -54,13 +54,19 @@ end
 wire [8:0] gameVgaPosY_temp = gameVgaPosY+scrollPtrOut;
 always@(posedge clk)begin
     if(scrollPtrOut>=0&&scrollPtrOut<=239)begin
-        if(gameVgaPosY_temp<=9'd239)
+        if(gameVgaPosY_temp>=9'd0&&gameVgaPosY_temp<=9'd239)
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
         else
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};//+16
     end
-    else if(scrollPtrOut>=256&&scrollPtrOut<=495)begin
-        if(gameVgaPosY_temp<=9'd495)
+    // else if(scrollPtrOut>=256&&scrollPtrOut<=495)begin/*这个地方有问题*/
+    //     if(gameVgaPosY_temp<=9'd495)
+    //         nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
+    //     else
+    //         nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};
+    // end
+    else if(scrollPtrOut>=256&&scrollPtrOut<=495)begin//从下半卷轴跨越到上半卷轴2023.04.16
+        if(gameVgaPosY_temp>=9'd256&&gameVgaPosY_temp<=9'd495)
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b00,gameVgaPosX[7:5]};
         else
             nameTableRamIndex<={gameVgaPosY_temp[8:3]+2'b10,gameVgaPosX[7:5]};

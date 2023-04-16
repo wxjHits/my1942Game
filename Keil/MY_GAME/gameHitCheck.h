@@ -12,6 +12,7 @@ void enemyAndBulletMapCreate(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANETy
 
 //碰撞检测
 void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneAndBullet_HitMap,BOOMType* boom);
-void isHit_s_grey_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANEType* s_green_enmeyPlane,hitMapType* hitMap,BOOMType* boom);
+void isHit_s_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANEType* s_green_enmeyPlane,hitMapType* hitMap,BOOMType* boom);
+void isHit_myBullets(BULLETType* myBullet,hitMapType* enemyPlaneAndBullet_HitMap);
 
 #endif

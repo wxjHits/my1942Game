@@ -72,7 +72,7 @@ void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneAndBullet_HitMap,BO
 }
 
 extern uint32_t GameScore;
-void isHit_s_grey_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANEType* s_green_enmeyPlane,hitMapType* hitMap,BOOMType* boom){
+void isHit_s_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANEType* s_green_enmeyPlane,hitMapType* hitMap,BOOMType* boom){
     for(int i=0;i<S_GREY_NUMMAX;i++){//小型敌机的碰撞检测
         if((s_grey_enmeyPlane+i)->liveFlag!=0){
             uint8_t gridPosX=((s_grey_enmeyPlane+i)->PosX >>3);
@@ -117,3 +117,24 @@ void isHit_s_grey_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANETy
     }
 }
 
+void isHit_myBullets(BULLETType* myBullet,hitMapType* enemyPlaneAndBullet_HitMap){
+    for (int i=0;i<MYPLANE_BULLET_NUMMAX;i++){
+        if((myBullet+i)->liveFlag!=0){
+            uint8_t gridPosX=((myBullet+i)->PosX >>3);
+            uint8_t gridPosY=((myBullet+i)->PosY >>3);
+
+            uint32_t isHitFlag = 
+            (
+                (enemyPlaneAndBullet_HitMap->map[gridPosY+0] & (1<<(gridPosX+0)))|
+                (enemyPlaneAndBullet_HitMap->map[gridPosY+0] & (1<<(gridPosX+1)))|
+                (enemyPlaneAndBullet_HitMap->map[gridPosY-1] & (1<<(gridPosX+1)))
+            );
+
+            if(isHitFlag!=0){
+                (myBullet+i)->liveFlag=0;
+                (myBullet+i)->PosX=253;
+                (myBullet+i)->PosY=239;
+            }
+        }
+    }
+}

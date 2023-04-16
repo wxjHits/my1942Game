@@ -5,13 +5,14 @@
 
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module nameTableRam(
-    // //cortex-m0
+    //cortex-m0
     input clk,
     input [`NAMETABLE_AHBBUS_ADDRWIDTH-1:0] addra,
     input [`NAMETABLE_AHBBUS_ADDRWIDTH-1:0] addrb,
     input [31:0] dina,
     input [3:0] wea,
     output reg [31:0] doutb,
+
     //flashToNametable only_write
     input   wire        clk_flashToNametable    ,//100MHz
     input   wire [03:0] writeNameEn             ,
@@ -20,7 +21,7 @@ module nameTableRam(
     input   wire [03:0] writeAttrEn             ,
     input   wire [08:0] writeAttrAddr           ,
     input   wire [31:0] writeAttrData           ,
-    //到tiledraw函数
+    //到tiledraw函数 only read
     input   wire                                        clk_tileDraw        ,
     input           [`NAMETABLE_AHBBUS_ADDRWIDTH-1:0]   nameTableRamIndex   ,
     output  reg     [31:0]                              nameTableRamDataO   ,
@@ -30,7 +31,7 @@ module nameTableRam(
 
     (* ram_style="block" *) reg  [4*(`BYTE)-1:0] nameTableRam [0:512-1];//适配安路的板子进行的修改，与地址线的位宽保持一致
     initial begin
-	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/backGround/nameTable_test01.txt", nameTableRam);
+	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/nameTable_test01.txt", nameTableRam);
 	end
 
 /*****读操作*****/
