@@ -37,7 +37,7 @@ const uint8_t M_STRAIGHT_NUMMAX=1;//中型直飞飞机
 M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
 const uint8_t B_GREEN_NUMMAX=1;//绿色大飞机
 B_GREEN_PLANEType b_green_plane;
-const uint8_t ENEMY_BULLETS_NUMMAX=5;
+const uint8_t ENEMY_BULLETS_NUMMAX=15;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 
 hitMapType myPlaneHitMap;
@@ -45,7 +45,7 @@ hitMapType myBulletsHitMap;
 hitMapType enemyPlaneAndBullet_HitMap;
 
 //爆炸
-const uint8_t BOOM_NUMMAX=12;
+const uint8_t BOOM_NUMMAX=3;
 BOOMType boom[BOOM_NUMMAX];
 
 // //BUFF
@@ -230,9 +230,8 @@ int main(void)
             s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
             if(NAMETABLE->mapScrollPtr==120){
                s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
-               m_straight_createOnePlane(&m_straight_plane,50+rand()%50);
+               m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
                b_green_createOnePlane(&b_green_plane);
-               // b_green_drawPlane(&b_green_plane,&spriteRamAddr);
             }
             //按键检测
             PS2_KEY=PS2_DataKey();
@@ -280,10 +279,12 @@ int main(void)
 
             //碰撞检测
             myBulletsMapCreate(&myBullet,&myBulletsHitMap);
-            enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
+            enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
             // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
+            isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
+            isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
             isHit_myBullets(&myBullet,&enemyPlaneAndBullet_HitMap);
             
             //我方飞机死亡后隔一段实践再退出
@@ -304,13 +305,14 @@ int main(void)
             gameScoreDraw(3,10,GameScore,&spriteRamAddr);
             myPlane_Draw(&myplane,&spriteRamAddr);
             myPlane_bulletDraw(&myBullet,&spriteRamAddr);
+            new_boomDraw(&boom,&spriteRamAddr);//爆炸显示应该在血量多的敌机的前面
+            // buffDraw(&spriteRamAddr);
             s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
             s_green_drawPlane(&s_green_plane,&spriteRamAddr);
             m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
             b_green_drawPlane(&b_green_plane,&spriteRamAddr);
             enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
-            new_boomDraw(&boom,&spriteRamAddr);
-            // buffDraw(&spriteRamAddr);
+            
             for(uint8_t i=spriteRamAddr;i<64;i++){
                writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
                spriteRamAddr++;

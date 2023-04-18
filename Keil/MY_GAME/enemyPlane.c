@@ -461,7 +461,7 @@ void m_straight_createOnePlane(M_STRAIGHT_PLANEType* plane,int16_t occurPosX){
     for (int i = 0; i < M_STRAIGHT_NUMMAX; i++){
         if((plane+i)->liveFlag==0){
             (plane+i)->liveFlag=1;
-            (plane+i)->hp=5;
+            (plane+i)->hp=20;
             (plane+i)->FpsCnt=0;
             (plane+i)->PosX = occurPosX ;
             (plane+i)->PosY = BOTTOM_LINE-5;
@@ -552,7 +552,7 @@ void b_green_createOnePlane(B_GREEN_PLANEType* plane){
     for (int i = 0; i < B_GREEN_NUMMAX; i++){
         if((plane+i)->liveFlag==0){
             (plane+i)->liveFlag=1;
-            (plane+i)->hp=20;
+            (plane+i)->hp=50;
             (plane+i)->FpsCnt=0;
             (plane+i)->PosX=150;
             (plane+i)->PosY=180;
@@ -570,6 +570,10 @@ void b_green_createOnePlane(B_GREEN_PLANEType* plane){
         }
     }
 }
+
+extern MYPLANEType myplane;
+extern BULLETType enmeyBullets[10];
+
 void b_green_movePlane(B_GREEN_PLANEType* plane){
     for(int i=0;i<B_GREEN_NUMMAX;i++){
         if((plane+i)->liveFlag!=0){
@@ -585,6 +589,7 @@ void b_green_movePlane(B_GREEN_PLANEType* plane){
                         (plane+i)->route1_allStateCnt=0;
                         (plane+i)->route1_state=0;
                         (plane+i)->route=1;
+                        s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
                     }
                     else {//继续向上移动
                         (plane+i)->PosY+=(plane+i)->route0_AddY;
@@ -595,36 +600,53 @@ void b_green_movePlane(B_GREEN_PLANEType* plane){
                     if((plane+i)->route1_state==0){//徘徊状态机 0
                         (plane+i)->PosX += -2;
                         (plane+i)->PosY += rand()%3-1;
-                        if((plane+i)->PosX<(plane+i)->route1_turnX_0)
+                        if((plane+i)->PosX<(plane+i)->route1_turnX_0){
                             (plane+i)->route1_state=1;
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
+                        }
+                        if((plane+i)->PosX<100&&(plane+i)->PosX>97)
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
+                        else if((plane+i)->PosX<120&&(plane+i)->PosX>117)
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
                     }
                     else if((plane+i)->route1_state==1){//徘徊状态机 1
                         (plane+i)->PosX += 2;
                         (plane+i)->PosY -= 2;
                         if((plane+i)->PosX>(plane+i)->route1_turnX_1){
                             (plane+i)->route1_state=2;
-                            LED_toggle(1);
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
                         }
                     }
                     else if((plane+i)->route1_state==2){//徘徊状态机 2
-                        (plane+i)->PosX += rand()%2+1;
+                        (plane+i)->PosX += 2;
                         (plane+i)->PosY += rand()%3-1;
-                        if((plane+i)->PosX>(plane+i)->route1_turnX_3)
+                        if((plane+i)->PosX>(plane+i)->route1_turnX_3){
                             (plane+i)->route1_state=3;
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
+                        }
+                        if((plane+i)->PosX<110&&(plane+i)->PosX>107)
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
+                        else if((plane+i)->PosX<128&&(plane+i)->PosX>125){
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
+                            (plane+i)->route1_allStateCnt++;
+                            if((plane+i)->route1_allStateCnt==4)
+                                (plane+i)->route=2;
+                        }
                     }
                     else if((plane+i)->route1_state==3){//徘徊状态机 3
                         (plane+i)->PosX += -2;
                         (plane+i)->PosY += 2;
                         if((plane+i)->PosX<(plane+i)->route1_turnX_2){
+                            s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
                             (plane+i)->route1_state=0;
-                            (plane+i)->route1_allStateCnt++;
-                            if((plane+i)->route1_allStateCnt==2)
-                                (plane+i)->route=2;
+                            // (plane+i)->route1_allStateCnt++;
+                            // if((plane+i)->route1_allStateCnt==2)
+                            //     (plane+i)->route=2;
                         }
                     }
                 }
                 else if((plane+i)->route==2){//第二段
-                        (plane+i)->PosY +=-3;
+                        (plane+i)->PosY +=-2;
                         if((plane+i)->PosY<TOP_LINE)
                             (plane+i)->liveFlag=0;
                     }

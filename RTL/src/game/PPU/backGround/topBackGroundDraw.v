@@ -88,7 +88,19 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     wire    [31:0]  writeAttrData   ;
 //产生帧率中断
     //产生的中断进行计数器计数
-    wire vgaIntr;
+    reg [`VGA_POSXY_BIT-1:0] vgaPosX_r  ;
+    reg [`VGA_POSXY_BIT-1:0] vgaPosY_r  ;
+    always@(posedge clk_100MHz)begin
+        if(~rstn)begin
+            vgaPosX_r<=0;
+            vgaPosY_r<=0;
+        end
+        else begin
+            vgaPosX_r<=vgaPosX;
+            vgaPosY_r<=vgaPosY;
+        end
+    end
+
     reg VGA_Intr_r0;
     reg VGA_Intr_r1;
     always@(posedge clk_100MHz)begin
@@ -97,12 +109,13 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
             VGA_Intr_r1<=0;
         end
         else begin
-            VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH-1) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT-1);
+            // VGA_Intr_r0<=(vgaPosX==`GAME_START_POSX+`GAME_WINDOW_WIDTH-1) && (vgaPosY==`GAME_START_POSY+`GAME_WINDOW_HEIGHT-1);
+            VGA_Intr_r0<=(vgaPosX_r==`GAME_START_POSX+`GAME_WINDOW_WIDTH-1) && (vgaPosY_r==`GAME_START_POSY+`GAME_WINDOW_HEIGHT-1);
             // VGA_Intr_r0<=(vgaPosX[3:0]==4'd3);
             VGA_Intr_r1<=VGA_Intr_r0;
         end
     end
-    assign vgaIntr = VGA_Intr_r0 & (~VGA_Intr_r1);
+    wire vgaIntr = VGA_Intr_r0 & (~VGA_Intr_r1);
 
     wire [8:0]   scrollPtrOut;
 
