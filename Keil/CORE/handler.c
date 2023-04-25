@@ -132,8 +132,12 @@ extern MYPLANEType myplane;
 void vga_Handler(void){
     if(game_state==1){
         if(gameRunState==1){
-            LED_toggle(2);
-            gameRunState=2;
+            if(NAMETABLE->mapBackgroundCnt==9&&NAMETABLE->scrollingFlag==0){
+                gameRunState=3;
+                NAMETABLE->scrollEn=0;
+            }
+            else
+                gameRunState=2;
             if(myplane.liveFlag==0||NAMETABLE->scrollingFlag==0)
                 gameEndFpsCnt+=1;
         }

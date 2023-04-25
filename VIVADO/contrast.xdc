@@ -2,8 +2,7 @@ set_property PACKAGE_PIN K18 [get_ports clk]
 set_property IOSTANDARD LVCMOS33 [get_ports clk]
 set_property PACKAGE_PIN B16 [get_ports RSTn]
 set_property IOSTANDARD LVCMOS33 [get_ports RSTn]
-set_property PACKAGE_PIN AB22 [get_ports RXD]
-set_property PACKAGE_PIN AB21 [get_ports TXD]
+set_property PACKAGE_PIN G15 [get_ports TXD]
 set_property PACKAGE_PIN J15 [get_ports SWCLK]
 set_property IOSTANDARD LVCMOS33 [get_ports RXD]
 set_property IOSTANDARD LVCMOS33 [get_ports SWCLK]
@@ -195,3 +194,5 @@ set_property IOSTANDARD LVCMOS33 [get_ports SLEEPING]
 # 异步时钟约束 2023.04.17
 set_clock_groups -name clk_100MHz_25p2MHz_async -asynchronous -group [get_clocks [list [get_clocks -of_objects [get_pins instance_name/inst/mmcm_adv_inst/CLKOUT1]] [get_clocks -of_objects [get_pins instance_name/inst/mmcm_adv_inst/CLKOUT0]]]]
 
+
+set_property PACKAGE_PIN G16 [get_ports RXD]

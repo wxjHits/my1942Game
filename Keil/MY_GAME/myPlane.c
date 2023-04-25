@@ -12,6 +12,7 @@ void myPlane_Init(MYPLANEType* myPlane){
     myPlane->bulletOnceNum=1;
     myPlane->hp=1;
 }
+extern uint32_t GameShootBulletsCnt;//发射子弹的数量
 void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
     if(myPlane->liveFlag!=0){
         if(myPlane->bulletOnceNum==0){
@@ -20,7 +21,7 @@ void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
                     (mybullet+i)->PosX=myPlane->PosX+8;
                     (mybullet+i)->PosY=myPlane->PosY-8;
                     (mybullet+i)->liveFlag=1;
-                    // GameShootBulletsCnt+=1;
+                    GameShootBulletsCnt+=1;
                     break;
                 }
             }
@@ -34,7 +35,7 @@ void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
                     (mybullet+i+1)->PosX=myPlane->PosX+12;
                     (mybullet+i+1)->PosY=myPlane->PosY-8;
                     (mybullet+i+1)->liveFlag=1;
-                    // GameShootBulletsCnt+=2;
+                    GameShootBulletsCnt+=2;
                     break;
                 }
             }
@@ -54,7 +55,7 @@ void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
                     (mybullet+i+3)->PosX=myPlane->PosX+20;
                     (mybullet+i+3)->PosY=myPlane->PosY-8;
                     (mybullet+i+3)->liveFlag=1;
-                    // GameShootBulletsCnt+=4;
+                    GameShootBulletsCnt+=4;
                     break;
                 }
             }

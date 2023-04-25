@@ -20,7 +20,8 @@
 ".\objects\enemyplane.o"
 ".\objects\gamehitcheck.o"
 ".\objects\gameinterface.o"
-".\objects\myplane.o"
+".\objects\myplane_1.o"
+".\objects\makemap.o"
 --library_type=microlib --strict --scatter ".\Objects\m0.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

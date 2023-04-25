@@ -507,6 +507,11 @@
               <FileType>1</FileType>
               <FilePath>..\MY_GAME\myPlane.c</FilePath>
             </File>
+            <File>
+              <FileName>makeMap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\makeMap.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

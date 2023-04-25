@@ -16,6 +16,8 @@ typedef struct{
 void gameStartInterfaceShow(uint8_t x,uint8_t y);
 void gameCursorDraw(GAMECURSORType* gameCursor);
 
+//游戏打通一小关后新的一关开始的画面
+void newGuanqiaInterFaceDraw(uint8_t guanQiaNum,uint8_t* spriteRamAddr);
 
 //游戏结算画面，文字应该是隔几帧再进行打印（一个一个打印），和初始界面瞬间显示出来不同
 #define endInterFaceCharNum 20

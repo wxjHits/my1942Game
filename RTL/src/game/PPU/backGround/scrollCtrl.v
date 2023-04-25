@@ -11,6 +11,7 @@
     output  reg     [07:0]  mapBackgroundCnt,//当前开始扫描第几幅图片
     output  wire    [07:0]  mapScrollPtr    ,//名称表的滚动指针的低8bit
     output  reg             scrollingFlag   ,//表明背景正在滚动中
+    input   wire            scrollPause     ,//背景滚动暂停的控制信号
     //to nameTableRam.v
     output  wire    [03:0]  writeNameEn     ,
     output  wire    [08:0]  writeNameAddr   ,
@@ -46,8 +47,12 @@ reg [08:0]  scrollPtr_delay       ;//名称表的滚动指针
 /*****scrollingFlag的赋值*****/
 always@(*)begin
     if(scrollEn==1'b1)begin
-        if(mapBackgroundCnt<=mapBackgroundMax)
-            scrollingFlag=1;
+        if(mapBackgroundCnt<=mapBackgroundMax)begin
+            if(scrollPause==1'b1)
+                scrollingFlag=0;
+            else
+                scrollingFlag=1;
+        end
         else
             scrollingFlag=0;
     end
@@ -69,7 +74,7 @@ end
             vgaIntr1<=vgaIntr0;
         end
     end
-    assign vgaIntrPluse = vgaIntr0 & (~vgaIntr1);
+    assign vgaIntrPluse = (scrollPause==1) ? 1'b0 : (vgaIntr0 & (~vgaIntr1));
     //滚动速度控制
     reg [7:0] cnt;
     always@(posedge clk)begin

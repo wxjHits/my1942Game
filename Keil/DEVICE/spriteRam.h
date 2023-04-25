@@ -41,6 +41,7 @@ typedef struct{
     volatile uint32_t mapBackgroundCnt;
     volatile uint32_t mapScrollPtr    ;
     volatile uint32_t scrollingFlag   ;
+    volatile uint32_t scrollPause     ;
 }NAMETABLE_Type;
 
 #define NAMETABLE ((NAMETABLE_Type *)NAMETABLE_BASE)

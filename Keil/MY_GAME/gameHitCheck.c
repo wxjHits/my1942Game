@@ -183,6 +183,7 @@ void isHit_b_EnemyPlane(B_GREEN_PLANEType* b_green_enmeyPlane,hitMapType* hitMap
     }
 }
 
+extern uint32_t GameShootDownCnt;//游戏击落数
 void isHit_myBullets(BULLETType* myBullet,hitMapType* enemyPlaneAndBullet_HitMap){
     for (int i=0;i<MYPLANE_BULLET_NUMMAX;i++){
         if((myBullet+i)->liveFlag!=0){
@@ -198,6 +199,7 @@ void isHit_myBullets(BULLETType* myBullet,hitMapType* enemyPlaneAndBullet_HitMap
                 (myBullet+i)->liveFlag=0;
                 (myBullet+i)->PosX=253;
                 (myBullet+i)->PosY=239;
+                GameShootDownCnt++;
             }
         }
     }

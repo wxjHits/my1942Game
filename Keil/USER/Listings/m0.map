@@ -7,28 +7,20 @@ Section Cross References
     main.o(i.main) refers to uart.o(i.uart_init) for uart_init
     main.o(i.main) refers to pstwo.o(i.PS2_Init) for PS2_Init
     main.o(i.main) refers to spi_flash.o(i.SPI_Init) for SPI_Init
-    main.o(i.main) refers to spi_flash.o(i.SPI_Flash_Erase_Block) for SPI_Flash_Erase_Block
-    main.o(i.main) refers to spi_flash.o(i.SPI_Flash_Write_Page) for SPI_Flash_Write_Page
-    main.o(i.main) refers to malloc.o(i.mymalloc) for mymalloc
-    main.o(i.main) refers to spi_flash.o(i.SPI_Flash_Read) for SPI_Flash_Read
-    main.o(i.main) refers to printf5.o(i.__0printf$5) for __2printf
-    main.o(i.main) refers to malloc.o(i.myfree) for myfree
     main.o(i.main) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
     main.o(i.main) refers to spriteram.o(i.clearNameTableAll) for clearNameTableAll
     main.o(i.main) refers to gameinterface.o(i.gameStartInterfaceShow) for gameStartInterfaceShow
     main.o(i.main) refers to gameinterface.o(i.gameCursorDraw) for gameCursorDraw
-    main.o(i.main) refers to myplane.o(i.myPlane_Init) for myPlane_Init
-    main.o(i.main) refers to myplane.o(i.myPlane_bulletInit) for myPlane_bulletInit
+    main.o(i.main) refers to myplane_1.o(i.myPlane_Init) for myPlane_Init
+    main.o(i.main) refers to myplane_1.o(i.myPlane_bulletInit) for myPlane_bulletInit
     main.o(i.main) refers to enemyplane.o(i.s_grey_planeInit) for s_grey_planeInit
     main.o(i.main) refers to enemyplane.o(i.s_green_planeInit) for s_green_planeInit
     main.o(i.main) refers to enemyplane.o(i.m_straight_planeInit) for m_straight_planeInit
     main.o(i.main) refers to enemyplane.o(i.b_green_planeInit) for b_green_planeInit
     main.o(i.main) refers to enemybullet.o(i.enmey_BulletInit) for enmey_BulletInit
     main.o(i.main) refers to boom.o(i.new_boomInit) for new_boomInit
-    main.o(i.main) refers to spriteram.o(i.writeOneNametable) for writeOneNametable
+    main.o(i.main) refers to makemap.o(i.loadMapJianchuan) for loadMapJianchuan
     main.o(i.main) refers to pstwo.o(i.PS2_DataKey) for PS2_DataKey
-    main.o(i.main) refers to main.o(.data) for map_konghaiyu
-    main.o(i.main) refers to main.o(.bss) for myplane
     main.o(i.main) refers to systick.o(i.delay_ms) for delay_ms
     main.o(i.main) refers to rand.o(.text) for rand
     main.o(i.main) refers to idiv.o(.text) for __aeabi_idivmod
@@ -36,15 +28,19 @@ Section Cross References
     main.o(i.main) refers to enemyplane.o(i.s_green_createOnePlane) for s_green_createOnePlane
     main.o(i.main) refers to enemyplane.o(i.m_straight_createOnePlane) for m_straight_createOnePlane
     main.o(i.main) refers to enemyplane.o(i.b_green_createOnePlane) for b_green_createOnePlane
-    main.o(i.main) refers to myplane.o(i.myPlane_createOneBullet) for myPlane_createOneBullet
-    main.o(i.main) refers to myplane.o(i.myPlane_Act) for myPlane_Act
-    main.o(i.main) refers to myplane.o(i.myPlane_updateBulletData) for myPlane_updateBulletData
+    main.o(i.main) refers to myplane_1.o(i.myPlane_createOneBullet) for myPlane_createOneBullet
+    main.o(i.main) refers to myplane_1.o(i.myPlane_Act) for myPlane_Act
+    main.o(i.main) refers to myplane_1.o(i.myPlane_updateBulletData) for myPlane_updateBulletData
     main.o(i.main) refers to enemyplane.o(i.s_grey_movePlane) for s_grey_movePlane
     main.o(i.main) refers to enemyplane.o(i.s_green_movePlane) for s_green_movePlane
     main.o(i.main) refers to enemyplane.o(i.m_straight_movePlane) for m_straight_movePlane
     main.o(i.main) refers to enemyplane.o(i.b_green_movePlane) for b_green_movePlane
     main.o(i.main) refers to enemybullet.o(i.updateEnemyBulletData) for updateEnemyBulletData
     main.o(i.main) refers to boom.o(i.new_updateBoomData) for new_updateBoomData
+    main.o(i.main) refers to printf1.o(i.__0printf$1) for __2printf
+    main.o(i.main) refers to main.o(.data) for timer_init_flag
+    main.o(i.main) refers to main.o(.bss) for myplane
+    main.o(i.main) refers to pstwo.o(.bss) for Data
     main.o(i.main) refers to gamehitcheck.o(i.myBulletsMapCreate) for myBulletsMapCreate
     main.o(i.main) refers to gamehitcheck.o(i.enemyAndBulletMapCreate) for enemyAndBulletMapCreate
     main.o(i.main) refers to gamehitcheck.o(i.isHit_s_EnemyPlane) for isHit_s_EnemyPlane
@@ -52,18 +48,18 @@ Section Cross References
     main.o(i.main) refers to gamehitcheck.o(i.isHit_b_EnemyPlane) for isHit_b_EnemyPlane
     main.o(i.main) refers to gamehitcheck.o(i.isHit_myBullets) for isHit_myBullets
     main.o(i.main) refers to gameinterface.o(i.gameScoreDraw) for gameScoreDraw
-    main.o(i.main) refers to myplane.o(i.myPlane_Draw) for myPlane_Draw
-    main.o(i.main) refers to myplane.o(i.myPlane_bulletDraw) for myPlane_bulletDraw
+    main.o(i.main) refers to myplane_1.o(i.myPlane_Draw) for myPlane_Draw
+    main.o(i.main) refers to myplane_1.o(i.myPlane_bulletDraw) for myPlane_bulletDraw
     main.o(i.main) refers to boom.o(i.new_boomDraw) for new_boomDraw
     main.o(i.main) refers to enemyplane.o(i.s_grey_drawPlane) for s_grey_drawPlane
     main.o(i.main) refers to enemyplane.o(i.s_green_drawPlane) for s_green_drawPlane
     main.o(i.main) refers to enemyplane.o(i.m_straight_drawPlane) for m_straight_drawPlane
     main.o(i.main) refers to enemyplane.o(i.b_green_drawPlane) for b_green_drawPlane
     main.o(i.main) refers to enemybullet.o(i.enmeyBulletDraw) for enmeyBulletDraw
+    main.o(i.main) refers to gameinterface.o(i.newGuanqiaInterFaceDraw) for newGuanqiaInterFaceDraw
     main.o(i.main) refers to ffltui.o(.text) for __aeabi_ui2f
     main.o(i.main) refers to fdiv.o(.text) for __aeabi_fdiv
     main.o(i.main) refers to gameinterface.o(i.endInterFaceDraw) for endInterFaceDraw
-    main.o(i.main) refers to pstwo.o(.bss) for Data
     handler.o(i.KEY0) refers to led.o(i.LED_toggle) for LED_toggle
     handler.o(i.KEY1) refers to led.o(i.LED_toggle) for LED_toggle
     handler.o(i.KEY2) refers to led.o(i.LED_toggle) for LED_toggle
@@ -71,7 +67,7 @@ Section Cross References
     handler.o(i.SysTickHandler) refers to systick.o(i.Set_SysTick_CTRL) for Set_SysTick_CTRL
     handler.o(i.UARTRXHandler) refers to uart.o(i.uart_ClearRxIRQ) for uart_ClearRxIRQ
     handler.o(i.UARTRXHandler) refers to led.o(i.LED_toggle) for LED_toggle
-    handler.o(i.UARTRXHandler) refers to printf5.o(i.__0printf$5) for __2printf
+    handler.o(i.UARTRXHandler) refers to printf1.o(i.__0printf$1) for __2printf
     handler.o(i.UARTTXHandler) refers to uart.o(i.uart_ClearTxIRQ) for uart_ClearTxIRQ
     handler.o(i.UARTTXHandler) refers to led.o(i.LED_toggle) for LED_toggle
     handler.o(i.UARTTXHandler) refers to lcd.o(i.LCD_ShowString) for LCD_ShowString
@@ -378,6 +374,7 @@ Section Cross References
     gamehitcheck.o(i.isHit_m_straight_EnemyPlane) refers to boom.o(i.new_createOneBoom) for new_createOneBoom
     gamehitcheck.o(i.isHit_m_straight_EnemyPlane) refers to main.o(.data) for GameScore
     gamehitcheck.o(i.isHit_m_straight_EnemyPlane) refers to main.o(.constdata) for M_STRAIGHT_NUMMAX
+    gamehitcheck.o(i.isHit_myBullets) refers to main.o(.data) for GameShootDownCnt
     gamehitcheck.o(i.isHit_myBullets) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
     gamehitcheck.o(i.isHit_s_EnemyPlane) refers to boom.o(i.new_createOneBoom) for new_createOneBoom
     gamehitcheck.o(i.isHit_s_EnemyPlane) refers to main.o(.data) for GameScore
@@ -396,14 +393,22 @@ Section Cross References
     gameinterface.o(i.gameScoreDraw) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
     gameinterface.o(i.gameStartInterfaceShow) refers to spriteram.o(i.writeOneNametable) for writeOneNametable
     gameinterface.o(i.gameStartInterfaceShow) refers to gameinterface.o(.data) for GAME_LOGO_1942
-    gameinterface.o(i.gameStartInterfaceShow) refers to main.o(.data) for map_start
-    myplane.o(i.myPlane_Act) refers to led.o(i.LED_toggle) for LED_toggle
-    myplane.o(i.myPlane_Draw) refers to lcd.o(i.__ARM_common_switch8) for __ARM_common_switch8
-    myplane.o(i.myPlane_Draw) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
-    myplane.o(i.myPlane_bulletDraw) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
-    myplane.o(i.myPlane_bulletDraw) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
-    myplane.o(i.myPlane_bulletInit) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
-    myplane.o(i.myPlane_updateBulletData) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
+    gameinterface.o(i.gameStartInterfaceShow) refers to makemap.o(.data) for map_start
+    gameinterface.o(i.newGuanqiaInterFaceDraw) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
+    myplane_1.o(i.myPlane_Act) refers to led.o(i.LED_toggle) for LED_toggle
+    myplane_1.o(i.myPlane_Draw) refers to lcd.o(i.__ARM_common_switch8) for __ARM_common_switch8
+    myplane_1.o(i.myPlane_Draw) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
+    myplane_1.o(i.myPlane_bulletDraw) refers to spriteram.o(i.writeOneSprite) for writeOneSprite
+    myplane_1.o(i.myPlane_bulletDraw) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
+    myplane_1.o(i.myPlane_bulletInit) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
+    myplane_1.o(i.myPlane_createOneBullet) refers to main.o(.data) for GameShootBulletsCnt
+    myplane_1.o(i.myPlane_updateBulletData) refers to main.o(.constdata) for MYPLANE_BULLET_NUMMAX
+    makemap.o(i.loadMapJianchuan) refers to spriteram.o(i.writeOneNametable) for writeOneNametable
+    makemap.o(i.loadMapJianchuan) refers to makemap.o(.data) for map_jianchuan
+    makemap.o(i.makeMapFirst) refers to spi_flash.o(i.SPI_Flash_Write_Page) for SPI_Flash_Write_Page
+    makemap.o(i.makeMapFirst) refers to makemap.o(.data) for map_konghaiyu
+    makemap.o(i.makeMapSecond) refers to spi_flash.o(i.SPI_Flash_Write_Page) for SPI_Flash_Write_Page
+    makemap.o(i.makeMapSecond) refers to makemap.o(.data) for map_konghaiyu
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$0000000F) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry7b.o(.ARM.Collect$$$$00000008) for _main_clock
@@ -755,14 +760,23 @@ Removing Unused input sections from the image.
     Removing retarget.o(i._ttywrch), (16 bytes).
     Removing retarget.o(i.ferror), (8 bytes).
     Removing retarget.o(i.fgetc), (34 bytes).
+    Removing spi_flash.o(i.Is_SPI_Ready), (12 bytes).
     Removing spi_flash.o(i.SPI_FLASH_Clear_SR), (36 bytes).
     Removing spi_flash.o(i.SPI_FLASH_Write_Disable), (28 bytes).
+    Removing spi_flash.o(i.SPI_FLASH_Write_Enable), (28 bytes).
     Removing spi_flash.o(i.SPI_FLASH_Write_SR), (36 bytes).
+    Removing spi_flash.o(i.SPI_Flash_Erase_Block), (64 bytes).
     Removing spi_flash.o(i.SPI_Flash_Erase_Chip), (40 bytes).
     Removing spi_flash.o(i.SPI_Flash_Erase_Sector), (64 bytes).
+    Removing spi_flash.o(i.SPI_Flash_Read), (76 bytes).
     Removing spi_flash.o(i.SPI_Flash_ReadID), (68 bytes).
+    Removing spi_flash.o(i.SPI_Flash_ReadSR), (40 bytes).
+    Removing spi_flash.o(i.SPI_Flash_Wait_Busy), (18 bytes).
     Removing spi_flash.o(i.SPI_Flash_Write_Max65536), (208 bytes).
     Removing spi_flash.o(i.SPI_Flash_Write_NoCheck), (68 bytes).
+    Removing spi_flash.o(i.SPI_Flash_Write_Page), (80 bytes).
+    Removing spi_flash.o(i.SPI_ReadWriteByte), (72 bytes).
+    Removing spi_flash.o(i.SPI_SendData), (20 bytes).
     Removing systick.o(.rev16_text), (4 bytes).
     Removing systick.o(.revsh_text), (4 bytes).
     Removing systick.o(i.Read_SysTick_VALUE), (12 bytes).
@@ -779,9 +793,18 @@ Removing Unused input sections from the image.
     Removing uart.o(i.uart_GetTxIRQStatus), (10 bytes).
     Removing uart.o(i.uart_ReceiveChar), (20 bytes).
     Removing uart.o(i.uart_SendString), (34 bytes).
+    Removing malloc.o(i.mem_free), (76 bytes).
+    Removing malloc.o(i.mem_init), (44 bytes).
+    Removing malloc.o(i.mem_malloc), (124 bytes).
+    Removing malloc.o(i.mem_perused), (40 bytes).
+    Removing malloc.o(i.myfree), (32 bytes).
+    Removing malloc.o(i.mymalloc), (32 bytes).
     Removing malloc.o(i.mymemcpy), (26 bytes).
+    Removing malloc.o(i.mymemset), (20 bytes).
     Removing malloc.o(i.myrealloc), (56 bytes).
+    Removing malloc.o(.bss), (4352 bytes).
     Removing malloc.o(.constdata), (12 bytes).
+    Removing malloc.o(.data), (20 bytes).
     Removing spriteram.o(i.clearNameTableOneline), (28 bytes).
     Removing spriteram.o(i.nameTablePicture), (36 bytes).
     Removing spriteram.o(i.scroll_Init), (12 bytes).
@@ -795,6 +818,8 @@ Removing Unused input sections from the image.
     Removing pstwo.o(i.PS2_Vibration), (92 bytes).
     Removing pstwo.o(i.PS2_VibrationMode), (64 bytes).
     Removing gamehitcheck.o(i.isMyPlaneHit), (140 bytes).
+    Removing makemap.o(i.makeMapFirst), (616 bytes).
+    Removing makemap.o(i.makeMapSecond), (664 bytes).
     Removing dadd.o(.text), (356 bytes).
     Removing dmul.o(.text), (208 bytes).
     Removing ddiv.o(.text), (240 bytes).
@@ -803,7 +828,7 @@ Removing Unused input sections from the image.
     Removing depilogue.o(.text), (190 bytes).
     Removing depilogue.o(i.__ARM_clz), (46 bytes).
 
-116 unused section(s) (total 13875 bytes) removed from the image.
+136 unused section(s) (total 20305 bytes) removed from the image.
 
 ==============================================================================
 
@@ -818,33 +843,33 @@ Image Symbol Table
     ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  idiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
-    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
+    ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
     ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdlib/rand.c           0x00000000   Number         0  rand.o ABSOLUTE
     ../clib/microlib/string/strlen.c         0x00000000   Number         0  strlen.o ABSOLUTE
@@ -855,8 +880,8 @@ Image Symbol Table
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  fdiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  fepilogue.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
-    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  ffixui.o ABSOLUTE
+    ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  fflti.o ABSOLUTE
     ../fplib/microlib/fpflt.c                0x00000000   Number         0  ffltui.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  fmul.o ABSOLUTE
@@ -881,7 +906,8 @@ Image Symbol Table
     ..\MY_GAME\enemyPlane.c                  0x00000000   Number         0  enemyplane.o ABSOLUTE
     ..\MY_GAME\gameHitCheck.c                0x00000000   Number         0  gamehitcheck.o ABSOLUTE
     ..\MY_GAME\gameInterFace.c               0x00000000   Number         0  gameinterface.o ABSOLUTE
-    ..\MY_GAME\myPlane.c                     0x00000000   Number         0  myplane.o ABSOLUTE
+    ..\MY_GAME\makeMap.c                     0x00000000   Number         0  makemap.o ABSOLUTE
+    ..\MY_GAME\myPlane.c                     0x00000000   Number         0  myplane_1.o ABSOLUTE
     ..\\CORE\\handler.c                      0x00000000   Number         0  handler.o ABSOLUTE
     ..\\CORE\\system.c                       0x00000000   Number         0  system.o ABSOLUTE
     ..\\DEVICE\\systick.c                    0x00000000   Number         0  systick.o ABSOLUTE
@@ -913,144 +939,126 @@ Image Symbol Table
     .text                                    0x00000352   Section        0  ffltui.o(.text)
     .text                                    0x00000360   Section        0  ffixui.o(.text)
     .text                                    0x00000388   Section       20  cfrcmple.o(.text)
-    .text                                    0x0000039c   Section        0  uldiv.o(.text)
-    .text                                    0x000003fc   Section        0  iusefp.o(.text)
-    .text                                    0x000003fc   Section        0  fepilogue.o(.text)
-    .text                                    0x00000480   Section       36  init.o(.text)
-    .text                                    0x000004a4   Section        0  llshl.o(.text)
-    .text                                    0x000004c4   Section        0  llushr.o(.text)
-    .text                                    0x000004e6   Section        0  __dclz77c.o(.text)
-    i.BusFaultHandler                        0x00000546   Section        0  handler.o(i.BusFaultHandler)
-    i.DebugMonHandler                        0x00000548   Section        0  handler.o(i.DebugMonHandler)
-    i.HardFaultHandler                       0x0000054a   Section        0  handler.o(i.HardFaultHandler)
-    i.Is_SPI_Ready                           0x0000054c   Section        0  spi_flash.o(i.Is_SPI_Ready)
-    i.KEY0                                   0x00000558   Section        0  handler.o(i.KEY0)
-    i.KEY1                                   0x00000562   Section        0  handler.o(i.KEY1)
-    i.KEY2                                   0x0000056c   Section        0  handler.o(i.KEY2)
-    i.KEY3                                   0x00000576   Section        0  handler.o(i.KEY3)
-    i.LCD_Fast_DrawPoint                     0x00000580   Section        0  lcd.o(i.LCD_Fast_DrawPoint)
-    i.LCD_ShowChar                           0x000005dc   Section        0  lcd.o(i.LCD_ShowChar)
-    i.LCD_ShowString                         0x000006ec   Section        0  lcd.o(i.LCD_ShowString)
-    i.LCD_WR_DATA                            0x0000074e   Section        0  lcd.o(i.LCD_WR_DATA)
-    i.LCD_WR_REG                             0x00000774   Section        0  lcd.o(i.LCD_WR_REG)
-    i.LED_toggle                             0x00000798   Section        0  led.o(i.LED_toggle)
-    i.MakeData                               0x000007d0   Section        0  lcd.o(i.MakeData)
-    i.MemManageHandler                       0x000007d8   Section        0  handler.o(i.MemManageHandler)
-    i.NMIHandler                             0x000007da   Section        0  handler.o(i.NMIHandler)
-    i.NVIC_EnableIRQ                         0x000007dc   Section        0  system.o(i.NVIC_EnableIRQ)
-    NVIC_EnableIRQ                           0x000007dd   Thumb Code    14  system.o(i.NVIC_EnableIRQ)
-    i.PS2_ClearData                          0x000007f0   Section        0  pstwo.o(i.PS2_ClearData)
-    i.PS2_Cmd                                0x00000808   Section        0  pstwo.o(i.PS2_Cmd)
-    i.PS2_DataKey                            0x0000088c   Section        0  pstwo.o(i.PS2_DataKey)
-    i.PS2_Init                               0x000008e0   Section        0  pstwo.o(i.PS2_Init)
-    i.PS2_ReadData                           0x000008f0   Section        0  pstwo.o(i.PS2_ReadData)
-    i.PendSVHandler                          0x00000998   Section        0  handler.o(i.PendSVHandler)
-    i.SPI_FLASH_Write_Enable                 0x0000099c   Section        0  spi_flash.o(i.SPI_FLASH_Write_Enable)
-    i.SPI_Flash_Erase_Block                  0x000009b8   Section        0  spi_flash.o(i.SPI_Flash_Erase_Block)
-    i.SPI_Flash_Read                         0x000009f8   Section        0  spi_flash.o(i.SPI_Flash_Read)
-    i.SPI_Flash_ReadSR                       0x00000a44   Section        0  spi_flash.o(i.SPI_Flash_ReadSR)
-    i.SPI_Flash_Wait_Busy                    0x00000a6c   Section        0  spi_flash.o(i.SPI_Flash_Wait_Busy)
-    i.SPI_Flash_Write_Page                   0x00000a80   Section        0  spi_flash.o(i.SPI_Flash_Write_Page)
-    i.SPI_Init                               0x00000ad0   Section        0  spi_flash.o(i.SPI_Init)
-    i.SPI_ReadWriteByte                      0x00000ae0   Section        0  spi_flash.o(i.SPI_ReadWriteByte)
-    i.SPI_SendData                           0x00000b28   Section        0  spi_flash.o(i.SPI_SendData)
-    i.SVCHandler                             0x00000b3c   Section        0  handler.o(i.SVCHandler)
-    i.Set_SysTick_CTRL                       0x00000b40   Section        0  systick.o(i.Set_SysTick_CTRL)
-    i.Set_SysTick_LOAD                       0x00000b4c   Section        0  systick.o(i.Set_SysTick_LOAD)
-    i.Set_SysTick_VALUE                      0x00000b58   Section        0  systick.o(i.Set_SysTick_VALUE)
-    i.SysTickHandler                         0x00000b64   Section        0  handler.o(i.SysTickHandler)
-    i.SystemInit                             0x00000b80   Section        0  system.o(i.SystemInit)
-    i.Timer_Handler                          0x00000b9c   Section        0  handler.o(i.Timer_Handler)
-    i.UARTOVRHandler                         0x00000b9e   Section        0  handler.o(i.UARTOVRHandler)
-    i.UARTRXHandler                          0x00000ba0   Section        0  handler.o(i.UARTRXHandler)
-    i.UARTTXHandler                          0x00000bd0   Section        0  handler.o(i.UARTTXHandler)
-    i.UsageFaultHandler                      0x00000c0c   Section        0  handler.o(i.UsageFaultHandler)
-    i.__0printf$5                            0x00000c10   Section        0  printf5.o(i.__0printf$5)
-    i.__ARM_common_switch8                   0x00000c30   Section        0  lcd.o(i.__ARM_common_switch8)
-    i.__scatterload_copy                     0x00000c4c   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x00000c5a   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x00000c5c   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x00000c6c   Section        0  printf5.o(i._printf_core)
-    _printf_core                             0x00000c6d   Thumb Code   688  printf5.o(i._printf_core)
-    i.b_green_createOnePlane                 0x00000f48   Section        0  enemyplane.o(i.b_green_createOnePlane)
-    i.b_green_drawPlane                      0x00000ffc   Section        0  enemyplane.o(i.b_green_drawPlane)
-    i.b_green_movePlane                      0x00001250   Section        0  enemyplane.o(i.b_green_movePlane)
-    i.b_green_planeInit                      0x000015c8   Section        0  enemyplane.o(i.b_green_planeInit)
-    i.clearNameTableAll                      0x00001614   Section        0  spriteram.o(i.clearNameTableAll)
-    i.delay                                  0x0000163a   Section        0  systick.o(i.delay)
-    i.delay_ms                               0x0000165c   Section        0  systick.o(i.delay_ms)
-    i.delay_us                               0x00001678   Section        0  systick.o(i.delay_us)
-    i.endInterFaceDraw                       0x00001690   Section        0  gameinterface.o(i.endInterFaceDraw)
-    i.enemyAndBulletMapCreate                0x00001784   Section        0  gamehitcheck.o(i.enemyAndBulletMapCreate)
-    i.enmeyBulletDraw                        0x0000195c   Section        0  enemybullet.o(i.enmeyBulletDraw)
-    i.enmey_BulletInit                       0x000019a8   Section        0  enemybullet.o(i.enmey_BulletInit)
-    i.fputc                                  0x000019c8   Section        0  retarget.o(i.fputc)
-    i.gameCursorDraw                         0x000019e8   Section        0  gameinterface.o(i.gameCursorDraw)
-    i.gameScoreDraw                          0x00001a46   Section        0  gameinterface.o(i.gameScoreDraw)
-    i.gameStartInterfaceShow                 0x00001af8   Section        0  gameinterface.o(i.gameStartInterfaceShow)
-    i.isHit_b_EnemyPlane                     0x00001c60   Section        0  gamehitcheck.o(i.isHit_b_EnemyPlane)
-    i.isHit_m_straight_EnemyPlane            0x00001d6c   Section        0  gamehitcheck.o(i.isHit_m_straight_EnemyPlane)
-    i.isHit_myBullets                        0x00001e40   Section        0  gamehitcheck.o(i.isHit_myBullets)
-    i.isHit_s_EnemyPlane                     0x00001ea8   Section        0  gamehitcheck.o(i.isHit_s_EnemyPlane)
-    i.m_straight_createOnePlane              0x00002020   Section        0  enemyplane.o(i.m_straight_createOnePlane)
-    i.m_straight_drawPlane                   0x000020b4   Section        0  enemyplane.o(i.m_straight_drawPlane)
-    i.m_straight_movePlane                   0x000022f8   Section        0  enemyplane.o(i.m_straight_movePlane)
-    i.m_straight_planeInit                   0x000023a8   Section        0  enemyplane.o(i.m_straight_planeInit)
-    i.main                                   0x00002404   Section        0  main.o(i.main)
-    i.mem_free                               0x00002c74   Section        0  malloc.o(i.mem_free)
-    i.mem_init                               0x00002cc0   Section        0  malloc.o(i.mem_init)
-    i.mem_malloc                             0x00002cec   Section        0  malloc.o(i.mem_malloc)
-    i.mem_perused                            0x00002d68   Section        0  malloc.o(i.mem_perused)
-    i.myBulletsMapCreate                     0x00002d90   Section        0  gamehitcheck.o(i.myBulletsMapCreate)
-    i.myPlane_Act                            0x00002de0   Section        0  myplane.o(i.myPlane_Act)
-    i.myPlane_Draw                           0x00002e54   Section        0  myplane.o(i.myPlane_Draw)
-    i.myPlane_Init                           0x00003492   Section        0  myplane.o(i.myPlane_Init)
-    i.myPlane_bulletDraw                     0x000034b0   Section        0  myplane.o(i.myPlane_bulletDraw)
-    i.myPlane_bulletInit                     0x000034fc   Section        0  myplane.o(i.myPlane_bulletInit)
-    i.myPlane_createOneBullet                0x0000351c   Section        0  myplane.o(i.myPlane_createOneBullet)
-    i.myPlane_updateBulletData               0x000036a8   Section        0  myplane.o(i.myPlane_updateBulletData)
-    i.myfree                                 0x000036f8   Section        0  malloc.o(i.myfree)
-    i.mymalloc                               0x00003718   Section        0  malloc.o(i.mymalloc)
-    i.mymemset                               0x00003738   Section        0  malloc.o(i.mymemset)
-    i.new_boomDraw                           0x0000374c   Section        0  boom.o(i.new_boomDraw)
-    i.new_boomInit                           0x0000381c   Section        0  boom.o(i.new_boomInit)
-    i.new_createOneBoom                      0x0000383c   Section        0  boom.o(i.new_createOneBoom)
-    i.new_updateBoomData                     0x00003884   Section        0  boom.o(i.new_updateBoomData)
-    i.readPs2DI                              0x000038e8   Section        0  pstwo.o(i.readPs2DI)
-    i.s_green_createOnePlane                 0x000038f4   Section        0  enemyplane.o(i.s_green_createOnePlane)
-    i.s_green_drawPlane                      0x00003a18   Section        0  enemyplane.o(i.s_green_drawPlane)
-    i.s_green_movePlane                      0x00003d04   Section        0  enemyplane.o(i.s_green_movePlane)
-    i.s_green_planeInit                      0x0000404c   Section        0  enemyplane.o(i.s_green_planeInit)
-    i.s_grey_createOneEnmeyBullet            0x00004084   Section        0  enemybullet.o(i.s_grey_createOneEnmeyBullet)
-    i.s_grey_createOnePlane                  0x000041cc   Section        0  enemyplane.o(i.s_grey_createOnePlane)
-    i.s_grey_drawPlane                       0x000042c8   Section        0  enemyplane.o(i.s_grey_drawPlane)
-    i.s_grey_movePlane                       0x00004690   Section        0  enemyplane.o(i.s_grey_movePlane)
-    i.s_grey_planeInit                       0x00004a74   Section        0  enemyplane.o(i.s_grey_planeInit)
-    i.tileMap                                0x00004abc   Section        0  gamehitcheck.o(i.tileMap)
-    i.uart_ClearRxIRQ                        0x00004ad4   Section        0  uart.o(i.uart_ClearRxIRQ)
-    i.uart_ClearTxIRQ                        0x00004ada   Section        0  uart.o(i.uart_ClearTxIRQ)
-    i.uart_SendChar                          0x00004ae0   Section        0  uart.o(i.uart_SendChar)
-    i.uart_init                              0x00004af6   Section        0  uart.o(i.uart_init)
-    i.updateEnemyBulletData                  0x00004b50   Section        0  enemybullet.o(i.updateEnemyBulletData)
-    i.vga_Handler                            0x00004c18   Section        0  handler.o(i.vga_Handler)
-    i.writeOneNametable                      0x00004c9c   Section        0  spriteram.o(i.writeOneNametable)
-    i.writeOneSprite                         0x00004cac   Section        0  spriteram.o(i.writeOneSprite)
-    .constdata                               0x00004cd0   Section        7  main.o(.constdata)
-    .constdata                               0x00004cd7   Section     1520  lcd.o(.constdata)
-    .constdata                               0x000052c8   Section       84  enemybullet.o(.constdata)
-    .data                                    0x20000000   Section     6908  main.o(.data)
-    .data                                    0x20001afc   Section        4  lcd.o(.data)
-    .data                                    0x20001b00   Section        8  retarget.o(.data)
-    .data                                    0x20001b08   Section       20  malloc.o(.data)
-    .data                                    0x20001b1c   Section       36  pstwo.o(.data)
-    .data                                    0x20001b40   Section      178  gameinterface.o(.data)
-    .data                                    0x20001bf4   Section        4  rand.o(.data)
-    _rand_state                              0x20001bf4   Data           4  rand.o(.data)
-    .bss                                     0x20001bf8   Section      780  main.o(.bss)
-    .bss                                     0x20001f04   Section       14  lcd.o(.bss)
-    .bss                                     0x20001f14   Section     4352  malloc.o(.bss)
-    .bss                                     0x20003014   Section        9  pstwo.o(.bss)
-    STACK                                    0x20003020   Section     1024  startup_cm0ds.o(STACK)
+    .text                                    0x0000039c   Section        0  fepilogue.o(.text)
+    .text                                    0x0000039c   Section        0  iusefp.o(.text)
+    .text                                    0x00000420   Section       36  init.o(.text)
+    .text                                    0x00000444   Section        0  __dclz77c.o(.text)
+    i.BusFaultHandler                        0x000004a4   Section        0  handler.o(i.BusFaultHandler)
+    i.DebugMonHandler                        0x000004a6   Section        0  handler.o(i.DebugMonHandler)
+    i.HardFaultHandler                       0x000004a8   Section        0  handler.o(i.HardFaultHandler)
+    i.KEY0                                   0x000004aa   Section        0  handler.o(i.KEY0)
+    i.KEY1                                   0x000004b4   Section        0  handler.o(i.KEY1)
+    i.KEY2                                   0x000004be   Section        0  handler.o(i.KEY2)
+    i.KEY3                                   0x000004c8   Section        0  handler.o(i.KEY3)
+    i.LCD_Fast_DrawPoint                     0x000004d4   Section        0  lcd.o(i.LCD_Fast_DrawPoint)
+    i.LCD_ShowChar                           0x00000530   Section        0  lcd.o(i.LCD_ShowChar)
+    i.LCD_ShowString                         0x00000640   Section        0  lcd.o(i.LCD_ShowString)
+    i.LCD_WR_DATA                            0x000006a2   Section        0  lcd.o(i.LCD_WR_DATA)
+    i.LCD_WR_REG                             0x000006c8   Section        0  lcd.o(i.LCD_WR_REG)
+    i.LED_toggle                             0x000006ec   Section        0  led.o(i.LED_toggle)
+    i.MakeData                               0x00000724   Section        0  lcd.o(i.MakeData)
+    i.MemManageHandler                       0x0000072c   Section        0  handler.o(i.MemManageHandler)
+    i.NMIHandler                             0x0000072e   Section        0  handler.o(i.NMIHandler)
+    i.NVIC_EnableIRQ                         0x00000730   Section        0  system.o(i.NVIC_EnableIRQ)
+    NVIC_EnableIRQ                           0x00000731   Thumb Code    14  system.o(i.NVIC_EnableIRQ)
+    i.PS2_ClearData                          0x00000744   Section        0  pstwo.o(i.PS2_ClearData)
+    i.PS2_Cmd                                0x0000075c   Section        0  pstwo.o(i.PS2_Cmd)
+    i.PS2_DataKey                            0x000007e0   Section        0  pstwo.o(i.PS2_DataKey)
+    i.PS2_Init                               0x00000834   Section        0  pstwo.o(i.PS2_Init)
+    i.PS2_ReadData                           0x00000844   Section        0  pstwo.o(i.PS2_ReadData)
+    i.PendSVHandler                          0x000008ec   Section        0  handler.o(i.PendSVHandler)
+    i.SPI_Init                               0x000008f0   Section        0  spi_flash.o(i.SPI_Init)
+    i.SVCHandler                             0x00000900   Section        0  handler.o(i.SVCHandler)
+    i.Set_SysTick_CTRL                       0x00000904   Section        0  systick.o(i.Set_SysTick_CTRL)
+    i.Set_SysTick_LOAD                       0x00000910   Section        0  systick.o(i.Set_SysTick_LOAD)
+    i.Set_SysTick_VALUE                      0x0000091c   Section        0  systick.o(i.Set_SysTick_VALUE)
+    i.SysTickHandler                         0x00000928   Section        0  handler.o(i.SysTickHandler)
+    i.SystemInit                             0x00000944   Section        0  system.o(i.SystemInit)
+    i.Timer_Handler                          0x00000960   Section        0  handler.o(i.Timer_Handler)
+    i.UARTOVRHandler                         0x00000962   Section        0  handler.o(i.UARTOVRHandler)
+    i.UARTRXHandler                          0x00000964   Section        0  handler.o(i.UARTRXHandler)
+    i.UARTTXHandler                          0x00000994   Section        0  handler.o(i.UARTTXHandler)
+    i.UsageFaultHandler                      0x000009d0   Section        0  handler.o(i.UsageFaultHandler)
+    i.__0printf$1                            0x000009d4   Section        0  printf1.o(i.__0printf$1)
+    i.__ARM_common_switch8                   0x000009f4   Section        0  lcd.o(i.__ARM_common_switch8)
+    i.__scatterload_copy                     0x00000a10   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x00000a1e   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x00000a20   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x00000a30   Section        0  printf1.o(i._printf_core)
+    _printf_core                             0x00000a31   Thumb Code   332  printf1.o(i._printf_core)
+    i.b_green_createOnePlane                 0x00000b80   Section        0  enemyplane.o(i.b_green_createOnePlane)
+    i.b_green_drawPlane                      0x00000c34   Section        0  enemyplane.o(i.b_green_drawPlane)
+    i.b_green_movePlane                      0x00000e88   Section        0  enemyplane.o(i.b_green_movePlane)
+    i.b_green_planeInit                      0x00001200   Section        0  enemyplane.o(i.b_green_planeInit)
+    i.clearNameTableAll                      0x0000124c   Section        0  spriteram.o(i.clearNameTableAll)
+    i.delay                                  0x00001272   Section        0  systick.o(i.delay)
+    i.delay_ms                               0x00001294   Section        0  systick.o(i.delay_ms)
+    i.delay_us                               0x000012b0   Section        0  systick.o(i.delay_us)
+    i.endInterFaceDraw                       0x000012c8   Section        0  gameinterface.o(i.endInterFaceDraw)
+    i.enemyAndBulletMapCreate                0x000013bc   Section        0  gamehitcheck.o(i.enemyAndBulletMapCreate)
+    i.enmeyBulletDraw                        0x00001594   Section        0  enemybullet.o(i.enmeyBulletDraw)
+    i.enmey_BulletInit                       0x000015e0   Section        0  enemybullet.o(i.enmey_BulletInit)
+    i.fputc                                  0x00001600   Section        0  retarget.o(i.fputc)
+    i.gameCursorDraw                         0x00001620   Section        0  gameinterface.o(i.gameCursorDraw)
+    i.gameScoreDraw                          0x0000167e   Section        0  gameinterface.o(i.gameScoreDraw)
+    i.gameStartInterfaceShow                 0x00001730   Section        0  gameinterface.o(i.gameStartInterfaceShow)
+    i.isHit_b_EnemyPlane                     0x00001898   Section        0  gamehitcheck.o(i.isHit_b_EnemyPlane)
+    i.isHit_m_straight_EnemyPlane            0x000019a4   Section        0  gamehitcheck.o(i.isHit_m_straight_EnemyPlane)
+    i.isHit_myBullets                        0x00001a78   Section        0  gamehitcheck.o(i.isHit_myBullets)
+    i.isHit_s_EnemyPlane                     0x00001af0   Section        0  gamehitcheck.o(i.isHit_s_EnemyPlane)
+    i.loadMapJianchuan                       0x00001c68   Section        0  makemap.o(i.loadMapJianchuan)
+    i.m_straight_createOnePlane              0x00001c94   Section        0  enemyplane.o(i.m_straight_createOnePlane)
+    i.m_straight_drawPlane                   0x00001d28   Section        0  enemyplane.o(i.m_straight_drawPlane)
+    i.m_straight_movePlane                   0x00001f6c   Section        0  enemyplane.o(i.m_straight_movePlane)
+    i.m_straight_planeInit                   0x0000201c   Section        0  enemyplane.o(i.m_straight_planeInit)
+    i.main                                   0x00002078   Section        0  main.o(i.main)
+    i.myBulletsMapCreate                     0x000028ec   Section        0  gamehitcheck.o(i.myBulletsMapCreate)
+    i.myPlane_Act                            0x0000293c   Section        0  myplane_1.o(i.myPlane_Act)
+    i.myPlane_Draw                           0x000029b0   Section        0  myplane_1.o(i.myPlane_Draw)
+    i.myPlane_Init                           0x00002fee   Section        0  myplane_1.o(i.myPlane_Init)
+    i.myPlane_bulletDraw                     0x0000300c   Section        0  myplane_1.o(i.myPlane_bulletDraw)
+    i.myPlane_bulletInit                     0x00003058   Section        0  myplane_1.o(i.myPlane_bulletInit)
+    i.myPlane_createOneBullet                0x00003078   Section        0  myplane_1.o(i.myPlane_createOneBullet)
+    i.myPlane_updateBulletData               0x00003228   Section        0  myplane_1.o(i.myPlane_updateBulletData)
+    i.newGuanqiaInterFaceDraw                0x00003278   Section        0  gameinterface.o(i.newGuanqiaInterFaceDraw)
+    i.new_boomDraw                           0x00003330   Section        0  boom.o(i.new_boomDraw)
+    i.new_boomInit                           0x00003400   Section        0  boom.o(i.new_boomInit)
+    i.new_createOneBoom                      0x00003420   Section        0  boom.o(i.new_createOneBoom)
+    i.new_updateBoomData                     0x00003468   Section        0  boom.o(i.new_updateBoomData)
+    i.readPs2DI                              0x000034cc   Section        0  pstwo.o(i.readPs2DI)
+    i.s_green_createOnePlane                 0x000034d8   Section        0  enemyplane.o(i.s_green_createOnePlane)
+    i.s_green_drawPlane                      0x000035fc   Section        0  enemyplane.o(i.s_green_drawPlane)
+    i.s_green_movePlane                      0x000038e8   Section        0  enemyplane.o(i.s_green_movePlane)
+    i.s_green_planeInit                      0x00003c30   Section        0  enemyplane.o(i.s_green_planeInit)
+    i.s_grey_createOneEnmeyBullet            0x00003c68   Section        0  enemybullet.o(i.s_grey_createOneEnmeyBullet)
+    i.s_grey_createOnePlane                  0x00003db0   Section        0  enemyplane.o(i.s_grey_createOnePlane)
+    i.s_grey_drawPlane                       0x00003eac   Section        0  enemyplane.o(i.s_grey_drawPlane)
+    i.s_grey_movePlane                       0x00004274   Section        0  enemyplane.o(i.s_grey_movePlane)
+    i.s_grey_planeInit                       0x00004658   Section        0  enemyplane.o(i.s_grey_planeInit)
+    i.tileMap                                0x000046a0   Section        0  gamehitcheck.o(i.tileMap)
+    i.uart_ClearRxIRQ                        0x000046b8   Section        0  uart.o(i.uart_ClearRxIRQ)
+    i.uart_ClearTxIRQ                        0x000046be   Section        0  uart.o(i.uart_ClearTxIRQ)
+    i.uart_SendChar                          0x000046c4   Section        0  uart.o(i.uart_SendChar)
+    i.uart_init                              0x000046da   Section        0  uart.o(i.uart_init)
+    i.updateEnemyBulletData                  0x00004734   Section        0  enemybullet.o(i.updateEnemyBulletData)
+    i.vga_Handler                            0x000047fc   Section        0  handler.o(i.vga_Handler)
+    i.writeOneNametable                      0x00004898   Section        0  spriteram.o(i.writeOneNametable)
+    i.writeOneSprite                         0x000048a8   Section        0  spriteram.o(i.writeOneSprite)
+    .constdata                               0x000048cc   Section        7  main.o(.constdata)
+    .constdata                               0x000048d3   Section     1520  lcd.o(.constdata)
+    .constdata                               0x00004ec4   Section       84  enemybullet.o(.constdata)
+    .data                                    0x20000000   Section     2821  main.o(.data)
+    .data                                    0x20000b06   Section        4  lcd.o(.data)
+    .data                                    0x20000b0c   Section        8  retarget.o(.data)
+    .data                                    0x20000b14   Section       36  pstwo.o(.data)
+    .data                                    0x20000b38   Section      178  gameinterface.o(.data)
+    .data                                    0x20000bea   Section     8192  makemap.o(.data)
+    .data                                    0x20002bec   Section        4  rand.o(.data)
+    _rand_state                              0x20002bec   Data           4  rand.o(.data)
+    .bss                                     0x20002bf0   Section      828  main.o(.bss)
+    .bss                                     0x20002f2c   Section       14  lcd.o(.bss)
+    .bss                                     0x20002f3a   Section        9  pstwo.o(.bss)
+    STACK                                    0x20002f48   Section     1024  startup_cm0ds.o(STACK)
 
     Global Symbols
 
@@ -1149,200 +1157,186 @@ Image Symbol Table
     __aeabi_ui2f                             0x00000353   Thumb Code    14  ffltui.o(.text)
     __aeabi_f2uiz                            0x00000361   Thumb Code    40  ffixui.o(.text)
     __aeabi_cfrcmple                         0x00000389   Thumb Code    20  cfrcmple.o(.text)
-    __aeabi_uldivmod                         0x0000039d   Thumb Code    96  uldiv.o(.text)
-    __I$use$fp                               0x000003fd   Thumb Code     0  iusefp.o(.text)
-    _float_round                             0x000003fd   Thumb Code    16  fepilogue.o(.text)
-    _float_epilogue                          0x0000040d   Thumb Code   114  fepilogue.o(.text)
-    __scatterload                            0x00000481   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x00000481   Thumb Code     0  init.o(.text)
-    __aeabi_llsl                             0x000004a5   Thumb Code    32  llshl.o(.text)
-    _ll_shift_l                              0x000004a5   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x000004c5   Thumb Code    34  llushr.o(.text)
-    _ll_ushift_r                             0x000004c5   Thumb Code     0  llushr.o(.text)
-    __decompress                             0x000004e7   Thumb Code     0  __dclz77c.o(.text)
-    __decompress2                            0x000004e7   Thumb Code    96  __dclz77c.o(.text)
-    BusFaultHandler                          0x00000547   Thumb Code     2  handler.o(i.BusFaultHandler)
-    DebugMonHandler                          0x00000549   Thumb Code     2  handler.o(i.DebugMonHandler)
-    HardFaultHandler                         0x0000054b   Thumb Code     2  handler.o(i.HardFaultHandler)
-    Is_SPI_Ready                             0x0000054d   Thumb Code     8  spi_flash.o(i.Is_SPI_Ready)
-    KEY0                                     0x00000559   Thumb Code    10  handler.o(i.KEY0)
-    KEY1                                     0x00000563   Thumb Code    10  handler.o(i.KEY1)
-    KEY2                                     0x0000056d   Thumb Code    10  handler.o(i.KEY2)
-    KEY3                                     0x00000577   Thumb Code    10  handler.o(i.KEY3)
-    LCD_Fast_DrawPoint                       0x00000581   Thumb Code    88  lcd.o(i.LCD_Fast_DrawPoint)
-    LCD_ShowChar                             0x000005dd   Thumb Code   254  lcd.o(i.LCD_ShowChar)
-    LCD_ShowString                           0x000006ed   Thumb Code    98  lcd.o(i.LCD_ShowString)
-    LCD_WR_DATA                              0x0000074f   Thumb Code    38  lcd.o(i.LCD_WR_DATA)
-    LCD_WR_REG                               0x00000775   Thumb Code    36  lcd.o(i.LCD_WR_REG)
-    LED_toggle                               0x00000799   Thumb Code    50  led.o(i.LED_toggle)
-    MakeData                                 0x000007d1   Thumb Code     8  lcd.o(i.MakeData)
-    MemManageHandler                         0x000007d9   Thumb Code     2  handler.o(i.MemManageHandler)
-    NMIHandler                               0x000007db   Thumb Code     2  handler.o(i.NMIHandler)
-    PS2_ClearData                            0x000007f1   Thumb Code    20  pstwo.o(i.PS2_ClearData)
-    PS2_Cmd                                  0x00000809   Thumb Code   122  pstwo.o(i.PS2_Cmd)
-    PS2_DataKey                              0x0000088d   Thumb Code    70  pstwo.o(i.PS2_DataKey)
-    PS2_Init                                 0x000008e1   Thumb Code    12  pstwo.o(i.PS2_Init)
-    PS2_ReadData                             0x000008f1   Thumb Code   154  pstwo.o(i.PS2_ReadData)
-    PendSVHandler                            0x00000999   Thumb Code     2  handler.o(i.PendSVHandler)
-    SPI_FLASH_Write_Enable                   0x0000099d   Thumb Code    22  spi_flash.o(i.SPI_FLASH_Write_Enable)
-    SPI_Flash_Erase_Block                    0x000009b9   Thumb Code    60  spi_flash.o(i.SPI_Flash_Erase_Block)
-    SPI_Flash_Read                           0x000009f9   Thumb Code    70  spi_flash.o(i.SPI_Flash_Read)
-    SPI_Flash_ReadSR                         0x00000a45   Thumb Code    34  spi_flash.o(i.SPI_Flash_ReadSR)
-    SPI_Flash_Wait_Busy                      0x00000a6d   Thumb Code    18  spi_flash.o(i.SPI_Flash_Wait_Busy)
-    SPI_Flash_Write_Page                     0x00000a81   Thumb Code    76  spi_flash.o(i.SPI_Flash_Write_Page)
-    SPI_Init                                 0x00000ad1   Thumb Code    12  spi_flash.o(i.SPI_Init)
-    SPI_ReadWriteByte                        0x00000ae1   Thumb Code    66  spi_flash.o(i.SPI_ReadWriteByte)
-    SPI_SendData                             0x00000b29   Thumb Code    16  spi_flash.o(i.SPI_SendData)
-    SVCHandler                               0x00000b3d   Thumb Code     2  handler.o(i.SVCHandler)
-    Set_SysTick_CTRL                         0x00000b41   Thumb Code     6  systick.o(i.Set_SysTick_CTRL)
-    Set_SysTick_LOAD                         0x00000b4d   Thumb Code     6  systick.o(i.Set_SysTick_LOAD)
-    Set_SysTick_VALUE                        0x00000b59   Thumb Code     6  systick.o(i.Set_SysTick_VALUE)
-    SysTickHandler                           0x00000b65   Thumb Code    24  handler.o(i.SysTickHandler)
-    SystemInit                               0x00000b81   Thumb Code    28  system.o(i.SystemInit)
-    Timer_Handler                            0x00000b9d   Thumb Code     2  handler.o(i.Timer_Handler)
-    UARTOVRHandler                           0x00000b9f   Thumb Code     2  handler.o(i.UARTOVRHandler)
-    UARTRXHandler                            0x00000ba1   Thumb Code    24  handler.o(i.UARTRXHandler)
-    UARTTXHandler                            0x00000bd1   Thumb Code    36  handler.o(i.UARTTXHandler)
-    UsageFaultHandler                        0x00000c0d   Thumb Code     2  handler.o(i.UsageFaultHandler)
-    __0printf$5                              0x00000c11   Thumb Code    24  printf5.o(i.__0printf$5)
-    __1printf$5                              0x00000c11   Thumb Code     0  printf5.o(i.__0printf$5)
-    __2printf                                0x00000c11   Thumb Code     0  printf5.o(i.__0printf$5)
-    __ARM_common_switch8                     0x00000c31   Thumb Code    28  lcd.o(i.__ARM_common_switch8)
-    __scatterload_copy                       0x00000c4d   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x00000c5b   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x00000c5d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    b_green_createOnePlane                   0x00000f49   Thumb Code   176  enemyplane.o(i.b_green_createOnePlane)
-    b_green_drawPlane                        0x00000ffd   Thumb Code   590  enemyplane.o(i.b_green_drawPlane)
-    b_green_movePlane                        0x00001251   Thumb Code   874  enemyplane.o(i.b_green_movePlane)
-    b_green_planeInit                        0x000015c9   Thumb Code    70  enemyplane.o(i.b_green_planeInit)
-    clearNameTableAll                        0x00001615   Thumb Code    38  spriteram.o(i.clearNameTableAll)
-    delay                                    0x0000163b   Thumb Code    32  systick.o(i.delay)
-    delay_ms                                 0x0000165d   Thumb Code    22  systick.o(i.delay_ms)
-    delay_us                                 0x00001679   Thumb Code    22  systick.o(i.delay_us)
-    endInterFaceDraw                         0x00001691   Thumb Code   236  gameinterface.o(i.endInterFaceDraw)
-    enemyAndBulletMapCreate                  0x00001785   Thumb Code   456  gamehitcheck.o(i.enemyAndBulletMapCreate)
-    enmeyBulletDraw                          0x0000195d   Thumb Code    70  enemybullet.o(i.enmeyBulletDraw)
-    enmey_BulletInit                         0x000019a9   Thumb Code    28  enemybullet.o(i.enmey_BulletInit)
-    fputc                                    0x000019c9   Thumb Code    32  retarget.o(i.fputc)
-    gameCursorDraw                           0x000019e9   Thumb Code    94  gameinterface.o(i.gameCursorDraw)
-    gameScoreDraw                            0x00001a47   Thumb Code   176  gameinterface.o(i.gameScoreDraw)
-    gameStartInterfaceShow                   0x00001af9   Thumb Code   338  gameinterface.o(i.gameStartInterfaceShow)
-    isHit_b_EnemyPlane                       0x00001c61   Thumb Code   258  gamehitcheck.o(i.isHit_b_EnemyPlane)
-    isHit_m_straight_EnemyPlane              0x00001d6d   Thumb Code   202  gamehitcheck.o(i.isHit_m_straight_EnemyPlane)
-    isHit_myBullets                          0x00001e41   Thumb Code   100  gamehitcheck.o(i.isHit_myBullets)
-    isHit_s_EnemyPlane                       0x00001ea9   Thumb Code   362  gamehitcheck.o(i.isHit_s_EnemyPlane)
-    m_straight_createOnePlane                0x00002021   Thumb Code   144  enemyplane.o(i.m_straight_createOnePlane)
-    m_straight_drawPlane                     0x000020b5   Thumb Code   574  enemyplane.o(i.m_straight_drawPlane)
-    m_straight_movePlane                     0x000022f9   Thumb Code   172  enemyplane.o(i.m_straight_movePlane)
-    m_straight_planeInit                     0x000023a9   Thumb Code    86  enemyplane.o(i.m_straight_planeInit)
-    main                                     0x00002405   Thumb Code  2056  main.o(i.main)
-    mem_free                                 0x00002c75   Thumb Code    70  malloc.o(i.mem_free)
-    mem_init                                 0x00002cc1   Thumb Code    38  malloc.o(i.mem_init)
-    mem_malloc                               0x00002ced   Thumb Code   120  malloc.o(i.mem_malloc)
-    mem_perused                              0x00002d69   Thumb Code    36  malloc.o(i.mem_perused)
-    myBulletsMapCreate                       0x00002d91   Thumb Code    74  gamehitcheck.o(i.myBulletsMapCreate)
-    myPlane_Act                              0x00002de1   Thumb Code   116  myplane.o(i.myPlane_Act)
-    myPlane_Draw                             0x00002e55   Thumb Code  1598  myplane.o(i.myPlane_Draw)
-    myPlane_Init                             0x00003493   Thumb Code    28  myplane.o(i.myPlane_Init)
-    myPlane_bulletDraw                       0x000034b1   Thumb Code    70  myplane.o(i.myPlane_bulletDraw)
-    myPlane_bulletInit                       0x000034fd   Thumb Code    28  myplane.o(i.myPlane_bulletInit)
-    myPlane_createOneBullet                  0x0000351d   Thumb Code   396  myplane.o(i.myPlane_createOneBullet)
-    myPlane_updateBulletData                 0x000036a9   Thumb Code    74  myplane.o(i.myPlane_updateBulletData)
-    myfree                                   0x000036f9   Thumb Code    26  malloc.o(i.myfree)
-    mymalloc                                 0x00003719   Thumb Code    28  malloc.o(i.mymalloc)
-    mymemset                                 0x00003739   Thumb Code    20  malloc.o(i.mymemset)
-    new_boomDraw                             0x0000374d   Thumb Code   202  boom.o(i.new_boomDraw)
-    new_boomInit                             0x0000381d   Thumb Code    26  boom.o(i.new_boomInit)
-    new_createOneBoom                        0x0000383d   Thumb Code    66  boom.o(i.new_createOneBoom)
-    new_updateBoomData                       0x00003885   Thumb Code    94  boom.o(i.new_updateBoomData)
-    readPs2DI                                0x000038e9   Thumb Code     6  pstwo.o(i.readPs2DI)
-    s_green_createOnePlane                   0x000038f5   Thumb Code   286  enemyplane.o(i.s_green_createOnePlane)
-    s_green_drawPlane                        0x00003a19   Thumb Code   742  enemyplane.o(i.s_green_drawPlane)
-    s_green_movePlane                        0x00003d05   Thumb Code   834  enemyplane.o(i.s_green_movePlane)
-    s_green_planeInit                        0x0000404d   Thumb Code    50  enemyplane.o(i.s_green_planeInit)
-    s_grey_createOneEnmeyBullet              0x00004085   Thumb Code   312  enemybullet.o(i.s_grey_createOneEnmeyBullet)
-    s_grey_createOnePlane                    0x000041cd   Thumb Code   246  enemyplane.o(i.s_grey_createOnePlane)
-    s_grey_drawPlane                         0x000042c9   Thumb Code   962  enemyplane.o(i.s_grey_drawPlane)
-    s_grey_movePlane                         0x00004691   Thumb Code   990  enemyplane.o(i.s_grey_movePlane)
-    s_grey_planeInit                         0x00004a75   Thumb Code    66  enemyplane.o(i.s_grey_planeInit)
-    tileMap                                  0x00004abd   Thumb Code    24  gamehitcheck.o(i.tileMap)
-    uart_ClearRxIRQ                          0x00004ad5   Thumb Code     6  uart.o(i.uart_ClearRxIRQ)
-    uart_ClearTxIRQ                          0x00004adb   Thumb Code     6  uart.o(i.uart_ClearTxIRQ)
-    uart_SendChar                            0x00004ae1   Thumb Code    22  uart.o(i.uart_SendChar)
-    uart_init                                0x00004af7   Thumb Code    88  uart.o(i.uart_init)
-    updateEnemyBulletData                    0x00004b51   Thumb Code   196  enemybullet.o(i.updateEnemyBulletData)
-    vga_Handler                              0x00004c19   Thumb Code   104  handler.o(i.vga_Handler)
-    writeOneNametable                        0x00004c9d   Thumb Code    12  spriteram.o(i.writeOneNametable)
-    writeOneSprite                           0x00004cad   Thumb Code    32  spriteram.o(i.writeOneSprite)
-    MYPLANE_BULLET_NUMMAX                    0x00004cd0   Data           1  main.o(.constdata)
-    S_GREY_NUMMAX                            0x00004cd1   Data           1  main.o(.constdata)
-    S_GREEN_NUMMAX                           0x00004cd2   Data           1  main.o(.constdata)
-    M_STRAIGHT_NUMMAX                        0x00004cd3   Data           1  main.o(.constdata)
-    B_GREEN_NUMMAX                           0x00004cd4   Data           1  main.o(.constdata)
-    ENEMY_BULLETS_NUMMAX                     0x00004cd5   Data           1  main.o(.constdata)
-    BOOM_NUMMAX                              0x00004cd6   Data           1  main.o(.constdata)
-    asc2_1608                                0x00004cd7   Data        1520  lcd.o(.constdata)
-    ANGLE_NUMMAX                             0x000052c8   Data           1  enemybullet.o(.constdata)
-    sin_array                                0x000052ca   Data          20  enemybullet.o(.constdata)
-    cos_array                                0x000052de   Data          20  enemybullet.o(.constdata)
-    tan_array                                0x000052f4   Data          40  enemybullet.o(.constdata)
-    Region$$Table$$Base                      0x0000531c   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x0000533c   Number         0  anon$$obj.o(Region$$Table)
+    __I$use$fp                               0x0000039d   Thumb Code     0  iusefp.o(.text)
+    _float_round                             0x0000039d   Thumb Code    16  fepilogue.o(.text)
+    _float_epilogue                          0x000003ad   Thumb Code   114  fepilogue.o(.text)
+    __scatterload                            0x00000421   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x00000421   Thumb Code     0  init.o(.text)
+    __decompress                             0x00000445   Thumb Code     0  __dclz77c.o(.text)
+    __decompress2                            0x00000445   Thumb Code    96  __dclz77c.o(.text)
+    BusFaultHandler                          0x000004a5   Thumb Code     2  handler.o(i.BusFaultHandler)
+    DebugMonHandler                          0x000004a7   Thumb Code     2  handler.o(i.DebugMonHandler)
+    HardFaultHandler                         0x000004a9   Thumb Code     2  handler.o(i.HardFaultHandler)
+    KEY0                                     0x000004ab   Thumb Code    10  handler.o(i.KEY0)
+    KEY1                                     0x000004b5   Thumb Code    10  handler.o(i.KEY1)
+    KEY2                                     0x000004bf   Thumb Code    10  handler.o(i.KEY2)
+    KEY3                                     0x000004c9   Thumb Code    10  handler.o(i.KEY3)
+    LCD_Fast_DrawPoint                       0x000004d5   Thumb Code    88  lcd.o(i.LCD_Fast_DrawPoint)
+    LCD_ShowChar                             0x00000531   Thumb Code   254  lcd.o(i.LCD_ShowChar)
+    LCD_ShowString                           0x00000641   Thumb Code    98  lcd.o(i.LCD_ShowString)
+    LCD_WR_DATA                              0x000006a3   Thumb Code    38  lcd.o(i.LCD_WR_DATA)
+    LCD_WR_REG                               0x000006c9   Thumb Code    36  lcd.o(i.LCD_WR_REG)
+    LED_toggle                               0x000006ed   Thumb Code    50  led.o(i.LED_toggle)
+    MakeData                                 0x00000725   Thumb Code     8  lcd.o(i.MakeData)
+    MemManageHandler                         0x0000072d   Thumb Code     2  handler.o(i.MemManageHandler)
+    NMIHandler                               0x0000072f   Thumb Code     2  handler.o(i.NMIHandler)
+    PS2_ClearData                            0x00000745   Thumb Code    20  pstwo.o(i.PS2_ClearData)
+    PS2_Cmd                                  0x0000075d   Thumb Code   122  pstwo.o(i.PS2_Cmd)
+    PS2_DataKey                              0x000007e1   Thumb Code    70  pstwo.o(i.PS2_DataKey)
+    PS2_Init                                 0x00000835   Thumb Code    12  pstwo.o(i.PS2_Init)
+    PS2_ReadData                             0x00000845   Thumb Code   154  pstwo.o(i.PS2_ReadData)
+    PendSVHandler                            0x000008ed   Thumb Code     2  handler.o(i.PendSVHandler)
+    SPI_Init                                 0x000008f1   Thumb Code    12  spi_flash.o(i.SPI_Init)
+    SVCHandler                               0x00000901   Thumb Code     2  handler.o(i.SVCHandler)
+    Set_SysTick_CTRL                         0x00000905   Thumb Code     6  systick.o(i.Set_SysTick_CTRL)
+    Set_SysTick_LOAD                         0x00000911   Thumb Code     6  systick.o(i.Set_SysTick_LOAD)
+    Set_SysTick_VALUE                        0x0000091d   Thumb Code     6  systick.o(i.Set_SysTick_VALUE)
+    SysTickHandler                           0x00000929   Thumb Code    24  handler.o(i.SysTickHandler)
+    SystemInit                               0x00000945   Thumb Code    28  system.o(i.SystemInit)
+    Timer_Handler                            0x00000961   Thumb Code     2  handler.o(i.Timer_Handler)
+    UARTOVRHandler                           0x00000963   Thumb Code     2  handler.o(i.UARTOVRHandler)
+    UARTRXHandler                            0x00000965   Thumb Code    24  handler.o(i.UARTRXHandler)
+    UARTTXHandler                            0x00000995   Thumb Code    36  handler.o(i.UARTTXHandler)
+    UsageFaultHandler                        0x000009d1   Thumb Code     2  handler.o(i.UsageFaultHandler)
+    __0printf$1                              0x000009d5   Thumb Code    24  printf1.o(i.__0printf$1)
+    __1printf$1                              0x000009d5   Thumb Code     0  printf1.o(i.__0printf$1)
+    __2printf                                0x000009d5   Thumb Code     0  printf1.o(i.__0printf$1)
+    __ARM_common_switch8                     0x000009f5   Thumb Code    28  lcd.o(i.__ARM_common_switch8)
+    __scatterload_copy                       0x00000a11   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x00000a1f   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x00000a21   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    b_green_createOnePlane                   0x00000b81   Thumb Code   176  enemyplane.o(i.b_green_createOnePlane)
+    b_green_drawPlane                        0x00000c35   Thumb Code   590  enemyplane.o(i.b_green_drawPlane)
+    b_green_movePlane                        0x00000e89   Thumb Code   874  enemyplane.o(i.b_green_movePlane)
+    b_green_planeInit                        0x00001201   Thumb Code    70  enemyplane.o(i.b_green_planeInit)
+    clearNameTableAll                        0x0000124d   Thumb Code    38  spriteram.o(i.clearNameTableAll)
+    delay                                    0x00001273   Thumb Code    32  systick.o(i.delay)
+    delay_ms                                 0x00001295   Thumb Code    22  systick.o(i.delay_ms)
+    delay_us                                 0x000012b1   Thumb Code    22  systick.o(i.delay_us)
+    endInterFaceDraw                         0x000012c9   Thumb Code   236  gameinterface.o(i.endInterFaceDraw)
+    enemyAndBulletMapCreate                  0x000013bd   Thumb Code   456  gamehitcheck.o(i.enemyAndBulletMapCreate)
+    enmeyBulletDraw                          0x00001595   Thumb Code    70  enemybullet.o(i.enmeyBulletDraw)
+    enmey_BulletInit                         0x000015e1   Thumb Code    28  enemybullet.o(i.enmey_BulletInit)
+    fputc                                    0x00001601   Thumb Code    32  retarget.o(i.fputc)
+    gameCursorDraw                           0x00001621   Thumb Code    94  gameinterface.o(i.gameCursorDraw)
+    gameScoreDraw                            0x0000167f   Thumb Code   176  gameinterface.o(i.gameScoreDraw)
+    gameStartInterfaceShow                   0x00001731   Thumb Code   338  gameinterface.o(i.gameStartInterfaceShow)
+    isHit_b_EnemyPlane                       0x00001899   Thumb Code   258  gamehitcheck.o(i.isHit_b_EnemyPlane)
+    isHit_m_straight_EnemyPlane              0x000019a5   Thumb Code   202  gamehitcheck.o(i.isHit_m_straight_EnemyPlane)
+    isHit_myBullets                          0x00001a79   Thumb Code   110  gamehitcheck.o(i.isHit_myBullets)
+    isHit_s_EnemyPlane                       0x00001af1   Thumb Code   362  gamehitcheck.o(i.isHit_s_EnemyPlane)
+    loadMapJianchuan                         0x00001c69   Thumb Code    40  makemap.o(i.loadMapJianchuan)
+    m_straight_createOnePlane                0x00001c95   Thumb Code   144  enemyplane.o(i.m_straight_createOnePlane)
+    m_straight_drawPlane                     0x00001d29   Thumb Code   574  enemyplane.o(i.m_straight_drawPlane)
+    m_straight_movePlane                     0x00001f6d   Thumb Code   172  enemyplane.o(i.m_straight_movePlane)
+    m_straight_planeInit                     0x0000201d   Thumb Code    86  enemyplane.o(i.m_straight_planeInit)
+    main                                     0x00002079   Thumb Code  2064  main.o(i.main)
+    myBulletsMapCreate                       0x000028ed   Thumb Code    74  gamehitcheck.o(i.myBulletsMapCreate)
+    myPlane_Act                              0x0000293d   Thumb Code   116  myplane_1.o(i.myPlane_Act)
+    myPlane_Draw                             0x000029b1   Thumb Code  1598  myplane_1.o(i.myPlane_Draw)
+    myPlane_Init                             0x00002fef   Thumb Code    28  myplane_1.o(i.myPlane_Init)
+    myPlane_bulletDraw                       0x0000300d   Thumb Code    70  myplane_1.o(i.myPlane_bulletDraw)
+    myPlane_bulletInit                       0x00003059   Thumb Code    28  myplane_1.o(i.myPlane_bulletInit)
+    myPlane_createOneBullet                  0x00003079   Thumb Code   426  myplane_1.o(i.myPlane_createOneBullet)
+    myPlane_updateBulletData                 0x00003229   Thumb Code    74  myplane_1.o(i.myPlane_updateBulletData)
+    newGuanqiaInterFaceDraw                  0x00003279   Thumb Code   184  gameinterface.o(i.newGuanqiaInterFaceDraw)
+    new_boomDraw                             0x00003331   Thumb Code   202  boom.o(i.new_boomDraw)
+    new_boomInit                             0x00003401   Thumb Code    26  boom.o(i.new_boomInit)
+    new_createOneBoom                        0x00003421   Thumb Code    66  boom.o(i.new_createOneBoom)
+    new_updateBoomData                       0x00003469   Thumb Code    94  boom.o(i.new_updateBoomData)
+    readPs2DI                                0x000034cd   Thumb Code     6  pstwo.o(i.readPs2DI)
+    s_green_createOnePlane                   0x000034d9   Thumb Code   286  enemyplane.o(i.s_green_createOnePlane)
+    s_green_drawPlane                        0x000035fd   Thumb Code   742  enemyplane.o(i.s_green_drawPlane)
+    s_green_movePlane                        0x000038e9   Thumb Code   834  enemyplane.o(i.s_green_movePlane)
+    s_green_planeInit                        0x00003c31   Thumb Code    50  enemyplane.o(i.s_green_planeInit)
+    s_grey_createOneEnmeyBullet              0x00003c69   Thumb Code   312  enemybullet.o(i.s_grey_createOneEnmeyBullet)
+    s_grey_createOnePlane                    0x00003db1   Thumb Code   246  enemyplane.o(i.s_grey_createOnePlane)
+    s_grey_drawPlane                         0x00003ead   Thumb Code   962  enemyplane.o(i.s_grey_drawPlane)
+    s_grey_movePlane                         0x00004275   Thumb Code   990  enemyplane.o(i.s_grey_movePlane)
+    s_grey_planeInit                         0x00004659   Thumb Code    66  enemyplane.o(i.s_grey_planeInit)
+    tileMap                                  0x000046a1   Thumb Code    24  gamehitcheck.o(i.tileMap)
+    uart_ClearRxIRQ                          0x000046b9   Thumb Code     6  uart.o(i.uart_ClearRxIRQ)
+    uart_ClearTxIRQ                          0x000046bf   Thumb Code     6  uart.o(i.uart_ClearTxIRQ)
+    uart_SendChar                            0x000046c5   Thumb Code    22  uart.o(i.uart_SendChar)
+    uart_init                                0x000046db   Thumb Code    88  uart.o(i.uart_init)
+    updateEnemyBulletData                    0x00004735   Thumb Code   196  enemybullet.o(i.updateEnemyBulletData)
+    vga_Handler                              0x000047fd   Thumb Code   128  handler.o(i.vga_Handler)
+    writeOneNametable                        0x00004899   Thumb Code    12  spriteram.o(i.writeOneNametable)
+    writeOneSprite                           0x000048a9   Thumb Code    32  spriteram.o(i.writeOneSprite)
+    MYPLANE_BULLET_NUMMAX                    0x000048cc   Data           1  main.o(.constdata)
+    S_GREY_NUMMAX                            0x000048cd   Data           1  main.o(.constdata)
+    S_GREEN_NUMMAX                           0x000048ce   Data           1  main.o(.constdata)
+    M_STRAIGHT_NUMMAX                        0x000048cf   Data           1  main.o(.constdata)
+    B_GREEN_NUMMAX                           0x000048d0   Data           1  main.o(.constdata)
+    ENEMY_BULLETS_NUMMAX                     0x000048d1   Data           1  main.o(.constdata)
+    BOOM_NUMMAX                              0x000048d2   Data           1  main.o(.constdata)
+    asc2_1608                                0x000048d3   Data        1520  lcd.o(.constdata)
+    ANGLE_NUMMAX                             0x00004ec4   Data           1  enemybullet.o(.constdata)
+    sin_array                                0x00004ec6   Data          20  enemybullet.o(.constdata)
+    cos_array                                0x00004eda   Data          20  enemybullet.o(.constdata)
+    tan_array                                0x00004ef0   Data          40  enemybullet.o(.constdata)
+    Region$$Table$$Base                      0x00004f18   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00004f38   Number         0  anon$$obj.o(Region$$Table)
     gImage_hero_48x32                        0x20000000   Data         192  main.o(.data)
     gImage_enemy01_32x32                     0x200000c0   Data         128  main.o(.data)
     gImage_enemy02_48x48                     0x20000140   Data         294  main.o(.data)
     gImage_backgroud_00                      0x20000266   Data        2160  main.o(.data)
-    map_start                                0x20000ad6   Data        1024  main.o(.data)
-    map_konghaiyu                            0x20000ed6   Data        1024  main.o(.data)
-    map_jianchuan                            0x200012d6   Data        1024  main.o(.data)
-    map_daoyu                                0x200016d6   Data        1024  main.o(.data)
-    timer_cnt                                0x20001ad6   Data           1  main.o(.data)
-    start                                    0x20001ad7   Data           1  main.o(.data)
-    spriteRamAddr                            0x20001ad8   Data           1  main.o(.data)
-    gameCursor                               0x20001ad9   Data           1  main.o(.data)
-    GameScore                                0x20001adc   Data           4  main.o(.data)
-    GameShootBulletsCnt                      0x20001ae0   Data           4  main.o(.data)
-    GameShootDownCnt                         0x20001ae4   Data           4  main.o(.data)
-    GameHitRate                              0x20001ae8   Data           4  main.o(.data)
-    fps                                      0x20001aec   Data           4  main.o(.data)
-    PS2_KEY                                  0x20001af0   Data           4  main.o(.data)
-    game_state                               0x20001af4   Data           1  main.o(.data)
-    gameEndFpsCnt                            0x20001af5   Data           1  main.o(.data)
-    gameEndInterFaceFpsCnt                   0x20001af6   Data           1  main.o(.data)
-    gameEndInterFaceFpsSpeed                 0x20001af7   Data           1  main.o(.data)
-    gameEndInterFaceArrayCnt                 0x20001af8   Data           1  main.o(.data)
-    DrawFlag                                 0x20001af9   Data           1  main.o(.data)
-    timer_init_flag                          0x20001afa   Data           1  main.o(.data)
-    gameRunState                             0x20001afb   Data           1  main.o(.data)
-    POINT_COLOR                              0x20001afc   Data           2  lcd.o(.data)
-    BACK_COLOR                               0x20001afe   Data           2  lcd.o(.data)
-    __stdout                                 0x20001b00   Data           4  retarget.o(.data)
-    __stdin                                  0x20001b04   Data           4  retarget.o(.data)
-    mallco_dev                               0x20001b08   Data          20  malloc.o(.data)
-    Handkey                                  0x20001b1c   Data           2  pstwo.o(.data)
-    Comd                                     0x20001b1e   Data           2  pstwo.o(.data)
-    MASK                                     0x20001b20   Data          32  pstwo.o(.data)
-    GAME_LOGO_1942                           0x20001b40   Data          90  gameinterface.o(.data)
-    GAME_VERSION                             0x20001b9a   Data          12  gameinterface.o(.data)
-    GAME_START_CHAR                          0x20001ba6   Data           8  gameinterface.o(.data)
-    GAME_STOP_CHAR                           0x20001bae   Data           8  gameinterface.o(.data)
-    endInterFaceArray                        0x20001bb6   Data          60  gameinterface.o(.data)
-    myplane                                  0x20001bf8   Data          10  main.o(.bss)
-    myBullet                                 0x20001c02   Data         120  main.o(.bss)
-    s_grey_plane                             0x20001c7a   Data          48  main.o(.bss)
-    s_green_plane                            0x20001caa   Data          28  main.o(.bss)
-    m_straight_plane                         0x20001cc6   Data          12  main.o(.bss)
-    b_green_plane                            0x20001cd2   Data          26  main.o(.bss)
-    enmeyBullets                             0x20001cec   Data         150  main.o(.bss)
-    myPlaneHitMap                            0x20001d84   Data         120  main.o(.bss)
-    myBulletsHitMap                          0x20001dfc   Data         120  main.o(.bss)
-    enemyPlaneAndBullet_HitMap               0x20001e74   Data         120  main.o(.bss)
-    boom                                     0x20001eec   Data          24  main.o(.bss)
-    lcddev                                   0x20001f04   Data          14  lcd.o(.bss)
-    membase                                  0x20001f14   Data        4096  malloc.o(.bss)
-    memmapbase                               0x20002f14   Data         256  malloc.o(.bss)
-    Data                                     0x20003014   Data           9  pstwo.o(.bss)
-    __initial_sp                             0x20003420   Data           0  startup_cm0ds.o(STACK)
+    timer_cnt                                0x20000ad6   Data           1  main.o(.data)
+    start                                    0x20000ad7   Data           1  main.o(.data)
+    gameingPause                             0x20000ad8   Data           1  main.o(.data)
+    spriteRamAddr                            0x20000ad9   Data           1  main.o(.data)
+    gameCursor                               0x20000ada   Data           1  main.o(.data)
+    GameScore                                0x20000adc   Data           4  main.o(.data)
+    GameShootBulletsCnt                      0x20000ae0   Data           4  main.o(.data)
+    GameShootDownCnt                         0x20000ae4   Data           4  main.o(.data)
+    GameHitRate                              0x20000ae8   Data           4  main.o(.data)
+    fps                                      0x20000aec   Data           4  main.o(.data)
+    PS2_KEY                                  0x20000af0   Data           4  main.o(.data)
+    game_state                               0x20000af4   Data           1  main.o(.data)
+    gameEndFpsCnt                            0x20000af5   Data           1  main.o(.data)
+    gameEndInterFaceFpsCnt                   0x20000af6   Data           1  main.o(.data)
+    gameEndInterFaceFpsSpeed                 0x20000af7   Data           1  main.o(.data)
+    gameEndInterFaceArrayCnt                 0x20000af8   Data           1  main.o(.data)
+    DrawFlag                                 0x20000af9   Data           1  main.o(.data)
+    timer_init_flag                          0x20000afa   Data           1  main.o(.data)
+    gameRunState                             0x20000afb   Data           1  main.o(.data)
+    flashAddrBlock_Map0                      0x20000afc   Data           4  main.o(.data)
+    flashAddrBlock_Map1                      0x20000b00   Data           4  main.o(.data)
+    guanQia                                  0x20000b04   Data           1  main.o(.data)
+    POINT_COLOR                              0x20000b06   Data           2  lcd.o(.data)
+    BACK_COLOR                               0x20000b08   Data           2  lcd.o(.data)
+    __stdout                                 0x20000b0c   Data           4  retarget.o(.data)
+    __stdin                                  0x20000b10   Data           4  retarget.o(.data)
+    Handkey                                  0x20000b14   Data           2  pstwo.o(.data)
+    Comd                                     0x20000b16   Data           2  pstwo.o(.data)
+    MASK                                     0x20000b18   Data          32  pstwo.o(.data)
+    GAME_LOGO_1942                           0x20000b38   Data          90  gameinterface.o(.data)
+    GAME_VERSION                             0x20000b92   Data          12  gameinterface.o(.data)
+    GAME_START_CHAR                          0x20000b9e   Data           8  gameinterface.o(.data)
+    GAME_STOP_CHAR                           0x20000ba6   Data           8  gameinterface.o(.data)
+    endInterFaceArray                        0x20000bae   Data          60  gameinterface.o(.data)
+    map_start                                0x20000bea   Data        1024  makemap.o(.data)
+    map_konghaiyu                            0x20000fea   Data        1024  makemap.o(.data)
+    map_jianchuan                            0x200013ea   Data        1024  makemap.o(.data)
+    map_daoyu                                0x200017ea   Data        1024  makemap.o(.data)
+    map_land_0                               0x20001bea   Data        1024  makemap.o(.data)
+    map_land_1                               0x20001fea   Data        1024  makemap.o(.data)
+    map_land_2_3                             0x200023ea   Data        1024  makemap.o(.data)
+    map_land_4                               0x200027ea   Data        1024  makemap.o(.data)
+    myplane                                  0x20002bf0   Data          10  main.o(.bss)
+    myBullet                                 0x20002bfa   Data         120  main.o(.bss)
+    s_grey_plane                             0x20002c72   Data          48  main.o(.bss)
+    s_green_plane                            0x20002ca2   Data         112  main.o(.bss)
+    m_straight_plane                         0x20002d12   Data          12  main.o(.bss)
+    b_green_plane                            0x20002d1e   Data          26  main.o(.bss)
+    enmeyBullets                             0x20002d38   Data         100  main.o(.bss)
+    myPlaneHitMap                            0x20002d9c   Data         120  main.o(.bss)
+    myBulletsHitMap                          0x20002e14   Data         120  main.o(.bss)
+    enemyPlaneAndBullet_HitMap               0x20002e8c   Data         120  main.o(.bss)
+    boom                                     0x20002f04   Data          40  main.o(.bss)
+    lcddev                                   0x20002f2c   Data          14  lcd.o(.bss)
+    Data                                     0x20002f3a   Data           9  pstwo.o(.bss)
+    __initial_sp                             0x20003348   Data           0  startup_cm0ds.o(STACK)
 
 
 
@@ -1352,190 +1346,173 @@ Memory Map of the image
 
   Image Entry point : 0x00000065
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00006f34, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00005c8c])
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00007b28, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00006178])
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x0000533c, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00004f38, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x00000000   0x00000000   0x00000064   Data   RO          250    RESET               startup_cm0ds.o
-    0x00000064   0x00000064   0x00000000   Code   RO         1572  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
-    0x00000064   0x00000064   0x00000004   Code   RO         1859    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
-    0x00000068   0x00000068   0x00000004   Code   RO         1862    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
-    0x0000006c   0x0000006c   0x00000000   Code   RO         1864    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
-    0x0000006c   0x0000006c   0x00000000   Code   RO         1866    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
-    0x0000006c   0x0000006c   0x00000008   Code   RO         1867    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
-    0x00000074   0x00000074   0x00000000   Code   RO         1869    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
-    0x00000074   0x00000074   0x00000000   Code   RO         1871    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
-    0x00000074   0x00000074   0x00000004   Code   RO         1860    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
+    0x00000064   0x00000064   0x00000000   Code   RO         1608  * .ARM.Collect$$$$00000000  mc_p.l(entry.o)
+    0x00000064   0x00000064   0x00000004   Code   RO         1895    .ARM.Collect$$$$00000001  mc_p.l(entry2.o)
+    0x00000068   0x00000068   0x00000004   Code   RO         1898    .ARM.Collect$$$$00000004  mc_p.l(entry5.o)
+    0x0000006c   0x0000006c   0x00000000   Code   RO         1900    .ARM.Collect$$$$00000008  mc_p.l(entry7b.o)
+    0x0000006c   0x0000006c   0x00000000   Code   RO         1902    .ARM.Collect$$$$0000000A  mc_p.l(entry8b.o)
+    0x0000006c   0x0000006c   0x00000008   Code   RO         1903    .ARM.Collect$$$$0000000B  mc_p.l(entry9a.o)
+    0x00000074   0x00000074   0x00000000   Code   RO         1905    .ARM.Collect$$$$0000000D  mc_p.l(entry10a.o)
+    0x00000074   0x00000074   0x00000000   Code   RO         1907    .ARM.Collect$$$$0000000F  mc_p.l(entry11a.o)
+    0x00000074   0x00000074   0x00000004   Code   RO         1896    .ARM.Collect$$$$00002712  mc_p.l(entry2.o)
     0x00000078   0x00000078   0x000000a4   Code   RO          251    .text               startup_cm0ds.o
-    0x0000011c   0x0000011c   0x0000002c   Code   RO         1575    .text               mc_p.l(uidiv.o)
-    0x00000148   0x00000148   0x00000028   Code   RO         1577    .text               mc_p.l(idiv.o)
-    0x00000170   0x00000170   0x00000024   Code   RO         1579    .text               mc_p.l(rand.o)
-    0x00000194   0x00000194   0x000000b2   Code   RO         1845    .text               mf_p.l(fadd.o)
-    0x00000246   0x00000246   0x0000007a   Code   RO         1847    .text               mf_p.l(fmul.o)
-    0x000002c0   0x000002c0   0x0000007c   Code   RO         1849    .text               mf_p.l(fdiv.o)
-    0x0000033c   0x0000033c   0x00000016   Code   RO         1851    .text               mf_p.l(fflti.o)
-    0x00000352   0x00000352   0x0000000e   Code   RO         1853    .text               mf_p.l(ffltui.o)
-    0x00000360   0x00000360   0x00000028   Code   RO         1855    .text               mf_p.l(ffixui.o)
-    0x00000388   0x00000388   0x00000014   Code   RO         1857    .text               mf_p.l(cfrcmple.o)
-    0x0000039c   0x0000039c   0x00000060   Code   RO         1873    .text               mc_p.l(uldiv.o)
-    0x000003fc   0x000003fc   0x00000000   Code   RO         1875    .text               mc_p.l(iusefp.o)
-    0x000003fc   0x000003fc   0x00000082   Code   RO         1876    .text               mf_p.l(fepilogue.o)
-    0x0000047e   0x0000047e   0x00000002   PAD
-    0x00000480   0x00000480   0x00000024   Code   RO         1888    .text               mc_p.l(init.o)
-    0x000004a4   0x000004a4   0x00000020   Code   RO         1890    .text               mc_p.l(llshl.o)
-    0x000004c4   0x000004c4   0x00000022   Code   RO         1892    .text               mc_p.l(llushr.o)
-    0x000004e6   0x000004e6   0x00000060   Code   RO         1908    .text               mc_p.l(__dclz77c.o)
-    0x00000546   0x00000546   0x00000002   Code   RO          120    i.BusFaultHandler   handler.o
-    0x00000548   0x00000548   0x00000002   Code   RO          121    i.DebugMonHandler   handler.o
-    0x0000054a   0x0000054a   0x00000002   Code   RO          122    i.HardFaultHandler  handler.o
-    0x0000054c   0x0000054c   0x0000000c   Code   RO          755    i.Is_SPI_Ready      spi_flash.o
-    0x00000558   0x00000558   0x0000000a   Code   RO          123    i.KEY0              handler.o
-    0x00000562   0x00000562   0x0000000a   Code   RO          124    i.KEY1              handler.o
-    0x0000056c   0x0000056c   0x0000000a   Code   RO          125    i.KEY2              handler.o
-    0x00000576   0x00000576   0x0000000a   Code   RO          126    i.KEY3              handler.o
-    0x00000580   0x00000580   0x0000005c   Code   RO          472    i.LCD_Fast_DrawPoint  lcd.o
-    0x000005dc   0x000005dc   0x00000110   Code   RO          481    i.LCD_ShowChar      lcd.o
-    0x000006ec   0x000006ec   0x00000062   Code   RO          484    i.LCD_ShowString    lcd.o
-    0x0000074e   0x0000074e   0x00000026   Code   RO          486    i.LCD_WR_DATA       lcd.o
-    0x00000774   0x00000774   0x00000024   Code   RO          487    i.LCD_WR_REG        lcd.o
-    0x00000798   0x00000798   0x00000038   Code   RO          683    i.LED_toggle        led.o
-    0x000007d0   0x000007d0   0x00000008   Code   RO          491    i.MakeData          lcd.o
-    0x000007d8   0x000007d8   0x00000002   Code   RO          127    i.MemManageHandler  handler.o
-    0x000007da   0x000007da   0x00000002   Code   RO          128    i.NMIHandler        handler.o
-    0x000007dc   0x000007dc   0x00000014   Code   RO          257    i.NVIC_EnableIRQ    system.o
-    0x000007f0   0x000007f0   0x00000018   Code   RO         1161    i.PS2_ClearData     pstwo.o
-    0x00000808   0x00000808   0x00000084   Code   RO         1162    i.PS2_Cmd           pstwo.o
-    0x0000088c   0x0000088c   0x00000054   Code   RO         1163    i.PS2_DataKey       pstwo.o
-    0x000008e0   0x000008e0   0x00000010   Code   RO         1166    i.PS2_Init          pstwo.o
-    0x000008f0   0x000008f0   0x000000a8   Code   RO         1167    i.PS2_ReadData      pstwo.o
-    0x00000998   0x00000998   0x00000002   Code   RO          129    i.PendSVHandler     handler.o
-    0x0000099a   0x0000099a   0x00000002   PAD
-    0x0000099c   0x0000099c   0x0000001c   Code   RO          758    i.SPI_FLASH_Write_Enable  spi_flash.o
-    0x000009b8   0x000009b8   0x00000040   Code   RO          760    i.SPI_Flash_Erase_Block  spi_flash.o
-    0x000009f8   0x000009f8   0x0000004c   Code   RO          763    i.SPI_Flash_Read    spi_flash.o
-    0x00000a44   0x00000a44   0x00000028   Code   RO          765    i.SPI_Flash_ReadSR  spi_flash.o
-    0x00000a6c   0x00000a6c   0x00000012   Code   RO          766    i.SPI_Flash_Wait_Busy  spi_flash.o
-    0x00000a7e   0x00000a7e   0x00000002   PAD
-    0x00000a80   0x00000a80   0x00000050   Code   RO          769    i.SPI_Flash_Write_Page  spi_flash.o
-    0x00000ad0   0x00000ad0   0x00000010   Code   RO          770    i.SPI_Init          spi_flash.o
-    0x00000ae0   0x00000ae0   0x00000048   Code   RO          771    i.SPI_ReadWriteByte  spi_flash.o
-    0x00000b28   0x00000b28   0x00000014   Code   RO          772    i.SPI_SendData      spi_flash.o
-    0x00000b3c   0x00000b3c   0x00000002   Code   RO          130    i.SVCHandler        handler.o
-    0x00000b3e   0x00000b3e   0x00000002   PAD
-    0x00000b40   0x00000b40   0x0000000c   Code   RO          872    i.Set_SysTick_CTRL  systick.o
-    0x00000b4c   0x00000b4c   0x0000000c   Code   RO          873    i.Set_SysTick_LOAD  systick.o
-    0x00000b58   0x00000b58   0x0000000c   Code   RO          874    i.Set_SysTick_VALUE  systick.o
-    0x00000b64   0x00000b64   0x0000001c   Code   RO          131    i.SysTickHandler    handler.o
-    0x00000b80   0x00000b80   0x0000001c   Code   RO          259    i.SystemInit        system.o
-    0x00000b9c   0x00000b9c   0x00000002   Code   RO          132    i.Timer_Handler     handler.o
-    0x00000b9e   0x00000b9e   0x00000002   Code   RO          133    i.UARTOVRHandler    handler.o
-    0x00000ba0   0x00000ba0   0x00000030   Code   RO          134    i.UARTRXHandler     handler.o
-    0x00000bd0   0x00000bd0   0x0000003c   Code   RO          135    i.UARTTXHandler     handler.o
-    0x00000c0c   0x00000c0c   0x00000002   Code   RO          136    i.UsageFaultHandler  handler.o
-    0x00000c0e   0x00000c0e   0x00000002   PAD
-    0x00000c10   0x00000c10   0x00000020   Code   RO         1717    i.__0printf$5       mc_p.l(printf5.o)
-    0x00000c30   0x00000c30   0x0000001c   Code   RO          670    i.__ARM_common_switch8  lcd.o
-    0x00000c4c   0x00000c4c   0x0000000e   Code   RO         1902    i.__scatterload_copy  mc_p.l(handlers.o)
-    0x00000c5a   0x00000c5a   0x00000002   Code   RO         1903    i.__scatterload_null  mc_p.l(handlers.o)
-    0x00000c5c   0x00000c5c   0x0000000e   Code   RO         1904    i.__scatterload_zeroinit  mc_p.l(handlers.o)
-    0x00000c6a   0x00000c6a   0x00000002   PAD
-    0x00000c6c   0x00000c6c   0x000002dc   Code   RO         1724    i._printf_core      mc_p.l(printf5.o)
-    0x00000f48   0x00000f48   0x000000b4   Code   RO         1328    i.b_green_createOnePlane  enemyplane.o
-    0x00000ffc   0x00000ffc   0x00000254   Code   RO         1329    i.b_green_drawPlane  enemyplane.o
-    0x00001250   0x00001250   0x00000378   Code   RO         1330    i.b_green_movePlane  enemyplane.o
-    0x000015c8   0x000015c8   0x0000004c   Code   RO         1331    i.b_green_planeInit  enemyplane.o
-    0x00001614   0x00001614   0x00000026   Code   RO         1118    i.clearNameTableAll  spriteram.o
-    0x0000163a   0x0000163a   0x00000020   Code   RO          877    i.delay             systick.o
-    0x0000165a   0x0000165a   0x00000002   PAD
-    0x0000165c   0x0000165c   0x0000001c   Code   RO          878    i.delay_ms          systick.o
-    0x00001678   0x00001678   0x00000016   Code   RO          879    i.delay_us          systick.o
-    0x0000168e   0x0000168e   0x00000002   PAD
-    0x00001690   0x00001690   0x000000f4   Code   RO         1489    i.endInterFaceDraw  gameinterface.o
-    0x00001784   0x00001784   0x000001d8   Code   RO         1434    i.enemyAndBulletMapCreate  gamehitcheck.o
-    0x0000195c   0x0000195c   0x0000004c   Code   RO         1294    i.enmeyBulletDraw   enemybullet.o
-    0x000019a8   0x000019a8   0x00000020   Code   RO         1295    i.enmey_BulletInit  enemybullet.o
-    0x000019c8   0x000019c8   0x00000020   Code   RO          715    i.fputc             retarget.o
-    0x000019e8   0x000019e8   0x0000005e   Code   RO         1490    i.gameCursorDraw    gameinterface.o
-    0x00001a46   0x00001a46   0x000000b0   Code   RO         1491    i.gameScoreDraw     gameinterface.o
-    0x00001af6   0x00001af6   0x00000002   PAD
-    0x00001af8   0x00001af8   0x00000168   Code   RO         1492    i.gameStartInterfaceShow  gameinterface.o
-    0x00001c60   0x00001c60   0x0000010c   Code   RO         1435    i.isHit_b_EnemyPlane  gamehitcheck.o
-    0x00001d6c   0x00001d6c   0x000000d4   Code   RO         1436    i.isHit_m_straight_EnemyPlane  gamehitcheck.o
-    0x00001e40   0x00001e40   0x00000068   Code   RO         1437    i.isHit_myBullets   gamehitcheck.o
-    0x00001ea8   0x00001ea8   0x00000178   Code   RO         1438    i.isHit_s_EnemyPlane  gamehitcheck.o
-    0x00002020   0x00002020   0x00000094   Code   RO         1332    i.m_straight_createOnePlane  enemyplane.o
-    0x000020b4   0x000020b4   0x00000244   Code   RO         1333    i.m_straight_drawPlane  enemyplane.o
-    0x000022f8   0x000022f8   0x000000b0   Code   RO         1334    i.m_straight_movePlane  enemyplane.o
-    0x000023a8   0x000023a8   0x0000005c   Code   RO         1335    i.m_straight_planeInit  enemyplane.o
-    0x00002404   0x00002404   0x00000870   Code   RO            3    i.main              main.o
-    0x00002c74   0x00002c74   0x0000004c   Code   RO         1050    i.mem_free          malloc.o
-    0x00002cc0   0x00002cc0   0x0000002c   Code   RO         1051    i.mem_init          malloc.o
-    0x00002cec   0x00002cec   0x0000007c   Code   RO         1052    i.mem_malloc        malloc.o
-    0x00002d68   0x00002d68   0x00000028   Code   RO         1053    i.mem_perused       malloc.o
-    0x00002d90   0x00002d90   0x00000050   Code   RO         1440    i.myBulletsMapCreate  gamehitcheck.o
-    0x00002de0   0x00002de0   0x00000074   Code   RO         1523    i.myPlane_Act       myplane.o
-    0x00002e54   0x00002e54   0x0000063e   Code   RO         1524    i.myPlane_Draw      myplane.o
-    0x00003492   0x00003492   0x0000001c   Code   RO         1525    i.myPlane_Init      myplane.o
-    0x000034ae   0x000034ae   0x00000002   PAD
-    0x000034b0   0x000034b0   0x0000004c   Code   RO         1526    i.myPlane_bulletDraw  myplane.o
-    0x000034fc   0x000034fc   0x00000020   Code   RO         1527    i.myPlane_bulletInit  myplane.o
-    0x0000351c   0x0000351c   0x0000018c   Code   RO         1528    i.myPlane_createOneBullet  myplane.o
-    0x000036a8   0x000036a8   0x00000050   Code   RO         1529    i.myPlane_updateBulletData  myplane.o
-    0x000036f8   0x000036f8   0x00000020   Code   RO         1054    i.myfree            malloc.o
-    0x00003718   0x00003718   0x00000020   Code   RO         1055    i.mymalloc          malloc.o
-    0x00003738   0x00003738   0x00000014   Code   RO         1057    i.mymemset          malloc.o
-    0x0000374c   0x0000374c   0x000000d0   Code   RO         1263    i.new_boomDraw      boom.o
-    0x0000381c   0x0000381c   0x00000020   Code   RO         1264    i.new_boomInit      boom.o
-    0x0000383c   0x0000383c   0x00000048   Code   RO         1265    i.new_createOneBoom  boom.o
-    0x00003884   0x00003884   0x00000064   Code   RO         1266    i.new_updateBoomData  boom.o
-    0x000038e8   0x000038e8   0x0000000c   Code   RO         1174    i.readPs2DI         pstwo.o
-    0x000038f4   0x000038f4   0x00000124   Code   RO         1336    i.s_green_createOnePlane  enemyplane.o
-    0x00003a18   0x00003a18   0x000002ec   Code   RO         1337    i.s_green_drawPlane  enemyplane.o
-    0x00003d04   0x00003d04   0x00000348   Code   RO         1338    i.s_green_movePlane  enemyplane.o
-    0x0000404c   0x0000404c   0x00000038   Code   RO         1339    i.s_green_planeInit  enemyplane.o
-    0x00004084   0x00004084   0x00000148   Code   RO         1296    i.s_grey_createOneEnmeyBullet  enemybullet.o
-    0x000041cc   0x000041cc   0x000000fc   Code   RO         1340    i.s_grey_createOnePlane  enemyplane.o
-    0x000042c8   0x000042c8   0x000003c8   Code   RO         1341    i.s_grey_drawPlane  enemyplane.o
-    0x00004690   0x00004690   0x000003e4   Code   RO         1342    i.s_grey_movePlane  enemyplane.o
-    0x00004a74   0x00004a74   0x00000048   Code   RO         1343    i.s_grey_planeInit  enemyplane.o
-    0x00004abc   0x00004abc   0x00000018   Code   RO         1441    i.tileMap           gamehitcheck.o
-    0x00004ad4   0x00004ad4   0x00000006   Code   RO          960    i.uart_ClearRxIRQ   uart.o
-    0x00004ada   0x00004ada   0x00000006   Code   RO          961    i.uart_ClearTxIRQ   uart.o
-    0x00004ae0   0x00004ae0   0x00000016   Code   RO          969    i.uart_SendChar     uart.o
-    0x00004af6   0x00004af6   0x00000058   Code   RO          971    i.uart_init         uart.o
-    0x00004b4e   0x00004b4e   0x00000002   PAD
-    0x00004b50   0x00004b50   0x000000c8   Code   RO         1297    i.updateEnemyBulletData  enemybullet.o
-    0x00004c18   0x00004c18   0x00000084   Code   RO          137    i.vga_Handler       handler.o
-    0x00004c9c   0x00004c9c   0x00000010   Code   RO         1122    i.writeOneNametable  spriteram.o
-    0x00004cac   0x00004cac   0x00000024   Code   RO         1123    i.writeOneSprite    spriteram.o
-    0x00004cd0   0x00004cd0   0x00000007   Data   RO            5    .constdata          main.o
-    0x00004cd7   0x00004cd7   0x000005f0   Data   RO          498    .constdata          lcd.o
-    0x000052c7   0x000052c7   0x00000001   PAD
-    0x000052c8   0x000052c8   0x00000054   Data   RO         1298    .constdata          enemybullet.o
-    0x0000531c   0x0000531c   0x00000020   Data   RO         1900    Region$$Table       anon$$obj.o
+    0x0000011c   0x0000011c   0x0000002c   Code   RO         1611    .text               mc_p.l(uidiv.o)
+    0x00000148   0x00000148   0x00000028   Code   RO         1613    .text               mc_p.l(idiv.o)
+    0x00000170   0x00000170   0x00000024   Code   RO         1615    .text               mc_p.l(rand.o)
+    0x00000194   0x00000194   0x000000b2   Code   RO         1881    .text               mf_p.l(fadd.o)
+    0x00000246   0x00000246   0x0000007a   Code   RO         1883    .text               mf_p.l(fmul.o)
+    0x000002c0   0x000002c0   0x0000007c   Code   RO         1885    .text               mf_p.l(fdiv.o)
+    0x0000033c   0x0000033c   0x00000016   Code   RO         1887    .text               mf_p.l(fflti.o)
+    0x00000352   0x00000352   0x0000000e   Code   RO         1889    .text               mf_p.l(ffltui.o)
+    0x00000360   0x00000360   0x00000028   Code   RO         1891    .text               mf_p.l(ffixui.o)
+    0x00000388   0x00000388   0x00000014   Code   RO         1893    .text               mf_p.l(cfrcmple.o)
+    0x0000039c   0x0000039c   0x00000000   Code   RO         1911    .text               mc_p.l(iusefp.o)
+    0x0000039c   0x0000039c   0x00000082   Code   RO         1912    .text               mf_p.l(fepilogue.o)
+    0x0000041e   0x0000041e   0x00000002   PAD
+    0x00000420   0x00000420   0x00000024   Code   RO         1924    .text               mc_p.l(init.o)
+    0x00000444   0x00000444   0x00000060   Code   RO         1944    .text               mc_p.l(__dclz77c.o)
+    0x000004a4   0x000004a4   0x00000002   Code   RO          120    i.BusFaultHandler   handler.o
+    0x000004a6   0x000004a6   0x00000002   Code   RO          121    i.DebugMonHandler   handler.o
+    0x000004a8   0x000004a8   0x00000002   Code   RO          122    i.HardFaultHandler  handler.o
+    0x000004aa   0x000004aa   0x0000000a   Code   RO          123    i.KEY0              handler.o
+    0x000004b4   0x000004b4   0x0000000a   Code   RO          124    i.KEY1              handler.o
+    0x000004be   0x000004be   0x0000000a   Code   RO          125    i.KEY2              handler.o
+    0x000004c8   0x000004c8   0x0000000a   Code   RO          126    i.KEY3              handler.o
+    0x000004d2   0x000004d2   0x00000002   PAD
+    0x000004d4   0x000004d4   0x0000005c   Code   RO          472    i.LCD_Fast_DrawPoint  lcd.o
+    0x00000530   0x00000530   0x00000110   Code   RO          481    i.LCD_ShowChar      lcd.o
+    0x00000640   0x00000640   0x00000062   Code   RO          484    i.LCD_ShowString    lcd.o
+    0x000006a2   0x000006a2   0x00000026   Code   RO          486    i.LCD_WR_DATA       lcd.o
+    0x000006c8   0x000006c8   0x00000024   Code   RO          487    i.LCD_WR_REG        lcd.o
+    0x000006ec   0x000006ec   0x00000038   Code   RO          683    i.LED_toggle        led.o
+    0x00000724   0x00000724   0x00000008   Code   RO          491    i.MakeData          lcd.o
+    0x0000072c   0x0000072c   0x00000002   Code   RO          127    i.MemManageHandler  handler.o
+    0x0000072e   0x0000072e   0x00000002   Code   RO          128    i.NMIHandler        handler.o
+    0x00000730   0x00000730   0x00000014   Code   RO          257    i.NVIC_EnableIRQ    system.o
+    0x00000744   0x00000744   0x00000018   Code   RO         1161    i.PS2_ClearData     pstwo.o
+    0x0000075c   0x0000075c   0x00000084   Code   RO         1162    i.PS2_Cmd           pstwo.o
+    0x000007e0   0x000007e0   0x00000054   Code   RO         1163    i.PS2_DataKey       pstwo.o
+    0x00000834   0x00000834   0x00000010   Code   RO         1166    i.PS2_Init          pstwo.o
+    0x00000844   0x00000844   0x000000a8   Code   RO         1167    i.PS2_ReadData      pstwo.o
+    0x000008ec   0x000008ec   0x00000002   Code   RO          129    i.PendSVHandler     handler.o
+    0x000008ee   0x000008ee   0x00000002   PAD
+    0x000008f0   0x000008f0   0x00000010   Code   RO          770    i.SPI_Init          spi_flash.o
+    0x00000900   0x00000900   0x00000002   Code   RO          130    i.SVCHandler        handler.o
+    0x00000902   0x00000902   0x00000002   PAD
+    0x00000904   0x00000904   0x0000000c   Code   RO          872    i.Set_SysTick_CTRL  systick.o
+    0x00000910   0x00000910   0x0000000c   Code   RO          873    i.Set_SysTick_LOAD  systick.o
+    0x0000091c   0x0000091c   0x0000000c   Code   RO          874    i.Set_SysTick_VALUE  systick.o
+    0x00000928   0x00000928   0x0000001c   Code   RO          131    i.SysTickHandler    handler.o
+    0x00000944   0x00000944   0x0000001c   Code   RO          259    i.SystemInit        system.o
+    0x00000960   0x00000960   0x00000002   Code   RO          132    i.Timer_Handler     handler.o
+    0x00000962   0x00000962   0x00000002   Code   RO          133    i.UARTOVRHandler    handler.o
+    0x00000964   0x00000964   0x00000030   Code   RO          134    i.UARTRXHandler     handler.o
+    0x00000994   0x00000994   0x0000003c   Code   RO          135    i.UARTTXHandler     handler.o
+    0x000009d0   0x000009d0   0x00000002   Code   RO          136    i.UsageFaultHandler  handler.o
+    0x000009d2   0x000009d2   0x00000002   PAD
+    0x000009d4   0x000009d4   0x00000020   Code   RO         1665    i.__0printf$1       mc_p.l(printf1.o)
+    0x000009f4   0x000009f4   0x0000001c   Code   RO          670    i.__ARM_common_switch8  lcd.o
+    0x00000a10   0x00000a10   0x0000000e   Code   RO         1938    i.__scatterload_copy  mc_p.l(handlers.o)
+    0x00000a1e   0x00000a1e   0x00000002   Code   RO         1939    i.__scatterload_null  mc_p.l(handlers.o)
+    0x00000a20   0x00000a20   0x0000000e   Code   RO         1940    i.__scatterload_zeroinit  mc_p.l(handlers.o)
+    0x00000a2e   0x00000a2e   0x00000002   PAD
+    0x00000a30   0x00000a30   0x00000150   Code   RO         1672    i._printf_core      mc_p.l(printf1.o)
+    0x00000b80   0x00000b80   0x000000b4   Code   RO         1328    i.b_green_createOnePlane  enemyplane.o
+    0x00000c34   0x00000c34   0x00000254   Code   RO         1329    i.b_green_drawPlane  enemyplane.o
+    0x00000e88   0x00000e88   0x00000378   Code   RO         1330    i.b_green_movePlane  enemyplane.o
+    0x00001200   0x00001200   0x0000004c   Code   RO         1331    i.b_green_planeInit  enemyplane.o
+    0x0000124c   0x0000124c   0x00000026   Code   RO         1118    i.clearNameTableAll  spriteram.o
+    0x00001272   0x00001272   0x00000020   Code   RO          877    i.delay             systick.o
+    0x00001292   0x00001292   0x00000002   PAD
+    0x00001294   0x00001294   0x0000001c   Code   RO          878    i.delay_ms          systick.o
+    0x000012b0   0x000012b0   0x00000016   Code   RO          879    i.delay_us          systick.o
+    0x000012c6   0x000012c6   0x00000002   PAD
+    0x000012c8   0x000012c8   0x000000f4   Code   RO         1489    i.endInterFaceDraw  gameinterface.o
+    0x000013bc   0x000013bc   0x000001d8   Code   RO         1434    i.enemyAndBulletMapCreate  gamehitcheck.o
+    0x00001594   0x00001594   0x0000004c   Code   RO         1294    i.enmeyBulletDraw   enemybullet.o
+    0x000015e0   0x000015e0   0x00000020   Code   RO         1295    i.enmey_BulletInit  enemybullet.o
+    0x00001600   0x00001600   0x00000020   Code   RO          715    i.fputc             retarget.o
+    0x00001620   0x00001620   0x0000005e   Code   RO         1490    i.gameCursorDraw    gameinterface.o
+    0x0000167e   0x0000167e   0x000000b0   Code   RO         1491    i.gameScoreDraw     gameinterface.o
+    0x0000172e   0x0000172e   0x00000002   PAD
+    0x00001730   0x00001730   0x00000168   Code   RO         1492    i.gameStartInterfaceShow  gameinterface.o
+    0x00001898   0x00001898   0x0000010c   Code   RO         1435    i.isHit_b_EnemyPlane  gamehitcheck.o
+    0x000019a4   0x000019a4   0x000000d4   Code   RO         1436    i.isHit_m_straight_EnemyPlane  gamehitcheck.o
+    0x00001a78   0x00001a78   0x00000078   Code   RO         1437    i.isHit_myBullets   gamehitcheck.o
+    0x00001af0   0x00001af0   0x00000178   Code   RO         1438    i.isHit_s_EnemyPlane  gamehitcheck.o
+    0x00001c68   0x00001c68   0x0000002c   Code   RO         1578    i.loadMapJianchuan  makemap.o
+    0x00001c94   0x00001c94   0x00000094   Code   RO         1332    i.m_straight_createOnePlane  enemyplane.o
+    0x00001d28   0x00001d28   0x00000244   Code   RO         1333    i.m_straight_drawPlane  enemyplane.o
+    0x00001f6c   0x00001f6c   0x000000b0   Code   RO         1334    i.m_straight_movePlane  enemyplane.o
+    0x0000201c   0x0000201c   0x0000005c   Code   RO         1335    i.m_straight_planeInit  enemyplane.o
+    0x00002078   0x00002078   0x00000874   Code   RO            3    i.main              main.o
+    0x000028ec   0x000028ec   0x00000050   Code   RO         1440    i.myBulletsMapCreate  gamehitcheck.o
+    0x0000293c   0x0000293c   0x00000074   Code   RO         1529    i.myPlane_Act       myplane_1.o
+    0x000029b0   0x000029b0   0x0000063e   Code   RO         1530    i.myPlane_Draw      myplane_1.o
+    0x00002fee   0x00002fee   0x0000001c   Code   RO         1531    i.myPlane_Init      myplane_1.o
+    0x0000300a   0x0000300a   0x00000002   PAD
+    0x0000300c   0x0000300c   0x0000004c   Code   RO         1532    i.myPlane_bulletDraw  myplane_1.o
+    0x00003058   0x00003058   0x00000020   Code   RO         1533    i.myPlane_bulletInit  myplane_1.o
+    0x00003078   0x00003078   0x000001b0   Code   RO         1534    i.myPlane_createOneBullet  myplane_1.o
+    0x00003228   0x00003228   0x00000050   Code   RO         1535    i.myPlane_updateBulletData  myplane_1.o
+    0x00003278   0x00003278   0x000000b8   Code   RO         1493    i.newGuanqiaInterFaceDraw  gameinterface.o
+    0x00003330   0x00003330   0x000000d0   Code   RO         1263    i.new_boomDraw      boom.o
+    0x00003400   0x00003400   0x00000020   Code   RO         1264    i.new_boomInit      boom.o
+    0x00003420   0x00003420   0x00000048   Code   RO         1265    i.new_createOneBoom  boom.o
+    0x00003468   0x00003468   0x00000064   Code   RO         1266    i.new_updateBoomData  boom.o
+    0x000034cc   0x000034cc   0x0000000c   Code   RO         1174    i.readPs2DI         pstwo.o
+    0x000034d8   0x000034d8   0x00000124   Code   RO         1336    i.s_green_createOnePlane  enemyplane.o
+    0x000035fc   0x000035fc   0x000002ec   Code   RO         1337    i.s_green_drawPlane  enemyplane.o
+    0x000038e8   0x000038e8   0x00000348   Code   RO         1338    i.s_green_movePlane  enemyplane.o
+    0x00003c30   0x00003c30   0x00000038   Code   RO         1339    i.s_green_planeInit  enemyplane.o
+    0x00003c68   0x00003c68   0x00000148   Code   RO         1296    i.s_grey_createOneEnmeyBullet  enemybullet.o
+    0x00003db0   0x00003db0   0x000000fc   Code   RO         1340    i.s_grey_createOnePlane  enemyplane.o
+    0x00003eac   0x00003eac   0x000003c8   Code   RO         1341    i.s_grey_drawPlane  enemyplane.o
+    0x00004274   0x00004274   0x000003e4   Code   RO         1342    i.s_grey_movePlane  enemyplane.o
+    0x00004658   0x00004658   0x00000048   Code   RO         1343    i.s_grey_planeInit  enemyplane.o
+    0x000046a0   0x000046a0   0x00000018   Code   RO         1441    i.tileMap           gamehitcheck.o
+    0x000046b8   0x000046b8   0x00000006   Code   RO          960    i.uart_ClearRxIRQ   uart.o
+    0x000046be   0x000046be   0x00000006   Code   RO          961    i.uart_ClearTxIRQ   uart.o
+    0x000046c4   0x000046c4   0x00000016   Code   RO          969    i.uart_SendChar     uart.o
+    0x000046da   0x000046da   0x00000058   Code   RO          971    i.uart_init         uart.o
+    0x00004732   0x00004732   0x00000002   PAD
+    0x00004734   0x00004734   0x000000c8   Code   RO         1297    i.updateEnemyBulletData  enemybullet.o
+    0x000047fc   0x000047fc   0x0000009c   Code   RO          137    i.vga_Handler       handler.o
+    0x00004898   0x00004898   0x00000010   Code   RO         1122    i.writeOneNametable  spriteram.o
+    0x000048a8   0x000048a8   0x00000024   Code   RO         1123    i.writeOneSprite    spriteram.o
+    0x000048cc   0x000048cc   0x00000007   Data   RO            5    .constdata          main.o
+    0x000048d3   0x000048d3   0x000005f0   Data   RO          498    .constdata          lcd.o
+    0x00004ec3   0x00004ec3   0x00000001   PAD
+    0x00004ec4   0x00004ec4   0x00000054   Data   RO         1298    .constdata          enemybullet.o
+    0x00004f18   0x00004f18   0x00000020   Data   RO         1936    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x0000533c, Size: 0x00003420, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00000950])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00004f38, Size: 0x00003348, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00001240])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   COMPRESSED   0x00001afc   Data   RW            6    .data               main.o
-    0x20001afc   COMPRESSED   0x00000004   Data   RW          499    .data               lcd.o
-    0x20001b00   COMPRESSED   0x00000008   Data   RW          716    .data               retarget.o
-    0x20001b08   COMPRESSED   0x00000014   Data   RW         1061    .data               malloc.o
-    0x20001b1c   COMPRESSED   0x00000024   Data   RW         1176    .data               pstwo.o
-    0x20001b40   COMPRESSED   0x000000b2   Data   RW         1493    .data               gameinterface.o
-    0x20001bf2   COMPRESSED   0x00000002   PAD
-    0x20001bf4   COMPRESSED   0x00000004   Data   RW         1580    .data               mc_p.l(rand.o)
-    0x20001bf8        -       0x0000030c   Zero   RW            4    .bss                main.o
-    0x20001f04        -       0x0000000e   Zero   RW          497    .bss                lcd.o
-    0x20001f12   COMPRESSED   0x00000002   PAD
-    0x20001f14        -       0x00001100   Zero   RW         1059    .bss                malloc.o
-    0x20003014        -       0x00000009   Zero   RW         1175    .bss                pstwo.o
-    0x2000301d   COMPRESSED   0x00000003   PAD
-    0x20003020        -       0x00000400   Zero   RW          248    STACK               startup_cm0ds.o
+    0x20000000   COMPRESSED   0x00000b05   Data   RW            6    .data               main.o
+    0x20000b05   COMPRESSED   0x00000001   PAD
+    0x20000b06   COMPRESSED   0x00000004   Data   RW          499    .data               lcd.o
+    0x20000b0a   COMPRESSED   0x00000002   PAD
+    0x20000b0c   COMPRESSED   0x00000008   Data   RW          716    .data               retarget.o
+    0x20000b14   COMPRESSED   0x00000024   Data   RW         1176    .data               pstwo.o
+    0x20000b38   COMPRESSED   0x000000b2   Data   RW         1494    .data               gameinterface.o
+    0x20000bea   COMPRESSED   0x00002000   Data   RW         1581    .data               makemap.o
+    0x20002bea   COMPRESSED   0x00000002   PAD
+    0x20002bec   COMPRESSED   0x00000004   Data   RW         1616    .data               mc_p.l(rand.o)
+    0x20002bf0        -       0x0000033c   Zero   RW            4    .bss                main.o
+    0x20002f2c        -       0x0000000e   Zero   RW          497    .bss                lcd.o
+    0x20002f3a        -       0x00000009   Zero   RW         1175    .bss                pstwo.o
+    0x20002f43   COMPRESSED   0x00000005   PAD
+    0x20002f48        -       0x00000400   Zero   RW          248    STACK               startup_cm0ds.o
 
 
 ==============================================================================
@@ -1548,17 +1525,17 @@ Image component sizes
        412         24          0          0          0       2813   boom.o
        636         30         84          0          0       3919   enemybullet.o
       6960        134          0          0          0      12441   enemyplane.o
-      1536         60          0          0          0       6876   gamehitcheck.o
-       874         30          0        178          0       4755   gameinterface.o
-       328         80          0          0          0       7116   handler.o
+      1552         66          0          0          0       6925   gamehitcheck.o
+      1058         30          0        178          0       5433   gameinterface.o
+       352         80          0          0          0       7132   handler.o
        572         22       1520          4         14       6749   lcd.o
         56          6          0          0          0        573   led.o
-      2160        272          7       6908        780      15387   main.o
-       368         30          0         20       4352       5258   malloc.o
-      2326         26          0          0          0       5111   myplane.o
+      2164        288          7       2821        828      15268   main.o
+        44          4          0       8192          0       1467   makemap.o
+      2362         32          0          0          0       5175   myplane_1.o
        436         52          0         36          9       3555   pstwo.o
         32          0          0          8          0       2488   retarget.o
-       426         44          0          0          0       5499   spi_flash.o
+        16          4          0          0          0        431   spi_flash.o
         90          8          0          0          0       1729   spriteram.o
        164          8        100          0       1024       1140   startup_cm0ds.o
         48          6          0          0          0       6425   system.o
@@ -1566,9 +1543,9 @@ Image component sizes
        122          0          0          0          0       2696   uart.o
 
     ----------------------------------------------------------------------
-     17682        856       1744       7156       6184      97238   Object Totals
+     17212        818       1744      11244       1880      89067   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        18          0          1          2          5          0   (incl. Padding)
+        18          0          1          5          5          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1587,12 +1564,9 @@ Image component sizes
         40          0          0          0          0         72   idiv.o
         36          8          0          0          0         68   init.o
          0          0          0          0          0          0   iusefp.o
-        32          0          0          0          0         68   llshl.o
-        34          0          0          0          0         68   llushr.o
-       764         52          0          0          0        168   printf5.o
+       368         12          0          0          0        168   printf1.o
         36         12          0          4          0        120   rand.o
         44          0          0          0          0         72   uidiv.o
-        96          0          0          0          0         84   uldiv.o
         20          0          0          0          0         68   cfrcmple.o
        178          0          0          0          0        108   fadd.o
        124          0          0          0          0         72   fdiv.o
@@ -1603,18 +1577,18 @@ Image component sizes
        122          0          0          0          0         72   fmul.o
 
     ----------------------------------------------------------------------
-      1882         80          0          4          0       1380   Library Totals
+      1324         40          0          4          0       1160   Library Totals
          4          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      1228         80          0          4          0        720   mc_p.l
+       670         40          0          4          0        500   mc_p.l
        650          0          0          0          0        660   mf_p.l
 
     ----------------------------------------------------------------------
-      1882         80          0          4          0       1380   Library Totals
+      1324         40          0          4          0       1160   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1623,15 +1597,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     19564        936       1744       7160       6184      93642   Grand Totals
-     19564        936       1744       2384       6184      93642   ELF Image Totals (compressed)
-     19564        936       1744       2384          0          0   ROM Totals
+     18536        858       1744      11248       1880      85999   Grand Totals
+     18536        858       1744       4672       1880      85999   ELF Image Totals (compressed)
+     18536        858       1744       4672          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                21308 (  20.81kB)
-    Total RW  Size (RW Data + ZI Data)             13344 (  13.03kB)
-    Total ROM Size (Code + RO Data + RW Data)      23692 (  23.14kB)
+    Total RO  Size (Code + RO Data)                20280 (  19.80kB)
+    Total RW  Size (RW Data + ZI Data)             13128 (  12.82kB)
+    Total ROM Size (Code + RO Data + RW Data)      24952 (  24.37kB)
 
 ==============================================================================
 

@@ -86,6 +86,20 @@ void gameCursorDraw(GAMECURSORType* gameCursor){
     writeOneSprite(2,PosX+4,PosY+8,0x42,0xA0);
 }
 
+/*******************游戏新关卡开始的显示**************************/
+void newGuanqiaInterFaceDraw(uint8_t guanQiaNum,uint8_t* spriteRamAddr){
+    uint8_t PosX = 120;
+    uint8_t PosY = 100;
+    writeOneSprite((*spriteRamAddr),  PosX+ 0,    PosY   ,0x0c ,0x20);(*spriteRamAddr)+=1;//"持"
+    writeOneSprite((*spriteRamAddr),  PosX+16,    PosY   ,0x0d ,0x20);(*spriteRamAddr)+=1;//"续"
+
+    writeOneSprite((*spriteRamAddr),  PosX- 8,    PosY+16,guanQiaNum ,0x20);(*spriteRamAddr)+=1;//"num",表示第几关
+    writeOneSprite((*spriteRamAddr),  PosX+ 8,    PosY+16,0x0e ,0x20);(*spriteRamAddr)+=1;//"关"
+    writeOneSprite((*spriteRamAddr),  PosX+24,    PosY+16,0x0f ,0x20);(*spriteRamAddr)+=1;//"卡"
+
+    writeOneSprite((*spriteRamAddr),  PosX+ 0,    PosY+32,0x10 ,0x20);(*spriteRamAddr)+=1;//"准"
+    writeOneSprite((*spriteRamAddr),  PosX+16,    PosY+32,0x11 ,0x20);(*spriteRamAddr)+=1;//"备"
+}
 /*******************游戏结算界面显示******************************/
 /*
     游戏界面显示

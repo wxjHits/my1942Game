@@ -48,6 +48,7 @@ module topBackGroundDraw #(
     wire    [07:0]          mapBackgroundCnt;// only Read
     wire    [07:0]          mapScrollPtr    ;// only Read
     wire                    scrollingFlag   ;// only Read
+    wire                    scrollPause     ;// Write & Read
 
 
 ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
@@ -72,6 +73,7 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     .mapBackgroundCnt   (mapBackgroundCnt   ),
     .mapScrollPtr       (mapScrollPtr       ),
     .scrollingFlag      (scrollingFlag      ),
+    .scrollPause        (scrollPause        ),
     //to nameTableRam.v
     .BRAM_RDADDR        (BRAM_RDADDR        ),
     .BRAM_WRADDR        (BRAM_WRADDR        ),
@@ -132,6 +134,7 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     .mapScrollPtr       (mapScrollPtr       ),
     .mapBackgroundCnt   (mapBackgroundCnt   ),
     .scrollingFlag      (scrollingFlag      ),
+    .scrollPause        (scrollPause        ),
     //to nameTableRam.v
     .writeNameEn        (writeNameEn        ),
     .writeNameAddr      (writeNameAddr      ),

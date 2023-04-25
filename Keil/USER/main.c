@@ -17,8 +17,8 @@
 #include "gameHitCheck.h"
 #include "boom.h"
 #include "gameInterFace.h"
-#include "backgroundPicture.h"
 #include "spriteRam.h"
+#include "makeMap.h"
 // #include "ahb_plane.h"
 
 #include "malloc.h"
@@ -31,13 +31,13 @@ BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
 
 const uint8_t S_GREY_NUMMAX=3;//灰色小飞机
 S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
-const uint8_t S_GREEN_NUMMAX=1;//绿色小飞机
+const uint8_t S_GREEN_NUMMAX=4;//绿色小飞机
 S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
 const uint8_t M_STRAIGHT_NUMMAX=1;//中型直飞飞机
 M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
 const uint8_t B_GREEN_NUMMAX=1;//绿色大飞机
 B_GREEN_PLANEType b_green_plane;
-const uint8_t ENEMY_BULLETS_NUMMAX=15;
+const uint8_t ENEMY_BULLETS_NUMMAX=10;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 
 hitMapType myPlaneHitMap;
@@ -45,7 +45,7 @@ hitMapType myBulletsHitMap;
 hitMapType enemyPlaneAndBullet_HitMap;
 
 //爆炸
-const uint8_t BOOM_NUMMAX=3;
+const uint8_t BOOM_NUMMAX=5;
 BOOMType boom[BOOM_NUMMAX];
 
 // //BUFF
@@ -53,6 +53,7 @@ BOOMType boom[BOOM_NUMMAX];
 
 uint8_t timer_cnt;
 uint8_t start;
+bool gameingPause;//游戏暂停的标志位
 // //中型飞机
 // const uint8_t M_ENEMY_NUMMAX=0;
 // M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
@@ -82,59 +83,26 @@ uint8_t gameRunState=0;
 extern uint8_t vga_intr_cnt;
 
 extern uint8_t Data[9];//手柄获取的数据
+
+uint32_t flashAddrBlock_Map0=0x000000;
+uint32_t flashAddrBlock_Map1=0x004000;
+uint8_t guanQia=0;
 int main(void)
 {
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    PS2_Init();
    SPI_Init(100);
-   NAMETABLE->scrollEn=0;
-   SPI_Flash_Erase_Block(0x000000);
-   SPI_Flash_Erase_Block(0x001000);
-   SPI_Flash_Erase_Block(0x002000);
-   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000000,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000100,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000200,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000300,256);
-   uint8_t *mario_1024=0;
-   mario_1024=mymalloc(1024);
-   SPI_Flash_Read(mario_1024,0x000000,1024);
-   for(uint32_t i=0;i<1024;i++){
-      printf("addr=%lu data=%x\n",i,mario_1024[i]);
-   }
-   myfree(mario_1024);
-   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000400,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000500,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000600,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000700,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000800,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000900,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000a00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000b00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x000c00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x000d00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x000e00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x000f00,256);
-   SPI_Flash_Write_Page(map_daoyu+256*0,0x001000,256);
-   SPI_Flash_Write_Page(map_daoyu+256*1,0x001100,256);
-   SPI_Flash_Write_Page(map_daoyu+256*2,0x001200,256);
-   SPI_Flash_Write_Page(map_daoyu+256*3,0x001300,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001400,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001500,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001600,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001700,256);
-   SPI_Flash_Write_Page(map_daoyu+256*0,0x001800,256);
-   SPI_Flash_Write_Page(map_daoyu+256*1,0x001900,256);
-   SPI_Flash_Write_Page(map_daoyu+256*2,0x001a00,256);
-   SPI_Flash_Write_Page(map_daoyu+256*3,0x001b00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*0,0x001c00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*1,0x001d00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*2,0x001e00,256);
-   SPI_Flash_Write_Page(map_konghaiyu+256*3,0x001f00,256);
-   SPI_Flash_Write_Page(map_jianchuan+256*0,0x002000,256);
-   SPI_Flash_Write_Page(map_jianchuan+256*1,0x002100,256);
-   SPI_Flash_Write_Page(map_jianchuan+256*2,0x002200,256);
-   SPI_Flash_Write_Page(map_jianchuan+256*3,0x002300,256);
 
+   // SPI_Flash_Erase_Block( 0x000000);
+   // SPI_Flash_Erase_Block( 0x001000);
+   // SPI_Flash_Erase_Block( 0x002000);
+   // SPI_Flash_Erase_Block( 0x003000);
+   // SPI_Flash_Erase_Block( 0x004000);
+   // SPI_Flash_Erase_Block( 0x005000);
+   // SPI_Flash_Erase_Block( 0x006000);
+   // SPI_Flash_Erase_Block( 0x007000);
+   // makeMapFirst(flashAddrBlock_Map0);
+   // makeMapSecond(flashAddrBlock_Map1);
    while(1)
    {
       /****每次到新的界面的初始化*****/
@@ -148,10 +116,12 @@ int main(void)
             gameCursor.state=0;
             gameStartInterfaceShow(7,8);
             gameCursorDraw(&gameCursor);
+            guanQia=0;
          }
          else if(game_state==1){
             timer_cnt=0;
             start=0;
+            gameingPause=0;
             gameRunState=0;
             GameScore=0;
             GameShootBulletsCnt=0;
@@ -172,12 +142,9 @@ int main(void)
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
             clearNameTableAll();
-            for(int i=0;i<32;i++){
-               for(int j=0;j<32;j++)
-                  writeOneNametable(j,i,map_jianchuan[i*32+j]);
-            }
+            loadMapJianchuan();
             NAMETABLE->scrollCntMax=1;
-            NAMETABLE->flashAddrStart=0x00000000;
+            NAMETABLE->flashAddrStart=guanQia*(0x0004000);
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
          }
@@ -185,7 +152,6 @@ int main(void)
             for(uint8_t i=0;i<64;i++){
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
-            NAMETABLE->scrollEn=0;
             clearNameTableAll();
             DrawFlag=0;
             spriteRamAddr=0;
@@ -219,19 +185,21 @@ int main(void)
       //游戏运行界面
       else if(game_state==1&&timer_init_flag==0){
          if(gameRunState==0){
-            //生成一个
-            S_GREY_PLANEType planeParameter;
-            planeParameter.PosX = rand()%200+15;
-             if(planeParameter.PosX>myplane.PosX)
-                    planeParameter.routeOneDir=DOWN_LEFT;
-               else
-                    planeParameter.routeOneDir=DOWN_RIGHT;
-             planeParameter.isBack=rand()%2;
-            s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-            if(NAMETABLE->mapScrollPtr==120){
-               s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
-               m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
-               b_green_createOnePlane(&b_green_plane);
+            if(!(NAMETABLE->mapBackgroundCnt>=NAMETABLE->mapBackgroundMax&&NAMETABLE->mapScrollPtr<120)){
+               //生成一个敌机
+               S_GREY_PLANEType planeParameter;
+               planeParameter.PosX = rand()%200+15;
+                if(planeParameter.PosX>myplane.PosX)
+                       planeParameter.routeOneDir=DOWN_LEFT;
+                  else
+                       planeParameter.routeOneDir=DOWN_RIGHT;
+                planeParameter.isBack=rand()%2;
+               s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
+               if(NAMETABLE->mapScrollPtr==120){
+                  s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
+                  m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
+                  b_green_createOnePlane(&b_green_plane);
+               }
             }
             //按键检测
             PS2_KEY=PS2_DataKey();
@@ -245,8 +213,19 @@ int main(void)
                else if(PS2_KEY==PSB_RED){//施放技能
                    start=1;
                }
+               else if (PS2_KEY==PSB_PINK){
+                  if(gameingPause==0){
+                     NAMETABLE->scrollPause=1;
+                     gameingPause=1;
+                  }
+                  else{
+                     NAMETABLE->scrollPause=0;
+                     gameingPause=0;
+                  }
+               }
+               
             }
-            if(timer_cnt%3==1){
+            if(timer_cnt%3==1&&gameingPause==0){
                if(PS2_KEY==PSB_PAD_LEFT){
                    if(myplane.PosX>LEFT_LINE+20)
                        myplane.PosX-=5;
@@ -266,19 +245,31 @@ int main(void)
             }
 
             //数据更新
-            myPlane_Act(&myplane,&start);
-            myPlane_updateBulletData(&myBullet);
-
-            s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-            s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
-            m_straight_movePlane(&m_straight_plane);
-            b_green_movePlane(&b_green_plane);
-            updateEnemyBulletData(&enmeyBullets);
-            new_updateBoomData(&boom);
-            // updateBuffData(&buff);
+            if(gameingPause==1){
+               ;
+            }
+            else{
+               myPlane_Act(&myplane,&start);
+               myPlane_updateBulletData(&myBullet);
+               s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
+               s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
+               m_straight_movePlane(&m_straight_plane);
+               b_green_movePlane(&b_green_plane);
+               updateEnemyBulletData(&enmeyBullets);
+               new_updateBoomData(&boom);
+               // updateBuffData(&buff);
+            }
 
             //碰撞检测
-            myBulletsMapCreate(&myBullet,&myBulletsHitMap);
+            printf("NAMETABLE->mapBackgroundCnt=%u,NAMETABLE->mapScrollPtr=%u\n",NAMETABLE->mapBackgroundCnt,NAMETABLE->mapScrollPtr);
+            if(NAMETABLE->mapBackgroundCnt==8&&NAMETABLE->mapScrollPtr<=120){
+               printf("booom!!!\n");
+               for(int i=0;i<30;i++)
+                  myBulletsHitMap.map[i]=0xffffffff;
+            }
+            else
+               myBulletsMapCreate(&myBullet,&myBulletsHitMap);
+
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
             // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
@@ -288,20 +279,23 @@ int main(void)
             isHit_myBullets(&myBullet,&enemyPlaneAndBullet_HitMap);
             
             //我方飞机死亡后隔一段实践再退出
-            if(myplane.liveFlag==0||NAMETABLE->scrollingFlag==0){
+            if(myplane.liveFlag==0){
                if(gameEndFpsCnt>=240){
                   timer_init_flag=1;
                   game_state=2;
                   // gameEndFpsCnt=0;
-                  for(uint8_t i=0;i<64;i++)
-                     writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
                }
             }
             gameRunState=1;
          }
-         //绘图
+         //各种单位绘图
          else if(gameRunState==2){
             spriteRamAddr=0;
+            if(gameingPause==1){
+               writeOneSprite(spriteRamAddr,110+0 ,110,0x20,0x20);spriteRamAddr++;
+               writeOneSprite(spriteRamAddr,110+16,110,0x21,0x20);spriteRamAddr++;
+            }
+
             gameScoreDraw(3,10,GameScore,&spriteRamAddr);
             myPlane_Draw(&myplane,&spriteRamAddr);
             myPlane_bulletDraw(&myBullet,&spriteRamAddr);
@@ -312,13 +306,67 @@ int main(void)
             m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
             b_green_drawPlane(&b_green_plane,&spriteRamAddr);
             enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
-            
             for(uint8_t i=spriteRamAddr;i<64;i++){
                writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
                spriteRamAddr++;
             }
             gameRunState=0;
          }
+         else if(gameRunState==3){
+            guanQia++;
+            if(guanQia==2){//通过最后一关的结算
+               for (int i = 0; i < 6; i++){
+                  spriteRamAddr=0;
+                  gameScoreDraw(3,10,GameScore,&spriteRamAddr);
+                  newGuanqiaInterFaceDraw(guanQia,&spriteRamAddr);
+                  myPlane_Draw(&myplane,&spriteRamAddr);
+                  for(uint8_t i=spriteRamAddr;i<64;i++){
+                     writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+                     spriteRamAddr++;
+                  }
+                  delay_ms(300);
+                  spriteRamAddr=0;
+                  gameScoreDraw(3,10,GameScore,&spriteRamAddr);
+                  myPlane_Draw(&myplane,&spriteRamAddr);
+                  for(uint8_t i=spriteRamAddr;i<64;i++){
+                     writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+                     spriteRamAddr++;
+                  }
+                  delay_ms(300);
+               }
+               NAMETABLE->scrollEn=0;
+               gameRunState=0;
+               timer_init_flag=1;
+               game_state=2;
+               myplane.liveFlag=0;
+            }
+            else{//通一小关的阶段结算画面
+               for (int i = 0; i < 6; i++){
+                  spriteRamAddr=0;
+                  gameScoreDraw(3,10,GameScore,&spriteRamAddr);
+                  newGuanqiaInterFaceDraw(guanQia,&spriteRamAddr);
+                  myPlane_Draw(&myplane,&spriteRamAddr);
+                  for(uint8_t i=spriteRamAddr;i<64;i++){
+                     writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+                     spriteRamAddr++;
+                  }
+                  delay_ms(500);
+                  spriteRamAddr=0;
+                  gameScoreDraw(3,10,GameScore,&spriteRamAddr);
+                  // newGuanqiaInterFaceDraw(1,&spriteRamAddr);
+                  myPlane_Draw(&myplane,&spriteRamAddr);
+                  for(uint8_t i=spriteRamAddr;i<64;i++){
+                     writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+                     spriteRamAddr++;
+                  }
+                  delay_ms(300);
+               }
+               gameRunState=0;
+               timer_init_flag=1;
+               game_state=1;
+            }
+         }
+
       }
       //游戏结算界面
       else if(game_state==2&&timer_init_flag==0)
@@ -338,14 +386,6 @@ int main(void)
    }
 
 }
-
-   // SPI_Flash_Erase_Sector(0x000000);
-   // SPI_Flash_Erase_Sector(0x001000);
-   //  SPI_Flash_Erase_Block(0x000000);
-   // SPI_Flash_Write_Page(write_map+256*0,0x000400,256);
-   // SPI_Flash_Write_Page(write_map+256*1,0x000500,256);
-   // SPI_Flash_Write_Page(write_map+256*2,0x000600,256);
-   // SPI_Flash_Write_Page(write_map+256*3,0x000700,256);
    // uint8_t *mario_1024=0;
    // mario_1024=mymalloc(1024);
    // SPI_Flash_Read(mario_1024,0x000000,1024);
@@ -353,41 +393,3 @@ int main(void)
    //    printf("addr=%lu data=%x\n",i,mario_1024[i]);
    // }
    // myfree(mario_1024);
-
-   // //大型飞机
-   // writeOneSprite( 0,x+ 0,y+ 0,0xc0,0x10);
-   // writeOneSprite( 1,x+ 0,y+ 7,0xc1,0x10);
-   // writeOneSprite( 2,x+ 0,y+14,0xc2,0x10);
-   // writeOneSprite( 3,x+ 0,y+21,0xc3,0x10);
-   // writeOneSprite( 4,x- 4,y+28,0xc4,0x10);
-   // writeOneSprite( 5,x+ 4,y+28,0xc5,0x10);
-   
-   // writeOneSprite( 6,x- 7,y+05,0xc6,0x10|0x40);
-   // writeOneSprite( 7,x+ 7,y+05,0xc6,0x10);
-
-   // writeOneSprite( 8,x- 7,y+12,0xc9,0x10);
-   // writeOneSprite( 9,x+ 7,y+12,0xca,0x10);
-
-   // writeOneSprite(10,x-14,y+10,0xc8,0x10);
-   // writeOneSprite(11,x+14,y+10,0xc8,0x10|0x40);
-   
-   // writeOneSprite(12,x-21,y+10,0xc7,0x10);
-   // writeOneSprite(13,x+21,y+10,0xc7,0x10|0x40);
-
-   // //小飞机横向右
-   // writeOneSprite(0,x+ 0,y+ 0,0x59,0x10|0x40);
-   // writeOneSprite(1,x+ 0,y+ 7,0x5a,0x10|0x40);
-   // writeOneSprite(2,x- 8,y+ 3,0x5b,0x10|0x40);
-
-   // //小飞机斜飞
-   // writeOneSprite(0,x+ 1,y+ 1,0x5E,0x10|0x80);
-   // writeOneSprite(1,x+ 8,y+ 1,0x5F,0x10|0x80);
-   // writeOneSprite(2,x+ 0,y+ 8,0x5C,0x10|0x80);
-   // writeOneSprite(3,x+ 8,y+ 8,0x5D,0x10|0x80);
-
-   // //灰色小飞机转折后斜向下飞
-   // writeOneSprite(0,x+ 0,y+ 0,0x50,0x00|0x40);
-   // writeOneSprite(1,x+ 8,y+ 0,0x4f,0x00|0x40);
-   // writeOneSprite(2,x+ 4,y- 7,0x51,0x00|0x40);
-   
-   
