@@ -9,7 +9,6 @@
             [7]:hFilp上下翻转选择 0/1
             [6]:vFilp左右反转选择 0/1
             [5:4]:PaletteChoice调色板的选择
-            [3]:isBackgroud是否处于背景之上
 */
 
 

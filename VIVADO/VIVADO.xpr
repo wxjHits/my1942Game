@@ -136,13 +136,6 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../RTL/src/game/M_ENEMY/ahb_plane_interface.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PPRDIR/../RTL/src/game/PPU/spriteDraw/ahb_spriteRam_interface.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -249,13 +242,6 @@
         </FileInfo>
       </File>
       <File Path="$PPRDIR/../RTL/src/apb_peripheral/apb_key/keyboard_scan.v">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="$PPRDIR/../RTL/src/game/M_ENEMY/m_enemy_plane.v">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>

@@ -467,7 +467,7 @@ module CortexM0_SoC (
                          );
 
     //------------------------------------------------------------------------------
-    // AHB RAMCODE
+    // AHB RAMCODE 0x00000000~0x1fffffff
     //------------------------------------------------------------------------------
 
     wire [31:0] RAMCODE_RDATA,RAMCODE_WDATA;
@@ -501,7 +501,7 @@ module CortexM0_SoC (
                       );
 
     //---------------------
-    // AHB RAMDATA
+    // AHB RAMDATA 0x20000000~0x3fffffff
     //------------------------------------------------------------------------------
 
     wire [31:0] RAMDATA_RDATA;
@@ -575,6 +575,10 @@ module CortexM0_SoC (
     wire    [31:0]  PRDATA;
     wire            PREADY;
     wire            PSLVERR;
+
+    //---------------------
+    // AHB RAMDATA 0x40000000~0x4000ffff
+    //------------------------------------------------------------------------------
 
     cmsdk_ahb_to_apb #(
                          .ADDRWIDTH                          (16),
@@ -972,7 +976,7 @@ module CortexM0_SoC (
 
 
     //------------------------------------------------------------------------------
-    // AHB DEFAULT SLAVE RESERVED FOR Camera
+    // AHB FOR CAMERA 0X40010000~0X4005ffff
     //------------------------------------------------------------------------------
     wire    [15:0]    Camera_ADDR;
     wire    [31:0]    Camera_RDATA;
@@ -1026,12 +1030,13 @@ module CortexM0_SoC (
                    );
 
     //------------------------------------------------------------------------------
-    // AHB-5 FOR gameSpriteRam
+    // AHB-5 FOR GAME_SPRITERAM 0x50010000 & 
+    // AHB-6 FOR GAME_NAMETABLE_RAM 0x50020000
     //------------------------------------------------------------------------------
     clk_wiz_0 instance_name(
-                  .clk_100MHz(clk_100MHz),
-                  .clk_25p2MHz(clk_25p2MHz),
-                  .clk_in1(clk)
+                  .clk_100MHz   (clk_100MHz),
+                  .clk_25p2MHz  (clk_25p2MHz),
+                  .clk_in1      (clk)
               );
 
     topPPU topPPU_inst(
@@ -1081,78 +1086,5 @@ module CortexM0_SoC (
             .rgb                (rgb            ) //输出像素点色彩信息
     );
 
-    //------------------------------------------------------------------------------
-    // AHB-7 FOR 敌机单位的运行逻辑
-    //------------------------------------------------------------------------------
-    wire    [7:0]   PosX_out    ;//用于碰撞Mask和绘图
-    wire    [7:0]   PosY_out    ;//用于碰撞Mask和绘图
-    wire    [7:0]   Attitude    ;//用于判断当前单位应该是动画的第几帧
-    wire            isLive      ;//用于CPU获取单位状态
-    wire            update_clk  ;//数据更新clk
-    wire            create      ;//创建单位
-    wire            Hit         ;//被击中
-    wire    [7:0]   Init_POS_X  ;
-    wire    [7:0]   Init_POS_Y  ;
-    wire    [7:0]   Init_HP     ;
-    wire    [7:0]   Init_Y_TURN0;
-    wire    [7:0]   Init_Y_TURN1;
-    wire    [7:0]   Init_Y_TURN2;
-    wire    [7:0]   Init_Y_TURN3;
-    wire    [7:0]   Init_X_TURN0;
-    wire    [7:0]   Init_X_TURN1;
-
-    ahb_plane_interface u_ahb_plane_interface(
-        .HCLK           (clk            ),
-        .HRESETn        (cpuresetn      ),
-        .HSEL           (HSEL_P7        ),
-        .HADDR          (HADDR_P7       ),
-        .HTRANS         (HTRANS_P7      ),
-        .HSIZE          (HSIZE_P7       ),
-        .HPROT          (HPROT_P7       ),
-        .HWRITE         (HWRITE_P7      ),
-        .HWDATA         (HWDATA_P7      ),
-        .HREADY         (HREADY_P7      ),
-        .HREADYOUT      (HREADYOUT_P7   ),
-        .HRDATA         (HRDATA_P7      ),
-        .HRESP          (HRESP_P7       ),
-
-        .PosX_out       (PosX_out       ),
-        .PosY_out       (PosY_out       ),
-        .Attitude       (Attitude       ),
-        .isLive         (isLive         ),
-        .update_clk     (update_clk     ),
-        .create         (create         ),
-        .Hit            (Hit            ),
-        .Init_POS_X     (Init_POS_X     ),
-        .Init_POS_Y     (Init_POS_Y     ),
-        .Init_HP        (Init_HP        ),
-        .Init_Y_TURN0   (Init_Y_TURN0   ),
-        .Init_Y_TURN1   (Init_Y_TURN1   ),
-        .Init_Y_TURN2   (Init_Y_TURN2   ),
-        .Init_Y_TURN3   (Init_Y_TURN3   ),
-        .Init_X_TURN0   (Init_X_TURN0   ),
-        .Init_X_TURN1   (Init_X_TURN1   )
-    );
-
-    m_enemyPlane_logic u_m_enemyPlane_logic(
-        .clk            (clk            ),
-        .rstn           (RSTn           ),
-        .update_clk     (update_clk     ),
-        .create         (create         ),
-        .Hit            (Hit            ),
-        .Init_POS_X     (Init_POS_X     ),
-        .Init_POS_Y     (Init_POS_Y     ),
-        .Init_HP        (Init_HP        ),
-        .Init_Y_TURN0   (Init_Y_TURN0   ),
-        .Init_Y_TURN1   (Init_Y_TURN1   ),
-        .Init_Y_TURN2   (Init_Y_TURN2   ),
-        .Init_Y_TURN3   (Init_Y_TURN3   ),
-        .Init_X_TURN0   (Init_X_TURN0   ),
-        .Init_X_TURN1   (Init_X_TURN1   ),
-        .PosX_out       (PosX_out       ),
-        .PosY_out       (PosY_out       ),
-        .Attitude       (Attitude       ),
-        .isLive         (isLive         ) 
-);
-
 endmodule
+

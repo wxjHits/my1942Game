@@ -287,26 +287,37 @@ void s_green_planeInit(S_GREEN_PLANEType* plane){
         // (plane+i)->isBack=1;
     }
 }
-void s_green_createOnePlane(S_GREEN_PLANEType* plane,int16_t myPlanePosX,int16_t myPlanePosY){
+void s_green_createOnePlane(S_GREEN_PLANEType* plane,uint8_t RL_Flag,int16_t myPlanePosX,int16_t myPlanePosY){
     for (int i = 0; i < S_GREEN_NUMMAX; i++){
         if((plane+i)->liveFlag==0){
             (plane+i)->liveFlag=1;
             (plane+i)->FpsCnt=0;
-            (plane+i)->PosX = LEFT_LINE+10;
+            
             (plane+i)->PosY = myPlanePosY-60-rand()%30;
-
             (plane+i)->route=0;
-            (plane+i)->routeOneDir_AddX=rand()%2+2;
             (plane+i)->routeOneDir_AddY=rand()%2+0;
 
-            (plane+i)->turnPoint_0 = myPlanePosX - 50+rand()%20;
-            (plane+i)->turnPoint_1 = (plane+i)->turnPoint_0 + 60;
-            (plane+i)->turnPoint_2 = myPlanePosY-20;
-            (plane+i)->turnPoint_3 = (plane+i)->turnPoint_2+20+rand()%30;
-            (plane+i)->turnPoint_4 = (plane+i)->turnPoint_1 - 30;
-
-            (plane+i)->actDraw=0;
-
+            (plane+i)->RL_Flag = RL_Flag;
+            if((plane+i)->RL_Flag==0){//R:1 L:0
+                (plane+i)->PosX = LEFT_LINE+10;
+                (plane+i)->actDraw=0;
+                (plane+i)->routeOneDir_AddX=rand()%2+2;
+                (plane+i)->turnPoint_0 = myPlanePosX - 50+rand()%20;
+                (plane+i)->turnPoint_1 = (plane+i)->turnPoint_0 + 60;
+                (plane+i)->turnPoint_2 = myPlanePosY-20;
+                (plane+i)->turnPoint_3 = (plane+i)->turnPoint_2+20+rand()%30;
+                (plane+i)->turnPoint_4 = (plane+i)->turnPoint_1 - 30;
+            }
+            else{
+                (plane+i)->PosX = RIGHT_LINE-10;
+                (plane+i)->actDraw=4;
+                (plane+i)->routeOneDir_AddX=-rand()%2-2;
+                (plane+i)->turnPoint_0 = myPlanePosX + 50+rand()%20;
+                (plane+i)->turnPoint_1 = (plane+i)->turnPoint_0 - 60;
+                (plane+i)->turnPoint_2 = myPlanePosY-20;
+                (plane+i)->turnPoint_3 = (plane+i)->turnPoint_2+20+rand()%30;
+                (plane+i)->turnPoint_4 = (plane+i)->turnPoint_1 + 30;
+            }
             break;
         }
     }
@@ -319,7 +330,11 @@ void s_green_movePlane(S_GREEN_PLANEType* plane,MYPLANEType* myPlane,BULLETType*
                 if  ((plane+i)->PosX<LEFT_LINE||(plane+i)->PosX>RIGHT_LINE||(plane+i)->PosY<TOP_LINE||(plane+i)->PosY>BOTTOM_LINE)
                     (plane+i)->liveFlag=0;//出界检测
                 else if((plane+i)->route==0){//第一段
-                    if((plane+i)->PosX>=(plane+i)->turnPoint_0){//到达转折点,进入状态机
+                    if ((plane+i)->RL_Flag==0 && (plane+i)->PosX>=(plane+i)->turnPoint_0){
+                        (plane+i)->route=1;
+                        (plane+i)->routeTwoState=0;//状态机第0段
+                    }
+                    else if((plane+i)->RL_Flag==1 && (plane+i)->PosX<=(plane+i)->turnPoint_0){//到达转折点,进入状态机
                         (plane+i)->route=1;
                         (plane+i)->routeTwoState=0;//状态机第0段
                     }
@@ -327,51 +342,91 @@ void s_green_movePlane(S_GREEN_PLANEType* plane,MYPLANEType* myPlane,BULLETType*
                         (plane+i)->PosX+=(plane+i)->routeOneDir_AddX;
                         (plane+i)->PosY+=(plane+i)->routeOneDir_AddY;
                     }
-                    (plane+i)->actDraw=0;//向右
                 }
                 else if((plane+i)->route==1){//第二段:状态机
-                    switch ((plane+i)->routeTwoState)
-                    {
-                        case 0:
-                            (plane+i)->actDraw=0;//向右
-                            (plane+i)->PosX += 3;
-                            (plane+i)->PosY += rand()%3;
-                            if((plane+i)->PosX>=(plane+i)->turnPoint_1)
-                                (plane+i)->routeTwoState=1;
-                            break;
-                        case 1:
-                            (plane+i)->actDraw=1;//向右下
-                            (plane+i)->PosX += rand()%2+2;
-                            (plane+i)->PosY += rand()%2+2;
-                            if(((plane+i)->PosY)>=(plane+i)->turnPoint_2)
-                                (plane+i)->routeTwoState=2;
-                            break;
-                        case 2:
-                            (plane+i)->actDraw=2;//向下边
-                            (plane+i)->PosX += 0;
-                            (plane+i)->PosY += 3;
-                            if((plane+i)->PosY>=(plane+i)->turnPoint_3){
-                                (plane+i)->routeTwoState=3;
-                                LED_toggle(0);
-                            }
-                            break;
-                        case 3:
-                            (plane+i)->actDraw=3;//向左下
-                            (plane+i)->PosX -= rand()%2+2;
-                            (plane+i)->PosY += rand()%2+2;
-                            if((plane+i)->PosX<=(plane+i)->turnPoint_4)
-                                (plane+i)->routeTwoState=4;
-                            break;
-                        case 4:
-                            (plane+i)->actDraw=4;//向左
-                            (plane+i)->PosX -= rand()%2+2;
-                            if((plane+i)->PosX<=(plane+i)->turnPoint_5)
-                                (plane+i)->routeTwoState=4;
-                            break;
-                    
-                    default:
-                        break;
+                    if((plane+i)->RL_Flag==0){
+                        switch ((plane+i)->routeTwoState){
+                            case 0:
+                                (plane+i)->actDraw=0;//向右
+                                (plane+i)->PosX += 3;
+                                (plane+i)->PosY += rand()%3;
+                                if((plane+i)->PosX>=(plane+i)->turnPoint_1)
+                                    (plane+i)->routeTwoState=1;
+                                break;
+                            case 1:
+                                (plane+i)->actDraw=1;//向右下
+                                (plane+i)->PosX += rand()%2+2;
+                                (plane+i)->PosY += rand()%2+2;
+                                if(((plane+i)->PosY)>=(plane+i)->turnPoint_2)
+                                    (plane+i)->routeTwoState=2;
+                                break;
+                            case 2:
+                                (plane+i)->actDraw=2;//向下边
+                                (plane+i)->PosX += 0;
+                                (plane+i)->PosY += 3;
+                                if((plane+i)->PosY>=(plane+i)->turnPoint_3){
+                                    (plane+i)->routeTwoState=3;
+                                    LED_toggle(0);
+                                }
+                                break;
+                            case 3:
+                                (plane+i)->actDraw=3;//向左下
+                                (plane+i)->PosX -= rand()%2+2;
+                                (plane+i)->PosY += rand()%2+2;
+                                if((plane+i)->PosX<=(plane+i)->turnPoint_4)
+                                    (plane+i)->routeTwoState=4;
+                                break;
+                            case 4:
+                                (plane+i)->actDraw=4;//向左
+                                (plane+i)->PosX -= rand()%2+2;
+                                if((plane+i)->PosX<=(plane+i)->turnPoint_5)
+                                    (plane+i)->routeTwoState=4;
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    else{
+                        switch ((plane+i)->routeTwoState){
+                            case 0:
+                                (plane+i)->actDraw=4;//向左边
+                                (plane+i)->PosX -= 3;
+                                (plane+i)->PosY += rand()%3;
+                                if((plane+i)->PosX<=(plane+i)->turnPoint_1)
+                                    (plane+i)->routeTwoState=1;
+                                break;
+                            case 1:
+                                (plane+i)->actDraw=3;//向左下
+                                (plane+i)->PosX -= rand()%2+2;
+                                (plane+i)->PosY += rand()%2+2;
+                                if(((plane+i)->PosY)<=(plane+i)->turnPoint_2)
+                                    (plane+i)->routeTwoState=2;
+                                break;
+                            case 2:
+                                (plane+i)->actDraw=2;//向下边
+                                (plane+i)->PosX += 0;
+                                (plane+i)->PosY += 3;
+                                if((plane+i)->PosY>=(plane+i)->turnPoint_3)
+                                    (plane+i)->routeTwoState=3;
+                                break;
+                            case 3:
+                                (plane+i)->actDraw=1;//向右下
+                                (plane+i)->PosX += rand()%2+2;
+                                (plane+i)->PosY += rand()%2+2;
+                                if((plane+i)->PosX>=(plane+i)->turnPoint_4)
+                                    (plane+i)->routeTwoState=4;
+                                break;
+                            case 4:
+                                (plane+i)->actDraw=0;//向右
+                                (plane+i)->PosX += rand()%2+2;
+                                if((plane+i)->PosX>=(plane+i)->turnPoint_5)
+                                    (plane+i)->routeTwoState=4;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                    
                 }
             }
             else

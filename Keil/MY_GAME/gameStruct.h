@@ -73,6 +73,7 @@ typedef struct{
     volatile int16_t PosY;
     // volatile uint8_t shootFlag;//敌机会发射子弹
 
+    volatile uint8_t RL_Flag;
     volatile uint8_t route;//0:第一段 1：第二段 进入状态机 第二段：退出状态机
     volatile int8_t routeOneDir_AddX;//第一段路径的增量
     volatile int8_t routeOneDir_AddY;//第一段路径的增量

@@ -13,7 +13,7 @@ void s_grey_drawPlane(S_GREY_PLANEType* plane,uint8_t* spriteRamAddr);
 
 //绿色小飞机
 void s_green_planeInit(S_GREEN_PLANEType* plane);
-void s_green_createOnePlane(S_GREEN_PLANEType* plane,int16_t myPlanePosX,int16_t myPlanePosY);
+void s_green_createOnePlane(S_GREEN_PLANEType* plane,uint8_t RL_Flag,int16_t myPlanePosX,int16_t myPlanePosY);
 void s_green_movePlane(S_GREEN_PLANEType* plane,MYPLANEType* myPlane,BULLETType* bullet);
 void s_green_drawPlane(S_GREEN_PLANEType* plane,uint8_t* spriteRamAddr);
 

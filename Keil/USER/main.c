@@ -2,7 +2,6 @@
 #include "camera.h"
 #include "uart.h"
 #include "led.h"
-#include "pic_resource.h"
 #include "lcd.h"
 #include "key.h"
 #include "timer.h"
@@ -10,7 +9,6 @@
 #include "systick.h"
 #include "pstwo.h"
 
-// #include "myGame.h"
 #include "enemyPlane.h"
 #include "enemyBullet.h"
 #include "myPlane.h"
@@ -19,7 +17,6 @@
 #include "gameInterFace.h"
 #include "spriteRam.h"
 #include "makeMap.h"
-// #include "ahb_plane.h"
 
 #include "malloc.h"
 #include "stdlib.h"
@@ -143,12 +140,13 @@ int main(void)
             }
             clearNameTableAll();
             loadMapJianchuan();
-            NAMETABLE->scrollCntMax=1;
+            NAMETABLE->scrollCntMax=3;
             NAMETABLE->flashAddrStart=guanQia*(0x0004000);
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
          }
          else if(game_state==2){
+            NAMETABLE->scrollEn=0;
             for(uint8_t i=0;i<64;i++){
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
@@ -159,7 +157,6 @@ int main(void)
             gameEndInterFaceArrayCnt=0;
          }
       }
-
 /****不同界面的运行*****/
       //游戏开始选择界面
       if(game_state==0&&timer_init_flag==0){
@@ -196,14 +193,14 @@ int main(void)
                 planeParameter.isBack=rand()%2;
                s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
                if(NAMETABLE->mapScrollPtr==120){
-                  s_green_createOnePlane(&s_green_plane,myplane.PosX,myplane.PosY);
+                  s_green_createOnePlane(&s_green_plane,rand()%2,myplane.PosX,myplane.PosY);
                   m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
                   b_green_createOnePlane(&b_green_plane);
                }
             }
             //按键检测
             PS2_KEY=PS2_DataKey();
-            timer_cnt+=1;
+            timer_cnt++;
             if(timer_cnt>=16){
                timer_cnt=0;
                if((Data[4]&0x10)==0){//PS2_KEY==PSB_GREEN||保证移动的同时能够发射子弹
@@ -225,7 +222,7 @@ int main(void)
                }
                
             }
-            if(timer_cnt%3==1&&gameingPause==0){
+            if(timer_cnt%3==1){
                if(PS2_KEY==PSB_PAD_LEFT){
                    if(myplane.PosX>LEFT_LINE+20)
                        myplane.PosX-=5;
@@ -261,9 +258,8 @@ int main(void)
             }
 
             //碰撞检测
-            printf("NAMETABLE->mapBackgroundCnt=%u,NAMETABLE->mapScrollPtr=%u\n",NAMETABLE->mapBackgroundCnt,NAMETABLE->mapScrollPtr);
+            // printf("NAMETABLE->mapBackgroundCnt=%u,NAMETABLE->mapScrollPtr=%u\n",NAMETABLE->mapBackgroundCnt,NAMETABLE->mapScrollPtr);
             if(NAMETABLE->mapBackgroundCnt==8&&NAMETABLE->mapScrollPtr<=120){
-               printf("booom!!!\n");
                for(int i=0;i<30;i++)
                   myBulletsHitMap.map[i]=0xffffffff;
             }
@@ -272,7 +268,7 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
-            // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
@@ -353,7 +349,6 @@ int main(void)
                   delay_ms(500);
                   spriteRamAddr=0;
                   gameScoreDraw(3,10,GameScore,&spriteRamAddr);
-                  // newGuanqiaInterFaceDraw(1,&spriteRamAddr);
                   myPlane_Draw(&myplane,&spriteRamAddr);
                   for(uint8_t i=spriteRamAddr;i<64;i++){
                      writeOneSprite(spriteRamAddr,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
@@ -384,7 +379,6 @@ int main(void)
          }
       }
    }
-
 }
    // uint8_t *mario_1024=0;
    // mario_1024=mymalloc(1024);

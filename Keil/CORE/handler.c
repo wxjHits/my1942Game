@@ -145,7 +145,6 @@ void vga_Handler(void){
     else if(game_state==2){
         gameEndInterFaceFpsCnt++;
         if(gameEndInterFaceFpsCnt==10){
-            LED_toggle(3);
             gameEndInterFaceFpsCnt=0;
             DrawFlag=1;
         }

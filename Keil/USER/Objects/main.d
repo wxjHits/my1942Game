@@ -8,7 +8,6 @@
 .\objects\main.o: ..\DEVICE\camera.h
 .\objects\main.o: ..\DEVICE\uart.h
 .\objects\main.o: ..\DEVICE\led.h
-.\objects\main.o: pic_resource.h
 .\objects\main.o: ..\DEVICE\lcd.h
 .\objects\main.o: ..\DEVICE\key.h
 .\objects\main.o: ..\DEVICE\timer.h
