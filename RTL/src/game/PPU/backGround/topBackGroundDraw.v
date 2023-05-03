@@ -7,31 +7,34 @@ module topBackGroundDraw #(
     input   wire                    clk_25p2MHz ,
     input   wire                    rstn        ,
     //cpu ahb-lite bus
-    input  wire                     NAMETABLE_HCLK        ,
-    input  wire                     NAMETABLE_HRESETn     ,
-    input  wire                     NAMETABLE_HSEL        ,
-    input  wire   [31:0]            NAMETABLE_HADDR       ,
-    input  wire   [1:0]             NAMETABLE_HTRANS      ,
-    input  wire   [2:0]             NAMETABLE_HSIZE       ,
-    input  wire   [3:0]             NAMETABLE_HPROT       ,
-    input  wire                     NAMETABLE_HWRITE      ,
-    input  wire   [31:0]            NAMETABLE_HWDATA      ,
-    input wire                      NAMETABLE_HREADY      ,
-    output wire                     NAMETABLE_HREADYOUT   ,
-    output wire   [31:0]            NAMETABLE_HRDATA      ,
-    output wire   [1:0]             NAMETABLE_HRESP       ,
+    input   wire                    NAMETABLE_HCLK        ,
+    input   wire                    NAMETABLE_HRESETn     ,
+    input   wire                    NAMETABLE_HSEL        ,
+    input   wire   [31:0]           NAMETABLE_HADDR       ,
+    input   wire   [1:0]            NAMETABLE_HTRANS      ,
+    input   wire   [2:0]            NAMETABLE_HSIZE       ,
+    input   wire   [3:0]            NAMETABLE_HPROT       ,
+    input   wire                    NAMETABLE_HWRITE      ,
+    input   wire   [31:0]           NAMETABLE_HWDATA      ,
+    input   wire                    NAMETABLE_HREADY      ,
+    output  wire                    NAMETABLE_HREADYOUT   ,
+    output  wire   [31:0]           NAMETABLE_HRDATA      ,
+    output  wire   [1:0]            NAMETABLE_HRESP       ,
+
+    //to cpu IRQ
+    output  wire                    createPlaneIntr     ,//50MHz能够捕捉的信号
     
     //from VGA_driver
-    input  wire [`VGA_POSXY_BIT-1:0] vgaPosX    ,
-    input  wire [`VGA_POSXY_BIT-1:0] vgaPosY    ,
+    input   wire [`VGA_POSXY_BIT-1:0] vgaPosX    ,
+    input   wire [`VGA_POSXY_BIT-1:0] vgaPosY    ,
     //to topPPU
-    output wire [`RGB_BIT-1:0] backGroundVgaRgbOut,
+    output  wire [`RGB_BIT-1:0] backGroundVgaRgbOut,
     //to SPI_FLASH
-    output  wire            scrollEn        ,// 用于软件还是硬件控制SPI_FLASH
-    output  wire            SPI_CLK         ,
-    output  wire            SPI_CS          ,
-    output  wire            SPI_MOSI        ,
-    input   wire            SPI_MISO        
+    output  wire                    scrollEn        ,// 用于软件还是硬件控制SPI_FLASH
+    output  wire                    SPI_CLK         ,
+    output  wire                    SPI_CS          ,
+    output  wire                    SPI_MOSI        ,
+    input   wire                    SPI_MISO        
 );
 
     wire   [ADDR_WIDTH-1:0]  BRAM_RDADDR    ;
@@ -41,15 +44,15 @@ module topBackGroundDraw #(
     wire   [3:0]             BRAM_WRITE     ;
 
     //AHB-Lite W/R scrollCtrl模块
-    // wire                    scrollEn        ;// Write & Read
-    wire    [07:0]          scrollCntMax    ;// Write & Read
-    wire    [23:0]          flashAddrStart  ;// Write & Read
-    wire    [07:0]          mapBackgroundMax;// Write & Read
-    wire    [07:0]          mapBackgroundCnt;// only Read
-    wire    [07:0]          mapScrollPtr    ;// only Read
-    wire                    scrollingFlag   ;// only Read
-    wire                    scrollPause     ;// Write & Read
-
+    // wire                    scrollEn            ;// Write & Read
+    wire    [07:0]          scrollCntMax        ;// Write & Read
+    wire    [23:0]          flashAddrStart      ;// Write & Read
+    wire    [07:0]          mapBackgroundMax    ;// Write & Read
+    wire    [07:0]          mapBackgroundCnt    ;// only Read
+    wire    [07:0]          mapScrollPtr        ;// only Read
+    wire                    scrollingFlag       ;// only Read
+    wire                    scrollPause         ;// Write & Read
+    wire                    createPlaneIntrEn   ;// Write & Read
 
 ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     .HCLK               (NAMETABLE_HCLK     ),
@@ -74,6 +77,7 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     .mapScrollPtr       (mapScrollPtr       ),
     .scrollingFlag      (scrollingFlag      ),
     .scrollPause        (scrollPause        ),
+    .createPlaneIntrEn  (createPlaneIntrEn  ),
     //to nameTableRam.v
     .BRAM_RDADDR        (BRAM_RDADDR        ),
     .BRAM_WRADDR        (BRAM_WRADDR        ),
@@ -120,6 +124,27 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     wire vgaIntr = VGA_Intr_r0 & (~VGA_Intr_r1);
 
     wire [8:0]   scrollPtrOut;
+
+//createPlaneIntrEn,创造敌机的中断产生
+reg createPlaneIntr_r0,createPlaneIntr_r1;
+always @(posedge clk_50MHz) begin
+    if(~rstn)begin
+        createPlaneIntr_r0<=1'b0;
+        createPlaneIntr_r1<=1'b0;
+    end
+    else if(createPlaneIntrEn==1'b1) begin
+        if(mapScrollPtr[2:0]==3'b111 && scrollingFlag==1'b1)
+            createPlaneIntr_r0<=1'b1;
+        else
+            createPlaneIntr_r0<=1'b0;
+        createPlaneIntr_r1<=createPlaneIntr_r0;
+    end
+    else begin
+        createPlaneIntr_r0<=1'b0;
+        createPlaneIntr_r1<=1'b0;
+    end
+end
+assign createPlaneIntr = createPlaneIntr_r0 & (~createPlaneIntr_r1);
 
 //滚动控制,将数据从flash搬运到nameTableRam
  scrollCtrl u_scrollCtrl(

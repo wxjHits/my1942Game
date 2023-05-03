@@ -34,9 +34,9 @@ module spriteRam(
 );
     /*****64个精灵RAM的初始化*****/
     (* ram_style="block" *) reg  [4*(`BYTE)-1:0] spriteViewRam [0:`SPRITE_NUM_MAX-1];
-    initial begin
-	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/spriteViewRam.txt", spriteViewRam);
-	end
+    // initial begin
+    //     $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/spriteViewRam.txt", spriteViewRam);
+    // end
 
 /*与CPU M0软核的交互*/
     always@(posedge clk) begin

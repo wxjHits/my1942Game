@@ -36,7 +36,16 @@ void s_grey_createOnePlane(S_GREY_PLANEType* plane,S_GREY_PLANEType* planeParame
             (plane+i)->PosX = planeParameter->PosX;
             (plane+i)->PosY = TOP_LINE+5;
 
-            (plane+i)->routeOneDir = planeParameter->routeOneDir;
+            if((plane+i)->PosX>LEFT_LINE&&(plane+i)->PosX< (LEFT_LINE + 80)){
+                (plane+i)->routeOneDir=DOWN_RIGHT;
+            }
+            else if ((plane+i)->PosX>(RIGHT_LINE-80) && (plane+i)->PosX<RIGHT_LINE){
+                (plane+i)->routeOneDir=DOWN_LEFT;
+            }
+            else
+                (plane+i)->routeOneDir=DOWN;
+            
+
             if((plane+i)->routeOneDir==DOWN){
                 (plane+i)->routeOneDir_AddX=0;
                 (plane+i)->routeOneDir_AddY=3;
@@ -556,18 +565,18 @@ void m_straight_drawPlane(M_STRAIGHT_PLANEType* plane,uint8_t* spriteRamAddr){
                 case 0://
                     writeOneSprite((*spriteRamAddr)+0,(plane+i)->PosX+ 0,(plane+i)->PosY+ 0,0x90,color|0x00);
                     writeOneSprite((*spriteRamAddr)+1,(plane+i)->PosX+ 8,(plane+i)->PosY+ 0,0x91,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+ 0,(plane+i)->PosY+ 8,0x92,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+3,(plane+i)->PosX+ 8,(plane+i)->PosY+ 8,0x93,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+4,(plane+i)->PosX+ 0,(plane+i)->PosY+16,0x94,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+5,(plane+i)->PosX+ 8,(plane+i)->PosY+16,0x95,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+6,(plane+i)->PosX- 8,(plane+i)->PosY+ 3,0x96,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+7,(plane+i)->PosX+16,(plane+i)->PosY+ 3,0x96,color|0x40);
+                    writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+ 0,(plane+i)->PosY+ 7,0x92,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+3,(plane+i)->PosX+ 8,(plane+i)->PosY+ 7,0x93,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+4,(plane+i)->PosX+ 0,(plane+i)->PosY+14,0x94,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+5,(plane+i)->PosX+ 8,(plane+i)->PosY+14,0x95,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+6,(plane+i)->PosX- 8,(plane+i)->PosY+ 4,0x96,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+7,(plane+i)->PosX+16,(plane+i)->PosY+ 4,0x96,color|0x40);
                     (*spriteRamAddr)+=8;
                     break;
                 case 1://
                     writeOneSprite((*spriteRamAddr)+0,(plane+i)->PosX+ 0,(plane+i)->PosY+ 0,0xb3,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+1,(plane+i)->PosX+ 0,(plane+i)->PosY- 8,0xb1,color|0x00);
-                    writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+ 0,(plane+i)->PosY+ 8,0xb5,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+1,(plane+i)->PosX+ 0,(plane+i)->PosY- 7,0xb1,color|0x00);
+                    writeOneSprite((*spriteRamAddr)+2,(plane+i)->PosX+ 0,(plane+i)->PosY+ 7,0xb5,color|0x00);
                     writeOneSprite((*spriteRamAddr)+3,(plane+i)->PosX- 8,(plane+i)->PosY+ 0,0xb2,color|0x00);
                     writeOneSprite((*spriteRamAddr)+4,(plane+i)->PosX+ 8,(plane+i)->PosY+ 0,0xb2,color|0x40);
                     (*spriteRamAddr)+=5;

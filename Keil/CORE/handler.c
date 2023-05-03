@@ -6,7 +6,7 @@
 #include "led.h"
 #include "key.h"
 
-#include "myGame.h"
+#include "gameStruct.h"
 #include "spriteRam.h"
 
 #include "stdlib.h"
@@ -151,7 +151,22 @@ void vga_Handler(void){
     }
 }
 
+/**************敌机生成的中断函数**************/
+extern S_GREY_PLANEType s_grey_plane;
+extern M_STRAIGHT_PLANEType m_straight_plane;
+int i=0;
+void create_plane_Handler(void){
+    S_GREY_PLANEType planeParameter;
+    planeParameter.PosX = rand()%200+15;
+    // planeParameter.PosX= RIGHT_LINE-20;
+    planeParameter.isBack=rand()%2;
 
-
-
-
+    s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
+    if(i==10){
+        i=0;
+        LED_toggle(3);
+        m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
+    }
+    else
+        i++;
+}

@@ -1,0 +1,29 @@
+set_pin_assignment	{ OUTLED[0] }	{ LOCATION = K17; }
+set_pin_assignment	{ OUTLED[1] }	{ LOCATION = K18; }
+set_pin_assignment	{ OUTLED[2] }	{ LOCATION = L14; }
+set_pin_assignment	{ OUTLED[3] }	{ LOCATION = M14; }
+set_pin_assignment	{ PS2_CLK }	{ LOCATION = A16; }
+set_pin_assignment	{ PS2_CS }	{ LOCATION = A15; PULLTYPE = PULLUP; }
+set_pin_assignment	{ PS2_DI }	{ LOCATION = B11; }
+set_pin_assignment	{ PS2_DO }	{ LOCATION = A11; }
+set_pin_assignment	{ RSTn }	{ LOCATION = R11; }
+set_pin_assignment	{ RXD }	{ LOCATION = A9; }
+set_pin_assignment	{ SPI_CLK }	{ LOCATION = A14; }
+set_pin_assignment	{ SPI_CS }	{ LOCATION = D13; PULLTYPE = PULLUP; }
+set_pin_assignment	{ SPI_MISO }	{ LOCATION = D12; }
+set_pin_assignment	{ SPI_MOSI }	{ LOCATION = A13; }
+set_pin_assignment	{ SWCLK }	{ LOCATION = K16; }
+set_pin_assignment	{ SWDIO }	{ LOCATION = G13; }
+set_pin_assignment	{ TXD }	{ LOCATION = C11; }
+set_pin_assignment	{ clk }	{ LOCATION = B8; }
+set_pin_assignment	{ tmds_clk_n }	{ LOCATION = U1; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_clk_p }	{ LOCATION = P4; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_n[0] }	{ LOCATION = U2; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_n[1] }	{ LOCATION = K3; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_n[2] }	{ LOCATION = R1; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_p[0] }	{ LOCATION = V5; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_p[1] }	{ LOCATION = U4; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_p[2] }	{ LOCATION = R3; IOSTANDARD = LVDS25; }
+
+
+

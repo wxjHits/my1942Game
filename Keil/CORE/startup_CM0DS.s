@@ -86,7 +86,8 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
 				DCD     KEY2_Handler              ; IRQ5 Handler
 				DCD     KEY3_Handler			  ; IRQ6 Handler
 				DCD     TIMER_Handler			  ; IRQ7 Handler
-				DCD     VGA_Handler			  	  ; IRQ8 VGA_Handler						
+				DCD     VGA_Handler			  	  ; IRQ8 VGA_Handler
+                DCD     CREATE_PLANE_Handler      ; IRQ9 CREATE_PLANE_Handler
 __Vectors_End
 
 __Vectors_Size  EQU     __Vectors_End - __Vectors
@@ -256,7 +257,15 @@ VGA_Handler PROC
 				BL vga_Handler
 				POP {R0,R1,R2,PC}
 				ENDP
-					
+
+CREATE_PLANE_Handler PROC
+				EXPORT CREATE_PLANE_Handler 		[WEAK]
+				IMPORT create_plane_Handler
+				PUSH {R0,R1,R2,LR}
+				BL create_plane_Handler
+				POP {R0,R1,R2,PC}
+				ENDP
+
                 ALIGN
 
 

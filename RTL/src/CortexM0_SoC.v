@@ -4,55 +4,60 @@
 //描述:SoC-design based on kernel--Cortex_M0
 //时间:create 2022.09.20
 /****************************/
-`include "C:/Users/hp/Desktop/my1942Game/RTL/src/cpu_define.v"
-module CortexM0_SoC (
-        input	wire        clk         ,
-        input	wire        RSTn        ,
-        inout	wire        SWDIO       ,
-        input	wire        SWCLK       ,
-        output  wire        SLEEPING    ,   //m0内核处于低功耗睡眠状态的标志位
+`include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
+module CortexM0_SoC(
+        input	wire        clk         ,//B8
+        input	wire        RSTn        ,//T9
+        inout	wire        SWDIO       ,//G13; 
+        input	wire        SWCLK       ,//K16; 
+        // output  wire        SLEEPING    ,   //m0内核处于低功耗睡眠状态的标志位
 
         // UART
-        output  wire        TXD         ,
-        input   wire        RXD         ,
-        //KEYBOARD
-        input   wire [3:0]  col         ,
-        output  wire [3:0]  row         ,
+        output  wire        TXD         ,//C11; 
+        input   wire        RXD         ,//A9; 
+        // //KEYBOARD
+        // input   wire [3:0]  col         ,
+        // output  wire [3:0]  row         ,
         //LED
-        output	wire [7:0]  OUTLED      ,
+        output	wire [3:0]  OUTLED      ,//M14 L14 K18 K17
         //SPI
-        output  wire        SPI_CLK     ,
-        output  wire        SPI_CS      ,
-        output  wire        SPI_MOSI    ,
-        input   wire        SPI_MISO    ,
+        output  wire        SPI_CLK     ,//A14; 
+        output  wire        SPI_CS      ,//D13; 
+        output  wire        SPI_MOSI    ,//A13; 
+        input   wire        SPI_MISO    ,//D12; 
         //PS2
-        output wire         PS2_CS      ,
-        output wire         PS2_CLK     ,
-        output wire         PS2_DO      ,
-        input  wire         PS2_DI      ,
-        //LCD
-        output  wire        LCD_CS      ,
-        output  wire        LCD_RS      ,
-        output  wire        LCD_WR      ,
-        output  wire        LCD_RD      ,
-        output  wire        LCD_RST     ,
-        output  wire        LCD_BL_CTR  ,
-        output  wire [15:0] LCD_DATA    ,
+        output wire         PS2_CS      ,//A15
+        output wire         PS2_CLK     ,//A16
+        output wire         PS2_DO      ,//A11
+        input  wire         PS2_DI      ,//B11
+        // //GAME VGA
+        // output  wire        hsync       ,//输出行同步信号
+        // output  wire        vsync       ,//输出场同步信号
+        // output  wire [11:0] rgb          //输出像素点色彩信息
 
-        //GAME VGA
-        output  wire        hsync       ,//输出行同步信号
-        output  wire        vsync       ,//输出场同步信号
-        output  wire [11:0] rgb         ,//输出像素点色彩信息
-        // CAMERA
-        output  wire        CAMERA_PWDN ,
-        output  wire        CAMERA_RST  ,
-        output  wire        CAMERA_SCL  ,
-        inout   wire        CAMERA_SDA  ,
-        input   wire        CAMERA_PCLK ,
-        input   wire        CAMERA_VSYNC,
-        input   wire        CAMERA_HREF ,
-        input   wire [7:0]  CAMERA_DATA
+        //HDMI OUT PIN
+        output wire            tmds_clk_p   ,//
+        output wire            tmds_clk_n   ,//
+        output wire    [2:0]   tmds_data_p  ,//
+        output wire    [2:0]   tmds_data_n   //
 
+        // //LCD
+        // output  wire        LCD_CS      ,
+        // output  wire        LCD_RS      ,
+        // output  wire        LCD_WR      ,
+        // output  wire        LCD_RD      ,
+        // output  wire        LCD_RST     ,
+        // output  wire        LCD_BL_CTR  ,
+        // output  wire [15:0] LCD_DATA    ,
+        // // CAMERA
+        // output  wire        CAMERA_PWDN ,
+        // output  wire        CAMERA_RST  ,
+        // output  wire        CAMERA_SCL  ,
+        // inout   wire        CAMERA_SDA  ,
+        // input   wire        CAMERA_PCLK ,
+        // input   wire        CAMERA_VSYNC,
+        // input   wire        CAMERA_HREF ,
+        // input   wire [7:0]  CAMERA_DATA ,
     );
 
     wire SOFT_SPI_CLK ;
@@ -90,12 +95,15 @@ module CortexM0_SoC (
     wire            RXOVRINT;
     wire            UARTINT;
 
+    wire            createPlaneIntr;
+
     wire [3:0]GPIOINT;
     wire TIMERINT;
     wire VGA_Intr;
 
     wire [31:0] IRQ;
-    assign IRQ = {23'b0,VGA_Intr,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
+    // assign IRQ = {23'b0,VGA_Intr,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
+    assign IRQ = {22'b0,createPlaneIntr,VGA_Intr,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
 
     wire RXEV;
     assign RXEV = 1'b0;
@@ -147,7 +155,7 @@ module CortexM0_SoC (
     //------------------------------------------------------------------------------
     // Instantiate Cortex-M0 processor logic level
     //------------------------------------------------------------------------------
-
+    wire        SLEEPING    ;
     cortexm0ds_logic u_logic (
 
                          // System inputs
@@ -812,62 +820,62 @@ module CortexM0_SoC (
                 .LED                                (LED)
 
             );
-    assign OUTLED = LED;
+    assign OUTLED = LED[3:0];
 
-    //APB2 KEY
-    wire [15:0] keyboard_wire;
-    wire [3:0] key_wire;
-    apb_key u_apb_key (
-                .PCLK			(clk),     // Clock
-                .PCLKG		(clk),    // Gated Clock
-                .PRESETn		(cpuresetn),  // Reset
-                .PSEL			(PSEL_APBP2),     // Device select
-                .PADDR		(PADDR[15:0]),    // Address
-                .PENABLE		(PENABLE),  // Transfer control
-                .PWRITE		(PWRITE),   // Write control
-                .PWDATA		(PWDATA),   // Write data
-                .ECOREVNUM	(4'b0),// Engineering-change-order revision bits
-                .PRDATA		(PRDATA_APBP2),   // Read data
-                .PREADY		(PREADY_APBP2),   // Device ready
-                .PSLVERR		(PSLVERR_APBP2),  // Device error response
+    // //APB2 KEY
+    // wire [15:0] keyboard_wire;
+    // wire [3:0] key_wire;
+    // apb_key u_apb_key (
+    //             .PCLK			(clk),     // Clock
+    //             .PCLKG		(clk),    // Gated Clock
+    //             .PRESETn		(cpuresetn),  // Reset
+    //             .PSEL			(PSEL_APBP2),     // Device select
+    //             .PADDR		(PADDR[15:0]),    // Address
+    //             .PENABLE		(PENABLE),  // Transfer control
+    //             .PWRITE		(PWRITE),   // Write control
+    //             .PWDATA		(PWDATA),   // Write data
+    //             .ECOREVNUM	(4'b0),// Engineering-change-order revision bits
+    //             .PRDATA		(PRDATA_APBP2),   // Read data
+    //             .PREADY		(PREADY_APBP2),   // Device ready
+    //             .PSLVERR		(PSLVERR_APBP2),  // Device error response
 
-                .PORTIN		(key_wire),    //GPIO input
-                .GPIOINT	(GPIOINT),   //GPIO Interrupt
-                .COMBINT    (COMBINT)//Combined interrupt
-            );
+    //             .PORTIN		(key_wire),    //GPIO input
+    //             .GPIOINT	(GPIOINT),   //GPIO Interrupt
+    //             .COMBINT    (COMBINT)//Combined interrupt
+    //         );
 
-    key_filter  key0_filter(
-                    .sys_clk     (clk),   //系统时钟50Mhz
-                    .sys_rst_n   (RSTn),   //全局复位
-                    .key_in      (keyboard_wire[0]),   //按键输入信号
-                    .key_out     (key_wire[0])
-                );
-    key_filter  key1_filter(
-                    .sys_clk     (clk),   //系统时钟50Mhz
-                    .sys_rst_n   (RSTn),   //全局复位
-                    .key_in      (keyboard_wire[1]),   //按键输入信号
-                    .key_out     (key_wire[1])
-                );
-    key_filter  key2_filter(
-                    .sys_clk     (clk),   //系统时钟50Mhz
-                    .sys_rst_n   (RSTn),   //全局复位
-                    .key_in      (keyboard_wire[2]),   //按键输入信号
-                    .key_out     (key_wire[2])
-                );
-    key_filter  key3_filter(
-                    .sys_clk     (clk),   //系统时钟50Mhz
-                    .sys_rst_n   (RSTn),   //全局复位
-                    .key_in      (keyboard_wire[3]),   //按键输入信号
-                    .key_out     (key_wire[3])
-                );
+    // key_filter  key0_filter(
+    //                 .sys_clk     (clk),   //系统时钟50Mhz
+    //                 .sys_rst_n   (RSTn),   //全局复位
+    //                 .key_in      (keyboard_wire[0]),   //按键输入信号
+    //                 .key_out     (key_wire[0])
+    //             );
+    // key_filter  key1_filter(
+    //                 .sys_clk     (clk),   //系统时钟50Mhz
+    //                 .sys_rst_n   (RSTn),   //全局复位
+    //                 .key_in      (keyboard_wire[1]),   //按键输入信号
+    //                 .key_out     (key_wire[1])
+    //             );
+    // key_filter  key2_filter(
+    //                 .sys_clk     (clk),   //系统时钟50Mhz
+    //                 .sys_rst_n   (RSTn),   //全局复位
+    //                 .key_in      (keyboard_wire[2]),   //按键输入信号
+    //                 .key_out     (key_wire[2])
+    //             );
+    // key_filter  key3_filter(
+    //                 .sys_clk     (clk),   //系统时钟50Mhz
+    //                 .sys_rst_n   (RSTn),   //全局复位
+    //                 .key_in      (keyboard_wire[3]),   //按键输入信号
+    //                 .key_out     (key_wire[3])
+    //             );
 
-    keyboard_scan u_keyboard_scan(
-                      .clk (clk),
-                      .RSTn(RSTn),
-                      .col (col),
-                      .row (row),
-                      .key (keyboard_wire)
-                  );
+    // keyboard_scan u_keyboard_scan(
+    //                   .clk (clk),
+    //                   .RSTn(RSTn),
+    //                   .col (col),
+    //                   .row (row),
+    //                   .key (keyboard_wire)
+    //               );
 
     //APB3 TIMER
     apb_timer u_apb_timer (
@@ -887,26 +895,6 @@ module CortexM0_SoC (
 
                   .PWM_out  (),   //PWM mode out
                   .TIMERINT (TIMERINT)   // Timer interrupt output
-              );
-
-    //APB6 TIMER
-    apb_timer u_apb_timer_1 (
-                  .PCLK     (clk),   // PCLK for timer operation
-                  .PCLKG    (clk),   // Gated clock
-                  .PRESETn  (cpuresetn),   // Reset
-
-                  .PSEL     (PSEL_APBP6),   // Device select
-                  .PADDR    (PADDR[15:0]),   // Address
-                  .PENABLE  (PENABLE),   // Transfer control
-                  .PWRITE   (PWRITE),   // Write control
-                  .PWDATA   (PWDATA),   // Write data
-                  .ECOREVNUM(4'b0),   // Engineering-change-order revision bits
-                  .PRDATA   (PRDATA_APBP6),   // Read data
-                  .PREADY   (PREADY_APBP6),   // Device ready
-                  .PSLVERR  (PSLVERR_APBP6),   // Device error response
-
-                  .PWM_out  (),   //PWM mode out
-                  .TIMERINT (TIMERINT_1)   // Timer interrupt output
               );
 
     //APB4 SPI 
@@ -948,99 +936,109 @@ module CortexM0_SoC (
                   .PS2_DO     (PS2_DO )     ,
                   .PS2_DI     (PS2_DI )
               );
-    //AHB4 LCD 0x5000_0000
-    ahb_lcd lcd(
-                .HCLK       (clk        ),
-                .HRESETn    (cpuresetn  ),
-                .HSEL       (HSEL_P4    ),
-                .HADDR      (HADDR_P4   ),
-                .HTRANS     (HTRANS_P4  ),
-                .HSIZE      (HSIZE_P4   ),
-                .HPROT      (HPROT_P4   ),
-                .HWRITE     (HWRITE_P4  ),
-                .HWDATA     (HWDATA_P4  ),
-                .HREADY     (HREADY_P4  ),
+    // //AHB4 LCD 0x5000_0000
+    // ahb_lcd lcd(
+    //             .HCLK       (clk        ),
+    //             .HRESETn    (cpuresetn  ),
+    //             .HSEL       (HSEL_P4    ),
+    //             .HADDR      (HADDR_P4   ),
+    //             .HTRANS     (HTRANS_P4  ),
+    //             .HSIZE      (HSIZE_P4   ),
+    //             .HPROT      (HPROT_P4   ),
+    //             .HWRITE     (HWRITE_P4  ),
+    //             .HWDATA     (HWDATA_P4  ),
+    //             .HREADY     (HREADY_P4  ),
 
-                .HREADYOUT  (HREADYOUT_P4),
-                .HRDATA     (HRDATA_P4  ),
-                .HRESP      (HRESP_P4   ),
+    //             .HREADYOUT  (HREADYOUT_P4),
+    //             .HRDATA     (HRDATA_P4  ),
+    //             .HRESP      (HRESP_P4   ),
 
-                .LCD_CS     (LCD_CS     ),
-                .LCD_RS     (LCD_RS     ),
-                .LCD_WR     (LCD_WR     ),
-                .LCD_RD     (LCD_RD     ),
-                .LCD_RST    (LCD_RST    ),
-                .LCD_BL_CTR (LCD_BL_CTR ),
-                .LCD_DATA   (LCD_DATA   )
-            );
+    //             .LCD_CS     (LCD_CS     ),
+    //             .LCD_RS     (LCD_RS     ),
+    //             .LCD_WR     (LCD_WR     ),
+    //             .LCD_RD     (LCD_RD     ),
+    //             .LCD_RST    (LCD_RST    ),
+    //             .LCD_BL_CTR (LCD_BL_CTR ),
+    //             .LCD_DATA   (LCD_DATA   )
+    //         );
 
 
-    //------------------------------------------------------------------------------
-    // AHB FOR CAMERA 0X40010000~0X4005ffff
-    //------------------------------------------------------------------------------
-    wire    [15:0]    Camera_ADDR;
-    wire    [31:0]    Camera_RDATA;
-    wire              Camera_VALID;
-    wire              Camera_READY;
+    // //------------------------------------------------------------------------------
+    // // AHB FOR CAMERA 0X40010000~0X4005ffff
+    // //------------------------------------------------------------------------------
+    // wire    [15:0]    Camera_ADDR;
+    // wire    [31:0]    Camera_RDATA;
+    // wire              Camera_VALID;
+    // wire              Camera_READY;
 
-    ahb_camera u_ahb_camera(
-                   /* Connect to Interconnect Port 4 */
-                   .HCLK                   (clk),
-                   .HRESETn                (cpuresetn),
-                   .HSEL                   (HSEL_P3    ),
-                   .HADDR                  (HADDR_P3   ),
-                   .HPROT                  (HPROT_P3   ),
-                   .HSIZE                  (HSIZE_P3   ),
-                   .HTRANS                 (HTRANS_P3  ),
-                   .HWDATA                 (HWDATA_P3  ),
-                   .HWRITE                 (HWRITE_P3  ),
-                   .HRDATA                 (HRDATA_P3  ),
-                   .HREADY                 (HREADY_P3  ),
-                   .HREADYOUT              (HREADYOUT_P3),
-                   .HRESP                  (HRESP_P3   ),
+    // ahb_camera u_ahb_camera(
+    //                /* Connect to Interconnect Port 4 */
+    //                .HCLK                   (clk),
+    //                .HRESETn                (cpuresetn),
+    //                .HSEL                   (HSEL_P3    ),
+    //                .HADDR                  (HADDR_P3   ),
+    //                .HPROT                  (HPROT_P3   ),
+    //                .HSIZE                  (HSIZE_P3   ),
+    //                .HTRANS                 (HTRANS_P3  ),
+    //                .HWDATA                 (HWDATA_P3  ),
+    //                .HWRITE                 (HWRITE_P3  ),
+    //                .HRDATA                 (HRDATA_P3  ),
+    //                .HREADY                 (HREADY_P3  ),
+    //                .HREADYOUT              (HREADYOUT_P3),
+    //                .HRESP                  (HRESP_P3   ),
 
-                   .ADDR                   (Camera_ADDR),
-                   .RDATA                  (Camera_RDATA),
-                   .DATA_VALID             (Camera_VALID),
-                   .DATA_READY             (Camera_READY),
+    //                .ADDR                   (Camera_ADDR),
+    //                .RDATA                  (Camera_RDATA),
+    //                .DATA_VALID             (Camera_VALID),
+    //                .DATA_READY             (Camera_READY),
 
-                   .PWDN                   (CAMERA_PWDN),
-                   .RST                    (CAMERA_RST),
-                   .CAMERA_SCL             (CAMERA_SCL),
-                   .CAMERA_SDA             (CAMERA_SDA)
-                   /**********************************/
-               );
+    //                .PWDN                   (CAMERA_PWDN),
+    //                .RST                    (CAMERA_RST),
+    //                .CAMERA_SCL             (CAMERA_SCL),
+    //                .CAMERA_SDA             (CAMERA_SDA)
+    //                /**********************************/
+    //            );
 
-    //------------------------------------------------------------------------------
-    // CAMERA
-    //------------------------------------------------------------------------------
+    // //------------------------------------------------------------------------------
+    // // CAMERA
+    // //------------------------------------------------------------------------------
 
-    CAMERA_Capture CAMERA(
-                       .HCLK                           (clk),
-                       .PCLK                           (CAMERA_PCLK),
-                       .HRESETn                        (cpuresetn),
-                       .DATA_VALID                     (Camera_VALID),
-                       .DATA_READY                     (Camera_READY),
-                       .DualRAM_RADDR                  (Camera_ADDR),
-                       .DualRAM_RDATA                  (Camera_RDATA),
-                       .Camera_idata                   (CAMERA_DATA),
-                       .VSYNC                          (CAMERA_VSYNC),
-                       .HREF                           (CAMERA_HREF),
-                       .datavalid_test                 ()
-                   );
+    // CAMERA_Capture CAMERA(
+    //                    .HCLK                           (clk),
+    //                    .PCLK                           (CAMERA_PCLK),
+    //                    .HRESETn                        (cpuresetn),
+    //                    .DATA_VALID                     (Camera_VALID),
+    //                    .DATA_READY                     (Camera_READY),
+    //                    .DualRAM_RADDR                  (Camera_ADDR),
+    //                    .DualRAM_RDATA                  (Camera_RDATA),
+    //                    .Camera_idata                   (CAMERA_DATA),
+    //                    .VSYNC                          (CAMERA_VSYNC),
+    //                    .HREF                           (CAMERA_HREF),
+    //                    .datavalid_test                 ()
+    //                );
 
     //------------------------------------------------------------------------------
     // AHB-5 FOR GAME_SPRITERAM 0x50010000 & 
     // AHB-6 FOR GAME_NAMETABLE_RAM 0x50020000
     //------------------------------------------------------------------------------
-    clk_wiz_0 instance_name(
-                  .clk_100MHz   (clk_100MHz),
-                  .clk_25p2MHz  (clk_25p2MHz),
-                  .clk_in1      (clk)
-              );
+    wire clk_125MHz ;
+    wire clk_100MHz ;
+    wire clk_25p2MHz;
+    // clk_wiz_0 instance_name(
+    //               .clk_100MHz   (clk_100MHz),
+    //               .clk_25p2MHz  (clk_25p2MHz),
+    //               .clk_in1      (clk)
+    //           );
+    clk_pll u_clk_pll (
+        .refclk     (clk        ),//50MHz
+        .clk0_out   (clk_100MHz ),//100MHz
+        .clk1_out   (clk_25p2MHz),//实际25MHz
+        .clk2_out   (clk_125MHz ) //125MHz
+    );
 
     topPPU topPPU_inst(
             .clk_50MHz          (clk            ),
+            .clk_125MHz         (clk_125MHz     ),
             .clk_100MHz         (clk_100MHz     ),
             .clk_25p2MHz        (clk_25p2MHz    ),
             .rstn               (RSTn           ),
@@ -1073,6 +1071,8 @@ module CortexM0_SoC (
             .NAMETABLE_HRDATA   (HRDATA_P6      ),
             .NAMETABLE_HRESP    (HRESP_P6       ),
 
+            .createPlaneIntr    (createPlaneIntr),
+
             .scrollEn           (scrollEn       ),
             .SPI_CLK            (HARD_SPI_CLK   ),
             .SPI_CS             (HARD_SPI_CS    ),
@@ -1080,10 +1080,15 @@ module CortexM0_SoC (
             .SPI_MISO           (HARD_SPI_MISO  ),
             //VGA中断信号
             .VGA_Intr           (VGA_Intr       ),
-            //VGA PIN
-            .hsync              (hsync          ),//输出行同步信号
-            .vsync              (vsync          ),//输出场同步信号
-            .rgb                (rgb            ) //输出像素点色彩信息
+            // //VGA PIN
+            // .hsync              (hsync          ),//输出行同步信号
+            // .vsync              (vsync          ),//输出场同步信号
+            // .rgb                (rgb            ) //输出像素点色彩信息
+            //HDMI OUT PIN
+            .tmds_clk_p         (tmds_clk_p     ),
+            .tmds_clk_n         (tmds_clk_n     ),
+            .tmds_data_p        (tmds_data_p    ),
+            .tmds_data_n        (tmds_data_n    ) 
     );
 
 endmodule

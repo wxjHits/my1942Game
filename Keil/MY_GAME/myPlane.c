@@ -106,11 +106,11 @@ void myPlane_Draw(MYPLANEType* myPlane,uint8_t* spriteRamAddr){
             case 0://正常形式&动画第0帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=5;
-                writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_0_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_0_1,0x30);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY,MYPLANE_ACT_0_0,0x30);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY,MYPLANE_ACT_0_1,0x30);
                 writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_0_2,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+8,MYPLANE_ACT_0_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+8,MYPLANE_ACT_0_4,0x30);
+                writeOneSprite(ram_num+3,myPlane->PosX+4 ,myPlane->PosY+7,MYPLANE_ACT_0_3,0x30);
+                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_0_4,0x30);
             break;
             case 1://动画第1帧
                 // uint8_t sprite_num = 0x33;
@@ -118,8 +118,8 @@ void myPlane_Draw(MYPLANEType* myPlane,uint8_t* spriteRamAddr){
                 writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_1_0,0x30);
                 writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_1_1,0x30);
                 writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_1_2,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+8,MYPLANE_ACT_1_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+8,MYPLANE_ACT_1_4,0x30);
+                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+7,MYPLANE_ACT_1_3,0x30);
+                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_1_4,0x30);
             break;
             case 2://动画第2帧
                 // uint8_t sprite_num = 0x33;
@@ -134,15 +134,15 @@ void myPlane_Draw(MYPLANEType* myPlane,uint8_t* spriteRamAddr){
                 writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_3_1,0x30);
                 writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_3_2,0x30);
                 writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_3_3,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+8,myPlane->PosY-8,MYPLANE_ACT_3_0,0x70);
+                writeOneSprite(ram_num+3,myPlane->PosX+8,myPlane->PosY-7,MYPLANE_ACT_3_0,0x70);
             break;
             case 4://动画第5帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=7;
-                writeOneSprite(ram_num+0,myPlane->PosX+4,myPlane->PosY-16,MYPLANE_ACT_4_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-16,MYPLANE_ACT_4_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+4,myPlane->PosY-8,MYPLANE_ACT_4_2,0x30);
-                writeOneSprite(ram_num+3,myPlane->PosX+12,myPlane->PosY-8,MYPLANE_ACT_4_3,0x30);
+                writeOneSprite(ram_num+0,myPlane->PosX+4,myPlane->PosY-15,MYPLANE_ACT_4_0,0x30);
+                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-15,MYPLANE_ACT_4_1,0x30);
+                writeOneSprite(ram_num+2,myPlane->PosX+4,myPlane->PosY-7,MYPLANE_ACT_4_2,0x30);
+                writeOneSprite(ram_num+3,myPlane->PosX+12,myPlane->PosY-7,MYPLANE_ACT_4_3,0x30);
                 writeOneSprite(ram_num+4,myPlane->PosX+0,myPlane->PosY+0,MYPLANE_ACT_4_4,0x30);
                 writeOneSprite(ram_num+5,myPlane->PosX+8,myPlane->PosY+0,MYPLANE_ACT_4_5,0x30);
                 writeOneSprite(ram_num+6,myPlane->PosX+16,myPlane->PosY+0,MYPLANE_ACT_4_6,0x30);
@@ -150,8 +150,8 @@ void myPlane_Draw(MYPLANEType* myPlane,uint8_t* spriteRamAddr){
             case 5://动画第6帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=6;
-                writeOneSprite(ram_num+0,myPlane->PosX+4,myPlane->PosY-8,MYPLANE_ACT_5_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-8,MYPLANE_ACT_5_1,0x70);
+                writeOneSprite(ram_num+0,myPlane->PosX+4,myPlane->PosY-7,MYPLANE_ACT_5_0,0x30);
+                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-7,MYPLANE_ACT_5_1,0x70);
                 writeOneSprite(ram_num+2,myPlane->PosX+0,myPlane->PosY+0,MYPLANE_ACT_5_2,0x30);
                 writeOneSprite(ram_num+3,myPlane->PosX+8,myPlane->PosY+0,MYPLANE_ACT_5_3,0x30);
                 writeOneSprite(ram_num+4,myPlane->PosX+16,myPlane->PosY+0,MYPLANE_ACT_5_4,0x70);
@@ -169,8 +169,8 @@ void myPlane_Draw(MYPLANEType* myPlane,uint8_t* spriteRamAddr){
                 writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_0_0,0x30);
                 writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_0_1,0x30);
                 writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_0_2,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+8,MYPLANE_ACT_0_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+8,MYPLANE_ACT_0_4,0x30);
+                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+7,MYPLANE_ACT_0_3,0x30);
+                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_0_4,0x30);
             break;
         default:
             break;

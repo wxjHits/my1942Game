@@ -21,7 +21,6 @@
 #include "malloc.h"
 #include "stdlib.h"
 
-
 MYPLANEType myplane;//我方飞机
 const uint8_t MYPLANE_BULLET_NUMMAX=12;//我方子弹
 BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
@@ -30,7 +29,7 @@ const uint8_t S_GREY_NUMMAX=3;//灰色小飞机
 S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
 const uint8_t S_GREEN_NUMMAX=4;//绿色小飞机
 S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
-const uint8_t M_STRAIGHT_NUMMAX=1;//中型直飞飞机
+const uint8_t M_STRAIGHT_NUMMAX=4;//中型直飞飞机
 M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
 const uint8_t B_GREEN_NUMMAX=1;//绿色大飞机
 B_GREEN_PLANEType b_green_plane;
@@ -89,17 +88,24 @@ int main(void)
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    PS2_Init();
    SPI_Init(100);
+//   printf("hello\n");
+//   while (1){
+//      PS2_KEY=PS2_DataKey();
+//      printf("PS2_KEY=%d\n",PS2_KEY);
+//      delay_ms(300);
+//   }
 
-   // SPI_Flash_Erase_Block( 0x000000);
-   // SPI_Flash_Erase_Block( 0x001000);
-   // SPI_Flash_Erase_Block( 0x002000);
-   // SPI_Flash_Erase_Block( 0x003000);
-   // SPI_Flash_Erase_Block( 0x004000);
-   // SPI_Flash_Erase_Block( 0x005000);
-   // SPI_Flash_Erase_Block( 0x006000);
-   // SPI_Flash_Erase_Block( 0x007000);
-   // makeMapFirst(flashAddrBlock_Map0);
-   // makeMapSecond(flashAddrBlock_Map1);
+   SPI_Flash_Erase_Block( 0x000000);
+   SPI_Flash_Erase_Block( 0x001000);
+   SPI_Flash_Erase_Block( 0x002000);
+   SPI_Flash_Erase_Block( 0x003000);
+   SPI_Flash_Erase_Block( 0x004000);
+   SPI_Flash_Erase_Block( 0x005000);
+   SPI_Flash_Erase_Block( 0x006000);
+   SPI_Flash_Erase_Block( 0x007000);
+
+   makeMapFirst(flashAddrBlock_Map1);
+   makeMapSecond(flashAddrBlock_Map0);
    while(1)
    {
       /****每次到新的界面的初始化*****/
@@ -144,6 +150,7 @@ int main(void)
             NAMETABLE->flashAddrStart=guanQia*(0x0004000);
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
+            NAMETABLE->createPlaneIntrEn=1;
          }
          else if(game_state==2){
             NAMETABLE->scrollEn=0;
@@ -182,22 +189,22 @@ int main(void)
       //游戏运行界面
       else if(game_state==1&&timer_init_flag==0){
          if(gameRunState==0){
-            if(!(NAMETABLE->mapBackgroundCnt>=NAMETABLE->mapBackgroundMax&&NAMETABLE->mapScrollPtr<120)){
-               //生成一个敌机
-               S_GREY_PLANEType planeParameter;
-               planeParameter.PosX = rand()%200+15;
-                if(planeParameter.PosX>myplane.PosX)
-                       planeParameter.routeOneDir=DOWN_LEFT;
-                  else
-                       planeParameter.routeOneDir=DOWN_RIGHT;
-                planeParameter.isBack=rand()%2;
-               s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-               if(NAMETABLE->mapScrollPtr==120){
-                  s_green_createOnePlane(&s_green_plane,rand()%2,myplane.PosX,myplane.PosY);
-                  m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
-                  b_green_createOnePlane(&b_green_plane);
-               }
-            }
+            // if(!(NAMETABLE->mapBackgroundCnt>=NAMETABLE->mapBackgroundMax&&NAMETABLE->mapScrollPtr<120)){
+               // //生成一个敌机
+               // S_GREY_PLANEType planeParameter;
+               // planeParameter.PosX = rand()%200+15;
+               //  if(planeParameter.PosX>myplane.PosX)
+               //         planeParameter.routeOneDir=DOWN_LEFT;
+               //    else
+               //         planeParameter.routeOneDir=DOWN_RIGHT;
+               //  planeParameter.isBack=rand()%2;
+               // s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
+               // if(NAMETABLE->mapScrollPtr==120){
+               //    s_green_createOnePlane(&s_green_plane,rand()%2,myplane.PosX,myplane.PosY);
+               //    m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
+               //    b_green_createOnePlane(&b_green_plane);
+               // }
+            // }
             //按键检测
             PS2_KEY=PS2_DataKey();
             timer_cnt++;
@@ -268,7 +275,7 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
-            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);

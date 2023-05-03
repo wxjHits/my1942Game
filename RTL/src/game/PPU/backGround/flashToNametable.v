@@ -241,7 +241,7 @@ module flashToNametable(
 spi scroll_spi(
     .clk        (clk        ),  //系统时钟
     .rstn       (rstn       ),  //系统复位型号
-    .clk_div    (8'd20     ),//时钟分频 4~255
+    .clk_div    (8'd40     ),//时钟分频 4~255
     .cs         (scroll_spi_cs     ),
     .tx_req     (scroll_spi_tx_req ),
     .data_tx    (scroll_spi_data_tx),

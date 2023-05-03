@@ -1,13 +1,14 @@
 
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
-
 module topPPU#(
     parameter ADDR_WIDTH = 6 //精灵数量只有64个
 )(
     input   wire            clk_50MHz   ,
+    input   wire            rstn        ,
+
+    input   wire            clk_125MHz  ,
     input   wire            clk_100MHz  ,
     input   wire            clk_25p2MHz ,
-    input   wire            rstn        ,
     
     //CPU AHB interface 对spriteRam进行写操作
     input  wire             SPRITE_HCLK         ,
@@ -38,6 +39,9 @@ module topPPU#(
     output wire   [31:0]    NAMETABLE_HRDATA    ,
     output wire   [1:0]     NAMETABLE_HRESP     ,
 
+    //to cpu IRQ
+    output  wire            createPlaneIntr     ,//50MHz能够捕捉的信号
+    
     //to SPI_FLASH
     output  wire            scrollEn        ,// 用于软件还是硬件控制SPI_FLASH
     output  wire            SPI_CLK         ,
@@ -47,11 +51,16 @@ module topPPU#(
     //中断VGA
     output wire             VGA_Intr            ,
 
-    //VGA PIN
-    output  wire            hsync       ,//输出行同步信号
-    output  wire            vsync       ,//输出场同步信号
-    output  wire    [11:0]  rgb          //输出像素点色彩信息
+    // //VGA PIN
+    // output  wire            hsync       ,//输出行同步信号
+    // output  wire            vsync       ,//输出场同步信号
+    // output  wire    [11:0]  rgb          //输出像素点色彩信息
 
+    //HDMI OUT PIN
+    output wire            tmds_clk_p   ,// TMDS 时钟通道
+    output wire            tmds_clk_n   ,
+    output wire    [2:0]   tmds_data_p  ,// TMDS 数据通道
+    output wire    [2:0]   tmds_data_n  
 );
 
     wire    vga_clk = clk_25p2MHz;
@@ -131,7 +140,9 @@ module topPPU#(
         .NAMETABLE_HREADYOUT(NAMETABLE_HREADYOUT),
         .NAMETABLE_HRDATA   (NAMETABLE_HRDATA   ),
         .NAMETABLE_HRESP    (NAMETABLE_HRESP    ),
-    //from VGA_driver
+        //to cpu IRQ
+        .createPlaneIntr    (createPlaneIntr    ),
+        //from VGA_driver
         .vgaPosX            (vgaPosX            ),
         .vgaPosY            (vgaPosY            ),
         .backGroundVgaRgbOut(backGroundVgaRgbOut),
@@ -143,16 +154,30 @@ module topPPU#(
         .SPI_MISO           (SPI_MISO)
     );
 
-    vga_driver  u_vga_driver(
-        .vga_clk            (vga_clk            ),
+    // vga_driver  u_vga_driver(
+    //     .vga_clk            (vga_clk            ),
+    //     .rstn               (rstn               ),
+    //     .pixdata            (vgaRgbOut          ),
+    //     .pix_x              (pix_x              ),
+    //     .pix_y              (pix_y              ),
+    //     .IsGameWindow       (IsGameWindow       ),
+    //     .hsync              (hsync              ),
+    //     .vsync              (vsync              ),
+    //     .rgb                (rgb                )
+    // );
+
+    hdmi_driver u_hdmi_driver(
+        .hdmi_clk           (clk_25p2MHz        ),
+        .hdmi_clk_5         (clk_125MHz         ),
         .rstn               (rstn               ),
-        .pixdata            (vgaRgbOut          ),
-        .pix_x              (pix_x              ),
-        .pix_y              (pix_y              ),
+        .pixel_xpos         (pix_x              ),
+        .pixel_ypos         (pix_y              ),
+        .rd_data            ({1'b0,vgaRgbOut[3:0],1'b0,vgaRgbOut[7:4],2'b00,vgaRgbOut[11:8]}   ),
         .IsGameWindow       (IsGameWindow       ),
-        .hsync              (hsync              ),
-        .vsync              (vsync              ),
-        .rgb                (rgb                )
+        .tmds_clk_p         (tmds_clk_p         ),
+        .tmds_clk_n         (tmds_clk_n         ),
+        .tmds_data_p        (tmds_data_p        ),
+        .tmds_data_n        (tmds_data_n        ) 
     );
 
     reg VGA_Intr_r0;

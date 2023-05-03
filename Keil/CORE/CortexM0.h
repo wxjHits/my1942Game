@@ -29,7 +29,8 @@ typedef enum IRQn
   KEY2_IRQn                     = 5,
   KEY3_IRQn                     = 6,
   TIMER_IRQn                    = 7,
-  VGA_IRQn                      = 8
+  VGA_IRQn                      = 8,
+  CREATE_PLANE_IRQn             = 9
 } IRQn_Type;
 
 /*

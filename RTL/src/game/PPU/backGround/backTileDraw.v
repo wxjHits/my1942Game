@@ -39,14 +39,24 @@ end
 
 reg [`VGA_POSXY_BIT-1:0] gameVgaPosX;
 reg [`VGA_POSXY_BIT-1:0] gameVgaPosY;
-always@(posedge clk)begin
+// always@(posedge clk)begin
+//     if(~rstn)begin
+//         gameVgaPosX<=0;
+//         gameVgaPosY<=0;
+//     end
+//     else begin
+//         gameVgaPosX<=vgaPosX_r-`GAME_START_POSX;
+//         gameVgaPosY<=vgaPosY_r-`GAME_START_POSY;
+//     end
+// end
+always@(*)begin/*能够修复名称表，但是调色板出问题*/
     if(~rstn)begin
-        gameVgaPosX<=0;
-        gameVgaPosY<=0;
+        gameVgaPosX=0;
+        gameVgaPosY=0;
     end
     else begin
-        gameVgaPosX<=vgaPosX_r-`GAME_START_POSX;
-        gameVgaPosY<=vgaPosY_r-`GAME_START_POSY;
+        gameVgaPosX=vgaPosX_r-`GAME_START_POSX;
+        gameVgaPosY=vgaPosY_r-`GAME_START_POSY;
     end
 end
 
@@ -83,8 +93,12 @@ always@(*)begin
 end
 
 reg [$clog2(`SPRITE_TILEDATA_BIT)-1:0] whichBit;
+reg [$clog2(`SPRITE_TILEDATA_BIT)-1:0] bitHigh;
+reg [$clog2(`SPRITE_TILEDATA_BIT)-1:0] bitLow;
 always@(posedge clk)begin
     whichBit <={1'b0,gameVgaPosY_temp[2:0],gameVgaPosX[2:0]}; 
+    bitHigh<=127-whichBit;
+    bitLow<=63-whichBit;
 end
 
 //č˛ĺ˝Š
@@ -94,7 +108,7 @@ wire  [`RGB_BIT-1:0] PaletteColor10;
 wire  [`RGB_BIT-1:0] PaletteColor11;
 
 //该点的2-bit的组合情况
-wire [1:0] twoBitsFlag={backTileDataI[63-whichBit],backTileDataI[127-whichBit]};
+wire [1:0] twoBitsFlag={backTileDataI[bitLow],backTileDataI[bitHigh]};
 
 always@(*)begin
     case(twoBitsFlag)
@@ -107,18 +121,29 @@ always@(*)begin
 end
 
 /*****调色板的选择（根据属性表的解析结果）*****/
+reg [`VGA_POSXY_BIT-1:0] gameVgaPosX_r0,gameVgaPosX_r1;
+always@(posedge clk)begin
+    gameVgaPosX_r0<=gameVgaPosX;
+    gameVgaPosX_r1<=gameVgaPosX_r0;
+end
 reg [8:0] attributeAddr_r;
 assign attributeAddr = attributeAddr_r;
 always@(*)begin
     if(nameTableRamIndex[8]==1'b0)
-        attributeAddr_r =  {nameTableRamIndex[7:5],gameVgaPosX[7]} + 9'd240;
+        attributeAddr_r =  {5'b01111,nameTableRamIndex[7:5],gameVgaPosX_r0[7]};
     else
-        attributeAddr_r =  {nameTableRamIndex[7:5],gameVgaPosX[7]} + 9'd496;
+        attributeAddr_r =  {5'b11111,nameTableRamIndex[7:5],gameVgaPosX_r0[7]};
+end
+
+//
+reg [9-1:0] nameTableRamIndex_r0;
+always@(posedge clk)begin
+    nameTableRamIndex_r0<=nameTableRamIndex;
 end
 
 reg [7:0] attibuteByte;
 always@(*)begin
-    case(gameVgaPosX[6:5])
+    case(gameVgaPosX_r1[6:5])
         2'b00:attibuteByte = attributeTableDataO[31:24];
         2'b01:attibuteByte = attributeTableDataO[23:16];
         2'b10:attibuteByte = attributeTableDataO[15:08];
@@ -128,7 +153,7 @@ end
 
 reg [1:0] paletteSelect;
 always@(*)begin
-    case({nameTableRamIndex[4],gameVgaPosX[4]})
+    case({nameTableRamIndex_r0[4],gameVgaPosX_r1[4]})
         2'b00:paletteSelect=attibuteByte[1:0];
         2'b01:paletteSelect=attibuteByte[3:2];
         2'b10:paletteSelect=attibuteByte[5:4];
