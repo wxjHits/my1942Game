@@ -472,6 +472,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\pstwo.c</FilePath>
             </File>
+            <File>
+              <FileName>makeEnemyPlaneArray.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MY_GAME\makeEnemyPlaneArray.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

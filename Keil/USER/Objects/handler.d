@@ -13,5 +13,7 @@
 .\objects\handler.o: ..\DEVICE\key.h
 .\objects\handler.o: ..\MY_GAME\gameStruct.h
 .\objects\handler.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\handler.o: ..\MY_GAME\makeEnemyPlaneArray.h
+.\objects\handler.o: ..\MY_GAME\enemyPlane.h
 .\objects\handler.o: ..\DEVICE\spriteRam.h
 .\objects\handler.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h

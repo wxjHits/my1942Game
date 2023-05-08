@@ -17,6 +17,7 @@
 .\objects\main.o: ..\MY_GAME\enemyPlane.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: ..\MY_GAME\gameStruct.h
+.\objects\main.o: ..\MY_GAME\makeEnemyPlaneArray.h
 .\objects\main.o: ..\MY_GAME\enemyBullet.h
 .\objects\main.o: ..\MY_GAME\myPlane.h
 .\objects\main.o: ..\MY_GAME\gameHitCheck.h

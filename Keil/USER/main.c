@@ -10,6 +10,8 @@
 #include "pstwo.h"
 
 #include "enemyPlane.h"
+#include "makeEnemyPlaneArray.h"
+
 #include "enemyBullet.h"
 #include "myPlane.h"
 #include "gameHitCheck.h"
@@ -25,14 +27,14 @@ MYPLANEType myplane;//我方飞机
 const uint8_t MYPLANE_BULLET_NUMMAX=12;//我方子弹
 BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
 
-const uint8_t S_GREY_NUMMAX=3;//灰色小飞机
+const uint8_t S_GREY_NUMMAX=6;//灰色小飞机
 S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
-const uint8_t S_GREEN_NUMMAX=4;//绿色小飞机
+const uint8_t S_GREEN_NUMMAX=6;//绿色小飞机
 S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
-const uint8_t M_STRAIGHT_NUMMAX=4;//中型直飞飞机
+const uint8_t M_STRAIGHT_NUMMAX=3;//中型直飞飞机
 M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
 const uint8_t B_GREEN_NUMMAX=1;//绿色大飞机
-B_GREEN_PLANEType b_green_plane;
+B_GREEN_PLANEType b_green_plane[B_GREEN_NUMMAX];
 const uint8_t ENEMY_BULLETS_NUMMAX=10;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 
@@ -146,7 +148,7 @@ int main(void)
             }
             clearNameTableAll();
             loadMapJianchuan();
-            NAMETABLE->scrollCntMax=3;
+            NAMETABLE->scrollCntMax=4;
             NAMETABLE->flashAddrStart=guanQia*(0x0004000);
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
@@ -189,22 +191,9 @@ int main(void)
       //游戏运行界面
       else if(game_state==1&&timer_init_flag==0){
          if(gameRunState==0){
-            // if(!(NAMETABLE->mapBackgroundCnt>=NAMETABLE->mapBackgroundMax&&NAMETABLE->mapScrollPtr<120)){
-               // //生成一个敌机
-               // S_GREY_PLANEType planeParameter;
-               // planeParameter.PosX = rand()%200+15;
-               //  if(planeParameter.PosX>myplane.PosX)
-               //         planeParameter.routeOneDir=DOWN_LEFT;
-               //    else
-               //         planeParameter.routeOneDir=DOWN_RIGHT;
-               //  planeParameter.isBack=rand()%2;
-               // s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-               // if(NAMETABLE->mapScrollPtr==120){
-               //    s_green_createOnePlane(&s_green_plane,rand()%2,myplane.PosX,myplane.PosY);
-               //    m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
-               //    b_green_createOnePlane(&b_green_plane);
-               // }
-            // }
+            if(!(NAMETABLE->mapBackgroundCnt>=NAMETABLE->mapBackgroundMax&&NAMETABLE->mapScrollPtr<120)){
+               ;
+            }
             //按键检测
             PS2_KEY=PS2_DataKey();
             timer_cnt++;

@@ -133,7 +133,7 @@ always @(posedge clk_50MHz) begin
         createPlaneIntr_r1<=1'b0;
     end
     else if(createPlaneIntrEn==1'b1) begin
-        if(mapScrollPtr[2:0]==3'b111 && scrollingFlag==1'b1)
+        if(mapScrollPtr[3:0]==4'b1111 && scrollingFlag==1'b1)
             createPlaneIntr_r0<=1'b1;
         else
             createPlaneIntr_r0<=1'b0;

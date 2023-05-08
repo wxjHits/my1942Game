@@ -39,7 +39,7 @@
 #define MYPLANE_ACT_5_3 0xF8
 #define MYPLANE_ACT_5_4 MYPLANE_ACT_5_2
 
-#define MYBULLET_SPEED 4 //不要过大
+#define MYBULLET_SPEED 5 //不要过大
 
 void myPlane_Init(MYPLANEType* myPlane);
 void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet);

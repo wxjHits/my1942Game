@@ -31,19 +31,20 @@ void s_grey_createOnePlane(S_GREY_PLANEType* plane,S_GREY_PLANEType* planeParame
             (plane+i)->actDraw=0;
             (plane+i)->FpsCnt=0;
             (plane+i)->route=0;
-            (plane+i)->isBack=planeParameter->isBack;
+            (plane+i)->isBack=rand()%2;
             (plane+i)->shootFlag=1;
             (plane+i)->PosX = planeParameter->PosX;
-            (plane+i)->PosY = TOP_LINE+5;
+            (plane+i)->PosY = TOP_LINE+5+10*(rand()%2);
 
-            if((plane+i)->PosX>LEFT_LINE&&(plane+i)->PosX< (LEFT_LINE + 80)){
-                (plane+i)->routeOneDir=DOWN_RIGHT;
-            }
-            else if ((plane+i)->PosX>(RIGHT_LINE-80) && (plane+i)->PosX<RIGHT_LINE){
-                (plane+i)->routeOneDir=DOWN_LEFT;
-            }
-            else
-                (plane+i)->routeOneDir=DOWN;
+            (plane+i)->routeOneDir=planeParameter->routeOneDir;
+            // if((plane+i)->PosX>LEFT_LINE&&(plane+i)->PosX< (LEFT_LINE + 80)){
+            //     (plane+i)->routeOneDir=DOWN_RIGHT;
+            // }
+            // else if ((plane+i)->PosX>(RIGHT_LINE-80) && (plane+i)->PosX<RIGHT_LINE){
+            //     (plane+i)->routeOneDir=DOWN_LEFT;
+            // }
+            // else
+            //     (plane+i)->routeOneDir=DOWN;
             
 
             if((plane+i)->routeOneDir==DOWN){
@@ -80,7 +81,7 @@ void s_grey_movePlane(S_GREY_PLANEType* plane,MYPLANEType* myPlane,BULLETType* b
                     (plane+i)->PosY=0;
                 }
                 else if((plane+i)->route==0){//第一段
-                    if((plane+i)->PosY>=myPlane->PosY-20-rand()%20){//到达转折点
+                    if((plane+i)->PosY>=(myPlane->PosY-40-20*rand()%3)){//到达转折点
                         if((plane+i)->shootFlag==1){//发射子弹
                             // s_grey_createOneEnmeyBullet((plane+i));
                             s_grey_createOneEnmeyBullet(bullet,(plane+i),myPlane);
@@ -302,7 +303,7 @@ void s_green_createOnePlane(S_GREEN_PLANEType* plane,uint8_t RL_Flag,int16_t myP
             (plane+i)->liveFlag=1;
             (plane+i)->FpsCnt=0;
             
-            (plane+i)->PosY = myPlanePosY-60-rand()%30;
+            (plane+i)->PosY = myPlanePosY-60-20*(rand()%3);
             (plane+i)->route=0;
             (plane+i)->routeOneDir_AddY=rand()%2+0;
 
@@ -311,9 +312,9 @@ void s_green_createOnePlane(S_GREEN_PLANEType* plane,uint8_t RL_Flag,int16_t myP
                 (plane+i)->PosX = LEFT_LINE+10;
                 (plane+i)->actDraw=0;
                 (plane+i)->routeOneDir_AddX=rand()%2+2;
-                (plane+i)->turnPoint_0 = myPlanePosX - 50+rand()%20;
-                (plane+i)->turnPoint_1 = (plane+i)->turnPoint_0 + 60;
-                (plane+i)->turnPoint_2 = myPlanePosY-20;
+                (plane+i)->turnPoint_0 = myPlanePosX - 50+10*rand()%2;
+                (plane+i)->turnPoint_1 = (plane+i)->turnPoint_0 + 30+20*rand()%2;
+                (plane+i)->turnPoint_2 = myPlanePosY-20-20*rand()%2;
                 (plane+i)->turnPoint_3 = (plane+i)->turnPoint_2+20+rand()%30;
                 (plane+i)->turnPoint_4 = (plane+i)->turnPoint_1 - 30;
             }
@@ -528,7 +529,7 @@ void m_straight_createOnePlane(M_STRAIGHT_PLANEType* plane,int16_t occurPosX){
             (plane+i)->hp=20;
             (plane+i)->FpsCnt=0;
             (plane+i)->PosX = occurPosX ;
-            (plane+i)->PosY = BOTTOM_LINE-5;
+            (plane+i)->PosY = BOTTOM_LINE-5-20*rand()%2;
             (plane+i)->route_AddY=1;
             (plane+i)->typeDraw=rand()%2;
             (plane+i)->Color=rand()%2;
@@ -616,9 +617,9 @@ void b_green_createOnePlane(B_GREEN_PLANEType* plane){
     for (int i = 0; i < B_GREEN_NUMMAX; i++){
         if((plane+i)->liveFlag==0){
             (plane+i)->liveFlag=1;
-            (plane+i)->hp=50;
+            (plane+i)->hp=30;
             (plane+i)->FpsCnt=0;
-            (plane+i)->PosX=150;
+            (plane+i)->PosX=100*rand()%2+100;
             (plane+i)->PosY=180;
             (plane+i)->route=0;//第一段，直飞入场；第二段，画面上半部分徘徊（为平行四边形）；第三段退场
             (plane+i)->route1_state=0;//第二段徘徊状态的状态，0，1，2，3

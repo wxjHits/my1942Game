@@ -7,6 +7,7 @@
 #include "key.h"
 
 #include "gameStruct.h"
+#include "makeEnemyPlaneArray.h"
 #include "spriteRam.h"
 
 #include "stdlib.h"
@@ -153,20 +154,81 @@ void vga_Handler(void){
 
 /**************敌机生成的中断函数**************/
 extern S_GREY_PLANEType s_grey_plane;
+extern S_GREEN_PLANEType s_green_plane;
 extern M_STRAIGHT_PLANEType m_straight_plane;
-int i=0;
-void create_plane_Handler(void){
-    S_GREY_PLANEType planeParameter;
-    planeParameter.PosX = rand()%200+15;
-    // planeParameter.PosX= RIGHT_LINE-20;
-    planeParameter.isBack=rand()%2;
+extern B_GREEN_PLANEType b_green_plane;
 
-    s_grey_createOnePlane(&s_grey_plane,&planeParameter,myplane.PosX,myplane.PosY);
-    if(i==10){
-        i=0;
-        LED_toggle(3);
-        m_straight_createOnePlane(&m_straight_plane,100+(rand()%2)*100);
+enum CREATE_PLANE{
+    CREATE_NO=0,
+    CREATE_S_GREY_1,
+    CREATE_S_GREY_2_zhixia,
+    CREATE_S_GREY_2_duicheng,
+    CREATE_S_GREY_4_zhixia,
+    CREATE_S_GREY_4_duicheng,
+    CREATE_S_GREY_6,
+
+    CREATE_S_GREEN_2_tongce,
+    CREATE_S_GREEN_2_shuangce,
+    CREATE_S_GREEN_4,
+
+    CREATE_M_1,
+    CREATE_M_2_binglie,
+
+    CREATE_B,
+};
+uint32_t num=0;
+uint32_t create[120]={
+                CREATE_S_GREY_1,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
+                CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
+                0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
+                CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
+                CREATE_B,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+                CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_4_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
+                CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
+                CREATE_S_GREY_6,0,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,0,0,0,
+                };
+//一幅地图240/16=15，产生15次create_plane_Handler中断
+//如果每一关为8幅地图，则有120次create_plane_Handler中断
+void create_plane_Handler(void){
+    switch (create[num]){
+    case CREATE_S_GREY_1:
+        s_grey_createPlane_111(&s_grey_plane);
+        break;
+    case CREATE_S_GREY_2_zhixia:
+        s_grey_createPlane_122(&s_grey_plane);
+        break;
+    case CREATE_S_GREY_2_duicheng:
+        s_grey_createPlane_123(&s_grey_plane);
+        break;
+    case CREATE_S_GREY_4_zhixia:
+        s_grey_createPlane_144(&s_grey_plane);
+        break;
+    case CREATE_S_GREY_4_duicheng:
+        s_grey_createPlane_145(&s_grey_plane);
+        break;
+    case CREATE_S_GREY_6:
+        s_grey_createPlane_166(&s_grey_plane);
+        break;
+    case CREATE_S_GREEN_2_tongce:
+        s_green_createPlane_221(&s_green_plane,myplane.PosX,myplane.PosY);
+        break;
+    case CREATE_S_GREEN_2_shuangce:
+        s_green_createPlane_222(&s_green_plane,myplane.PosX,myplane.PosY);
+        break;
+    case CREATE_S_GREEN_4:
+        s_green_createPlane_243(&s_green_plane,myplane.PosX,myplane.PosY);
+        break;
+    case CREATE_M_1:
+        s_green_createPlane_411(&m_straight_plane);
+        break;
+    case CREATE_M_2_binglie:
+        s_green_createPlane_422(&m_straight_plane);
+        break;
+    case CREATE_B:
+        b_green_createPlane_511(&b_green_plane);
+        break;
+    default:
+        break;
     }
-    else
-        i++;
+    num++;
 }
