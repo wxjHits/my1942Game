@@ -97,80 +97,93 @@ void myPlane_Act(MYPLANEType* myPlane,uint8_t* start){
             myPlane->actFpsCnt+=1;
     }
 }
+
+extern uint8_t pifuNum;
 void myPlane_Draw(MYPLANEType* myPlane,uint8_t* spriteRamAddr){
     uint8_t ram_num=(*spriteRamAddr);
     uint8_t spriteRamAddr_add;
+    uint8_t pallet=0;
+    if (pifuNum==0)
+        pallet = 0x00|0x08;
+    else if(pifuNum==1)
+        pallet = 0x20|0x08;
+    else if(pifuNum==2)
+        pallet = 0x30|0x00;
+    
+    // uint8_t pallet = 0x00|0x08;
+    // uint8_t pallet = 0x20|0x08;
+    // uint8_t pallet = 0x30|0x00;
     if(myPlane->liveFlag!=0){
         switch (myPlane->attitude)
         {
             case 0://正常形式&动画第0帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=5;
-                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY,MYPLANE_ACT_0_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY,MYPLANE_ACT_0_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_0_2,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+4 ,myPlane->PosY+7,MYPLANE_ACT_0_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_0_4,0x30);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY  ,MYPLANE_ACT_0_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY  ,MYPLANE_ACT_0_1,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY  ,MYPLANE_ACT_0_2,0x40|pallet);
+                writeOneSprite(ram_num+3,myPlane->PosX+4 ,myPlane->PosY+7,MYPLANE_ACT_0_3,0x00|pallet);
+                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_0_4,0x00|pallet);
             break;
             case 1://动画第1帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=5;
-                writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_1_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_1_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_1_2,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+7,MYPLANE_ACT_1_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_1_4,0x30);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY  ,MYPLANE_ACT_1_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY  ,MYPLANE_ACT_1_1,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY  ,MYPLANE_ACT_1_2,0x40|pallet);
+                writeOneSprite(ram_num+3,myPlane->PosX+4 ,myPlane->PosY+7,MYPLANE_ACT_1_3,0x00|pallet);
+                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_1_4,0x00|pallet);
             break;
             case 2://动画第2帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=3;
-                writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_2_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_2_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_2_2,0x70);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY,MYPLANE_ACT_2_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY,MYPLANE_ACT_2_1,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_2_2,0x40|pallet);
             break;
             case 3://动画第4帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=4;
-                writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_3_1,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_3_2,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_3_3,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+8,myPlane->PosY-7,MYPLANE_ACT_3_0,0x70);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY+0,MYPLANE_ACT_3_1,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY+0,MYPLANE_ACT_3_2,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY+0,MYPLANE_ACT_3_3,0x40|pallet);
+                writeOneSprite(ram_num+3,myPlane->PosX+8 ,myPlane->PosY-7,MYPLANE_ACT_3_0,0x40|pallet);
             break;
             case 4://动画第5帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=7;
-                writeOneSprite(ram_num+0,myPlane->PosX+4,myPlane->PosY-15,MYPLANE_ACT_4_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-15,MYPLANE_ACT_4_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+4,myPlane->PosY-7,MYPLANE_ACT_4_2,0x30);
-                writeOneSprite(ram_num+3,myPlane->PosX+12,myPlane->PosY-7,MYPLANE_ACT_4_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+0,myPlane->PosY+0,MYPLANE_ACT_4_4,0x30);
-                writeOneSprite(ram_num+5,myPlane->PosX+8,myPlane->PosY+0,MYPLANE_ACT_4_5,0x30);
-                writeOneSprite(ram_num+6,myPlane->PosX+16,myPlane->PosY+0,MYPLANE_ACT_4_6,0x30);
+                writeOneSprite(ram_num+0,myPlane->PosX+4 ,myPlane->PosY-15,MYPLANE_ACT_4_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-15,MYPLANE_ACT_4_1,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+4 ,myPlane->PosY-7 ,MYPLANE_ACT_4_2,0x00|pallet);
+                writeOneSprite(ram_num+3,myPlane->PosX+12,myPlane->PosY-7 ,MYPLANE_ACT_4_3,0x00|pallet);
+                writeOneSprite(ram_num+4,myPlane->PosX+0 ,myPlane->PosY+0 ,MYPLANE_ACT_4_4,0x00|pallet);
+                writeOneSprite(ram_num+5,myPlane->PosX+8 ,myPlane->PosY+0 ,MYPLANE_ACT_4_5,0x00|pallet);
+                writeOneSprite(ram_num+6,myPlane->PosX+16,myPlane->PosY+0 ,MYPLANE_ACT_4_6,0x00|pallet);
             break;
             case 5://动画第6帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=6;
-                writeOneSprite(ram_num+0,myPlane->PosX+4,myPlane->PosY-7,MYPLANE_ACT_5_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-7,MYPLANE_ACT_5_1,0x70);
-                writeOneSprite(ram_num+2,myPlane->PosX+0,myPlane->PosY+0,MYPLANE_ACT_5_2,0x30);
-                writeOneSprite(ram_num+3,myPlane->PosX+8,myPlane->PosY+0,MYPLANE_ACT_5_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+16,myPlane->PosY+0,MYPLANE_ACT_5_4,0x70);
+                writeOneSprite(ram_num+0,myPlane->PosX+4 ,myPlane->PosY-7,MYPLANE_ACT_5_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+12,myPlane->PosY-7,MYPLANE_ACT_5_1,0x40|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+0 ,myPlane->PosY+0,MYPLANE_ACT_5_2,0x00|pallet);
+                writeOneSprite(ram_num+3,myPlane->PosX+8 ,myPlane->PosY+0,MYPLANE_ACT_5_3,0x00|pallet);
+                writeOneSprite(ram_num+4,myPlane->PosX+16,myPlane->PosY+0,MYPLANE_ACT_5_4,0x40|pallet);
             break;
             case 6://动画第7帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=3;
-                writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_2_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_2_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_2_2,0x70);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY,MYPLANE_ACT_2_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY,MYPLANE_ACT_2_1,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_2_2,0x40|pallet);
             break;
             case 7://正常形式&动画第0帧
                 // uint8_t sprite_num = 0x33;
                 spriteRamAddr_add=5;
-                writeOneSprite(ram_num+0,myPlane->PosX+0,myPlane->PosY,MYPLANE_ACT_0_0,0x30);
-                writeOneSprite(ram_num+1,myPlane->PosX+8,myPlane->PosY,MYPLANE_ACT_0_1,0x30);
-                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY,MYPLANE_ACT_0_2,0x70);
-                writeOneSprite(ram_num+3,myPlane->PosX+4,myPlane->PosY+7,MYPLANE_ACT_0_3,0x30);
-                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_0_4,0x30);
+                writeOneSprite(ram_num+0,myPlane->PosX+0 ,myPlane->PosY  ,MYPLANE_ACT_0_0,0x00|pallet);
+                writeOneSprite(ram_num+1,myPlane->PosX+8 ,myPlane->PosY  ,MYPLANE_ACT_0_1,0x00|pallet);
+                writeOneSprite(ram_num+2,myPlane->PosX+16,myPlane->PosY  ,MYPLANE_ACT_0_2,0x40|pallet);
+                writeOneSprite(ram_num+3,myPlane->PosX+4 ,myPlane->PosY+7,MYPLANE_ACT_0_3,0x00|pallet);
+                writeOneSprite(ram_num+4,myPlane->PosX+12,myPlane->PosY+7,MYPLANE_ACT_0_4,0x00|pallet);
             break;
         default:
             break;

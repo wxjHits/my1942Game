@@ -6,8 +6,8 @@
 /****************************/
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module CortexM0_SoC(
-        input	wire        clk         ,//B8
-        input	wire        RSTn        ,//T9
+        input	wire        clk         ,//B8   
+        input	wire        RSTn        ,//T9   
         inout	wire        SWDIO       ,//G13; 
         input	wire        SWCLK       ,//K16; 
         // output  wire        SLEEPING    ,   //m0内核处于低功耗睡眠状态的标志位

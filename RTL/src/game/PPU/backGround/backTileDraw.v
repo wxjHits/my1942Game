@@ -5,6 +5,8 @@
 module backTileDraw(
     input   wire                            clk                 ,
     input   wire                            rstn                ,
+    // from cpu ahb-lite
+    input   wire                            ahb_Palette_H_L     ,
     //from VGA_driver
     input   wire    [`VGA_POSXY_BIT-1:0]    vgaPosX             ,
     input   wire    [`VGA_POSXY_BIT-1:0]    vgaPosY             ,
@@ -162,6 +164,7 @@ always@(*)begin
 end
 
 paletteBackground paletteBackground_inst (
+    .ahb_Palette_H_L(ahb_Palette_H_L),
     .PaletteChoice(paletteSelect),
     .PaletteColor00(PaletteColor00),
     .PaletteColor01(PaletteColor01),

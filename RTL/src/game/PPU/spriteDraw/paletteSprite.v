@@ -4,13 +4,13 @@
 */
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module paletteSprite (
-    input  wire [1:0] PaletteChoice,
+    input  wire [2:0] PaletteChoice,
     output reg  [`RGB_BIT-1:0] PaletteColor00,
     output reg  [`RGB_BIT-1:0] PaletteColor01,
     output reg  [`RGB_BIT-1:0] PaletteColor10,
     output reg  [`RGB_BIT-1:0] PaletteColor11
 );
-    reg  [4*(`RGB_BIT)-1:0] palettemem [0:3];
+    reg  [4*(`RGB_BIT)-1:0] palettemem [0:7];
     initial begin
 	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/paletteSprite.txt", palettemem);
 	end

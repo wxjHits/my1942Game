@@ -44,7 +44,7 @@ module tileDraw(
     assign tileIndex = spriteViewRamDataO[2*(`BYTE)-1:1*(`BYTE)];
     wire             hFilp = spriteViewRamDataO[7];
     wire             vFilp = spriteViewRamDataO[6];
-    wire [1:0]       PaletteChoice = spriteViewRamDataO[5:4];
+    wire [2:0]       PaletteChoice = {spriteViewRamDataO[3],spriteViewRamDataO[5:4]};
 
 //ç¸ĺŻšäşć¸¸ćĺźĺ§ĺć çšçĺć ?
 reg [`VGA_POSXY_BIT-1:0] vgaPosX_r;

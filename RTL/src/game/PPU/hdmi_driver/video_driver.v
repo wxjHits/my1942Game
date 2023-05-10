@@ -51,7 +51,7 @@ assign video_en  = (((cnt_h >= H_SYNC+H_BACK) && (cnt_h < H_SYNC+H_BACK+H_DISP))
                     ?  1'b1 : 1'b0;
 
 //RGB888数据输出
-assign video_rgb = video_en ? (IsGameWindow ==1'b1 ? pixel_data:24'h040400) : 24'd0;
+assign video_rgb = video_en ? (IsGameWindow ==1'b1 ? pixel_data:24'ha0a000) : 24'h000000;
 
 //请求像素点颜色数据输入
 wire   data_req      ;

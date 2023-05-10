@@ -4,20 +4,21 @@
 */
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module paletteBackground (
-    input  wire [1:0] PaletteChoice,
-    output reg  [`RGB_BIT-1:0] PaletteColor00,
-    output reg  [`RGB_BIT-1:0] PaletteColor01,
-    output reg  [`RGB_BIT-1:0] PaletteColor10,
-    output reg  [`RGB_BIT-1:0] PaletteColor11
+    input  wire                 ahb_Palette_H_L,
+    input  wire [1:0]           PaletteChoice,
+    output reg  [`RGB_BIT-1:0]  PaletteColor00,
+    output reg  [`RGB_BIT-1:0]  PaletteColor01,
+    output reg  [`RGB_BIT-1:0]  PaletteColor10,
+    output reg  [`RGB_BIT-1:0]  PaletteColor11
 );
-    reg  [4*(`RGB_BIT)-1:0] palettemem [0:3];
+    reg  [4*(`RGB_BIT)-1:0] palettemem [0:7];
     initial begin
 	    $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/paletteBackground.txt", palettemem);
 	end
 
     reg  [4*(`RGB_BIT)-1:0] PaletteColor;
     always@(*)begin
-        PaletteColor=palettemem[PaletteChoice];
+        PaletteColor=palettemem[{ahb_Palette_H_L,PaletteChoice}];
         PaletteColor00=PaletteColor[4*(`RGB_BIT)-1:3*(`RGB_BIT)];
         PaletteColor01=PaletteColor[3*(`RGB_BIT)-1:2*(`RGB_BIT)];
         PaletteColor10=PaletteColor[2*(`RGB_BIT)-1:1*(`RGB_BIT)];

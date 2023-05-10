@@ -66,9 +66,6 @@ uint32_t GameShootDownCnt;//游戏击落数
 float GameHitRate;//游戏命中率
 
 uint32_t fps; 
-
-int PS2_KEY=0;
-
 uint8_t game_state=0;
 uint8_t gameEndFpsCnt;
 uint8_t gameEndInterFaceFpsCnt=0;
@@ -85,17 +82,19 @@ extern uint8_t Data[9];//手柄获取的数据
 uint32_t flashAddrBlock_Map0=0x000000;
 uint32_t flashAddrBlock_Map1=0x004000;
 uint8_t guanQia=0;
+uint8_t pifuNum=0;//选择的皮肤是哪一个
+uint8_t pifuNumTemp=0;//选择的皮肤中间变量
+
+int PS2_KEY_START=0;
+int PS2_KEY_GAMING=0;
+int PS2_KEY_END_OUT=0;
+int PS2_KEY_PIFU=0;//皮肤选择界面的
+
 int main(void)
 {
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    PS2_Init();
    SPI_Init(100);
-//   printf("hello\n");
-//   while (1){
-//      PS2_KEY=PS2_DataKey();
-//      printf("PS2_KEY=%d\n",PS2_KEY);
-//      delay_ms(300);
-//   }
 
    SPI_Flash_Erase_Block( 0x000000);
    SPI_Flash_Erase_Block( 0x001000);
@@ -114,11 +113,12 @@ int main(void)
       if(timer_init_flag==1){
          timer_init_flag=0;
          if(game_state==0){
+            NAMETABLE->ahb_Palette_H_L=1;
             for(uint8_t i=0;i<64;i++){
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
             clearNameTableAll();
-            gameCursor.state=0;
+            // gameCursor.state=0;
             gameStartInterfaceShow(7,8);
             gameCursorDraw(&gameCursor);
             guanQia=0;
@@ -153,6 +153,7 @@ int main(void)
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
             NAMETABLE->createPlaneIntrEn=1;
+            NAMETABLE->ahb_Palette_H_L=0;
          }
          else if(game_state==2){
             NAMETABLE->scrollEn=0;
@@ -160,31 +161,68 @@ int main(void)
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
             }
             clearNameTableAll();
+            NAMETABLE->ahb_Palette_H_L=1;
             DrawFlag=0;
             spriteRamAddr=0;
             gameEndInterFaceFpsCnt=0;
             gameEndInterFaceArrayCnt=0;
          }
+         else if(game_state==3){//"皮肤选择"界面初始化
+            NAMETABLE->scrollEn=0;
+            for(uint8_t i=0;i<64;i++){
+               writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
+            }
+            clearNameTableAll();
+            pifuNumTemp=pifuNum;
+            uint8_t posx=120 , posy=32; uint8_t posy_add=62;//横着排列3个我方飞机，某一列有九个tile，最后一个tile显示不全，需要竖着排列
+            writeOneSprite(0,posx+0 ,posy+0,MYPLANE_ACT_0_0,0x00|0x00|0x08);
+            writeOneSprite(1,posx+8 ,posy+0,MYPLANE_ACT_0_1,0x00|0x00|0x08);
+            writeOneSprite(2,posx+16,posy+0,MYPLANE_ACT_0_2,0x40|0x00|0x08);
+            writeOneSprite(3,posx+4 ,posy+7,MYPLANE_ACT_0_3,0x00|0x00|0x08);
+            writeOneSprite(4,posx+12,posy+7,MYPLANE_ACT_0_4,0x00|0x00|0x08);
+
+            writeOneSprite(5+0,posx+0 ,posy+posy_add+0,MYPLANE_ACT_0_0,0x00|0x20|0x08);
+            writeOneSprite(5+1,posx+8 ,posy+posy_add+0,MYPLANE_ACT_0_1,0x00|0x20|0x08);
+            writeOneSprite(5+2,posx+16,posy+posy_add+0,MYPLANE_ACT_0_2,0x40|0x20|0x08);
+            writeOneSprite(5+3,posx+4 ,posy+posy_add+7,MYPLANE_ACT_0_3,0x00|0x20|0x08);
+            writeOneSprite(5+4,posx+12,posy+posy_add+7,MYPLANE_ACT_0_4,0x00|0x20|0x08);
+
+            writeOneSprite(50+0,posx+0 ,posy+2*posy_add+0,MYPLANE_ACT_0_0,0x00|0x30|0x00);
+            writeOneSprite(50+1,posx+8 ,posy+2*posy_add+0,MYPLANE_ACT_0_1,0x00|0x30|0x00);
+            writeOneSprite(50+2,posx+16,posy+2*posy_add+0,MYPLANE_ACT_0_2,0x40|0x30|0x00);
+            writeOneSprite(50+3,posx+4 ,posy+2*posy_add+7,MYPLANE_ACT_0_3,0x00|0x30|0x00);
+            writeOneSprite(50+4,posx+12,posy+2*posy_add+7,MYPLANE_ACT_0_4,0x00|0x30|0x00);
+         }
       }
+
 /****不同界面的运行*****/
       //游戏开始选择界面
       if(game_state==0&&timer_init_flag==0){
-         PS2_KEY=PS2_DataKey();
-            if(PS2_KEY==PSB_PAD_UP){
+         PS2_KEY_START=PS2_DataKey();
+            //选项光标的上下移动
+            if(PS2_KEY_START==PSB_PAD_UP){
                if(gameCursor.state>0){
                   gameCursor.state-=1;
                   gameCursorDraw(&gameCursor);
                }
             }
-            else if(PS2_KEY==PSB_PAD_DOWN){
+            else if(PS2_KEY_START==PSB_PAD_DOWN){
                if(gameCursor.state<1){
                   gameCursor.state+=1;
                   gameCursorDraw(&gameCursor);
                }
             }
-            else if(PS2_KEY==PSB_GREEN && gameCursor.state==0){
-               timer_init_flag=1;
-               game_state=1;
+
+            //光标选中某一个选项
+            else if(PS2_KEY_START==PSB_GREEN){
+               if(gameCursor.state==0){//第一个选项“游戏开始”
+                  timer_init_flag=1;
+                  game_state=1;
+               }
+               else if(gameCursor.state==1){//第二个选项“皮肤选择”
+                  timer_init_flag=1;
+                  game_state=3;
+               }
             }
          delay_ms(150);
       }
@@ -195,18 +233,18 @@ int main(void)
                ;
             }
             //按键检测
-            PS2_KEY=PS2_DataKey();
+            PS2_KEY_GAMING=PS2_DataKey();
             timer_cnt++;
             if(timer_cnt>=16){
                timer_cnt=0;
-               if((Data[4]&0x10)==0){//PS2_KEY==PSB_GREEN||保证移动的同时能够发射子弹
+               if((Data[4]&0x10)==0){//PS2_KEY_GAMING==PSB_GREEN||保证移动的同时能够发射子弹
                   if(myplane.actFlag==0)
                      myPlane_createOneBullet(&myplane,&myBullet);
                }
-               else if(PS2_KEY==PSB_RED){//施放技能
+               else if(PS2_KEY_GAMING==PSB_RED){//施放技能
                    start=1;
                }
-               else if (PS2_KEY==PSB_PINK){
+               else if (PS2_KEY_GAMING==PSB_PINK){
                   if(gameingPause==0){
                      NAMETABLE->scrollPause=1;
                      gameingPause=1;
@@ -219,22 +257,22 @@ int main(void)
                
             }
             if(timer_cnt%3==1){
-               if(PS2_KEY==PSB_PAD_LEFT){
+               if(PS2_KEY_GAMING==PSB_PAD_LEFT){
                    if(myplane.PosX>LEFT_LINE+20)
                        myplane.PosX-=5;
                }
-               else if(PS2_KEY==PSB_PAD_RIGHT){
+               else if(PS2_KEY_GAMING==PSB_PAD_RIGHT){
                    if(myplane.PosX<RIGHT_LINE-20)
                        myplane.PosX+=5;
                }
-               else if(PS2_KEY==PSB_PAD_UP){
+               else if(PS2_KEY_GAMING==PSB_PAD_UP){
                    if(myplane.PosY>TOP_LINE+20)
                        myplane.PosY-=5;
                }
-               else if(PS2_KEY==PSB_PAD_DOWN){
+               else if(PS2_KEY_GAMING==PSB_PAD_DOWN){
                    if(myplane.PosY<BOTTOM_LINE-20)
                        myplane.PosY+=5;
-               }  
+               }
             }
 
             //数据更新
@@ -264,7 +302,7 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
-            // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
@@ -360,13 +398,12 @@ int main(void)
 
       }
       //游戏结算界面
-      else if(game_state==2&&timer_init_flag==0)
-      {
+      else if(game_state==2&&timer_init_flag==0){
          GameHitRate = ((float)(GameShootDownCnt))/GameShootBulletsCnt;
          endInterFaceDraw(&DrawFlag,&gameEndInterFaceArrayCnt,GameShootDownCnt,GameHitRate);
          if(gameEndInterFaceArrayCnt>=endInterFaceCharNum){
-            PS2_KEY=PS2_DataKey();
-            if(PS2_KEY==PSB_PINK){//退出
+            PS2_KEY_END_OUT=PS2_DataKey();
+            if(PS2_KEY_END_OUT==PSB_PINK){//退出
                game_state=0;
                timer_init_flag=1;
                gameEndInterFaceArrayCnt=0;
@@ -374,12 +411,30 @@ int main(void)
             delay_ms(100);
          }
       }
+      //游戏皮肤选择界面
+      else if(game_state==3&&timer_init_flag==0){
+            //横着排列3个我方飞机，某一列有九个tile，最后一个tile显示不全，需要竖着排列            
+            uint8_t posx=120 , posy=32; uint8_t posy_add=62;
+            writeOneSprite(10+5,posx-8,posy+pifuNumTemp*posy_add,0x25,0x0);
+
+            PS2_KEY_PIFU=PS2_DataKey();
+            //选项光标的上下移动
+            if(PS2_KEY_PIFU==PSB_PAD_UP){
+               if(pifuNumTemp>0)
+                  pifuNumTemp--;
+            }
+            else if(PS2_KEY_PIFU==PSB_PAD_DOWN){
+               if(pifuNumTemp<2)
+                  pifuNumTemp++;
+            }
+            else if(PS2_KEY_PIFU==PSB_PINK){//选中皮肤并返回游戏开始界面
+                  pifuNum=pifuNumTemp;
+                  timer_init_flag=1;
+                  game_state=0;
+            }
+            delay_ms(300);
+      }
    }
 }
-   // uint8_t *mario_1024=0;
-   // mario_1024=mymalloc(1024);
-   // SPI_Flash_Read(mario_1024,0x000000,1024);
-   // for(uint32_t i=0;i<1024;i++){
-   //    printf("addr=%lu data=%x\n",i,mario_1024[i]);
-   // }
-   // myfree(mario_1024);
+
+

@@ -24,6 +24,8 @@ module ahb_nameTableRam_interface #(
     input  wire                     scrollingFlag   ,//表明背景正在滚动中
     output reg                      scrollPause     ,//背景暂停控制信号
     output reg                      createPlaneIntrEn,//产生飞机的中断使能
+
+    output reg                      ahb_Palette_H_L ,//选择调色板 开始界面选择1 运行界面选择0
     //
     output wire   [ADDR_WIDTH-1:0]  BRAM_RDADDR,
     output wire   [ADDR_WIDTH-1:0]  BRAM_WRADDR,
@@ -99,6 +101,7 @@ always@(*)begin
     10'b10_0000_0110:readDataMux = {31'b0,scrollingFlag};
     10'b10_0000_0111:readDataMux = {31'b0,scrollPause};
     10'b10_0000_1000:readDataMux = {31'b0,createPlaneIntrEn};
+    10'b10_0000_1001:readDataMux = {31'b0,ahb_Palette_H_L};
   endcase
 end
 /*****对scrollCtrl模块的读写控制*****/
@@ -110,7 +113,8 @@ end
     // input  wire   [07:0]            mapScrollPtr    ,0x814
     // input  wire                     scrollingFlag   ,0x818
     // output reg                      scrollPause     ,0x81C
-    // output reg                     createPlaneIntrEn,0x820
+    // output reg                      createPlaneIntrEn,0x820
+    // output reg                      ahb_Palette_H_L ,0x824
 wire scrollCtrlAddrEn = (wr_en_reg && addr_reg[ADDR_WIDTH:4]==6'b100000);
 
 wire write_scrollEn_en          = scrollCtrlAddrEn && addr_reg[3:0]==4'd0;
@@ -119,15 +123,17 @@ wire write_flashAddrStart_en    = scrollCtrlAddrEn && addr_reg[3:0]==4'd2;
 wire write_mapBackgroundMax_en  = scrollCtrlAddrEn && addr_reg[3:0]==4'd3;
 wire write_scrollPause_en       = scrollCtrlAddrEn && addr_reg[3:0]==4'd7;
 wire write_createPlaneIntrEn_en = scrollCtrlAddrEn && addr_reg[3:0]==4'd8;
+wire write_ahb_Palette_H_L_en   = scrollCtrlAddrEn && addr_reg[3:0]==4'd9;
 
 always@(posedge HCLK or negedge HRESETn)begin
   if(~HRESETn)begin
-    scrollEn          <=1'b0;
-    scrollCntMax      <=1'b0;
-    flashAddrStart    <=1'b0;
-    mapBackgroundMax  <=1'b0;
-    scrollPause       <=1'b0;
-    createPlaneIntrEn <=1'b0;
+    scrollEn          <= 1'd0;
+    scrollCntMax      <= 8'd0;
+    flashAddrStart    <=24'd0;
+    mapBackgroundMax  <= 8'd0;
+    scrollPause       <= 1'd0;
+    createPlaneIntrEn <= 1'd0;
+    ahb_Palette_H_L   <= 1'd1;
   end
   else begin
     if(write_scrollEn_en)
@@ -142,6 +148,8 @@ always@(posedge HCLK or negedge HRESETn)begin
       scrollPause<=HWDATA[00:0];
     if (write_createPlaneIntrEn_en)
       createPlaneIntrEn<=HWDATA[00:0];
+    if (write_ahb_Palette_H_L_en)
+        ahb_Palette_H_L<=HWDATA[00:0];
   end
 end
 

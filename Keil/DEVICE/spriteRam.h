@@ -43,6 +43,7 @@ typedef struct{
     volatile uint32_t scrollingFlag   ;
     volatile uint32_t scrollPause     ;
     volatile uint32_t createPlaneIntrEn;
+    volatile uint32_t ahb_Palette_H_L ;
 }NAMETABLE_Type;
 
 #define NAMETABLE ((NAMETABLE_Type *)NAMETABLE_BASE)

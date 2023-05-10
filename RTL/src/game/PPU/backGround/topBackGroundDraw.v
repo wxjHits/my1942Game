@@ -53,7 +53,7 @@ module topBackGroundDraw #(
     wire                    scrollingFlag       ;// only Read
     wire                    scrollPause         ;// Write & Read
     wire                    createPlaneIntrEn   ;// Write & Read
-
+    wire                    ahb_Palette_H_L     ;// Write & Read
 ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     .HCLK               (NAMETABLE_HCLK     ),
     .HRESETn            (NAMETABLE_HRESETn  ),
@@ -78,6 +78,8 @@ ahb_nameTableRam_interface u_ahb_nameTableRam_interface(
     .scrollingFlag      (scrollingFlag      ),
     .scrollPause        (scrollPause        ),
     .createPlaneIntrEn  (createPlaneIntrEn  ),
+    //to backTileDraw.v
+    .ahb_Palette_H_L    (ahb_Palette_H_L    ),
     //to nameTableRam.v
     .BRAM_RDADDR        (BRAM_RDADDR        ),
     .BRAM_WRADDR        (BRAM_WRADDR        ),
@@ -212,6 +214,8 @@ wire    [`SPRITE_TILEDATA_BIT-1:0]     backTileDataI;
 backTileDraw u_backTileDraw(
     .clk(clk_100MHz),
     .rstn(rstn),
+    //from cpu ahb-lite
+    .ahb_Palette_H_L(ahb_Palette_H_L),
     //from VGA_driver
     .vgaPosX(vgaPosX),
     .vgaPosY(vgaPosY),

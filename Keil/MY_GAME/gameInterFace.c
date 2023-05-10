@@ -66,7 +66,7 @@ void gameStartInterfaceShow(uint8_t x,uint8_t y){
     }
 }
 
-extern GAMECURSORType gameCursor;//游戏的指示光标
+extern GAMECURSORType gameCursor;//游戏开始界面的指示光标
 void gameCursorDraw(GAMECURSORType* gameCursor){
     uint8_t PosX=80;
     uint8_t PosY=0;
@@ -81,9 +81,9 @@ void gameCursorDraw(GAMECURSORType* gameCursor){
         default:PosY=128;
             break;
     }
-    writeOneSprite(0,PosX+0,PosY+0,0x40,0xA0);
-    writeOneSprite(1,PosX+8,PosY+0,0x41,0xA0);
-    writeOneSprite(2,PosX+4,PosY+8,0x42,0xA0);
+    writeOneSprite(0,PosX+0,PosY+0,0x40,0x80|0x08);
+    writeOneSprite(1,PosX+8,PosY+0,0x41,0x80|0x08);
+    writeOneSprite(2,PosX+4,PosY+8,0x42,0x80|0x08);
 }
 
 /*******************游戏新关卡开始的显示**************************/
