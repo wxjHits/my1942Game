@@ -10,11 +10,15 @@ void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score,uint8_t* spriteRamA
     uint8_t shi = (score/10)%10;
     uint8_t bai = (score/100)%10;
     uint8_t qian = (score/1000)%10;
-    writeOneSprite((*spriteRamAddr)+0,PosX,PosY,qian,0x30);
-    writeOneSprite((*spriteRamAddr)+1,PosX+8,PosY,bai,0x30);
-    writeOneSprite((*spriteRamAddr)+2,PosX+16,PosY,shi,0x30);
-    writeOneSprite((*spriteRamAddr)+3,PosX+24,PosY,ge,0x30);
-    *spriteRamAddr+=4;
+    uint8_t wan = (score/10000)%10;
+    uint8_t shiwan = (score/100000)%10;
+    writeOneSprite((*spriteRamAddr)+0,PosX+ 0,PosY,shiwan,0x30);
+    writeOneSprite((*spriteRamAddr)+1,PosX+ 8,PosY,wan   ,0x30);
+    writeOneSprite((*spriteRamAddr)+2,PosX+16,PosY,qian  ,0x30);
+    writeOneSprite((*spriteRamAddr)+3,PosX+24,PosY,bai   ,0x30);
+    writeOneSprite((*spriteRamAddr)+4,PosX+32,PosY,shi   ,0x30);
+    writeOneSprite((*spriteRamAddr)+5,PosX+40,PosY,ge    ,0x30);
+    *spriteRamAddr+=6;
 }
 
 /*******************游戏开始界面显示******************************/
@@ -106,54 +110,69 @@ void newGuanqiaInterFaceDraw(uint8_t guanQiaNum,uint8_t* spriteRamAddr){
     fpsCnt外部传进行来的帧率计数器
     drawSpeed:当drawSpeed==fpsCnt时候fpsCnt=0 arrayCnt+=1;
 */
-uint8_t endInterFaceArray[20][3]={ 
-   32+00,64+00,0x12,//"游"
-   32+16,64+00,0x13,//"戏"
-   32+32,64+00,0x1B,//"击"
-   32+48,64+00,0x1C,//"落"
+uint8_t endInterFaceArray[24][3]={
+    16+32       ,64-16,0x18,//"分"
+    16+32+16*2  ,64-16,0x19,//"数"
+    16+48+104+ 0,64-16,0x00,//"shiwan"
+    16+48+104+ 8,64-16,0x00,//"wan"
+    16+48+104+16,64-16,0x00,//"qian"
+    16+48+104+24,64-16,0x00,//"bai"
+    16+48+104+32,64-16,0x00,//"shi"
+    16+48+104+40,64-16,0x00,//"ge"
 
-   32+48+108+00,64+00,0x00,//"qian"
-   32+48+108+ 8,64+00,0x00,//"bai"
-   32+48+108+16,64+00,0x00,//"shi"
-   32+48+108+24,64+00,0x00,//"ge"
+    16+32           ,64+00,0x1B,//"击"
+    16+32+16*2      ,64+00,0x1C,//"落"
+    16+48+104+16+ 0 ,64+00,0x00,//"qian"
+    16+48+104+16+ 8 ,64+00,0x00,//"bai"
+    16+48+104+16+16 ,64+00,0x00,//"shi"
+    16+48+104+16+24 ,64+00,0x00,//"ge"
 
-   32+00,64+16,0x12,//"游"
-   32+16,64+16,0x13,//"戏"
-   32+32,64+16,0x1D,//"命"
-   32+48,64+16,0x1E,//"中"
-   32+64,64+16,0x1F,//"率"
+    16+32           ,64+16,0x1D,//"命"
+    16+48           ,64+16,0x1E,//"中"
+    16+64           ,64+16,0x1F,//"率"
+    16+64+104+ 8    ,64+16,0x00,//"命中率shi"
+    16+64+104+16    ,64+16,0x00,//"命中率ge"
+    16+64+104+24    ,64+16,0x25,//"%"
 
-   32+64+96+ 8,64+16,0x00,//"命中率shi"
-   32+64+96+16,64+16,0x00,//"命中率ge"
-   32+64+96+24,64+16,0x25,//"%"
-
-   110+00,160+00,0x12,//"游"
-   110+16,160+00,0x13,//"戏"
-   110+32,160+00,0x14,//"结"
-   110+48,160+00,0x15,//"束"
+    110+00,160+00,0x12,//"游"
+    110+16,160+00,0x13,//"戏"
+    110+32,160+00,0x14,//"结"
+    110+48,160+00,0x15,//"束"
 };
 
 extern uint8_t endInterFaceArray[endInterFaceCharNum][3];
-void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDownCnt,float GameHitRate){
+void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t score,uint32_t GameShootDownCnt,float GameHitRate){
+    uint8_t score_ge = score%10;
+    uint8_t score_shi = (score/10)%10;
+    uint8_t score_bai = (score/100)%10;
+    uint8_t score_qian = (score/1000)%10;
+    uint8_t score_wan = (score/10000)%10;
+    uint8_t score_shiwan = (score/100000)%10;
+    endInterFaceArray[2][2]=score_shiwan;
+    endInterFaceArray[3][2]=score_wan;
+    endInterFaceArray[4][2]=score_qian;
+    endInterFaceArray[5][2]=score_bai;
+    endInterFaceArray[6][2]=score_shi;
+    endInterFaceArray[7][2]=score_ge;
+
     uint8_t ge   = GameShootDownCnt%10;
     uint8_t shi  = (GameShootDownCnt/10)%10;
     uint8_t bai  = (GameShootDownCnt/100)%10;
     uint8_t qian = (GameShootDownCnt/1000)%10;
-    endInterFaceArray[4][2]=qian;
-    endInterFaceArray[5][2]=bai ;
-    endInterFaceArray[6][2]=shi ;
-    endInterFaceArray[7][2]=ge  ;
+    endInterFaceArray[10][2]=qian;
+    endInterFaceArray[11][2]=bai ;
+    endInterFaceArray[12][2]=shi ;
+    endInterFaceArray[13][2]=ge  ;
 
     uint8_t GameHitRate_100 = (uint8_t)(GameHitRate*100);
     ge  = GameHitRate_100%10;
     shi = (GameHitRate_100/10)%10;
-    endInterFaceArray[13][2]=shi ;
-    endInterFaceArray[14][2]=ge  ;
+    endInterFaceArray[17][2]=shi ;
+    endInterFaceArray[18][2]=ge  ;
 
     if((*DrawFlag==1) && (*arrayCnt<endInterFaceCharNum)){
         writeOneSprite(*arrayCnt,endInterFaceArray[*arrayCnt][0],endInterFaceArray[*arrayCnt][1],endInterFaceArray[*arrayCnt][2],0x00);
         (*arrayCnt)+=1;
-        // LED_toggle(5);
         *DrawFlag=0;
     }
 }

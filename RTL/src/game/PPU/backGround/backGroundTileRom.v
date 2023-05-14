@@ -9,7 +9,8 @@ module backGroundTileRom(
 );
     (* ram_style="block" *)reg  [`SPRITE_TILEDATA_BIT-1:0] backGroundTileRom [0:`SPRITE_TILEROM_DEEPTH-1];
     initial begin
-        $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/game1942BackgroundTile.txt", backGroundTileRom);
+        // $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/game1942BackgroundTile.txt", backGroundTileRom);
+        $readmemh("C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/ppuDocTxt/my_game1942BackgroundTile.txt", backGroundTileRom);
     end
 
     assign backTileDataI = backGroundTileRom[backTileIndex];

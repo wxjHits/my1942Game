@@ -85,6 +85,8 @@ uint8_t guanQia=0;
 uint8_t pifuNum=0;//选择的皮肤是哪一个
 uint8_t pifuNumTemp=0;//选择的皮肤中间变量
 
+extern uint32_t create_enmeyPlane_num;//在生成敌机的中断函数中
+
 int PS2_KEY_START=0;
 int PS2_KEY_GAMING=0;
 int PS2_KEY_END_OUT=0;
@@ -122,15 +124,21 @@ int main(void)
             gameStartInterfaceShow(7,8);
             gameCursorDraw(&gameCursor);
             guanQia=0;
+            
+            GameScore=0;
+            GameShootBulletsCnt=0;
+            GameShootDownCnt=0;
+
+            create_enmeyPlane_num=0;
          }
          else if(game_state==1){
             timer_cnt=0;
             start=0;
             gameingPause=0;
             gameRunState=0;
-            GameScore=0;
-            GameShootBulletsCnt=0;
-            GameShootDownCnt=0;
+//            GameScore=0;
+//            GameShootBulletsCnt=0;
+//            GameShootDownCnt=0;
             gameEndFpsCnt=0;
             GameHitRate=0;
 
@@ -148,7 +156,7 @@ int main(void)
             }
             clearNameTableAll();
             loadMapJianchuan();
-            NAMETABLE->scrollCntMax=4;
+            NAMETABLE->scrollCntMax=2;//背景滚动速度为“4”比较合适
             NAMETABLE->flashAddrStart=guanQia*(0x0004000);
             NAMETABLE->mapBackgroundMax=8;
             NAMETABLE->scrollEn=1;
@@ -400,7 +408,7 @@ int main(void)
       //游戏结算界面
       else if(game_state==2&&timer_init_flag==0){
          GameHitRate = ((float)(GameShootDownCnt))/GameShootBulletsCnt;
-         endInterFaceDraw(&DrawFlag,&gameEndInterFaceArrayCnt,GameShootDownCnt,GameHitRate);
+         endInterFaceDraw(&DrawFlag,&gameEndInterFaceArrayCnt,GameScore,GameShootDownCnt,GameHitRate);
          if(gameEndInterFaceArrayCnt>=endInterFaceCharNum){
             PS2_KEY_END_OUT=PS2_DataKey();
             if(PS2_KEY_END_OUT==PSB_PINK){//退出

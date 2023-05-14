@@ -176,21 +176,32 @@ enum CREATE_PLANE{
 
     CREATE_B,
 };
-uint32_t num=0;
-uint32_t create[120]={
-                CREATE_S_GREY_1,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
-                CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
-                0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
-                CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
-                CREATE_B,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
-                CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_4_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
-                CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
-                CREATE_S_GREY_6,0,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,0,0,0,
-                };
+uint32_t create_enmeyPlane_num=0;
+uint32_t create[240]={
+    //第1关
+    CREATE_S_GREY_1,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
+    CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
+    0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
+    CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    CREATE_B,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_4_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
+    CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
+    CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
+
+    //第2关
+    CREATE_S_GREY_1,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
+    CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
+    0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
+    CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    CREATE_B,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_4_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
+    CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
+    CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
+};
 //一幅地图240/16=15，产生15次create_plane_Handler中断
 //如果每一关为8幅地图，则有120次create_plane_Handler中断
 void create_plane_Handler(void){
-    switch (create[num]){
+    switch (create[create_enmeyPlane_num]){
     case CREATE_S_GREY_1:
         s_grey_createPlane_111(&s_grey_plane);
         break;
@@ -230,5 +241,5 @@ void create_plane_Handler(void){
     default:
         break;
     }
-    num++;
+    create_enmeyPlane_num++;
 }

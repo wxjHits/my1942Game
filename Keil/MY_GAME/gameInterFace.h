@@ -20,7 +20,7 @@ void gameCursorDraw(GAMECURSORType* gameCursor);
 void newGuanqiaInterFaceDraw(uint8_t guanQiaNum,uint8_t* spriteRamAddr);
 
 //游戏结算画面，文字应该是隔几帧再进行打印（一个一个打印），和初始界面瞬间显示出来不同
-#define endInterFaceCharNum 20
-void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t GameShootDownCnt,float GameHitRate);
+#define endInterFaceCharNum 24
+void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t score, uint32_t GameShootDownCnt,float GameHitRate);
 
 #endif
