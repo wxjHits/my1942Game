@@ -16,6 +16,7 @@
 ".\objects\spriteram.o"
 ".\objects\pstwo.o"
 ".\objects\makeenemyplanearray.o"
+".\objects\apu.o"
 ".\objects\boom.o"
 ".\objects\enemybullet.o"
 ".\objects\enemyplane.o"

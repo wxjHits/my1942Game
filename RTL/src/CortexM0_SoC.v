@@ -4,6 +4,7 @@
 //描述:SoC-design based on kernel--Cortex_M0
 //时间:create 2022.09.20
 /****************************/
+// `define Xilinx_Sim
 `include "C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v"
 module CortexM0_SoC(
         input	wire        clk         ,//B8   
@@ -15,6 +16,13 @@ module CortexM0_SoC(
         // UART
         output  wire        TXD         ,//C11; 
         input   wire        RXD         ,//A9; 
+
+        // 陀螺仪串口
+        output  wire        GYRO_VCC    ,//F13
+        output  wire        GYRO_TXD    ,//D14 
+        input   wire        GYRO_RXD    ,//C14 
+        output  wire        GYRO_GND    ,//F14
+
         // //KEYBOARD
         // input   wire [3:0]  col         ,
         // output  wire [3:0]  row         ,
@@ -30,6 +38,8 @@ module CortexM0_SoC(
         output wire         PS2_CLK     ,//A16
         output wire         PS2_DO      ,//A11
         input  wire         PS2_DI      ,//B11
+
+        output wire         APU_OUT     ,//C9
         // //GAME VGA
         // output  wire        hsync       ,//输出行同步信号
         // output  wire        vsync       ,//输出场同步信号
@@ -458,7 +468,7 @@ module CortexM0_SoC(
                             .HRDATA_P6      (HRDATA_P6   ),
                             .HRESP_P6       (HRESP_P6    ),
 
-                            // P7
+                            // P7 0x50030000
                             .HSEL_P7        (HSEL_P7     ),
                             .HADDR_P7       (HADDR_P7    ),
                             .HBURST_P7      (HBURST_P7   ),
@@ -936,6 +946,40 @@ module CortexM0_SoC(
                   .PS2_DO     (PS2_DO )     ,
                   .PS2_DI     (PS2_DI )
               );
+
+    //------------------------------------------------------------------------------
+    // APB6 GYRO_UART
+    //------------------------------------------------------------------------------
+    wire    GYRO_TXINT;
+    wire    GYRO_RXINT;
+    wire    GYRO_TXOVRINT;
+    wire    GYRO_RXOVRINT;
+    wire    GYRO_UARTINT;
+    assign GYRO_VCC = 1'b1;
+    assign GYRO_GND = 1'b0;
+    cmsdk_apb_uart GYRO_UART(
+                       .PCLK                               (clk),
+                       .PCLKG                              (clk),
+                       .PRESETn                            (cpuresetn),
+                       .PSEL                               (PSEL_APBP6),
+                       .PADDR                              (PADDR[11:2]),
+                       .PENABLE                            (PENABLE),
+                       .PWRITE                             (PWRITE),
+                       .PWDATA                             (PWDATA),
+                       .ECOREVNUM                          (4'b0),
+                       .PRDATA                             (PRDATA_APBP6),
+                       .PREADY                             (PREADY_APBP6),
+                       .PSLVERR                            (PSLVERR_APBP6),
+
+                       .RXD                                (GYRO_RXD),
+                       .TXD                                (GYRO_TXD),
+                       .TXINT                              (GYRO_TXINT),
+                       .RXINT                              (GYRO_RXINT),
+                       .TXOVRINT                           (GYRO_TXOVRINT),
+                       .RXOVRINT                           (GYRO_RXOVRINT),
+                       .UARTINT                            (GYRO_UARTINT)
+                   );
+
     // //AHB4 LCD 0x5000_0000
     // ahb_lcd lcd(
     //             .HCLK       (clk        ),
@@ -1036,6 +1080,9 @@ module CortexM0_SoC(
         .clk2_out   (clk_125MHz ) //125MHz
     );
 
+`ifdef Xilinx_Sim
+
+`else
     topPPU topPPU_inst(
             .clk_50MHz          (clk            ),
             .clk_125MHz         (clk_125MHz     ),
@@ -1089,6 +1136,30 @@ module CortexM0_SoC(
             .tmds_clk_n         (tmds_clk_n     ),
             .tmds_data_p        (tmds_data_p    ),
             .tmds_data_n        (tmds_data_n    ) 
+    );
+`endif
+    //------------------------------------------------------------------------------
+    // APU 0x50030000
+    //------------------------------------------------------------------------------
+    ahb_apu APU_inst(
+            /* Connect to Interconnect Port 1 */
+            .HCLK		(clk            ),
+            .HRESETn	(cpuresetn      ),
+            .HSEL		(HSEL_P7        ),
+            .HADDR		(HADDR_P7       ),
+            .HPROT		(HPROT_P7       ),
+            .HSIZE		(HSIZE_P7       ),
+            .HTRANS		(HTRANS_P7      ),
+            .HWDATA		(HWDATA_P7      ),
+            .HWRITE		(HWRITE_P7      ),
+            .HRDATA		(HRDATA_P7      ),
+            .HREADY		(HREADY_P7      ),
+            .HREADYOUT	(HREADYOUT_P7   ),
+            .HRESP		(HRESP_P7       ),
+            .mute_in    (4'b0000        ),
+            .audio_out  (APU_OUT        ) 
+
+            /**********************************/
     );
 
 endmodule

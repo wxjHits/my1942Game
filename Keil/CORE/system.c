@@ -44,8 +44,8 @@ void SystemCoreClockUpdate (void)
  */
 void SystemInit (void)
 {
-  //SystemCoreClock = __SYSTEM_CLOCK;
-  //NVIC_EnableIRQ(SysTick_IRQn);
+    SystemCoreClock = __SYSTEM_CLOCK;
+    NVIC_EnableIRQ(SysTick_IRQn);
 //    NVIC_EnableIRQ(KEY0_IRQn);
 //    NVIC_EnableIRQ(KEY1_IRQn);
 //    NVIC_EnableIRQ(KEY2_IRQn);
@@ -53,7 +53,6 @@ void SystemInit (void)
     
     NVIC_EnableIRQ(UARTRX_IRQn);
     NVIC_EnableIRQ(UARTTX_IRQn);
-    // NVIC_EnableIRQ(TIMER_IRQn);
     NVIC_EnableIRQ(VGA_IRQn);
     NVIC_EnableIRQ(CREATE_PLANE_IRQn);
 }

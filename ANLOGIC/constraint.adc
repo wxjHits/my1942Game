@@ -1,3 +1,4 @@
+set_pin_assignment	{ APU_OUT }	{ LOCATION = C9; }
 set_pin_assignment	{ OUTLED[0] }	{ LOCATION = K17; }
 set_pin_assignment	{ OUTLED[1] }	{ LOCATION = K18; }
 set_pin_assignment	{ OUTLED[2] }	{ LOCATION = L14; }
@@ -24,6 +25,7 @@ set_pin_assignment	{ tmds_data_n[2] }	{ LOCATION = R1; IOSTANDARD = LVDS25; }
 set_pin_assignment	{ tmds_data_p[0] }	{ LOCATION = V5; IOSTANDARD = LVDS25; }
 set_pin_assignment	{ tmds_data_p[1] }	{ LOCATION = U4; IOSTANDARD = LVDS25; }
 set_pin_assignment	{ tmds_data_p[2] }	{ LOCATION = R3; IOSTANDARD = LVDS25; }
+
 
 
 

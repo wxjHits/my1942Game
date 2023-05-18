@@ -1,0 +1,11 @@
+从陀螺仪模块自己来说
+VCC    39   F13 
+RX      40   D14
+TX      38   C14
+GND  37   F14
+
+对FPGA
+VCC    39   F13 
+TX      40   D14
+RX      38   C14
+GND  37   F14

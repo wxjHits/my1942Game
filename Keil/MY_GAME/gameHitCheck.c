@@ -1,5 +1,6 @@
 #include "gameHitCheck.h"
 #include "boom.h"
+#include "apu.h"
 
 extern const uint8_t MYPLANE_BULLET_NUMMAX;
 extern const uint8_t ENEMY_BULLETS_NUMMAX;
@@ -102,6 +103,12 @@ void isHit_s_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANEType* s
                 (s_grey_enmeyPlane+i)->PosX=253;
                 (s_grey_enmeyPlane+i)->PosY=239;
                 GameScore+=10;
+                
+                //爆炸音效
+                set_noise_00(0x8F);
+                set_noise_01(0x00);
+                set_noise_10(0x95);
+                set_noise_11(0x98);
             }
         }
     }
@@ -122,14 +129,20 @@ void isHit_s_EnemyPlane(S_GREY_PLANEType* s_grey_enmeyPlane,S_GREEN_PLANEType* s
                 (s_green_enmeyPlane+i)->liveFlag=0;
                 (s_green_enmeyPlane+i)->PosX=253;
                 (s_green_enmeyPlane+i)->PosY=239;
-                GameScore+=10;
+                GameScore+=15;
+
+                //爆炸音效
+                set_noise_00(0x8F);
+                set_noise_01(0x00);
+                set_noise_10(0x95);
+                set_noise_11(0x98);
             }
         }
     }
 }
 
 void isHit_m_straight_EnemyPlane(M_STRAIGHT_PLANEType* m_straight_enmeyPlane,hitMapType* hitMap,BOOMType* boom){
-    for(int i=0;i<M_STRAIGHT_NUMMAX;i++){//小型敌机的碰撞检测
+    for(int i=0;i<M_STRAIGHT_NUMMAX;i++){
         if((m_straight_enmeyPlane+i)->liveFlag!=0){
             uint8_t gridPosX=((m_straight_enmeyPlane+i)->PosX >>3);
             uint8_t gridPosY=((m_straight_enmeyPlane+i)->PosY >>3);
@@ -147,7 +160,7 @@ void isHit_m_straight_EnemyPlane(M_STRAIGHT_PLANEType* m_straight_enmeyPlane,hit
                     (m_straight_enmeyPlane+i)->liveFlag=0;
                     (m_straight_enmeyPlane+i)->PosX=253;
                     (m_straight_enmeyPlane+i)->PosY=239;
-                    GameScore+=200;
+                    GameScore+=50;
                 }
             }
         }

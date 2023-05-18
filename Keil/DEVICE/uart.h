@@ -20,6 +20,10 @@ typedef struct
 #define UART_BASE        (0x40000000)
 #define UART             ((UART_TypeDef*) UART_BASE)   
 
+//陀螺仪
+#define GYRO_UART_BASE        (0x40006000)
+#define GYRO_UART             ((UART_TypeDef*) GYRO_UART_BASE)   
+
 /*  UART DATA Register Definitions */
 #define  UART_DATA_Pos               0                                            /*!<  UART_DATA_Pos: DATA Position */
 #define  UART_DATA_Msk              (0xFFul <<  UART_DATA_Pos)               /*!<  UART DATA: DATA Mask */

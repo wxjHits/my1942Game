@@ -61,6 +61,11 @@ void myPlane_createOneBullet(MYPLANEType* myPlane,BULLETType* mybullet){
             }
         }
     }
+    //发射子弹的声音
+    set_pulse1_00(0x9F);
+    set_pulse1_01(0xFF);
+    set_pulse1_10(0x0F);
+    set_pulse1_11(0x9C);
 }
 // void myPlane_mapCreate(MYPLANEType* myPlane,hitMapType* hitMap);
 // void myPlane_isHit(MYPLANEType* myPlane,hitMapType* enemyPlaneHitMap,hitMapType* enmeyBulletsHitMap,BUFFType* buff,hitMapType* myPlaneHitMap);

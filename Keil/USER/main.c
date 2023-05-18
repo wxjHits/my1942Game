@@ -20,6 +20,8 @@
 #include "spriteRam.h"
 #include "makeMap.h"
 
+#include "apu.h"
+
 #include "malloc.h"
 #include "stdlib.h"
 
@@ -27,9 +29,9 @@ MYPLANEType myplane;//我方飞机
 const uint8_t MYPLANE_BULLET_NUMMAX=12;//我方子弹
 BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
 
-const uint8_t S_GREY_NUMMAX=6;//灰色小飞机
+const uint8_t S_GREY_NUMMAX=12;//灰色小飞机
 S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
-const uint8_t S_GREEN_NUMMAX=6;//绿色小飞机
+const uint8_t S_GREEN_NUMMAX=8;//绿色小飞机
 S_GREEN_PLANEType s_green_plane[S_GREEN_NUMMAX];
 const uint8_t M_STRAIGHT_NUMMAX=3;//中型直飞飞机
 M_STRAIGHT_PLANEType m_straight_plane[M_STRAIGHT_NUMMAX];
@@ -93,11 +95,14 @@ int PS2_KEY_END_OUT=0;
 int PS2_KEY_PIFU=0;//皮肤选择界面的
 
 int main(void)
-{
+{        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
    PS2_Init();
    SPI_Init(100);
-
+   
+    set_frame(0x00);
+    set_state(0x0F);
+    
    SPI_Flash_Erase_Block( 0x000000);
    SPI_Flash_Erase_Block( 0x001000);
    SPI_Flash_Erase_Block( 0x002000);
@@ -243,7 +248,7 @@ int main(void)
             //按键检测
             PS2_KEY_GAMING=PS2_DataKey();
             timer_cnt++;
-            if(timer_cnt>=16){
+            if(timer_cnt>=24){
                timer_cnt=0;
                if((Data[4]&0x10)==0){//PS2_KEY_GAMING==PSB_GREEN||保证移动的同时能够发射子弹
                   if(myplane.actFlag==0)
@@ -310,7 +315,7 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
 
-            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            //isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
