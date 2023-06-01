@@ -1,30 +1,22 @@
-#ifndef UART_H
-#define UART_H
-
-//#include "CortexM0.h"
+#ifndef UART_H_
+#define UART_H_
 #include <stdint.h>
 
+/*------------- Universal Asynchronous Receiver Transmitter (UART) -----------*/
 typedef struct
 {
   volatile   uint32_t  DATA;          /*!< Offset: 0x000 Data Register    (R/W) */
   volatile   uint32_t  STATE;         /*!< Offset: 0x004 Status Register  (R/W) */
   volatile   uint32_t  CTRL;          /*!< Offset: 0x008 Control Register (R/W) */
   union {
-    volatile const    uint32_t  INTSTATUS;   /*!< Offset: 0x00C Interrupt Status Register (R/ ) */
+    volatile    uint32_t  INTSTATUS;   /*!< Offset: 0x00C Interrupt Status Register (R/ ) */
     volatile    uint32_t  INTCLEAR;    /*!< Offset: 0x00C Interrupt Clear Register ( /W) */
     };
   volatile   uint32_t  BAUDDIV;       /*!< Offset: 0x010 Baudrate Divider Register (R/W) */
-
 }  UART_TypeDef;
 
-#define UART_BASE        (0x40000000)
-#define UART             ((UART_TypeDef*) UART_BASE)   
-
-//陀螺仪
-#define GYRO_UART_BASE        (0x40006000)
-#define GYRO_UART             ((UART_TypeDef*) GYRO_UART_BASE)   
-
 /*  UART DATA Register Definitions */
+
 #define  UART_DATA_Pos               0                                            /*!<  UART_DATA_Pos: DATA Position */
 #define  UART_DATA_Msk              (0xFFul <<  UART_DATA_Pos)               /*!<  UART DATA: DATA Mask */
 
@@ -76,41 +68,52 @@ typedef struct
 #define  UART_BAUDDIV_Pos            0                                            /*!<  UART BAUDDIV: BAUDDIV Position */
 #define  UART_BAUDDIV_Msk            (0xFFFFFul <<  UART_BAUDDIV_Pos)        /*!<  UART BAUDDIV: BAUDDIV Mask */
 
-/****************************UART*******************************/
 
- uint32_t  uart_init( UART_TypeDef * uart, uint32_t divider, uint32_t tx_en,
+/******************************************************************************/
+/*                         Peripheral memory map                              */
+/******************************************************************************/
+
+#define UART_BASE        0x40000000UL
+
+/******************************************************************************/
+/*                         Peripheral declaration                             */
+/******************************************************************************/
+#define UART             ((UART_TypeDef   *) UART_BASE   )
+
+
+extern uint32_t  uart_init( UART_TypeDef * uart, uint32_t divider, uint32_t tx_en,
                            uint32_t rx_en, uint32_t tx_irq_en, uint32_t rx_irq_en, uint32_t tx_ovrirq_en, uint32_t rx_ovrirq_en);
 
   /**
    * @brief Returns whether the UART RX Buffer is Full.
    */
 
- uint32_t  uart_GetRxBufferFull( UART_TypeDef * uart);
+ extern uint32_t  uart_GetRxBufferFull( UART_TypeDef * uart);
 
   /**
    * @brief Returns whether the UART TX Buffer is Full.
    */
 
- uint32_t  uart_GetTxBufferFull( UART_TypeDef * uart);
+ extern uint32_t  uart_GetTxBufferFull( UART_TypeDef * uart);
 
   /**
    * @brief Sends a character to the UART TX Buffer.
    */
 
 
-void  uart_SendChar( UART_TypeDef * uart, char txchar);
+ extern void  uart_SendChar( UART_TypeDef * uart, char txchar);
 
   /**
    * @brief Receives a character from the UART RX Buffer.
    */
 
-extern char  uart_ReceiveChar(UART_TypeDef* uart);
+ extern char  uart_ReceiveChar( UART_TypeDef * uart);
 
   /**
    * @brief Returns UART Overrun status.
    */
 
-extern uint32_t  uart_GetOverrunStatus( UART_TypeDef * uart);
+ extern uint32_t  uart_GetOverrunStatus( UART_TypeDef * uart);
 
   /**
    * @brief Clears UART Overrun status Returns new UART Overrun status.
@@ -146,10 +149,7 @@ extern uint32_t  uart_GetOverrunStatus( UART_TypeDef * uart);
    * @brief Clear UART RX Interrupt request.
    */
 
- extern void  uart_ClearRxIRQ( UART_TypeDef* uart);
+ extern void  uart_ClearRxIRQ( UART_TypeDef * uart);
 
-  /**
-   * @brief Set CM3DS_MPS2 Timer for multi-shoot mode with internal clock
-   */
 
 #endif

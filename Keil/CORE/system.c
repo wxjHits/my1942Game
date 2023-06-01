@@ -1,4 +1,4 @@
-#include "CortexM0.h"
+#include "CortexM3.h"
 
 /*----------------------------------------------------------------------------
   Define clocks
@@ -44,16 +44,15 @@ void SystemCoreClockUpdate (void)
  */
 void SystemInit (void)
 {
-    SystemCoreClock = __SYSTEM_CLOCK;
-    NVIC_EnableIRQ(SysTick_IRQn);
-//    NVIC_EnableIRQ(KEY0_IRQn);
-//    NVIC_EnableIRQ(KEY1_IRQn);
-//    NVIC_EnableIRQ(KEY2_IRQn);
-//    NVIC_EnableIRQ(KEY3_IRQn);
-    
-    NVIC_EnableIRQ(UARTRX_IRQn);
-    NVIC_EnableIRQ(UARTTX_IRQn);
-    NVIC_EnableIRQ(VGA_IRQn);
-    NVIC_EnableIRQ(CREATE_PLANE_IRQn);
+  SystemCoreClock = __SYSTEM_CLOCK;
+  NVIC_EnableIRQ(SysTick_IRQn);
+  // NVIC_EnableIRQ(UARTRX_IRQn);
+  // NVIC_EnableIRQ(UARTTX_IRQn);
+  NVIC_EnableIRQ(VGA_IRQn);
+  NVIC_EnableIRQ(CREATE_PLANE_IRQn);
+  NVIC_EnableIRQ(PULSE0_IRQn);
+  //NVIC_EnableIRQ(PULSE1_IRQn);
+  //NVIC_EnableIRQ(TRIANGLE_IRQn);
+  //NVIC_EnableIRQ(NOISE_IRQn);
 }
 

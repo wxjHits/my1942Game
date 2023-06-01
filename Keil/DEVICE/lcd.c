@@ -1,6 +1,8 @@
+  /*UART driver functions*/
 #include "systick.h"
-#include "lcdfont.h"
 #include "lcd.h"
+#include <string.h>
+#include "lcdfront.h"
 
 uint16_t POINT_COLOR = 0x0f00;
 uint16_t BACK_COLOR  = 0x1001;
@@ -8,11 +10,31 @@ uint16_t BACK_COLOR  = 0x1001;
 _lcd_dev lcddev;
 
 void MakeData( uint16_t data ) {
-    LCD->LCD_DATA = data ;
+    LCD->LCD_DATA[0] = ( data >> 0 ) & 1 ;
+    LCD->LCD_DATA[1] = ( data >> 1 ) & 1 ;
+    LCD->LCD_DATA[2] = ( data >> 2 ) & 1 ;
+    LCD->LCD_DATA[3] = ( data >> 3 ) & 1 ;
+    LCD->LCD_DATA[4] = ( data >> 4 ) & 1 ;
+    LCD->LCD_DATA[5] = ( data >> 5 ) & 1 ;
+    LCD->LCD_DATA[6] = ( data >> 6 ) & 1 ;
+    LCD->LCD_DATA[7] = ( data >> 7 ) & 1 ;
+    LCD->LCD_DATA[8] = ( data >> 8 ) & 1 ;
+    LCD->LCD_DATA[9] = ( data >> 9 ) & 1 ;
+    LCD->LCD_DATA[10] = ( data >> 10 ) & 1;
+    LCD->LCD_DATA[11] = ( data >> 11 ) & 1;
+    LCD->LCD_DATA[12] = ( data >> 12 ) & 1;
+    LCD->LCD_DATA[13] = ( data >> 13 ) & 1;
+    LCD->LCD_DATA[14] = ( data >> 14 ) & 1;
+    LCD->LCD_DATA[15] = ( data >> 15 ) & 1;
 }
 
 uint16_t ReadData() {
-	return (LCD->LCD_DATA);
+	uint16_t ans = 0;
+	for (int i = 0; i < 16; i++) {
+		if (LCD->LCD_DATA[i] == 1)
+			ans += (1 << i);
+	}
+	return ans;
 }
 
 //  WRITE REG FUNCTION
@@ -26,7 +48,7 @@ void LCD_WR_REG( uint16_t data ) {
 }
 
 //  WRITE DATA
-void LCD_WR_DATA( uint16_t data ) {
+void LCD_WR_DATAX( uint16_t data ) {
   LCD_RS_SET;
 	LCD_CS_CLR;
 	MakeData( data );
@@ -60,7 +82,7 @@ void LCD_WriteReg( uint16_t LCD_Reg, uint16_t LCD_RegValue ) {
 uint16_t LCD_ReadReg(uint16_t LCD_Reg)
 {										   
  	LCD_WR_REG(LCD_Reg);   
-	delay(500);
+	delay_ms(500);
 	return LCD_RD_DATA(); 
 }
 
@@ -236,7 +258,7 @@ void LCD_DrawPoint(uint16_t x,uint16_t y)
 void LCD_Fast_DrawPoint(uint16_t x,uint16_t y,uint16_t color)
 {	   
 	LCD_WR_REG(lcddev.setxcmd); 
-	LCD_WR_DATA(x>>8);LCD_WR_DATA(x&0XFF);
+	LCD_WR_DATA(x>>8);LCD_WR_DATA(x&0XFF);  			 
 	LCD_WR_REG(lcddev.setycmd); 
 	LCD_WR_DATA(y>>8);LCD_WR_DATA(y&0XFF);
 	LCD_RS_CLR;
@@ -312,112 +334,112 @@ void LCD_Clear(uint16_t color)
 void LCD_Init(void)
 { 
 	LCD_RST_SET;
-	delay(2500000); // delay 50 ms 
+	delay(250000); // delay 50 ms 
 	LCD_RST_CLR;
-	delay(2500000); // delay 50 ms 
+	delay(250000); // delay 50 ms 
 	LCD_RST_SET;
-	delay(2500000); // delay 50 ms 
+	delay(250000); // delay 50 ms 
 	LCD_RD_SET;
   lcddev.id=0X9341;
 	if(lcddev.id==0X9341)	//9341
 	{	 
 		LCD_WR_REG(0xCF);  
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0xC1); 
-		LCD_WR_DATA(0X30); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0xC1); 
+		LCD_WR_DATAX(0X30); 
 		LCD_WR_REG(0xED);  
-		LCD_WR_DATA(0x64); 
-		LCD_WR_DATA(0x03); 
-		LCD_WR_DATA(0X12); 
-		LCD_WR_DATA(0X81); 
+		LCD_WR_DATAX(0x64); 
+		LCD_WR_DATAX(0x03); 
+		LCD_WR_DATAX(0X12); 
+		LCD_WR_DATAX(0X81); 
 		LCD_WR_REG(0xE8);  
-		LCD_WR_DATA(0x85); 
-		LCD_WR_DATA(0x10); 
-		LCD_WR_DATA(0x7A); 
+		LCD_WR_DATAX(0x85); 
+		LCD_WR_DATAX(0x10); 
+		LCD_WR_DATAX(0x7A); 
 		LCD_WR_REG(0xCB);  
-		LCD_WR_DATA(0x39); 
-		LCD_WR_DATA(0x2C); 
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0x34); 
-		LCD_WR_DATA(0x02); 
+		LCD_WR_DATAX(0x39); 
+		LCD_WR_DATAX(0x2C); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0x34); 
+		LCD_WR_DATAX(0x02); 
 		LCD_WR_REG(0xF7);  
-		LCD_WR_DATA(0x20); 
+		LCD_WR_DATAX(0x20); 
 		LCD_WR_REG(0xEA);  
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0x00); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0x00); 
 		LCD_WR_REG(0xC0);    //Power control 
-		LCD_WR_DATA(0x1B);   //VRH[5:0] 
+		LCD_WR_DATAX(0x1B);   //VRH[5:0] 
 		LCD_WR_REG(0xC1);    //Power control 
-		LCD_WR_DATA(0x01);   //SAP[2:0];BT[3:0] 
+		LCD_WR_DATAX(0x01);   //SAP[2:0];BT[3:0] 
 		LCD_WR_REG(0xC5);    //VCM control 
-		LCD_WR_DATA(0x30); 	 //3F
-		LCD_WR_DATA(0x30); 	 //3C
+		LCD_WR_DATAX(0x30); 	 //3F
+		LCD_WR_DATAX(0x30); 	 //3C
 		LCD_WR_REG(0xC7);    //VCM control2 
-		LCD_WR_DATA(0XB7); 
+		LCD_WR_DATAX(0XB7); 
 		LCD_WR_REG(0x36);    // Memory Access Control 
-		LCD_WR_DATA(0x48); 
+		LCD_WR_DATAX(0x48); 
 		LCD_WR_REG(0x3A);   
-		LCD_WR_DATA(0x55); 
+		LCD_WR_DATAX(0x55); 
 		LCD_WR_REG(0xB1);   
-		LCD_WR_DATA(0x00);   
-		LCD_WR_DATA(0x1A); 
+		LCD_WR_DATAX(0x00);   
+		LCD_WR_DATAX(0x1A); 
 		LCD_WR_REG(0xB6);    // Display Function Control 
-		LCD_WR_DATA(0x0A); 
-		LCD_WR_DATA(0xA2); 
+		LCD_WR_DATAX(0x0A); 
+		LCD_WR_DATAX(0xA2); 
 		LCD_WR_REG(0xF2);    // 3Gamma Function Disable 
-		LCD_WR_DATA(0x00); 
+		LCD_WR_DATAX(0x00); 
 		LCD_WR_REG(0x26);    //Gamma curve selected 
-		LCD_WR_DATA(0x01); 
+		LCD_WR_DATAX(0x01); 
 		LCD_WR_REG(0xE0);    //Set Gamma 
-		LCD_WR_DATA(0x0F); 
-		LCD_WR_DATA(0x2A); 
-		LCD_WR_DATA(0x28); 
-		LCD_WR_DATA(0x08); 
-		LCD_WR_DATA(0x0E); 
-		LCD_WR_DATA(0x08); 
-		LCD_WR_DATA(0x54); 
-		LCD_WR_DATA(0XA9); 
-		LCD_WR_DATA(0x43); 
-		LCD_WR_DATA(0x0A); 
-		LCD_WR_DATA(0x0F); 
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0x00); 		 
+		LCD_WR_DATAX(0x0F); 
+		LCD_WR_DATAX(0x2A); 
+		LCD_WR_DATAX(0x28); 
+		LCD_WR_DATAX(0x08); 
+		LCD_WR_DATAX(0x0E); 
+		LCD_WR_DATAX(0x08); 
+		LCD_WR_DATAX(0x54); 
+		LCD_WR_DATAX(0XA9); 
+		LCD_WR_DATAX(0x43); 
+		LCD_WR_DATAX(0x0A); 
+		LCD_WR_DATAX(0x0F); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0x00); 		 
 		LCD_WR_REG(0XE1);    //Set Gamma 
-		LCD_WR_DATA(0x00); 
-		LCD_WR_DATA(0x15); 
-		LCD_WR_DATA(0x17); 
-		LCD_WR_DATA(0x07); 
-		LCD_WR_DATA(0x11); 
-		LCD_WR_DATA(0x06); 
-		LCD_WR_DATA(0x2B); 
-		LCD_WR_DATA(0x56); 
-		LCD_WR_DATA(0x3C); 
-		LCD_WR_DATA(0x05); 
-		LCD_WR_DATA(0x10); 
-		LCD_WR_DATA(0x0F); 
-		LCD_WR_DATA(0x3F); 
-		LCD_WR_DATA(0x3F); 
-		LCD_WR_DATA(0x0F); 
+		LCD_WR_DATAX(0x00); 
+		LCD_WR_DATAX(0x15); 
+		LCD_WR_DATAX(0x17); 
+		LCD_WR_DATAX(0x07); 
+		LCD_WR_DATAX(0x11); 
+		LCD_WR_DATAX(0x06); 
+		LCD_WR_DATAX(0x2B); 
+		LCD_WR_DATAX(0x56); 
+		LCD_WR_DATAX(0x3C); 
+		LCD_WR_DATAX(0x05); 
+		LCD_WR_DATAX(0x10); 
+		LCD_WR_DATAX(0x0F); 
+		LCD_WR_DATAX(0x3F); 
+		LCD_WR_DATAX(0x3F); 
+		LCD_WR_DATAX(0x0F); 
 		LCD_WR_REG(0x2B); 
-		LCD_WR_DATA(0x00);
-		LCD_WR_DATA(0x00);
-		LCD_WR_DATA(0x01);
-		LCD_WR_DATA(0x3f);
+		LCD_WR_DATAX(0x00);
+		LCD_WR_DATAX(0x00);
+		LCD_WR_DATAX(0x01);
+		LCD_WR_DATAX(0x3f);
 		LCD_WR_REG(0x2A); 
-		LCD_WR_DATA(0x00);
-		LCD_WR_DATA(0x00);
-		LCD_WR_DATA(0x00);
-		LCD_WR_DATA(0xef);	 
+		LCD_WR_DATAX(0x00);
+		LCD_WR_DATAX(0x00);
+		LCD_WR_DATAX(0x00);
+		LCD_WR_DATAX(0xef);	 
 		LCD_WR_REG(0x11); //Exit Sleep
-		delay(6000000);
+		delay(600000);
 		LCD_WR_REG(0x29); //display on	
         //*(uint32_t*)(LED_BASE) = 0x00000003;
 	}
-	LCD_Display_Dir(1);		 	// horizon or vertical
-	LCD -> LCD_BL_CTR = 1;		// Back Light
-    LCD_Clear(BLACK);
+	LCD_Display_Dir(0);		 	// horizon or vertical
+	LCD -> LCD_BL_CTR = 1;					// Back Light
+ 	LCD_Clear(WHITE);
 }  		  
 
 
@@ -484,18 +506,17 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2)
 	}  
 }    
 								  
-void LCD_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t mode)
-{  				
-    uint8_t size=16;
+void LCD_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t size,uint8_t mode)
+{  							  
     uint8_t temp,t1,t;
 	uint16_t y0=y;
 	uint8_t csize=(size/8+((size%8)?1:0))*(size/2);			
  	num=num-' ';
 	for(t=0;t<csize;t++)
 	{   
-		if(size==12)temp=asc2_1608[num][t]; 	 	
+		if(size==12)temp=asc2_1206[num][t]; 	 	
 		else if(size==16)temp=asc2_1608[num][t];	
-		else if(size==24)temp=asc2_1608[num][t];	
+		else if(size==24)temp=asc2_2412[num][t];	
 		else return;								
 		for(t1=0;t1<8;t1++)
 		{			    
@@ -522,9 +543,8 @@ uint32_t LCD_Pow(uint8_t m,uint8_t n)
 	return result;
 }			 
 	 
-void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len)
+void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size)
 {         	
-    uint8_t size=16;
 	uint8_t t,temp;
 	uint8_t enshow=0;						   
 	for(t=0;t<len;t++)
@@ -534,18 +554,17 @@ void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len)
 		{
 			if(temp==0)
 			{
-				LCD_ShowChar(x+(size/2)*t,y,' ',0);
+				LCD_ShowChar(x+(size/2)*t,y,' ',size,0);
 				continue;
 			}else enshow=1; 
 		 	 
 		}
-	 	LCD_ShowChar(x+(size/2)*t,y,temp+'0',0); 
+	 	LCD_ShowChar(x+(size/2)*t,y,temp+'0',size,0); 
 	}
 } 
 
-void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t mode)
+void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size,uint8_t mode)
 {  
-    uint8_t size=16;
 	uint8_t t,temp;
 	uint8_t enshow=0;						   
 	for(t=0;t<len;t++)
@@ -555,18 +574,17 @@ void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t mode)
 		{
 			if(temp==0)
 			{
-				if(mode&0X80)LCD_ShowChar(x+(size/2)*t,y,'0',mode&0X01);  
-				else LCD_ShowChar(x+(size/2)*t,y,' ',mode&0X01);  
+				if(mode&0X80)LCD_ShowChar(x+(size/2)*t,y,'0',size,mode&0X01);  
+				else LCD_ShowChar(x+(size/2)*t,y,' ',size,mode&0X01);  
  				continue;
 			}else enshow=1; 
 		 	 
 		}
-	 	LCD_ShowChar(x+(size/2)*t,y,temp+'0',mode&0X01); 
+	 	LCD_ShowChar(x+(size/2)*t,y,temp+'0',size,mode&0X01); 
 	}
 }   
-void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t *p)
+void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t size,uint8_t *p)
 {         
-    uint8_t size = 16;
 	uint8_t x0=x;
 	width+=x;
 	height+=y;
@@ -574,7 +592,7 @@ void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t
     {       
         if(x>=width){x=x0;y+=size;}
         if(y>=height)break;
-        LCD_ShowChar(x,y,*p,0);
+        LCD_ShowChar(x,y,*p,size,0);
         x+=size/2;
         p++;
     }  
@@ -592,7 +610,7 @@ void LCD_ShowChar1(uint16_t x,uint16_t y,uint16_t fc, uint16_t bc, uint8_t num,u
 		
 		for(pos=0;pos<size;pos++)
 		{
-			if(size==12)temp=asc2_1608[num][pos];//??1206??
+			if(size==12)temp=asc2_1206[num][pos];//??1206??
 			else temp=asc2_1608[num][pos];		 //??1608??
 			for(t=0;t<size/2;t++)
 		    {                 
@@ -608,7 +626,7 @@ void LCD_ShowChar1(uint16_t x,uint16_t y,uint16_t fc, uint16_t bc, uint8_t num,u
 	{
 		for(pos=0;pos<size;pos++)
 		{
-			if(size==12)temp=asc2_1608[num][pos];//??1206??
+			if(size==12)temp=asc2_1206[num][pos];//??1206??
 			else temp=asc2_1608[num][pos];		 //??1608??
 			for(t=0;t<size/2;t++)
 		    {   
@@ -685,61 +703,5 @@ void Gui_Drawbmp16(uint16_t x,uint16_t y,const unsigned char *p)
 		LCD_WR_DATA(picH<<8|picL);  						
 	}	
 	LCD_Set_Window(0,0,lcddev.width-1,lcddev.height-1);//?????????	
-}
 
-//画二值图像，最好以Byte为单位
-void Paint_PicBin(uint16_t x0,uint16_t y0,uint16_t width_byte,uint16_t height,uint16_t color,uint8_t *p)
-{
-    uint16_t i,j,temp;
-    uint16_t x_pos,y_pos;
-    POINT_COLOR=color;
-    
-    for(i=0;i<width_byte*height;i++){
-        temp=*(p+i);//??????
-        
-        x_pos=x0+(i%width_byte)*8;
-        y_pos=y0+i/width_byte;
-        
-		for(j=8;j>0;j--){
-            if(temp&0x01){
-                LCD_DrawPoint(x_pos+j-1,y_pos);//??
-            }
-            temp=temp>>1;
-        }
-    }
 }
-
-//为nes游戏设计的函数，一个图案由2个8x8的点阵组成，每一个点有00，01，10，11四种组合，可以赋予不同颜色
-void Paint8x8x2bin(uint16_t x0,uint16_t y0,uint8_t *p){
-    uint16_t i,j;
-    uint8_t temp;
-    uint8_t temp_h;
-		for(i=0;i<1*8;i++)
-		{
-			temp=*(p+i);
-			temp_h=*(p+i+8);
-			for(j=8;j>0;j--)
-			{
-                
-				 if((temp&0x01)&&(temp_h&0x01))
-				 {
-                     LCD_Fast_DrawPoint(x0+j-1,y0+i,RED);
-				 }
-                 else if((temp&0x01)&&(~(temp_h&0x01)))
-				 {
-                     LCD_Fast_DrawPoint(x0+j-1,y0+i,BLUE);
-				 }
-                 else if((~(temp&0x01))&&(temp_h&0x01))
-				 {
-                     LCD_Fast_DrawPoint(x0+j-1,y0+i,GREEN);
-				 }
-                 else if(~(temp&0x01)&&~(temp_h&0x01))
-				 {
-					 LCD_Fast_DrawPoint(x0+j-1,y0+i,BLACK);
-				 }
-				 temp=temp>>1;
-                 temp_h=temp_h>>1;
-			}
-		}
-}
-

@@ -1,0 +1,27 @@
+--cpu Cortex-M3
+".\objects\main.o"
+".\objects\startup_cm3ds.o"
+".\objects\handler.o"
+".\objects\system.o"
+".\objects\retarget.o"
+".\objects\lcd.o"
+".\objects\uart.o"
+".\objects\systick.o"
+".\objects\led.o"
+".\objects\malloc.o"
+".\objects\spi_flash.o"
+".\objects\apu.o"
+".\objects\pstwo.o"
+".\objects\spriteram.o"
+".\objects\boom.o"
+".\objects\enemybullet.o"
+".\objects\enemyplane.o"
+".\objects\gamehitcheck.o"
+".\objects\gameinterface.o"
+".\objects\makeenemyplanearray.o"
+".\objects\makemap.o"
+".\objects\myplane.o"
+--library_type=microlib --strict --scatter ".\Objects\cm3.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\cm3.map" -o .\Objects\cm3.axf

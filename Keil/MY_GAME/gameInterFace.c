@@ -3,6 +3,7 @@
 
 #include "gameInterFace.h"
 #include "spriteRam.h"
+#include "spi_flash.h"
 // #include "backgroundPicture.h"
 
 void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score,uint8_t* spriteRamAddr){
@@ -176,4 +177,49 @@ void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t score,uint32_
         *DrawFlag=0;
     }
 }
+
+/*************************最高分数的存储与读写***************************/
+const uint32_t gameScoreFlashAddr = 0x008000;//擦除一整个扇区
+uint32_t read_GameScoreRecord(void){
+    uint32_t recordTemp=0;
+    uint32_t readOut[3];
+    SPI_Flash_Read(readOut,gameScoreFlashAddr,3);
+    recordTemp=(readOut[0]<<16)|(readOut[1]<<8)|readOut[2];
+    return recordTemp;
+}
+
+void save_GameScoreRecord(uint32_t score){
+    uint32_t recordTemp = read_GameScoreRecord();
+    printf("score=%u\n",score);
+    printf("recordTemp=%u\n",recordTemp);
+    if(score>recordTemp){
+        uint8_t writeIn[256]={0};
+        writeIn[0]=score>>16;
+        writeIn[1]=score>>8;
+        writeIn[2]=score;
+        printf("writeIn[0]=%u",writeIn[0]);
+        printf("writeIn[1]=%u",writeIn[1]);
+        printf("writeIn[2]=%u",writeIn[2]);
+        SPI_Flash_Erase_Block(gameScoreFlashAddr);
+        SPI_Flash_Write_Page(writeIn,gameScoreFlashAddr,256);
+    }
+}
+
+void show_GameScoreRecord(void){
+    uint32_t recordNow = read_GameScoreRecord();
+    printf("recordNow=%u\n",recordNow);
+    uint8_t score_ge = recordNow%10;
+    uint8_t score_shi = (recordNow/10)%10;
+    uint8_t score_bai = (recordNow/100)%10;
+    uint8_t score_qian = (recordNow/1000)%10;
+    uint8_t score_wan = (recordNow/10000)%10;
+    uint8_t score_shiwan = (recordNow/100000)%10;
+    writeOneSprite(3+0,(20-1)*8+0*8,(4-1)*8,score_shiwan  ,0x30);
+    writeOneSprite(3+1,(20-1)*8+1*8,(4-1)*8,score_wan     ,0x30);
+    writeOneSprite(3+2,(20-1)*8+2*8,(4-1)*8,score_qian    ,0x30);
+    writeOneSprite(3+3,(20-1)*8+3*8,(4-1)*8,score_bai     ,0x30);
+    writeOneSprite(3+4,(20-1)*8+4*8,(4-1)*8,score_shi     ,0x30);
+    writeOneSprite(3+5,(20-1)*8+5*8,(4-1)*8,score_ge      ,0x30);
+}
+
 #endif

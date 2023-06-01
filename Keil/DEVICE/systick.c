@@ -1,5 +1,5 @@
 #include "systick.h"
-#include "CortexM0.h"
+#include "CortexM3.h"
 
 void Set_SysTick_CTRL(uint32_t ctrl){
 	SysTick->CTRL = ctrl;

@@ -47,8 +47,14 @@ module ahb_apu(
 
     //output  wire    [7:0]               d_out,
     input   wire    [3:0]               mute_in,
-    output  wire                        audio_out
+    output  wire                        audio_out,
     //output  wire    [7:0]               d_in
+
+    //INT
+    output  wire                        PULSE0INT,
+    output  wire                        PULSE1INT,
+    output  wire                        TRIANGLEINT,
+    output  wire                        NOISEINT
 );
 
 assign HRESP = 1'b0;
@@ -292,5 +298,37 @@ end
 
 assign HRDATA = (read_en_reg && (addr == 8'h15)) ?
                { 28'b0000, noise_active, triangle_active, pulse1_active, pulse0_active } : 32'h00;
+
+
+//添加的中断
+reg [1:0] pulse0_int_reg;
+reg [1:0] pulse1_int_reg;
+reg [1:0] triangle_int_reg;
+reg [1:0] noise_int_reg;
+
+reg pulse0_active_r;
+reg pulse1_active_r;
+reg triangle_active_r;
+reg noise_active_r;
+
+always@(posedge HCLK or negedge HRESETn) begin
+  if(~HRESETn) begin
+      pulse0_active_r <= 1'b0;
+      pulse1_active_r <= 1'b0;
+      triangle_active_r <= 1'b0;
+      noise_active_r <= 1'b0;
+  end
+  else begin
+      pulse0_active_r <= pulse0_active;
+      pulse1_active_r <= pulse1_active;
+      triangle_active_r <= triangle_active;
+      noise_active_r <= noise_active;
+  end
+end
+
+assign PULSE0INT    = (~pulse0_active) & pulse0_active_r;
+assign PULSE1INT    = (~pulse1_active) & pulse1_active_r;
+assign TRIANGLEINT  = (~triangle_active) & triangle_active_r;
+assign NOISEINT     = (~noise_active) & noise_active_r;
 
 endmodule

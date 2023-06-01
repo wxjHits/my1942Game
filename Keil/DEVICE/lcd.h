@@ -1,20 +1,8 @@
-#ifndef LCD_H
-#define LCD_H
-
-//#include "CortexM0.h"
+#ifndef LCD_H_
+#define LCD_H_
 #include <stdint.h>
 
 //LCD
-/**********************************************/
-/*   LCD_CS           0X5000_0000             */
-/*   LCD_RS           0X5000_0004             */
-/*   LCD_WR           0X5000_0008             */
-/*   LCD_RD           0X5000_000C             */
-/*   LCD_RST          0X5000_0010             */
-/*   LCD_BL_CTR       0X5000_0014             */
-/*   LCD_DATA         0X5000_0018             */
-/**********************************************/
-#define LCD_BASE         (0x50000000UL)
 typedef struct {
     volatile uint32_t LCD_CS; 
     volatile uint32_t LCD_RS; 
@@ -22,10 +10,8 @@ typedef struct {
     volatile uint32_t LCD_RD; 
     volatile uint32_t LCD_RST;
     volatile uint32_t LCD_BL_CTR;
-    volatile uint32_t LCD_DATA;
+    volatile uint32_t LCD_DATA[16];
 }LCDType;
-#define LCD              ((LCDType        *) LCD_BASE    )
-
 typedef struct  
 {										    
 	uint16_t width;			
@@ -54,6 +40,35 @@ extern uint16_t  BACK_COLOR;
 #define LCD_RD_CLR         (LCD->LCD_RD        = 0) 
 #define LCD_RST_CLR        (LCD->LCD_RST       = 0)
 #define LCD_BL_CTR_CLR     (LCD->LCD_BL_CTR    = 0)
+     
+//      DATA     
+#define LCD_DATA0_SET( x )   (LCD->LCD_DATA[0]   = (x))
+#define LCD_DATA1_SET( x )   (LCD->LCD_DATA[1]   = (x)) 	  	 
+#define LCD_DATA2_SET( x )   (LCD->LCD_DATA[2]   = (x)) 	 
+#define LCD_DATA3_SET( x )   (LCD->LCD_DATA[3]   = (x)) 	 
+#define LCD_DATA4_SET( x )   (LCD->LCD_DATA[4]   = (x)) 	 
+#define LCD_DATA5_SET( x )   (LCD->LCD_DATA[5]   = (x)) 	 
+#define LCD_DATA6_SET( x )   (LCD->LCD_DATA[6]   = (x)) 	 
+#define LCD_DATA7_SET( x )   (LCD->LCD_DATA[7]   = (x)) 	 
+#define LCD_DATA8_SET( x )   (LCD->LCD_DATA[8]   = (x)) 	 
+#define LCD_DATA9_SET( x )   (LCD->LCD_DATA[9]   = (x)) 	 
+#define LCD_DATA10_SET( x )  (LCD->LCD_DATA[10]  = (x)) 	 
+#define LCD_DATA11_SET( x )  (LCD->LCD_DATA[11]  = (x)) 	 
+#define LCD_DATA12_SET( x )  (LCD->LCD_DATA[12]  = (x)) 	 
+#define LCD_DATA13_SET( x )  (LCD->LCD_DATA[13]  = (x)) 	 
+#define LCD_DATA14_SET( x )  (LCD->LCD_DATA[14]  = (x)) 	 
+#define LCD_DATA15_SET( x )  (LCD->LCD_DATA[15]  = (x)) 	 
+
+#define LCD_WR_DATA(data){\
+LCD_RS_SET;\
+LCD_CS_CLR;\
+MakeData(data);\
+LCD_WR_CLR;\
+__asm("nop");\
+LCD_WR_SET;\
+__asm("nop");\
+LCD_CS_SET;\
+} 
 
 //      SCANNING DIRECTION
 #define L2R_U2D  0 // LEFT TO RIGHT, UP TO DOWN
@@ -113,7 +128,11 @@ extern uint16_t  BACK_COLOR;
 #define SSD_HT	(SSD_HOR_RESOLUTION+SSD_HOR_BACK_PORCH+SSD_HOR_FRONT_PORCH)
 #define SSD_HPS	(SSD_HOR_BACK_PORCH)
 #define SSD_VT 	(SSD_VER_RESOLUTION+SSD_VER_BACK_PORCH+SSD_VER_FRONT_PORCH)
-#define SSD_VPS (SSD_VER_BACK_PORCH)
+#define SSD_VPS (SSD_VER_BACK_PORCH)  	
+
+
+#define LCD_BASE         (0x50000000UL)
+#define LCD              ((LCDType        *) LCD_BASE    )
 
 void LCD_Init(void);									
 void LCD_DisplayOn(void);													
@@ -128,10 +147,10 @@ void LCD_DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);
 void LCD_DrawRectangle(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2);		   		
 void LCD_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t color);		   	
 void LCD_Color_Fill(uint16_t sx,uint16_t sy,uint16_t ex,uint16_t ey,uint16_t *color);	
-void LCD_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t mode);			
-void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len);  					
-void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t mode);				
-void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t *p);		
+void LCD_ShowChar(uint16_t x,uint16_t y,uint8_t num,uint8_t size,uint8_t mode);			
+void LCD_ShowNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size);  					
+void LCD_ShowxNum(uint16_t x,uint16_t y,uint32_t num,uint8_t len,uint8_t size,uint8_t mode);				
+void LCD_ShowString(uint16_t x,uint16_t y,uint16_t width,uint16_t height,uint8_t size,uint8_t *p);		
 void LCD_WriteReg(uint16_t LCD_Reg, uint16_t LCD_RegValue);
 uint16_t LCD_ReadReg(uint16_t LCD_Reg);
 void Show_Str(uint16_t x, uint16_t y, uint16_t fc, uint16_t bc, uint8_t *str,uint8_t size,uint8_t mode);
@@ -142,11 +161,4 @@ void LCD_Scan_Dir(uint8_t dir);
 void LCD_Display_Dir(uint8_t dir);
 void LCD_Set_Window(uint16_t sx,uint16_t sy,uint16_t width,uint16_t height);
 void Gui_Drawbmp16(uint16_t x,uint16_t y,const unsigned char *p); //??40*40 QQ??
-void LCD_WR_DATA( uint16_t data );
-
-//2023.01.10 ADD 
-void Paint_PicBin(uint16_t x0,uint16_t y0,uint16_t width_byte,uint16_t height_byte,uint16_t color,uint8_t *p);
-void Paint8x8x2bin(uint16_t x0,uint16_t y0,uint8_t *p);
-
 #endif
-

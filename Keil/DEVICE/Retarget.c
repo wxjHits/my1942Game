@@ -10,7 +10,6 @@
 
 #include <stdio.h>
 #include "uart.h"
-
 //#pragma import(__use_no_semihosting_swi)
 
 
@@ -23,7 +22,6 @@ struct __FILE { int handle; /* Add whatever you need here */ };
 FILE __stdout;
 FILE __stdin;
 
-//void  uart_SendChar( UART_TypeDef * uart, char txchar);
 
 int fputc(int ch, FILE *f) {
   if(ch == '\n') uart_SendChar(UART,'\r');

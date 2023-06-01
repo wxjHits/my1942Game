@@ -23,4 +23,10 @@ void newGuanqiaInterFaceDraw(uint8_t guanQiaNum,uint8_t* spriteRamAddr);
 #define endInterFaceCharNum 24
 void endInterFaceDraw(uint8_t* DrawFlag,uint8_t* arrayCnt,uint32_t score, uint32_t GameShootDownCnt,float GameHitRate);
 
+
+//最高记录的存储与显示
+uint32_t read_GameScoreRecord(void);
+void save_GameScoreRecord(uint32_t score);
+void show_GameScoreRecord(void);
+
 #endif

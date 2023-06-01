@@ -1,3 +1,5 @@
+#ifndef APU_H
+#define APU_H
 #include <stdint.h>
 
 //pulse0
@@ -55,3 +57,9 @@ void set_noise_11(uint8_t data);
 void set_state(uint8_t data);
 
 void set_frame(uint8_t data);
+
+void apu_Button(void);
+void apu_Intr_Trigger(void);
+void apu_Shoot(void);
+
+#endif
