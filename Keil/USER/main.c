@@ -91,6 +91,7 @@ int PS2_KEY_GAMING=0;
 int PS2_KEY_END_OUT=0;
 int PS2_KEY_PIFU=0;//???????
 
+bool game_caozuo_mode = false;//???????bool??
 int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
@@ -222,7 +223,7 @@ int main(void)
             }
             else if(PS2_KEY_START==PSB_PAD_DOWN){
                apu_Button();
-               if(gameCursor.state<1){
+               if(gameCursor.state<2){
                   gameCursor.state+=1;
                   gameCursorDraw(&gameCursor);
                }
@@ -231,18 +232,26 @@ int main(void)
             //?????????
             else if(PS2_KEY_START==PSB_GREEN){
                apu_Button();
-               if(gameCursor.state==0){//?????“????”
+               if(gameCursor.state==GAME_SELECT_START){//?????“????”
                   timer_init_flag=1;
                   game_state=1;
                   apu_Intr_Trigger();
                }
-               else if(gameCursor.state==1){//?????“????”
+               else if(gameCursor.state==GAME_SELECT_PIFU){//?????“????”
                   apu_Button();
                   timer_init_flag=1;
                   game_state=3;
                }
+               else if (gameCursor.state==GAME_SELECT_CAOZUO){
+                  apu_Button();
+                  game_caozuo_mode=!game_caozuo_mode;
+                  if(game_caozuo_mode==false)
+                     writeOneNametable(18,20,0x11);//??“??”?“?”
+                  else
+                     writeOneNametable(18,20,0x12);//??“??”?“?”
+               }
             }
-         delay_ms(150);
+         delay_ms(200);
       }
       //??????
       else if(game_state==1&&timer_init_flag==0){

@@ -7,8 +7,9 @@
 
 void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score,uint8_t* spriteRamAddr);
 
-#define GAME_START 0
-#define GAME_OTHER 1
+#define GAME_SELECT_START 0
+#define GAME_SELECT_PIFU 1
+#define GAME_SELECT_CAOZUO 2
 typedef struct{
     volatile uint8_t state;//不同state对应不同的PosY
 }GAMECURSORType;

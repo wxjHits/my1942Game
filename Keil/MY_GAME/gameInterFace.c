@@ -77,11 +77,14 @@ void gameCursorDraw(GAMECURSORType* gameCursor){
     uint8_t PosY=0;
     switch (gameCursor->state)
     {
-        case GAME_START:
+        case GAME_SELECT_START:
             PosY=128;
             break;
-        case GAME_OTHER:
+        case GAME_SELECT_PIFU:
             PosY=128+16;
+            break;
+        case GAME_SELECT_CAOZUO:
+            PosY=128+32;
             break;
         default:PosY=128;
             break;
