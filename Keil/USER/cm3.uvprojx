@@ -462,6 +462,11 @@
               <FileType>1</FileType>
               <FilePath>..\DEVICE\spriteRam.c</FilePath>
             </File>
+            <File>
+              <FileName>jy61p.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\DEVICE\jy61p.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

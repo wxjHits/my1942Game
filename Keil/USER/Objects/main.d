@@ -1,4 +1,5 @@
 .\objects\main.o: main.c
+.\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\objects\main.o: ..\CORE\CortexM3.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdio.h
@@ -11,6 +12,7 @@
 .\objects\main.o: ..\DEVICE\spi_flash.h
 .\objects\main.o: ..\DEVICE\systick.h
 .\objects\main.o: ..\DEVICE\pstwo.h
+.\objects\main.o: ..\DEVICE\jy61p.h
 .\objects\main.o: ..\MY_GAME\enemyPlane.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: ..\MY_GAME\gameStruct.h
@@ -24,4 +26,3 @@
 .\objects\main.o: ..\MY_GAME\makeMap.h
 .\objects\main.o: ..\DEVICE\apu.h
 .\objects\main.o: ..\DEVICE\malloc.h
-.\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdlib.h

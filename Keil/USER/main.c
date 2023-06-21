@@ -1,3 +1,4 @@
+#include "stdlib.h"
 #include "CortexM3.h"
 #include "uart.h"
 #include "led.h"
@@ -5,6 +6,7 @@
 #include "spi_flash.h"
 #include "systick.h"
 #include "pstwo.h"
+#include "jy61p.h"
 
 #include "enemyPlane.h"
 #include "makeEnemyPlaneArray.h"
@@ -18,7 +20,7 @@
 #include "makeMap.h"
 #include "apu.h"
 #include "malloc.h"
-#include "stdlib.h"
+
 
 MYPLANEType myplane;//????
 const uint8_t MYPLANE_BULLET_NUMMAX=12;//????
@@ -95,6 +97,15 @@ bool game_caozuo_mode = false;//???????bool??
 int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
+
+   // JY61P??
+   while (1){
+      printf("ROLL=%f ; ",(float)((int16_t)(JY61P->JY61P_ROLL ))*180/32768);
+      printf("PITCH=%f; ",(float)((int16_t)(JY61P->JY61P_PITCH))*180/32768);
+      printf("YAW=%f\n"  ,(float)((int16_t)(JY61P->JY61P_YAW  ))*180/32768);
+      delay_ms(500);
+   }
+
    PS2_Init();
    SPI_Init(100);
     

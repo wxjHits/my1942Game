@@ -23,6 +23,11 @@ module CortexM3 #(
     input       wire            PS2_DI      ,
     //LED
     output      wire    [3:0]   OUTLED      ,
+    //JY61P
+    output      wire        JY61P_UART_VCC  ,//F13
+    output      wire        JY61P_UART_GND  ,//F14
+    output      wire        JY61P_UART_TX   ,//D14
+    input       wire        JY61P_UART_RX   ,//C14
 
     `ifdef VGA
     //GAME VGA
@@ -852,6 +857,11 @@ module CortexM3 #(
     wire    [31:0]  PRDATA_APBP1;
     wire            PSLVERR_APBP1;
 
+    wire            PSEL_APBP2;
+    wire            PREADY_APBP2;
+    wire    [31:0]  PRDATA_APBP2;
+    wire            PSLVERR_APBP2;
+
     wire            PSEL_APBP4;
     wire            PREADY_APBP4;
     wire    [31:0]  PRDATA_APBP4;
@@ -876,10 +886,10 @@ module CortexM3 #(
         .PRDATA1                            (PRDATA_APBP1),
         .PSLVERR1                           (PSLVERR_APBP1),
 
-        .PSEL2                              (),
-        .PREADY2                            (1'b1),
-        .PRDATA2                            (32'b0),
-        .PSLVERR2                           (1'b0),
+        .PSEL2                              (PSEL_APBP2   ),
+        .PREADY2                            (PREADY_APBP2 ),
+        .PRDATA2                            (PRDATA_APBP2 ),
+        .PSLVERR2                           (PSLVERR_APBP2),
 
         .PSEL3                              (),
         .PREADY3                            (1'b1),
@@ -1081,6 +1091,29 @@ module CortexM3 #(
     
     );
     assign OUTLED = LED[3:0];
+//
+
+/**********************APB2 JY61P******************************/
+    apb_JY61P JY61P(
+        .PCLK        (clk           ),
+        .PCLKG       (clk           ),
+        .PRESETn     (cpuresetn     ),
+        .PSEL        (PSEL_APBP2    ),
+        .PADDR       (PADDR[15:0]   ),
+        .PENABLE     (PENABLE       ),
+        .PWRITE      (PWRITE        ),
+        .PWDATA      (PWDATA        ),
+        .ECOREVNUM   (4'b0          ),
+        .PRDATA      (PRDATA_APBP2  ),
+        .PREADY      (PREADY_APBP2  ),
+        .PSLVERR     (PSLVERR_APBP2 ),
+
+        .jy61p_uart_rx(JY61P_UART_RX)
+    );
+
+    assign JY61P_UART_VCC = 1'b1    ;
+    assign JY61P_UART_GND = 1'b0    ;
+    assign JY61P_UART_TX  = 1'bz    ;
 //
 
 /**********************APB4 SPI_FLASH******************************/
