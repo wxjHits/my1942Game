@@ -165,6 +165,7 @@ eightRam eightRam_inst(
 );
 
 spriteTileRom spriteTileRom_inst(
+    .clk (clk_100MHz),
     //from tiltDraw.v
     .tileIndex00(tileIndex[00]), //tileçç´˘ĺźĺ??
     .tileIndex01(tileIndex[01]),

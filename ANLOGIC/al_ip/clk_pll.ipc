@@ -52,6 +52,15 @@
                 <clkEN>false</clkEN>
                 <bufg_option>NONE</bufg_option>
             </clock>
+            <clock>
+                <id>3</id>
+                <clock_division_factor>10</clock_division_factor>
+                <clock_frequency>100.0000000000000000MHz</clock_frequency>
+                <phase_shift>270.0000000000000000deg</phase_shift>
+                <clkB>false</clkB>
+                <clkEN>false</clkEN>
+                <bufg_option>NONE</bufg_option>
+            </clock>
         </clocks>
     </Page3>
     <GeneratedFiles>

@@ -169,7 +169,7 @@ module topPPU#(
             .rgb                (rgb                )
         );
     `else
-        hdmi_driver u_hdmi_driver(
+        ppu_hdmi_driver u_ppu_hdmi_driver(
             .hdmi_clk           (clk_25p2MHz        ),
             .hdmi_clk_5         (clk_125MHz         ),
             .rstn               (rstn               ),

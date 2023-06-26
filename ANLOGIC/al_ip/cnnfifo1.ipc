@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<SoftFifoConfig>
+    <Config>
+        <A_EMPTY_NUM>7</A_EMPTY_NUM>
+        <A_FULL_NUM>8</A_FULL_NUM>
+        <CLKMODE>SYNC</CLKMODE>
+        <IMP_OPT>EMB20K(Area Opt)</IMP_OPT>
+        <OUT_REG>Disable</OUT_REG>
+        <RAM_OPT>ERAM</RAM_OPT>
+        <R_DEPTH>256</R_DEPTH>
+        <R_WIDTH>96</R_WIDTH>
+        <SHOW_AHEAD>Disable</SHOW_AHEAD>
+        <W_DEPTH>256</W_DEPTH>
+        <W_WIDTH>96</W_WIDTH>
+    </Config>
+    <GeneralConfig>
+        <Device>PH1A60GEG324</Device>
+        <Type>PH1_Soft_FIFO</Type>
+        <Version>1.0</Version>
+        <create_VHDL>false</create_VHDL>
+        <inst>cnnfifo1</inst>
+    </GeneralConfig>
+    <GeneratedFiles>
+        <Verilog Enable="true">cnnfifo1.v</Verilog>
+    </GeneratedFiles>
+</SoftFifoConfig>

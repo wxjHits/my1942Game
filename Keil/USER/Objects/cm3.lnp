@@ -14,6 +14,7 @@
 ".\objects\pstwo.o"
 ".\objects\spriteram.o"
 ".\objects\jy61p.o"
+".\objects\cnn.o"
 ".\objects\boom.o"
 ".\objects\enemybullet.o"
 ".\objects\enemyplane.o"

@@ -13,6 +13,7 @@
 .\objects\main.o: ..\DEVICE\systick.h
 .\objects\main.o: ..\DEVICE\pstwo.h
 .\objects\main.o: ..\DEVICE\jy61p.h
+.\objects\main.o: ..\DEVICE\cnn.h
 .\objects\main.o: ..\MY_GAME\enemyPlane.h
 .\objects\main.o: D:\Program Files\Keil_V5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\objects\main.o: ..\MY_GAME\gameStruct.h

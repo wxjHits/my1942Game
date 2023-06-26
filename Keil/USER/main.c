@@ -7,6 +7,7 @@
 #include "systick.h"
 #include "pstwo.h"
 #include "jy61p.h"
+#include "cnn.h"
 
 #include "enemyPlane.h"
 #include "makeEnemyPlaneArray.h"
@@ -57,7 +58,7 @@ bool gameingPause;//????????
 
 uint8_t spriteRamAddr=0;//draw???
 
-GAMECURSORType gameCursor;//?????“??”
+GAMECURSORType gameCursor;//?????ï¿½??ï¿½
 uint32_t GameScore=0;//????
 
 uint32_t GameShootBulletsCnt;//???????
@@ -98,11 +99,19 @@ int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
 
-   // JY61P??
+   // // JY61P test
+   // while (1){
+   //    printf("ROLL=%f ; ",(float)((int16_t)(JY61P->JY61P_ROLL ))*180/32768);
+   //    printf("PITCH=%f; ",(float)((int16_t)(JY61P->JY61P_PITCH))*180/32768);
+   //    printf("YAW=%f\n"  ,(float)((int16_t)(JY61P->JY61P_YAW  ))*180/32768);
+   //    delay_ms(500);
+   // }
+
+   //CNN test
    while (1){
-      printf("ROLL=%f ; ",(float)((int16_t)(JY61P->JY61P_ROLL ))*180/32768);
-      printf("PITCH=%f; ",(float)((int16_t)(JY61P->JY61P_PITCH))*180/32768);
-      printf("YAW=%f\n"  ,(float)((int16_t)(JY61P->JY61P_YAW  ))*180/32768);
+      uint32_t read_cnn_out=0;
+      read_cnn_out = read_cnn_result();
+      printf("CNN_RESULT=%u\n",read_cnn_out);
       delay_ms(500);
    }
 
@@ -123,6 +132,8 @@ int main(void)
 
    makeMapFirst(flashAddrBlock_Map1);
    makeMapSecond(flashAddrBlock_Map0);
+   
+   writeOneSprite(0, 100, 100,5,0x53);
    while(1)
    {
       /****???????????*****/
@@ -171,7 +182,7 @@ int main(void)
             }
             clearNameTableAll();
             loadMapJianchuan();
-            NAMETABLE->scrollCntMax=3;//???????“4”????
+            NAMETABLE->scrollCntMax=3;//???????ï¿½4ï¿½????
             NAMETABLE->flashAddrStart=guanQia*(0x0004000);
             NAMETABLE->mapBackgroundMax=8;
             // NAMETABLE->flashAddrStart=0x0001000;
@@ -243,12 +254,12 @@ int main(void)
             //?????????
             else if(PS2_KEY_START==PSB_GREEN){
                apu_Button();
-               if(gameCursor.state==GAME_SELECT_START){//?????“????”
+               if(gameCursor.state==GAME_SELECT_START){//?????ï¿½????ï¿½
                   timer_init_flag=1;
                   game_state=1;
                   apu_Intr_Trigger();
                }
-               else if(gameCursor.state==GAME_SELECT_PIFU){//?????“????”
+               else if(gameCursor.state==GAME_SELECT_PIFU){//?????ï¿½????ï¿½
                   apu_Button();
                   timer_init_flag=1;
                   game_state=3;
@@ -257,9 +268,9 @@ int main(void)
                   apu_Button();
                   game_caozuo_mode=!game_caozuo_mode;
                   if(game_caozuo_mode==false)
-                     writeOneNametable(18,20,0x11);//??“??”?“?”
+                     writeOneNametable(18,20,0x11);//??ï¿½??ï¿½?ï¿½?ï¿½
                   else
-                     writeOneNametable(18,20,0x12);//??“??”?“?”
+                     writeOneNametable(18,20,0x12);//??ï¿½??ï¿½?ï¿½?ï¿½
                }
             }
          delay_ms(200);
@@ -527,7 +538,7 @@ int main(void)
     
 //     set_frame(0x00);
 //     set_state(0x0F);
-//     //±¬Õ¨ÒôÐ§
+//     //ï¿½ï¿½Õ¨ï¿½ï¿½Ð§
 //     set_noise_00(0x8F);
 //     set_noise_01(0x00);
 //     set_noise_10(0x95);

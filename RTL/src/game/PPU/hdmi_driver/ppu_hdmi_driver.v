@@ -1,4 +1,4 @@
-module hdmi_driver(
+module ppu_hdmi_driver(
     input 		   hdmi_clk     ,//640*480@60Hz:25.2MHz
     input 		   hdmi_clk_5   ,//640*480@60Hz:25.2MHz*5
     input 		   rstn         ,//
@@ -23,7 +23,7 @@ wire         video_de      ;
 wire [23:0 ] video_rgb     ;
 
 //例化视频显示驱动模块
-video_driver u_video_driver(
+ppu_video_driver u_ppu_video_driver(
     .pixel_clk      (hdmi_clk    ),
     .sys_rst_n      (rstn       ),
 

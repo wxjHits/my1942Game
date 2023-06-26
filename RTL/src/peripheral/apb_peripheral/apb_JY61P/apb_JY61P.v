@@ -45,9 +45,9 @@ module apb_JY61P(
 
     always@(*)begin
         case(PADDR[11:0])
-            12'h000:read_mux_le<={{16{1'b0}}, Roll };
-            12'h004:read_mux_le<={{16{1'b0}}, Pitch};
-            12'h008:read_mux_le<={{16{1'b0}}, Yaw  };
+            12'h000:read_mux_le={{16{1'b0}}, Roll };
+            12'h004:read_mux_le={{16{1'b0}}, Pitch};
+            12'h008:read_mux_le={{16{1'b0}}, Yaw  };
             default:read_mux_le={32{1'bx}};
         endcase
     end

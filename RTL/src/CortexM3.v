@@ -54,9 +54,84 @@ module CortexM3 #(
     output      wire            LCD_BL_CTR  ,
     `endif
 
-    output      wire            APU_OUT     
+    output      wire            APU_OUT     ,
+
+    //CNN相关的PIN
+    // output      wire    [3:0]   one_hot     ,
+    //摄像头
+    input       wire            cam_pclk    ,  //cmos 数据像素时钟
+    input       wire            cam_vsync   ,  //cmos 场同步信号
+    input       wire            cam_href    ,  //cmos 行同步信号
+    input       wire    [7:0]   cam_data    ,  //cmos 数据
+    output      wire            cam_rst_n   ,  //cmos 复位信号，低电平有效
+    output      wire            cam_pwdn    ,  //cmos 电源休眠模式选择信号
+    output      wire            cam_scl     ,  //cmos SCCB_SCL线
+    inout       wire            cam_sda     ,  //cmos SCCB_SDA线
+    //SDRAM 
+    output      wire            sdram_clk   ,  //SDRAM 时钟
+    output      wire            sdram_cke   ,  //SDRAM 时钟有效
+    output      wire            sdram_cs_n  ,  //SDRAM 片选
+    output      wire            sdram_ras_n ,  //SDRAM 行有效
+    output      wire            sdram_cas_n ,  //SDRAM 列有效
+    output      wire            sdram_we_n  ,  //SDRAM 写有效
+    output      wire   [1:0]    sdram_ba    ,  //SDRAM Bank地址
+    output      wire   [1:0]    sdram_dqm   ,  //SDRAM 数据掩码
+    output      wire   [12:0]   sdram_addr  ,  //SDRAM 地址
+    inout       wire   [15:0]   sdram_data  ,  //SDRAM 数据
+    //CNN_HDMI接口
+    output      wire            cnn_tmds_clk_p  ,
+    output      wire            cnn_tmds_clk_n  ,
+    output      wire   [2:0]    cnn_tmds_data_p ,
+    output      wire   [2:0]    cnn_tmds_data_n 
 );
 
+//PLL
+    //除了CNN部分以外的其余部分的时钟
+    wire clk_125MHz         ;
+    wire clk_100MHz         ;
+    wire clk_100MHz_270deg  ; //没用到
+    wire clk_25p2MHz        ;
+    //CNN部分使用的时钟
+    wire    clk_100m        ;
+    wire    clk_100m_shift  ;
+    wire    clk_50m         ;
+    wire    hdmi_clk        ;
+    wire    hdmi_clk_5      ;
+
+    clk_pll u_clk_pll (
+        .refclk     (CLK50m             ),//50MHz
+        .clk0_out   (clk_100MHz         ),//100MHz
+        .clk1_out   (clk_25p2MHz        ),//实际25MHz
+        .clk2_out   (clk_125MHz         ),//125MHz
+        .clk3_out   (clk_100MHz_270deg  ) //100MHz deg 270
+    );
+
+    //锁相环
+    pll u_pll(
+        .reset              (~RSTn)    ,
+        .refclk             (CLK50m )       ,
+        .clk0_out           (clk_100m)      ,
+        .clk1_out           (clk_100m_shift),
+    	.clk2_out           (clk_50m)       ,//实际是25MHz
+        .lock               (locked)
+        );
+
+    pll_hdmi	pll_hdmi_inst (
+        .reset 			    ( ~RSTn       ),
+        .refclk 			( CLK50m      ),
+        .clk0_out 	        ( hdmi_clk    ),//hdmi pixel clock 25.1Mhz
+        .clk1_out 		    ( hdmi_clk_5  ),//hdmi pixel clock*5 125.5Mhz
+        .lock 			    ( locked_hdmi )
+    );
+
+    // wire    clk_100m        = clk_100MHz        ;//100mhz时钟,SDRAM操作时钟
+    // wire    clk_100m_shift  = clk_100MHz_270deg ;//100mhz时钟,SDRAM相位偏移时钟
+    // wire    clk_50m         = CLK50m            ;
+    // wire    hdmi_clk        = clk_25p2MHz       ;
+    // wire    hdmi_clk_5      = clk_125MHz        ;
+
+
+// spi switch
     wire SOFT_SPI_CLK ;
     wire SOFT_SPI_CS  ;
     wire SOFT_SPI_MOSI;
@@ -97,6 +172,7 @@ module CortexM3 #(
     `ifdef ANLOGIC
         assign swck = SWCLK;
         assign clk  = CLK50m;
+        // assign clk  = clk_25p2MHz;
     `else
         generate 
             if(SimPresent) begin : SimClock
@@ -872,6 +948,11 @@ module CortexM3 #(
     wire    [31:0]  PRDATA_APBP5;
     wire            PSLVERR_APBP5;
 
+    wire            PSEL_APBP6;
+    wire            PREADY_APBP6;
+    wire    [31:0]  PRDATA_APBP6;
+    wire            PSLVERR_APBP6;
+
     cmsdk_apb_slave_mux   u_cmsdk_apb_slave_mux (
         .DECODE4BIT                         (PADDR[15:12]),
         .PSEL                               (PSEL),
@@ -906,10 +987,10 @@ module CortexM3 #(
         .PRDATA5                            (PRDATA_APBP5),
         .PSLVERR5                           (PSLVERR_APBP5),
 
-        .PSEL6                              (),
-        .PREADY6                            (1'b1),
-        .PRDATA6                            (32'b0),
-        .PSLVERR6                           (1'b0),
+        .PSEL6                              (PSEL_APBP6),
+        .PREADY6                            (PREADY_APBP6),
+        .PRDATA6                            (PRDATA_APBP6),
+        .PSLVERR6                           (PSLVERR_APBP6),
 
         .PSEL7                              (),
         .PREADY7                            (1'b1),
@@ -1159,6 +1240,61 @@ module CortexM3 #(
     );
 //
 
+/**********************APB6 CNN******************************/
+    apb_cnn u_apb_cnn(
+        .rstn       (RSTn       )   ,//系统复位
+        //
+        .clk_100m       (clk_100m       ),
+        .clk_100m_shift (clk_100m_shift ),
+        .clk_50m        (clk_50m        ),
+        .hdmi_clk       (hdmi_clk       ),//25MHz
+        .hdmi_clk_5     (hdmi_clk_5     ),//125MHz
+        .locked         (locked         ),
+        .locked_hdmi    (locked_hdmi    ),
+
+        //APB-bus
+        .PCLK       (clk        )   ,
+        .PCLKG      (clk        )   ,
+        .PRESETn    (cpuresetn  )   ,
+        .PSEL       (PSEL_APBP6 )   ,
+        .PADDR      (PADDR[15:0])   ,
+        .PENABLE    (PENABLE    )   ,
+        .PWRITE     (PWRITE     )   ,
+        .PWDATA     (PWDATA     )   ,
+        .ECOREVNUM  (4'b0       )   ,
+        .PRDATA     (PRDATA_APBP6)  ,
+        .PREADY     (PREADY_APBP6)  ,
+        .PSLVERR    (PSLVERR_APBP6) ,
+
+        // .one_hot    (one_hot    )   ,
+        //摄像头
+        .cam_pclk   (cam_pclk   )   ,
+        .cam_vsync  (cam_vsync  )   ,
+        .cam_href   (cam_href   )   ,
+        .cam_data   (cam_data   )   ,
+        .cam_rst_n  (cam_rst_n  )   ,
+        .cam_pwdn   (cam_pwdn   )   ,
+        .cam_scl    (cam_scl    )   ,
+        .cam_sda    (cam_sda    )   ,
+        //SDRAM 
+        .sdram_clk  (sdram_clk  )   ,
+        .sdram_cke  (sdram_cke  )   ,
+        .sdram_cs_n (sdram_cs_n )   ,
+        .sdram_ras_n(sdram_ras_n)   ,
+        .sdram_cas_n(sdram_cas_n)   ,
+        .sdram_we_n (sdram_we_n )   ,
+        .sdram_ba   (sdram_ba   )   ,
+        .sdram_dqm  (sdram_dqm  )   ,
+        .sdram_addr (sdram_addr )   ,
+        .sdram_data (sdram_data )   ,
+        //HDMI接口
+        .tmds_clk_p (cnn_tmds_clk_p ) ,    // TMDS 时钟通道
+        .tmds_clk_n (cnn_tmds_clk_n ) ,
+        .tmds_data_p(cnn_tmds_data_p) ,   // TMDS 数据通道
+        .tmds_data_n(cnn_tmds_data_n) 
+);
+
+
 /**********************AHB 4 L2-0 LCD 0x50000000~0x5000ffff******************************/
     `ifdef ANLOGIC
 
@@ -1190,16 +1326,6 @@ module CortexM3 #(
 //
 
 /**********************AHB 4 L2-1&L2-2 PPU 0x50010000~0x5001ffff & 0x50020000~0x5002ffff******************************/
-    wire clk_125MHz ;
-    wire clk_100MHz ;
-    wire clk_25p2MHz;
-    clk_pll u_clk_pll (
-        .refclk     (clk        ),//50MHz
-        .clk0_out   (clk_100MHz ),//100MHz
-        .clk1_out   (clk_25p2MHz),//实际25MHz
-        .clk2_out   (clk_125MHz ) //125MHz
-    );
-
     topPPU PPU(
         .clk_50MHz          (clk                ),
         .clk_125MHz         (clk_125MHz         ),
