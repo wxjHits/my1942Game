@@ -22,11 +22,12 @@
 #include "apu.h"
 #include "malloc.h"
 
-
-MYPLANEType myplane;//????
-const uint8_t MYPLANE_BULLET_NUMMAX=12;//????
+//我方飞机及我方子弹
+MYPLANEType myplane;
+const uint8_t MYPLANE_BULLET_NUMMAX=12;
 BULLETType myBullet[MYPLANE_BULLET_NUMMAX];
 
+//敌方各类飞机
 const uint8_t S_GREY_NUMMAX=12;//?????
 S_GREY_PLANEType s_grey_plane[S_GREY_NUMMAX];
 const uint8_t S_GREEN_NUMMAX=8;//?????
@@ -38,30 +39,25 @@ B_GREEN_PLANEType b_green_plane[B_GREEN_NUMMAX];
 const uint8_t ENEMY_BULLETS_NUMMAX=10;
 BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 
+//碰撞检测的bitmask掩码map
 hitMapType myPlaneHitMap;
 hitMapType myBulletsHitMap;
 hitMapType enemyPlaneAndBullet_HitMap;
 
-//??
+//爆炸效果数量
 const uint8_t BOOM_NUMMAX=5;
 BOOMType boom[BOOM_NUMMAX];
 
-// //BUFF
-// BUFFType buff;
-
 uint8_t timer_cnt;
-uint8_t start;
-bool gameingPause;//????????
-// //????
-// const uint8_t M_ENEMY_NUMMAX=0;
-// M_PLANEType M_enmeyPlane[M_ENEMY_NUMMAX];
+uint8_t start;//我方飞机的闪避动作
+bool gameingPause;//游戏暂停标志位
 
-uint8_t spriteRamAddr=0;//draw???
+uint8_t spriteRamAddr=0;//64个精灵绘图时的地址
 
-GAMECURSORType gameCursor;//?????�??�
-uint32_t GameScore=0;//????
+GAMECURSORType gameCursor;//游戏开始界面的选择光标
+uint32_t GameScore=0;//游戏分数
 
-uint32_t GameShootBulletsCnt;//???????
+uint32_t GameShootBulletsCnt;//
 uint32_t GameShootDownCnt;//?????
 float GameHitRate;//?????
 
@@ -94,7 +90,10 @@ int PS2_KEY_GAMING=0;
 int PS2_KEY_END_OUT=0;
 int PS2_KEY_PIFU=0;//???????
 
-bool game_caozuo_mode = false;//???????bool??
+bool GAME_PLAY_MODE = false;//游戏操作模式的标志
+uint32_t read_cnn_out;//手势识别结果：1--“拳头” 2--手势“5” 4--空白或者手势"1" 8--手势“6”
+uint8_t READ_JY61P_VALUE;//串口陀螺仪数据处理结果
+
 int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
@@ -107,13 +106,12 @@ int main(void)
    //    delay_ms(500);
    // }
 
-   //CNN test
-   while (1){
-      uint32_t read_cnn_out=0;
-      read_cnn_out = read_cnn_result();
-      printf("CNN_RESULT=%u\n",read_cnn_out);
-      delay_ms(500);
-   }
+   // //CNN test
+   // while (1){
+   //    read_cnn_out = read_cnn_result();
+   //    printf("CNN_RESULT=%u\n",read_cnn_out);
+   //    delay_ms(500);
+   // }
 
    PS2_Init();
    SPI_Init(100);
@@ -148,6 +146,8 @@ int main(void)
             clearNameTableAll();
             // gameCursor.state=0;
             gameStartInterfaceShow(7,8);
+            if(GAME_PLAY_MODE==true)//手势操作模式
+               writeOneNametable(18,20,0x12);
             gameCursorDraw(&gameCursor);
             guanQia=0;
             
@@ -266,8 +266,8 @@ int main(void)
                }
                else if (gameCursor.state==GAME_SELECT_CAOZUO){
                   apu_Button();
-                  game_caozuo_mode=!game_caozuo_mode;
-                  if(game_caozuo_mode==false)
+                  GAME_PLAY_MODE=!GAME_PLAY_MODE;
+                  if(GAME_PLAY_MODE==false)
                      writeOneNametable(18,20,0x11);//??�??�?�?�
                   else
                      writeOneNametable(18,20,0x12);//??�??�?�?�
@@ -281,49 +281,102 @@ int main(void)
             if(!(NAMETABLE->mapBackgroundCnt>=NAMETABLE->mapBackgroundMax&&NAMETABLE->mapScrollPtr<120)){
                ;
             }
-            //????
+            //游戏手柄操作飞机
             PS2_KEY_GAMING=PS2_DataKey();
+            READ_JY61P_VALUE = read_JY61P_flag();
+            read_cnn_out = read_cnn_result();
+
             timer_cnt++;
             if(timer_cnt>=24){
                timer_cnt=0;
-               if((Data[4]&0x10)==0){//PS2_KEY_GAMING==PSB_GREEN||?????????????
-                  if(myplane.actFlag==0){
-                     // apu_Shoot();
-                     myPlane_createOneBullet(&myplane,&myBullet);
-                  }
+               if(GAME_PLAY_MODE==false){
+                     if((Data[4]&0x10)==0){//PS2_KEY_GAMING==PSB_GREEN||?????????????发射子弹
+                        if(myplane.actFlag==0){
+                           myPlane_createOneBullet(&myplane,&myBullet);
+                        }
+                     }
+                     else if(PS2_KEY_GAMING==PSB_RED){//闪避动作
+                        start=1;
+                     }
+                     else if (PS2_KEY_GAMING==PSB_PINK){//暂停
+                        if(gameingPause==0){
+                           NAMETABLE->scrollPause=1;
+                           gameingPause=1;
+                        }
+                        else{
+                           NAMETABLE->scrollPause=0;
+                           gameingPause=0;
+                           apu_Intr_Trigger();
+                        }
+                     }
                }
-               else if(PS2_KEY_GAMING==PSB_RED){//????
-                  start=1;
-               }
-               else if (PS2_KEY_GAMING==PSB_PINK){
-                  if(gameingPause==0){
-                     NAMETABLE->scrollPause=1;
-                     gameingPause=1;
+               else{
+                  if(read_cnn_out==CNN_FIST){//手势为拳头，发射子弹
+                     if(myplane.actFlag==0)
+                           myPlane_createOneBullet(&myplane,&myBullet);
                   }
-                  else{
-                     NAMETABLE->scrollPause=0;
-                     gameingPause=0;
-                     apu_Intr_Trigger();
-                  }
+                  else if(read_cnn_out==CNN_FIVE)//手势为five，开始闪避
+                     start=1;
+                  else if (PS2_KEY_GAMING==CNN_SIX){//手势六，暂停/取消暂停
+                        if(gameingPause==0){
+                           NAMETABLE->scrollPause=1;
+                           gameingPause=1;
+                        }
+                        else{
+                           NAMETABLE->scrollPause=0;
+                           gameingPause=0;
+                           apu_Intr_Trigger();
+                        }
+                     }
                }
+               
                
             }
             if(timer_cnt%3==1){
-               if(PS2_KEY_GAMING==PSB_PAD_LEFT){
-                   if(myplane.PosX>LEFT_LINE+20)
-                       myplane.PosX-=5;
+               if(GAME_PLAY_MODE==false){
+                  switch (PS2_KEY_GAMING){
+                     case PSB_PAD_LEFT:
+                        if(myplane.PosX>LEFT_LINE+20)
+                          myplane.PosX-=5;
+                        break;
+                     case PSB_PAD_RIGHT:
+                        if(myplane.PosX<RIGHT_LINE-20)
+                          myplane.PosX+=5;
+                        break;
+                     case PSB_PAD_UP:
+                        if(myplane.PosY>TOP_LINE+20)
+                          myplane.PosY-=5;
+                        break;
+                     case PSB_PAD_DOWN:
+                        if(myplane.PosY<BOTTOM_LINE-20)
+                           myplane.PosY+=5;
+                        break;
+                     default: break;
+                  }
                }
-               else if(PS2_KEY_GAMING==PSB_PAD_RIGHT){
-                   if(myplane.PosX<RIGHT_LINE-20)
-                       myplane.PosX+=5;
-               }
-               else if(PS2_KEY_GAMING==PSB_PAD_UP){
-                   if(myplane.PosY>TOP_LINE+20)
-                       myplane.PosY-=5;
-               }
-               else if(PS2_KEY_GAMING==PSB_PAD_DOWN){
-                   if(myplane.PosY<BOTTOM_LINE-20)
-                       myplane.PosY+=5;
+               else {
+                  switch (READ_JY61P_VALUE){
+                     case 1:
+                        if(myplane.PosY>TOP_LINE+20)
+                          myplane.PosY-=5;
+                        break;
+                     case 2:
+                        if(myplane.PosY<BOTTOM_LINE-20)
+                           myplane.PosY+=5;
+                        break;
+                     default: break;
+                  }
+                  switch (READ_JY61P_VALUE & 0xf0){
+                     case 0x30:
+                        if(myplane.PosX>LEFT_LINE+20)
+                          myplane.PosX-=5;
+                        break;
+                     case 0x40:
+                        if(myplane.PosX<RIGHT_LINE-20)
+                          myplane.PosX+=5;
+                        break;
+                     default: break;
+                  }
                }
             }
 
@@ -354,7 +407,7 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
             
-            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);

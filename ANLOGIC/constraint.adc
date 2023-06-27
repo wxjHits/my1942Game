@@ -37,8 +37,6 @@ set_pin_assignment	{ cam_scl }	{ LOCATION = G18; PULLTYPE = PULLUP; }
 set_pin_assignment	{ cam_sda }	{ LOCATION = F18; }
 set_pin_assignment	{ cam_vsync }	{ LOCATION = E18; }
 
-
-
 set_pin_assignment	{ sdram_addr[0] }	{ LOCATION = U11; }
 set_pin_assignment	{ sdram_addr[10] }	{ LOCATION = V12; }
 set_pin_assignment	{ sdram_addr[11] }	{ LOCATION = U17; }
@@ -79,17 +77,12 @@ set_pin_assignment	{ sdram_dqm[1] }	{ LOCATION = T16; }
 set_pin_assignment	{ sdram_ras_n }	{ LOCATION = R17; }
 set_pin_assignment	{ sdram_we_n }	{ LOCATION = N16; }
 
-set_pin_assignment	{ tmds_clk_p }	{ LOCATION = U1; IOSTANDARD = LVCMOS25; }
-set_pin_assignment	{ tmds_data_p[0] }	{ LOCATION = R1; IOSTANDARD = LVCMOS25; }
-set_pin_assignment	{ tmds_data_p[1] }	{ LOCATION = K3; IOSTANDARD = LVCMOS25; }
-set_pin_assignment	{ tmds_data_p[2] }	{ LOCATION = U2; IOSTANDARD = LVCMOS25; }
+set_pin_assignment	{ tmds_clk_p }	    { LOCATION = P4; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_p[0] }	{ LOCATION = V5; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_p[1] }	{ LOCATION = U4; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ tmds_data_p[2] }	{ LOCATION = R3; IOSTANDARD = LVDS25; }
 
-# set_pin_assignment	{ cnn_tmds_clk_n }	{ LOCATION = P4; IOSTANDARD = LVDS25; }
-# set_pin_assignment	{ cnn_tmds_data_n[0] }	{ LOCATION = R3; IOSTANDARD = LVDS25; }
-# set_pin_assignment	{ cnn_tmds_data_n[1] }	{ LOCATION = U4; IOSTANDARD = LVDS25; }
-# set_pin_assignment	{ cnn_tmds_data_n[2] }	{ LOCATION = V5; IOSTANDARD = LVDS25; }
-
-set_pin_assignment	{ cnn_tmds_clk_p   		 }	{ LOCATION = P4; IOSTANDARD = LVDS25; }
-set_pin_assignment	{ cnn_tmds_data_p[0] 		 }	{ LOCATION = R3 ; IOSTANDARD = LVDS25; }
-set_pin_assignment	{ cnn_tmds_data_p[1] 		 }	{ LOCATION = U4 ; IOSTANDARD = LVDS25; }
-set_pin_assignment	{ cnn_tmds_data_p[2] 		 }	{ LOCATION = V5 ; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ cnn_tmds_clk_p }	    { LOCATION = U1; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ cnn_tmds_data_p[0] }	{ LOCATION = R1; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ cnn_tmds_data_p[1] }	{ LOCATION = K3; IOSTANDARD = LVDS25; }
+set_pin_assignment	{ cnn_tmds_data_p[2] }	{ LOCATION = U2; IOSTANDARD = LVDS25; }

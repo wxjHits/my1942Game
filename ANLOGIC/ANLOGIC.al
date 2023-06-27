@@ -998,9 +998,6 @@
     <Runs>
         <Run Name="syn_1" Type="Synthesis" ConstraintSet="constraint_1" Description="" Active="true">
             <Strategy Name="Default_Synthesis_Strategy">
-                <GlobalProperty>
-                    <thread>8</thread>
-                </GlobalProperty>
             </Strategy>
         </Run>
         <Run Name="phy_1" Type="PhysicalDesign" ConstraintSet="constraint_1" Description="" SynRun="syn_1" Active="true">

@@ -1,5 +1,10 @@
-#ifndef JY61P_H
-#define JY61P_H
+#ifndef _CNN_H
+#define _CNN_H
+
+#define CNN_FIST 1 
+#define CNN_FIVE 2 
+#define CNN_ONE  4 
+#define CNN_SIX  8 
 
 #include <stdint.h>
 

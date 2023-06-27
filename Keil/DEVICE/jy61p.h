@@ -18,5 +18,6 @@ typedef struct{
 #define JY61P   ((JY61P_Type*)JY61P_BASE)
 
 //相关的操作函数
+uint8_t read_JY61P_flag(void);
 
 #endif
