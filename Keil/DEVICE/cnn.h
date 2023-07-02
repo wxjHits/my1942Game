@@ -8,11 +8,8 @@
 
 #include <stdint.h>
 
-// JY61P串口接收陀螺仪      
-// BASE_ADDR 0x40006000     
-// 0x000 R    CNN_RESULT
+#define CNN_BASE         (0x60000000)
 
-#define CNN_BASE         (0x40006000)
 typedef struct{
     volatile uint32_t CNN_Result ;
 }CNN_Type;

@@ -142,15 +142,6 @@ uint32_t create[240]={
     CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
 
     //第2关
-    // CREATE_S_GREY_1,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
-    // CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
-    // 0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
-    // CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
-    // CREATE_B,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
-    // CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_4_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
-    // CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
-    // CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
-
     CREATE_S_GREY_6,CREATE_S_GREY_6,CREATE_S_GREY_6,CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREEN_4,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
     CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
     0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
@@ -160,10 +151,39 @@ uint32_t create[240]={
     CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
     CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
 };
+
+uint32_t gesture_create[240]={
+    //以下关卡为手势识别的关卡，比较简单
+    //手势第1关
+    CREATE_S_GREY_1,0,CREATE_S_GREEN_2_tongce,0,0,0,0,0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
+    0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,0,CREATE_S_GREY_1,0,0,0,0,
+    0,0,CREATE_S_GREY_2_duicheng,0,0,0,0,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
+    CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,0,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,
+    0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
+    CREATE_M_2_binglie,0,0,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
+    CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,0,0,0,0,0,
+    //手势第2关
+    CREATE_S_GREY_1,0,CREATE_S_GREEN_2_tongce,0,0,0,0,0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
+    0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,0,CREATE_S_GREY_1,0,0,0,0,
+    0,0,CREATE_S_GREY_2_duicheng,0,0,0,0,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
+    CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,0,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,
+    0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
+    CREATE_M_2_binglie,0,0,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
+    CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,0,0,0,0,0,
+};
 //一幅地图240/16=15，产生15次create_plane_Handler中断
 //如果每一关为8幅地图，则有120次create_plane_Handler中断
+extern bool GAME_PLAY_MODE;
+uint32_t CREATE_ARRAY ;
 void create_plane_Handler(void){
-    switch (create[create_enmeyPlane_num]){
+    if(GAME_PLAY_MODE==true)//手势操作模式
+        CREATE_ARRAY = gesture_create[create_enmeyPlane_num];
+    else
+        CREATE_ARRAY = create[create_enmeyPlane_num];
+
+    switch (CREATE_ARRAY){
     case CREATE_S_GREY_1:
         s_grey_createPlane_111(&s_grey_plane);
         break;

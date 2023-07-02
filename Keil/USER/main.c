@@ -148,14 +148,14 @@ int main(void)
             gameStartInterfaceShow(7,8);
             if(GAME_PLAY_MODE==true)//手势操作模式
                writeOneNametable(18,20,0x12);
+
+            create_enmeyPlane_num=0;
             gameCursorDraw(&gameCursor);
             guanQia=0;
             
             GameScore=0;
             GameShootBulletsCnt=0;
             GameShootDownCnt=0;
-
-            create_enmeyPlane_num=0;
          }
          else if(game_state==1){//??????
             timer_cnt=0;
@@ -285,6 +285,7 @@ int main(void)
             PS2_KEY_GAMING=PS2_DataKey();
             READ_JY61P_VALUE = read_JY61P_flag();
             read_cnn_out = read_cnn_result();
+            printf("CNN_RESULT=%u\n",read_cnn_out);
 
             timer_cnt++;
             if(timer_cnt>=24){
@@ -407,7 +408,7 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
             
-            // isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
@@ -549,77 +550,3 @@ int main(void)
       }
    }
 }
-/***************?????????????******************/
-// #include <stdint.h>
-// #include "lcd.h"
-// #include "systick.h"
-// #include "uart.h"
-// #include "led.h"
-// #include "spi_flash.h"
-// #include "malloc.h"
-// #include "pstwo.h"
-// #include "backgroundPicture.h"
-// #include "spriteRam.h"
-// #include "apu.h"
-
-// int PS2_KEY_END_OUT=0;
-
-// int main(void)
-// {
-//     PS2->PS2_CLK=1;PS2->PS2_CLK=0;
-//     PS2->PS2_CS=1;PS2->PS2_CS=0;
-//     PS2->PS2_DO=1;PS2->PS2_DO=0;
-    
-//     SPRITERAM->SPRITE[1].SPRITE_POSX=0x55;
-//     SPRITERAM->SPRITE[1].SPRITE_POSY=0x66;
-//     SPRITERAM->SPRITE[1].SPRITE_TILEINDEX=0x77;
-//     SPRITERAM->SPRITE[1].BYTE0=0x88;
-//     SPRITERAM->SPRITE[2].SPRITE_POSX=0x75;
-//     SPRITERAM->SPRITE[2].SPRITE_POSY=0x66;
-//     SPRITERAM->SPRITE[2].SPRITE_TILEINDEX=0x20;
-//     SPRITERAM->SPRITE[2].BYTE0=0x88;
-    
-//     NAMETABLE->scrollEn=0;
-//     NAMETABLE->flashAddrStart=0x555666;
-    
-//     NAMETABLE->NAMETABLE_VALUE[0][0]=0xaa;
-//     NAMETABLE->NAMETABLE_VALUE[0][1]=0x00;
-//     NAMETABLE->NAMETABLE_VALUE[0][2]=0x01;
-//     NAMETABLE->NAMETABLE_VALUE[1][0]=0x02;
-//     NAMETABLE->NAMETABLE_VALUE[1][1]=0x02;
-//     NAMETABLE->NAMETABLE_VALUE[1][2]=0x02;
-    
-//     set_frame(0x00);
-//     set_state(0x0F);
-//     //��ը��Ч
-//     set_noise_00(0x8F);
-//     set_noise_01(0x00);
-//     set_noise_10(0x95);
-//     set_noise_11(0x98);
-//     uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-
-//     SPI_Init(100);
-//     SPI_Flash_Erase_Block(0x000000);
-//     SPI_Flash_Write_Page(map_jianchuan+256*0,0x000000,256);
-//     uint8_t* mario_1024;
-//     mario_1024=mymalloc(1024);
-//     SPI_Flash_Read(mario_1024,0x000000,1024);
-//     for(uint32_t i=0;i<1024;i++){
-//        printf("addr=%lu data=%x\n",i,mario_1024[i]);
-//     }
-//     myfree(mario_1024);
-
-//     PS2_Init();
-    
-//     while(1) 
-//     {
-//         printf("hello\n");
-//         PS2_KEY_END_OUT=PS2_DataKey();
-//         printf("PS2_KEY_END_OUT=%d\n",PS2_KEY_END_OUT);
-//         LED_toggle(0);
-//         delay_ms(500);
-//         LED_toggle(1);
-//         delay_ms(500);
-//     }
-// }
-

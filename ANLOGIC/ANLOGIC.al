@@ -644,6 +644,7 @@
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/apb_cnn.v">
                 <FileInfo>
+                    <Attr Name="AutoExcluded" Val="true"/>
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
@@ -896,6 +897,14 @@
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
                     <Attr Name="CompileOrder" Val="118"/>
+                </FileInfo>
+            </File>
+            <File Path="../RTL/src/game/CNN/cnn_rtl/ahb_cnn.v">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="119"/>
                 </FileInfo>
             </File>
         </Verilog>

@@ -8,8 +8,8 @@ uint8_t read_JY61P_flag(void){
     // jy61p_roll  = (float)((int16_t)(JY61P->JY61P_ROLL ))*180/32768;
     // jy61p_pitch = (float)((int16_t)(JY61P->JY61P_PITCH))*180/32768;
 
-    int16_t UP   = -5500;int16_t DOWN  = 5500;
-    int16_t LEFT = -5500;int16_t RIGHT = 5500;
+    int16_t UP   = -4000;int16_t DOWN  = 4000;
+    int16_t LEFT = -4000;int16_t RIGHT = 4000;
     int16_t jy61p_roll=0;
     int16_t jy61p_pitch=0;
     jy61p_roll  = (int16_t)(JY61P->JY61P_ROLL );

@@ -1,1 +1,6 @@
 create_clock -name CLK50m -period 20 -waveform {10 20} [get_ports {CLK50m}]
+# derive_pll_clocks -instance [get_cells {u_clk_pll/pll_inst}]
+# rename_clock -name {clk_100MHz} -source [get_ports {CLK50m}] -master_clock {CLK50m} [get_pins {u_clk_pll/pll_inst.clkc[0]}]
+# rename_clock -name {clk_25p2MHz} -source [get_ports {CLK50m}] -master_clock {CLK50m} [get_pins {u_clk_pll/pll_inst.clkc[1]}]
+# rename_clock -name {clk_125MHz} -source [get_ports {CLK50m}] -master_clock {CLK50m} [get_pins {u_clk_pll/pll_inst.clkc[2]}]
+# set_clock_groups -exclusive -group [get_clocks {clk_100MHz clk_125MHz clk_25p2MHz}] -group [get_clocks {CLK50m}]

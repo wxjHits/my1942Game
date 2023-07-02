@@ -54,7 +54,9 @@ module CortexM3 #(
     output      wire            LCD_BL_CTR  ,
     `endif
 
-    output      wire            APU_OUT     ,
+    output      wire            APU_VCC     ,   //B13
+    output      wire            APU_GND     ,   //B14
+    output      wire            APU_OUT     ,   //C12
 
     //CNN相关的PIN
     // output      wire    [3:0]   one_hot     ,
@@ -1241,32 +1243,86 @@ module CortexM3 #(
 //
 
 /**********************APB6 CNN******************************/
-    apb_cnn u_apb_cnn(
+//     apb_cnn u_apb_cnn(
+//         .rstn       (RSTn       )   ,//系统复位
+//         //
+//         .clk_100m       (clk_100m       ),
+//         .clk_100m_shift (clk_100m_shift ),
+//         .clk_50m        (clk_50m        ),
+//         .hdmi_clk       (hdmi_clk       ),//25MHz
+//         .hdmi_clk_5     (hdmi_clk_5     ),//125MHz
+//         .locked         (locked         ),
+//         .locked_hdmi    (locked_hdmi    ),
+
+//         //APB-bus
+//         .PCLK       (clk        )   ,
+//         .PCLKG      (clk        )   ,
+//         .PRESETn    (cpuresetn  )   ,
+//         .PSEL       (PSEL_APBP6 )   ,
+//         .PADDR      (PADDR[15:0])   ,
+//         .PENABLE    (PENABLE    )   ,
+//         .PWRITE     (PWRITE     )   ,
+//         .PWDATA     (PWDATA     )   ,
+//         .ECOREVNUM  (4'b0       )   ,
+//         .PRDATA     (PRDATA_APBP6)  ,
+//         .PREADY     (PREADY_APBP6)  ,
+//         .PSLVERR    (PSLVERR_APBP6) ,
+
+//         // .one_hot    (one_hot    )   ,
+//         //摄像头
+//         .cam_pclk   (cam_pclk   )   ,
+//         .cam_vsync  (cam_vsync  )   ,
+//         .cam_href   (cam_href   )   ,
+//         .cam_data   (cam_data   )   ,
+//         .cam_rst_n  (cam_rst_n  )   ,
+//         .cam_pwdn   (cam_pwdn   )   ,
+//         .cam_scl    (cam_scl    )   ,
+//         .cam_sda    (cam_sda    )   ,
+//         //SDRAM 
+//         .sdram_clk  (sdram_clk  )   ,
+//         .sdram_cke  (sdram_cke  )   ,
+//         .sdram_cs_n (sdram_cs_n )   ,
+//         .sdram_ras_n(sdram_ras_n)   ,
+//         .sdram_cas_n(sdram_cas_n)   ,
+//         .sdram_we_n (sdram_we_n )   ,
+//         .sdram_ba   (sdram_ba   )   ,
+//         .sdram_dqm  (sdram_dqm  )   ,
+//         .sdram_addr (sdram_addr )   ,
+//         .sdram_data (sdram_data )   ,
+//         //HDMI接口
+//         .tmds_clk_p (cnn_tmds_clk_p ) ,    // TMDS 时钟通道
+//         .tmds_clk_n (cnn_tmds_clk_n ) ,
+//         .tmds_data_p(cnn_tmds_data_p) ,   // TMDS 数据通道
+//         .tmds_data_n(cnn_tmds_data_n) 
+// );
+
+    ahb_cnn u_ahb_cnn(
         .rstn       (RSTn       )   ,//系统复位
-        //
+        //pll
         .clk_100m       (clk_100m       ),
         .clk_100m_shift (clk_100m_shift ),
         .clk_50m        (clk_50m        ),
-        .hdmi_clk       (hdmi_clk       ),//25MHz
-        .hdmi_clk_5     (hdmi_clk_5     ),//125MHz
+        .hdmi_clk       (hdmi_clk       ),
+        .hdmi_clk_5     (hdmi_clk_5     ),
         .locked         (locked         ),
         .locked_hdmi    (locked_hdmi    ),
 
-        //APB-bus
-        .PCLK       (clk        )   ,
-        .PCLKG      (clk        )   ,
-        .PRESETn    (cpuresetn  )   ,
-        .PSEL       (PSEL_APBP6 )   ,
-        .PADDR      (PADDR[15:0])   ,
-        .PENABLE    (PENABLE    )   ,
-        .PWRITE     (PWRITE     )   ,
-        .PWDATA     (PWDATA     )   ,
-        .ECOREVNUM  (4'b0       )   ,
-        .PRDATA     (PRDATA_APBP6)  ,
-        .PREADY     (PREADY_APBP6)  ,
-        .PSLVERR    (PSLVERR_APBP6) ,
+        //AHB-bus
+        .HCLK           (clk                ),
+        .HRESETn        (cpuresetn          ),
+        .HSEL           (HSEL_AHBL1P3       ),
+        .HADDR          (HADDR_AHBL1P3      ),
+        .HTRANS         (HTRANS_AHBL1P3     ),
+        .HSIZE          (HSIZE_AHBL1P3      ),
+        .HPROT          (HPROT_AHBL1P3      ),
+        .HWRITE         (HWRITE_AHBL1P3     ),
+        .HWDATA         (HWDATA_AHBL1P3     ),
+        .HREADY         (HREADY_AHBL1P3     ),
 
-        // .one_hot    (one_hot    )   ,
+        .HREADYOUT      (HREADYOUT_AHBL1P3  ),
+        .HRDATA         (HRDATA_AHBL1P3     ),
+        .HRESP          (HRESP_AHBL1P3      ),
+
         //摄像头
         .cam_pclk   (cam_pclk   )   ,
         .cam_vsync  (cam_vsync  )   ,
@@ -1292,8 +1348,7 @@ module CortexM3 #(
         .tmds_clk_n (cnn_tmds_clk_n ) ,
         .tmds_data_p(cnn_tmds_data_p) ,   // TMDS 数据通道
         .tmds_data_n(cnn_tmds_data_n) 
-);
-
+    );
 
 /**********************AHB 4 L2-0 LCD 0x50000000~0x5000ffff******************************/
     `ifdef ANLOGIC
@@ -1408,6 +1463,9 @@ module CortexM3 #(
             .NOISEINT   (NOISEINT           )
     );
     assign  HRESP_AHBL2P3[1] = 1'b0;
+
+    assign APU_VCC = 1'b1 ;
+    assign APU_GND = 1'b0 ;
 //
 
 endmodule

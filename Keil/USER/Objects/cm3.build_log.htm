@@ -22,74 +22,76 @@ Dialog DLL:      TCM.DLL V1.36.2.0
  
 <h2>Project:</h2>
 C:\Users\hp\Desktop\my1942Game\Keil\USER\cm3.uvprojx
-Project File Date:  06/24/2023
+Project File Date:  07/02/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
-compiling uart.c...
-compiling Retarget.c...
 assembling startup_CM3DS.s...
-compiling lcd.c...
-compiling handler.c...
-..\CORE\handler.c(161): warning:  #1278-D: excess initializers are ignored
-      CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
-..\CORE\handler.c(195): warning:  #223-D: function "s_green_createPlane_411" declared implicitly
-          s_green_createPlane_411(&m_straight_plane);
-..\CORE\handler.c(198): warning:  #223-D: function "s_green_createPlane_422" declared implicitly
-          s_green_createPlane_422(&m_straight_plane);
-..\CORE\handler.c(223): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  uint8_t APU_GAME_START_Array[GAME_START_ARRAY_MAX][4]={
-..\CORE\handler.c(261): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  uint8_t APU_MY_PLANE_DEAD_Array[MY_PLANE_DEAD_ARRAY_MAX][8]={
-..\CORE\handler.c(278): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  uint8_t APU_GAME_END_Array[GAME_END_ARRAY_MAX][4]={
-..\CORE\handler.c(300): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
-  uint8_t APU_GAME_ING_Array[GAMING_ARRAY_MAX][4]={
-..\CORE\handler.c(373): warning:  #223-D: function "set_pulse0_00" declared implicitly
-          set_pulse0_00(APU_GAME_START_Array[APU_Array_Ptr][0]);
-..\CORE\handler.c(374): warning:  #223-D: function "set_pulse0_01" declared implicitly
-          set_pulse0_01(APU_GAME_START_Array[APU_Array_Ptr][1]);
-..\CORE\handler.c(375): warning:  #223-D: function "set_pulse0_10" declared implicitly
-          set_pulse0_10(APU_GAME_START_Array[APU_Array_Ptr][2]);
-..\CORE\handler.c(376): warning:  #223-D: function "set_pulse0_11" declared implicitly
-          set_pulse0_11(APU_GAME_START_Array[APU_Array_Ptr][3]);
-..\CORE\handler.c(384): warning:  #223-D: function "set_pulse0_00" declared implicitly
-              set_pulse0_00(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][0]);
-..\CORE\handler.c(385): warning:  #223-D: function "set_pulse0_01" declared implicitly
-              set_pulse0_01(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][1]);
-..\CORE\handler.c(386): warning:  #223-D: function "set_pulse0_10" declared implicitly
-              set_pulse0_10(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][2]);
-..\CORE\handler.c(387): warning:  #223-D: function "set_pulse0_11" declared implicitly
-              set_pulse0_11(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][3]);
-..\CORE\handler.c(388): warning:  #223-D: function "set_pulse1_00" declared implicitly
-              set_pulse1_00(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][4]);
-..\CORE\handler.c(389): warning:  #223-D: function "set_pulse1_01" declared implicitly
-              set_pulse1_01(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][5]);
-..\CORE\handler.c(390): warning:  #223-D: function "set_pulse1_10" declared implicitly
-              set_pulse1_10(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][6]);
-..\CORE\handler.c(391): warning:  #223-D: function "set_pulse1_11" declared implicitly
-              set_pulse1_11(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][7]);
-..\CORE\handler.c(398): warning:  #223-D: function "set_pulse0_00" declared implicitly
-              set_pulse0_00(APU_GAME_ING_Array[APU_Array_Ptr][0]);
-..\CORE\handler.c(399): warning:  #223-D: function "set_pulse0_01" declared implicitly
-              set_pulse0_01(APU_GAME_ING_Array[APU_Array_Ptr][1]);
-..\CORE\handler.c(400): warning:  #223-D: function "set_pulse0_10" declared implicitly
-              set_pulse0_10(APU_GAME_ING_Array[APU_Array_Ptr][2]);
-..\CORE\handler.c(401): warning:  #223-D: function "set_pulse0_11" declared implicitly
-              set_pulse0_11(APU_GAME_ING_Array[APU_Array_Ptr][3]);
-..\CORE\handler.c(408): warning:  #223-D: function "set_pulse0_00" declared implicitly
-              set_pulse0_00(APU_GAME_END_Array[APU_Array_Ptr][0]);
-..\CORE\handler.c(409): warning:  #223-D: function "set_pulse0_01" declared implicitly
-              set_pulse0_01(APU_GAME_END_Array[APU_Array_Ptr][1]);
-..\CORE\handler.c(410): warning:  #223-D: function "set_pulse0_10" declared implicitly
-              set_pulse0_10(APU_GAME_END_Array[APU_Array_Ptr][2]);
-..\CORE\handler.c(411): warning:  #223-D: function "set_pulse0_11" declared implicitly
-              set_pulse0_11(APU_GAME_END_Array[APU_Array_Ptr][3]);
-..\CORE\handler.c: 27 warnings, 0 errors
-compiling malloc.c...
+compiling Retarget.c...
+compiling uart.c...
 compiling system.c...
 compiling led.c...
+compiling lcd.c...
+compiling malloc.c...
+compiling handler.c...
+..\CORE\handler.c(152): warning:  #1278-D: excess initializers are ignored
+      CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
+..\CORE\handler.c(174): warning:  #1278-D: excess initializers are ignored
+      CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,0,0,0,0,0,
+..\CORE\handler.c(215): warning:  #223-D: function "s_green_createPlane_411" declared implicitly
+          s_green_createPlane_411(&m_straight_plane);
+..\CORE\handler.c(218): warning:  #223-D: function "s_green_createPlane_422" declared implicitly
+          s_green_createPlane_422(&m_straight_plane);
+..\CORE\handler.c(243): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  uint8_t APU_GAME_START_Array[GAME_START_ARRAY_MAX][4]={
+..\CORE\handler.c(281): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  uint8_t APU_MY_PLANE_DEAD_Array[MY_PLANE_DEAD_ARRAY_MAX][8]={
+..\CORE\handler.c(298): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  uint8_t APU_GAME_END_Array[GAME_END_ARRAY_MAX][4]={
+..\CORE\handler.c(320): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
+  uint8_t APU_GAME_ING_Array[GAMING_ARRAY_MAX][4]={
+..\CORE\handler.c(393): warning:  #223-D: function "set_pulse0_00" declared implicitly
+          set_pulse0_00(APU_GAME_START_Array[APU_Array_Ptr][0]);
+..\CORE\handler.c(394): warning:  #223-D: function "set_pulse0_01" declared implicitly
+          set_pulse0_01(APU_GAME_START_Array[APU_Array_Ptr][1]);
+..\CORE\handler.c(395): warning:  #223-D: function "set_pulse0_10" declared implicitly
+          set_pulse0_10(APU_GAME_START_Array[APU_Array_Ptr][2]);
+..\CORE\handler.c(396): warning:  #223-D: function "set_pulse0_11" declared implicitly
+          set_pulse0_11(APU_GAME_START_Array[APU_Array_Ptr][3]);
+..\CORE\handler.c(404): warning:  #223-D: function "set_pulse0_00" declared implicitly
+              set_pulse0_00(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][0]);
+..\CORE\handler.c(405): warning:  #223-D: function "set_pulse0_01" declared implicitly
+              set_pulse0_01(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][1]);
+..\CORE\handler.c(406): warning:  #223-D: function "set_pulse0_10" declared implicitly
+              set_pulse0_10(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][2]);
+..\CORE\handler.c(407): warning:  #223-D: function "set_pulse0_11" declared implicitly
+              set_pulse0_11(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][3]);
+..\CORE\handler.c(408): warning:  #223-D: function "set_pulse1_00" declared implicitly
+              set_pulse1_00(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][4]);
+..\CORE\handler.c(409): warning:  #223-D: function "set_pulse1_01" declared implicitly
+              set_pulse1_01(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][5]);
+..\CORE\handler.c(410): warning:  #223-D: function "set_pulse1_10" declared implicitly
+              set_pulse1_10(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][6]);
+..\CORE\handler.c(411): warning:  #223-D: function "set_pulse1_11" declared implicitly
+              set_pulse1_11(APU_MY_PLANE_DEAD_Array[APU_Array_Ptr][7]);
+..\CORE\handler.c(418): warning:  #223-D: function "set_pulse0_00" declared implicitly
+              set_pulse0_00(APU_GAME_ING_Array[APU_Array_Ptr][0]);
+..\CORE\handler.c(419): warning:  #223-D: function "set_pulse0_01" declared implicitly
+              set_pulse0_01(APU_GAME_ING_Array[APU_Array_Ptr][1]);
+..\CORE\handler.c(420): warning:  #223-D: function "set_pulse0_10" declared implicitly
+              set_pulse0_10(APU_GAME_ING_Array[APU_Array_Ptr][2]);
+..\CORE\handler.c(421): warning:  #223-D: function "set_pulse0_11" declared implicitly
+              set_pulse0_11(APU_GAME_ING_Array[APU_Array_Ptr][3]);
+..\CORE\handler.c(428): warning:  #223-D: function "set_pulse0_00" declared implicitly
+              set_pulse0_00(APU_GAME_END_Array[APU_Array_Ptr][0]);
+..\CORE\handler.c(429): warning:  #223-D: function "set_pulse0_01" declared implicitly
+              set_pulse0_01(APU_GAME_END_Array[APU_Array_Ptr][1]);
+..\CORE\handler.c(430): warning:  #223-D: function "set_pulse0_10" declared implicitly
+              set_pulse0_10(APU_GAME_END_Array[APU_Array_Ptr][2]);
+..\CORE\handler.c(431): warning:  #223-D: function "set_pulse0_11" declared implicitly
+              set_pulse0_11(APU_GAME_END_Array[APU_Array_Ptr][3]);
+..\CORE\handler.c: 28 warnings, 0 errors
 compiling main.c...
 ..\DEVICE\apu.h(65): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -121,84 +123,85 @@ main.c(177): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompat
               enmey_BulletInit(&enmeyBullets);
 main.c(178): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               new_boomInit(&boom);
-main.c(295): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(296): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                              myPlane_createOneBullet(&myplane,&myBullet);
-main.c(316): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(317): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                              myPlane_createOneBullet(&myplane,&myBullet);
-main.c(389): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(390): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                  myPlane_updateBulletData(&myBullet);
-main.c(390): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(391): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
                  s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-main.c(390): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
-                 s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-main.c(391): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
-                 s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
 main.c(391): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+                 s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
+main.c(392): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
                  s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
-main.c(392): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+main.c(392): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+                 s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
+main.c(393): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
                  m_straight_movePlane(&m_straight_plane);
-main.c(393): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(394): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
                  b_green_movePlane(&b_green_plane);
-main.c(394): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(395): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
                  updateEnemyBulletData(&enmeyBullets);
-main.c(395): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(396): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
                  new_updateBoomData(&boom);
-main.c(406): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(407): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                  myBulletsMapCreate(&myBullet,&myBulletsHitMap);
-main.c(408): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(409): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(408): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(409): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(408): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(409): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(408): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(409): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(411): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
-              isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(411): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
-              isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
 main.c(411): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+              isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+main.c(412): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(412): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
-              isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
+main.c(412): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+              isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
 main.c(412): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+              isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
+main.c(413): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
               isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
-main.c(413): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
-              isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
 main.c(413): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+              isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
+main.c(414): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
-main.c(414): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(414): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+              isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
+main.c(415): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               isHit_myBullets(&myBullet,&enemyPlaneAndBullet_HitMap);
-main.c(438): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(439): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myPlane_bulletDraw(&myBullet,&spriteRamAddr);
-main.c(439): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(440): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               new_boomDraw(&boom,&spriteRamAddr);//????????????????
-main.c(441): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(442): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
-main.c(442): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(443): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               s_green_drawPlane(&s_green_plane,&spriteRamAddr);
-main.c(443): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+main.c(444): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
               m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
-main.c(444): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(445): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               b_green_drawPlane(&b_green_plane,&spriteRamAddr);
-main.c(445): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(446): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
               enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
-main.c: 46 warnings, 0 errors
+main.c: 47 warnings, 0 errors
 compiling spi_flash.c...
-compiling pstwo.c...
+compiling systick.c...
 compiling apu.c...
 ..\DEVICE\apu.h(65): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\DEVICE\apu.c(135): warning:  #1-D: last line of file ends without a newline
   }
 ..\DEVICE\apu.c: 2 warnings, 0 errors
+compiling pstwo.c...
 compiling spriteRam.c...
 compiling jy61p.c...
 ..\DEVICE\jy61p.c(32): warning:  #1-D: last line of file ends without a newline
   }
 ..\DEVICE\jy61p.c: 1 warning, 0 errors
-compiling systick.c...
-compiling boom.c...
 compiling cnn.c...
 compiling enemyBullet.c...
 ..\MY_GAME\enemyBullet.c(7): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
@@ -208,6 +211,8 @@ compiling enemyBullet.c...
 ..\MY_GAME\enemyBullet.c(9): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.67,200};
 ..\MY_GAME\enemyBullet.c: 3 warnings, 0 errors
+compiling boom.c...
+compiling makeEnemyPlaneArray.c...
 compiling gameHitCheck.c...
 ..\DEVICE\apu.h(65): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -220,7 +225,6 @@ compiling gameInterFace.c...
 ..\MY_GAME\gameInterFace.c(213): warning:  #223-D: function "printf" declared implicitly
       printf("recordNow=%u\n",recordNow);
 ..\MY_GAME\gameInterFace.c: 3 warnings, 0 errors
-compiling makeEnemyPlaneArray.c...
 compiling makeMap.c...
 compiling myPlane.c...
 compiling enemyPlane.c...
@@ -262,11 +266,11 @@ compiling enemyPlane.c...
                               s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
 ..\MY_GAME\enemyPlane.c: 18 warnings, 0 errors
 linking...
-Program Size: Code=17140 RO-data=240 RW-data=10076 ZI-data=3068  
+Program Size: Code=17792 RO-data=240 RW-data=11044 ZI-data=3068  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\cm3.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\cm3.axf -o image.txt
-".\Objects\cm3.axf" - 0 Error(s), 101 Warning(s).
+".\Objects\cm3.axf" - 0 Error(s), 103 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -280,7 +284,7 @@ Package Vendor: Keil
   D:\Program Files\\Keil_V5\Arm\Packs\Keil\V2M-MPS2_CMx_BSP\1.7.1\Device\CMSDK_CM3\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:04
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
