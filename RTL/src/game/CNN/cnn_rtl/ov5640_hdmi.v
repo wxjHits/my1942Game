@@ -1,14 +1,19 @@
 module ov5640_hdmi(
     input         sys_clk    ,  //系统时钟
     input         sys_rst_n  ,  //系统复位，低电平有效
-    //IP核时钟
-    input wire    clk_100m       ,  //100mhz时钟,SDRAM操作时钟
-    input wire    clk_100m_shift ,  //100mhz时钟,SDRAM相位偏移时钟
-    input wire    clk_50m        ,
-    input wire    hdmi_clk       ,
-    input wire    hdmi_clk_5     ,
-    input wire    locked         ,
-    input wire    locked_hdmi    ,
+    //时钟信号
+    input         clk_100m          ,
+    input         clk_100m_shift    ,
+    input         clk_50m           ,
+    input         hdmi_clk          ,
+    input         hdmi_clk_5        ,
+    input         locked            ,
+    input         locked_hdmi       ,
+
+    //AHB-Lite 下发的三个控制字
+    input         bus_bin_mode_ctrl       ,
+    input [ 7:0]  bus_bin_rgb_threshold   ,
+    input [31:0]  bus_bin_crbr_threshold  ,
 
     //摄像头
     input         cam_pclk   ,  //cmos 数据像素时钟
@@ -38,6 +43,7 @@ module ov5640_hdmi(
     //CNN数据端口
     output [3:0] one_hot   ,
     output       cnn_out_valid,
+
     input        debug
     );
 
@@ -155,6 +161,10 @@ u_i2c_dr(
     .dri_clk            (i2c_dri_clk   )       //I2C操作时钟
     );
 
+// wire bus_bin_mode_ctrl = 1'b0;
+// wire [7:0] bus_bin_rgb_threshold = 'd70;
+// //{cb_high,cb_low,cr_high,cr_low}
+// wire [31:0] bus_bin_crbr_threshold = 'hFF_00_FF_00;
 //CMOS图像数据采集模块
 cmos_capture_data u_cmos_capture_data(         //系统初始化完成之后再开始采集数据
     .rst_n              (rst_n & sys_init_done),
@@ -169,7 +179,10 @@ cmos_capture_data u_cmos_capture_data(         //系统初始化完成之后再�
     .cmos_frame_valid   (wr_en    ),      //数据有效使能信号
     .cmos_frame_data    (wr_data  ),      //有效数据
     .bin_data           (bin_data ),
-    .gray_en            (gray_en  )
+    .gray_en            (gray_en  ),
+    .bus_bin_mode_ctrl(bus_bin_mode_ctrl),
+    .bus_bin_rgb_threshold(bus_bin_rgb_threshold),
+    .bus_bin_crbr_threshold(bus_bin_crbr_threshold)
     );
 
 

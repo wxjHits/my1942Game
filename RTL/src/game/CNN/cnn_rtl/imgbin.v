@@ -18,10 +18,30 @@ module imgbin
     output              post_frame_de   ,   // data enable信号
     output      [15:0]  out_gray        ,
     output              post_gray_en    ,
-    output reg          bin_data            //输出的二值信号(0和1)
+    output              bin_data        ,   //输出的二值信号(0和1)
+    //总线控制
+    input               bus_bin_mode_ctrl   ,
+    input       [7:0]   bus_bin_rgb_threshold,
+    input       [31:0]  bus_bin_crbr_threshold
+
 );
 
-
+reg crbr_or_rgb;//1:crbr分割 0:rgb分割
+always @(*) crbr_or_rgb = bus_bin_mode_ctrl;
+//r通道阈值
+reg [7:0] rgb_threshold;
+always @(*) rgb_threshold = bus_bin_rgb_threshold;
+//crcb阈值
+reg [7:0] cr_low    ;
+reg [7:0] cr_high   ;
+reg [7:0] cb_low    ;
+reg [7:0] cb_high   ;
+always @(*) begin
+cr_low  = bus_bin_crbr_threshold[7:0];
+cr_high = bus_bin_crbr_threshold[15:8];
+cb_low  = bus_bin_crbr_threshold[23:16];
+cb_high = bus_bin_crbr_threshold[31:24];
+end
 //reg define
 reg  [15:0]   rgb_r_m0, rgb_r_m1, rgb_r_m2;
 reg  [15:0]   rgb_g_m0, rgb_g_m1, rgb_g_m2;
@@ -79,6 +99,10 @@ assign img_y            = post_frame_hsync ? img_y1 : 8'd0;
  Cb = (-43*R    -    85 *G    +    128*B + 32768)>>8
  Cr = (128*R    -    107*G    -    21 *B + 32768)>>8
 *********************************************************/
+//rgb打拍
+reg [7:0] rgb_r_delay1;
+reg [7:0] rgb_r_delay2;
+reg [7:0] rgb_r_delay3;
 
 //step1 pipeline mult
 always @(posedge clk or negedge rst_n) begin
@@ -92,6 +116,8 @@ always @(posedge clk or negedge rst_n) begin
         rgb_b_m0 <= 16'd0;
         rgb_b_m1 <= 16'd0;
         rgb_b_m2 <= 16'd0;
+
+        rgb_r_delay1 <= 'd0;
     end
     else begin
         rgb_r_m0 <= rgb888_r * 8'd77 ;
@@ -103,6 +129,8 @@ always @(posedge clk or negedge rst_n) begin
         rgb_b_m0 <= rgb888_b * 8'd29 ;
         rgb_b_m1 <= rgb888_b << 3'd7 ;
         rgb_b_m2 <= rgb888_b * 8'd21 ;
+
+        rgb_r_delay1 <= rgb888_r;
     end
 end
 
@@ -112,11 +140,15 @@ always @(posedge clk or negedge rst_n) begin
         img_y0  <= 16'd0;
         img_cb0 <= 16'd0;
         img_cr0 <= 16'd0;
+
+        rgb_r_delay2 <= 'd0;
     end
     else begin
         img_y0  <= rgb_r_m0 + rgb_g_m0 + rgb_b_m0;
         img_cb0 <= rgb_b_m1 - rgb_r_m1 - rgb_g_m1 + 16'd32768;
         img_cr0 <= rgb_r_m2 - rgb_g_m2 - rgb_b_m2 + 16'd32768;
+
+        rgb_r_delay2 <= rgb_r_delay1;
     end
 
 end
@@ -127,11 +159,15 @@ always @(posedge clk or negedge rst_n) begin
         img_y1  <= 8'd0;
         img_cb1 <= 8'd0;
         img_cr1 <= 8'd0;
+
+        rgb_r_delay3 <= 'd0;
     end
     else begin
         img_y1  <= img_y0 [15:8];
         img_cb1 <= img_cb0[15:8];
         img_cr1 <= img_cr0[15:8];
+
+        rgb_r_delay3 <= rgb_r_delay2;
     end
 end
 
@@ -171,24 +207,40 @@ always@(posedge clk or negedge rst_n) begin
     end
 end
 
-//*****************binary******************
-wire [15:0] post_binary;
+//*****************binary_crbr******************
+wire [15:0] post_binary_crbr;
+reg bin_data_crbr;
 always @(posedge clk or negedge rst_n) begin
     if(!rst_n) begin
-        bin_data <= 'd0;
+        bin_data_crbr <= 'd0;
     end
     else begin
-        if((img_cr1 > 'd135) & (img_cr1 < 'd160) & (img_cb1 > 'd115) & (img_cb1 < 'd140))
-            bin_data <= 'd1;
+        if((img_cr1 > cr_low) & (img_cr1 < cr_high) & (img_cb1 > cb_low) & (img_cb1 < cb_high))
+            bin_data_crbr <= 'd1;
         else
-            bin_data <= 'd0;
+            bin_data_crbr <= 'd0;
+    end
+end
+//*****************binary_rgb*********************
+wire [15:0] post_binary_rgb;
+reg bin_data_rgb;
+always @(posedge clk or negedge rst_n) begin
+    if(!rst_n) begin
+        bin_data_rgb <= 'd0;
+    end
+    else begin
+        if(rgb_r_delay3 >= rgb_threshold)
+            bin_data_rgb <= 'd1;
+        else
+            bin_data_rgb <= 'd0;
     end
 end
 //产生1bit阈值输出
 //70,160,115,140
 //135,160,115,140
 //产生16bit阈值输出
-assign post_binary = {16{bin_data}};
-assign  out_gray = gray_en_d4 ? post_binary : box_data_out_d4;
+assign bin_data = crbr_or_rgb ? bin_data_crbr : bin_data_rgb;
+assign post_binary_crbr = {16{bin_data}};
+assign  out_gray = gray_en_d4 ? post_binary_crbr : box_data_out_d4;
 assign post_gray_en = gray_en_d4;
 endmodule

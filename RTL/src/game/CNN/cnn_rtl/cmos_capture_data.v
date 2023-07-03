@@ -12,12 +12,17 @@ module cmos_capture_data(
     output                cmos_frame_valid ,  //数据有效使能信号
     output       [15:0]   cmos_frame_data  ,  //有效数据
     output                bin_data         ,
-    output                gray_en
+    output                gray_en          ,
+    //总线接口
+    input               bus_bin_mode_ctrl       ,
+    input       [7:0]   bus_bin_rgb_threshold   ,
+    input       [31:0]  bus_bin_crbr_threshold
     );
 
 //寄存器全部配置完成后，先等待10帧数据
 //待寄存器配置生效后再开始采集图像
 parameter  WAIT_FRAME = 4'd10    ;            //寄存器数据稳定等待的帧个数
+
 
 //reg define
 reg             cam_vsync_d0     ;
@@ -121,7 +126,7 @@ always @(posedge cam_pclk or negedge rst_n) begin
     else
         byte_flag_d0 <= byte_flag;
 end
-box_select #(10'd200, 10'd100, 10'd224) box_select_u(
+box_select #(10'd200, 10'd100, 10'd280) box_select_u(
     .rst_n       (rst_n        ),
     .cam_pclk    (cam_pclk     ),
     .pos_vsync   (pos_vsync    ),
@@ -131,6 +136,11 @@ box_select #(10'd200, 10'd100, 10'd224) box_select_u(
     .box_data_out(box_data_out ),
     .gray_en     (post_gray_en )
 );
+
+/*wire bus_bin_mode_ctrl = 1'b0;
+wire [7:0] bus_bin_rgb_threshold = 'd70;
+//{cb_high,cb_low,cr_high,cr_low}
+wire [31:0] bus_bin_crbr_threshold = 'hFF_00_FF_00;*/
 imgbin u_rgb2ycbcr(
     //module clock
     .clk             (cam_pclk    ),            // 时钟信号
@@ -147,7 +157,11 @@ imgbin u_rgb2ycbcr(
     .post_frame_de   (cmos_frame_valid),      // data enable信号
     .post_gray_en    (gray_en         ),
     .out_gray        (cmos_frame_data ),
-    .bin_data        (bin_data        )
+    .bin_data        (bin_data        ),
+    //总线
+    .bus_bin_mode_ctrl(bus_bin_mode_ctrl),
+    .bus_bin_rgb_threshold(bus_bin_rgb_threshold),
+    .bus_bin_crbr_threshold(bus_bin_crbr_threshold)
 );
 /*rgb2ycbcr u_rgb2ycbcr(
     //module clock

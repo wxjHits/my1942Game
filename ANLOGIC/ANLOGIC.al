@@ -642,21 +642,12 @@
                     <Attr Name="CompileOrder" Val="86"/>
                 </FileInfo>
             </File>
-            <File Path="../RTL/src/game/CNN/cnn_rtl/apb_cnn.v">
-                <FileInfo>
-                    <Attr Name="AutoExcluded" Val="true"/>
-                    <Attr Name="UsedInSyn" Val="true"/>
-                    <Attr Name="UsedInP&R" Val="true"/>
-                    <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="87"/>
-                </FileInfo>
-            </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/box_select.v">
                 <FileInfo>
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="88"/>
+                    <Attr Name="CompileOrder" Val="87"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/c1bias_rom.v">
@@ -664,7 +655,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="89"/>
+                    <Attr Name="CompileOrder" Val="88"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/c1weights_rom.v">
@@ -672,7 +663,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="90"/>
+                    <Attr Name="CompileOrder" Val="89"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/c2weights_rom.v">
@@ -680,7 +671,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="91"/>
+                    <Attr Name="CompileOrder" Val="90"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/capture_reshape_pool.v">
@@ -688,7 +679,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="92"/>
+                    <Attr Name="CompileOrder" Val="91"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/cmos_capture_data.v">
@@ -696,7 +687,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="93"/>
+                    <Attr Name="CompileOrder" Val="92"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/conv1.v">
@@ -704,7 +695,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="94"/>
+                    <Attr Name="CompileOrder" Val="93"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/conv2.v">
@@ -712,7 +703,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="95"/>
+                    <Attr Name="CompileOrder" Val="94"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/conv_top.v">
@@ -720,7 +711,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="96"/>
+                    <Attr Name="CompileOrder" Val="95"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/dvi_transmitter_top.v">
@@ -728,7 +719,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="97"/>
+                    <Attr Name="CompileOrder" Val="96"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/fc1.v">
@@ -736,7 +727,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="98"/>
+                    <Attr Name="CompileOrder" Val="97"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/fc2.v">
@@ -744,7 +735,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="99"/>
+                    <Attr Name="CompileOrder" Val="98"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/fcweights_rom.v">
@@ -752,7 +743,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="100"/>
+                    <Attr Name="CompileOrder" Val="99"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/hdmi_top.v">
@@ -760,7 +751,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="101"/>
+                    <Attr Name="CompileOrder" Val="100"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/i2c_dri.v">
@@ -768,7 +759,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="102"/>
+                    <Attr Name="CompileOrder" Val="101"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/i2c_ov5640_rgb565_cfg.v">
@@ -776,7 +767,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="103"/>
+                    <Attr Name="CompileOrder" Val="102"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/imgbin.v">
@@ -784,7 +775,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="104"/>
+                    <Attr Name="CompileOrder" Val="103"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/linebuffer.v">
@@ -792,7 +783,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="105"/>
+                    <Attr Name="CompileOrder" Val="104"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/ov5640_hdmi.v">
@@ -800,7 +791,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="106"/>
+                    <Attr Name="CompileOrder" Val="105"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/p1_data_fifo.v">
@@ -808,7 +799,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="107"/>
+                    <Attr Name="CompileOrder" Val="106"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/p2_data_fifo.v">
@@ -816,7 +807,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="108"/>
+                    <Attr Name="CompileOrder" Val="107"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/pool1.v">
@@ -824,7 +815,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="109"/>
+                    <Attr Name="CompileOrder" Val="108"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/pool2.v">
@@ -832,7 +823,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="110"/>
+                    <Attr Name="CompileOrder" Val="109"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/poolsingle.v">
@@ -840,7 +831,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="111"/>
+                    <Attr Name="CompileOrder" Val="110"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/sdram_cmd.v">
@@ -848,7 +839,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="112"/>
+                    <Attr Name="CompileOrder" Val="111"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/sdram_controller.v">
@@ -856,7 +847,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="113"/>
+                    <Attr Name="CompileOrder" Val="112"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/sdram_ctrl.v">
@@ -864,7 +855,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="114"/>
+                    <Attr Name="CompileOrder" Val="113"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/sdram_data.v">
@@ -872,7 +863,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="115"/>
+                    <Attr Name="CompileOrder" Val="114"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/sdram_fifo_ctrl.v">
@@ -880,7 +871,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="116"/>
+                    <Attr Name="CompileOrder" Val="115"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/sdram_top.v">
@@ -888,7 +879,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="117"/>
+                    <Attr Name="CompileOrder" Val="116"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/video_driver.v">
@@ -896,7 +887,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="118"/>
+                    <Attr Name="CompileOrder" Val="117"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/game/CNN/cnn_rtl/ahb_cnn.v">
@@ -904,7 +895,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="119"/>
+                    <Attr Name="CompileOrder" Val="118"/>
                 </FileInfo>
             </File>
             <File Path="../RTL/src/peripheral/apb_peripheral/key_intr.v">
@@ -912,7 +903,7 @@
                     <Attr Name="UsedInSyn" Val="true"/>
                     <Attr Name="UsedInP&R" Val="true"/>
                     <Attr Name="BelongTo" Val="design_1"/>
-                    <Attr Name="CompileOrder" Val="120"/>
+                    <Attr Name="CompileOrder" Val="119"/>
                 </FileInfo>
             </File>
         </Verilog>

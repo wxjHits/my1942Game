@@ -97,6 +97,8 @@ uint8_t READ_JY61P_VALUE;//串口陀螺仪数据处理结果
 int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
+   write_ov5640_config(0,0x70,0x8C878C73);//配置摄像头阈值分割
+   printf("OV5640: %x,%x,%x\n",CNN->bus_bin_mode_ctrl,CNN->bus_bin_rgb_threshold,CNN->bus_bin_crbr_threshold);
    // // JY61P test
    // while (1){
    //    printf("ROLL=%f ; ",(float)((int16_t)(JY61P->JY61P_ROLL ))*180/32768);
