@@ -56,6 +56,10 @@ uint8_t spriteRamAddr=0;//64个精灵绘图时的地址
 
 GAMECURSORType gameCursor;//游戏开始界面的选择光标
 uint32_t GameScore=0;//游戏分数
+uint8_t saveGameScoreArray[256]={0};
+uint32_t nowFlashGameScore;
+uint32_t saveGameScoreAddr=0x010000;//游戏最高分存储位置
+uint8_t nowFlashGameScore_buffer[6]={0};
 
 uint32_t GameShootBulletsCnt;//
 uint32_t GameShootDownCnt;//?????
@@ -132,7 +136,9 @@ int main(void)
    makeMapFirst(flashAddrBlock_Map1);
    makeMapSecond(flashAddrBlock_Map0);
    
-   writeOneSprite(0, 100, 100,5,0x53);
+   // SPI_Flash_Erase_Block(saveGameScoreAddr);
+   // SPI_Flash_Write_Page(saveGameScoreArray,saveGameScoreAddr,256);
+
    while(1)
    {
       /****???????????*****/
@@ -140,6 +146,24 @@ int main(void)
          timer_init_flag=0;
          APU_Array_Ptr=0;
          if(game_state==0){//????
+            //保存上一次的分数
+            if(nowFlashGameScore<GameScore){
+               uint8_t ge = GameScore%10;
+               uint8_t shi = (GameScore/10)%10;
+               uint8_t bai = (GameScore/100)%10;
+               uint8_t qian = (GameScore/1000)%10;
+               uint8_t wan = (GameScore/10000)%10;
+               uint8_t shiwan = (GameScore/100000)%10;
+               saveGameScoreArray[5]=shiwan;
+               saveGameScoreArray[4]=wan   ;
+               saveGameScoreArray[3]=qian  ;
+               saveGameScoreArray[2]=bai   ;
+               saveGameScoreArray[1]=shi   ;
+               saveGameScoreArray[0]=ge    ;
+               SPI_Flash_Erase_Block(saveGameScoreAddr);
+               SPI_Flash_Write_Page(saveGameScoreArray,saveGameScoreAddr,256);
+            }
+            //
             NAMETABLE->ahb_Palette_H_L=1;
             for(uint8_t i=0;i<64;i++){
                writeOneSprite(i,RIGHT_LINE,BOTTOM_LINE,0xff,0x00);
@@ -147,6 +171,22 @@ int main(void)
             clearNameTableAll();
             // gameCursor.state=0;
             gameStartInterfaceShow(7,8);
+
+            SPI_Flash_Read(&nowFlashGameScore_buffer,saveGameScoreAddr,6);
+            nowFlashGameScore =  nowFlashGameScore_buffer[5]*100000+
+                                 nowFlashGameScore_buffer[4]*10000+
+                                 nowFlashGameScore_buffer[3]*1000+
+                                 nowFlashGameScore_buffer[2]*100+
+                                 nowFlashGameScore_buffer[1]*10+
+                                 nowFlashGameScore_buffer[0];
+            printf("nowFlashGameScore=%u\n",nowFlashGameScore);
+            //显示当前最高分数
+            writeOneSprite(50,8*19+ 0,24,nowFlashGameScore_buffer[5],0x30);
+            writeOneSprite(51,8*19+ 8,24,nowFlashGameScore_buffer[4],0x30);
+            writeOneSprite(52,8*19+16,24,nowFlashGameScore_buffer[3],0x30);
+            writeOneSprite(53,8*19+24,24,nowFlashGameScore_buffer[2],0x30);
+            writeOneSprite(54,8*19+32,24,nowFlashGameScore_buffer[1],0x30);
+            writeOneSprite(55,8*19+40,24,nowFlashGameScore_buffer[0],0x30);
             if(GAME_PLAY_MODE==true)//手势操作模式
                writeOneNametable(18,20,0x12);
 

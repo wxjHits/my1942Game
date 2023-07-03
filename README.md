@@ -25,3 +25,5 @@
 
 ### 2023.07.03
 1. 给摄像头增加了三个调节阈值的控制字，在cnn.h/cnn.c文件中实现
+### 2023.07.03 add
+2. 增加了“最高分数”的纪录，保存在flash中（注释掉了函数SPI_Flash_Erase_Block的这一行//Dst_BlockNum_Addr*=65536才使得Block擦除成功）

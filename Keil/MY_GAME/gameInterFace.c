@@ -5,7 +5,10 @@
 #include "spriteRam.h"
 #include "spi_flash.h"
 // #include "backgroundPicture.h"
-
+extern uint8_t saveGameScoreArray[256];
+extern uint32_t nowFlashGameScore;
+extern uint32_t saveGameScoreAddr;
+extern uint8_t nowFlashGameScore_buffer[6];
 void gameScoreDraw(uint8_t PosX,uint8_t PosY, uint32_t score,uint8_t* spriteRamAddr){
     uint8_t ge = score%10;
     uint8_t shi = (score/10)%10;

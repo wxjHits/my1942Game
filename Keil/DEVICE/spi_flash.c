@@ -111,7 +111,7 @@ void SPI_Flash_Erase_Chip(void)
 }
 
 void SPI_Flash_Erase_Block(uint32_t Dst_BlockNum_Addr){
-    Dst_BlockNum_Addr*=65536;
+    // Dst_BlockNum_Addr*=65536;
     SPI_FLASH_Write_Enable();
     SPI_Flash_Wait_Busy();   
   	SPI->SPI_CS=0;
