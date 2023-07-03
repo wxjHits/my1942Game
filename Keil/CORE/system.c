@@ -46,6 +46,8 @@ void SystemInit (void)
 {
   SystemCoreClock = __SYSTEM_CLOCK;
   NVIC_EnableIRQ(SysTick_IRQn);
+  NVIC_SetPriority(KEY0_IRQn,0);//优先级设置为最高，防止被VGA等频繁的中断打断
+  NVIC_EnableIRQ(KEY0_IRQn);
   // NVIC_EnableIRQ(UARTRX_IRQn);
   // NVIC_EnableIRQ(UARTTX_IRQn);
   NVIC_EnableIRQ(VGA_IRQn);

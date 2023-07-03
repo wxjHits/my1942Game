@@ -28,14 +28,12 @@ void LED_down(uint8_t num)
 }
 void LED_toggle(uint8_t num)
 {
-    uint32_t a=0;
     uint32_t b=0;
     uint32_t temp=0;
     b= *(uint32_t*)(LED_BASE);
-    a=1<<num;
-    temp = a&b;
+    temp = ((1<<num)&b);
     if(temp==0)
-        *(uint32_t*)(LED_BASE)=b|a;
+        *(uint32_t*)(LED_BASE)=b|(1<<num);
     else
-        *(uint32_t*)(LED_BASE)=b&(~a);
+        *(uint32_t*)(LED_BASE)=b&(~(1<<num));
 }

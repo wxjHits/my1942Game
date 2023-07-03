@@ -57,8 +57,19 @@ void UARTOVRHandler(void) {
     ;
 }
 
+bool EN_SHENGYIN;//是否打开背景声音，音效还在
 void KEY0(void){
-    ;
+    printf("intr!!!\n");
+    if(EN_SHENGYIN==true){
+        NVIC_EnableIRQ(PULSE0_IRQn);
+        EN_SHENGYIN=false;
+        LED_on(0);
+    }
+    else{
+        NVIC_DisableIRQ(PULSE0_IRQn);
+        EN_SHENGYIN=true;
+        LED_down(0);
+    }
 }
 
 void KEY1(void){
@@ -129,7 +140,7 @@ enum CREATE_PLANE{
 
     CREATE_B,
 };
-uint32_t create_enmeyPlane_num=0;
+extern uint32_t create_enmeyPlane_num;
 uint32_t create[240]={
     //第1关
     CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_2_zhixia,0,CREATE_M_1,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
@@ -178,6 +189,8 @@ uint32_t gesture_create[240]={
 extern bool GAME_PLAY_MODE;
 uint32_t CREATE_ARRAY ;
 void create_plane_Handler(void){
+    printf("create_enmeyPlane_num=%d",create_enmeyPlane_num);
+    if(game_state==1){
     if(GAME_PLAY_MODE==true)//手势操作模式
         CREATE_ARRAY = gesture_create[create_enmeyPlane_num];
     else
@@ -224,6 +237,9 @@ void create_plane_Handler(void){
         break;
     }
     create_enmeyPlane_num++;
+    }
+    else
+        create_enmeyPlane_num=0;
 }
 
 

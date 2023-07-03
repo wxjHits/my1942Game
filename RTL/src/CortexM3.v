@@ -21,6 +21,8 @@ module CortexM3 #(
     output      wire            PS2_CLK     ,
     output      wire            PS2_DO      ,
     input       wire            PS2_DI      ,
+    //KEY 
+    input       wire            KEY_IN      ,//L15
     //LED
     output      wire    [3:0]   OUTLED      ,
     //JY61P
@@ -165,7 +167,10 @@ module CortexM3 #(
     wire            TRIANGLEINT     ;
     wire            NOISEINT        ;
 
-    assign IRQ = {226'b0,NOISEINT,TRIANGLEINT,PULSE1INT,PULSE0INT,createPlaneIntr,VGA_Intr,TIMERINT,GPIOINT,RXOVRINT,RXINT,TXINT};
+    wire            KEY_INTR        ;
+    assign     GPIOINT[0] = KEY_INTR;//对应软件中的KEY0中断
+
+    assign IRQ = {226'b0,NOISEINT,TRIANGLEINT,PULSE1INT,PULSE0INT,createPlaneIntr,VGA_Intr,TIMERINT,GPIOINT[3:1],KEY_INTR,RXOVRINT,RXINT,TXINT};
 //
 
 /***************GLOBAL BUF********************/
@@ -1468,4 +1473,12 @@ module CortexM3 #(
     assign APU_GND = 1'b0 ;
 //
 
+/***添加的一个按键中断***/
+key_intr  u_key_intr(
+    .clk        (clk        )   ,//系统时钟50Mhz
+    .rstn       (cpuresetn  )   ,//全局复位
+    .key_in     (KEY_IN     )   ,//按键输入信号
+    .key_intr   (KEY_INTR   )    //按键产生的中断
+);
+//
 endmodule

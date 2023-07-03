@@ -83,7 +83,7 @@ uint8_t pifuNumTemp=0;//?????????
 
 uint8_t APU_Array_Ptr=0;//APU?????????
 
-extern uint32_t create_enmeyPlane_num;//???????????
+uint32_t create_enmeyPlane_num;//???????????
 
 int PS2_KEY_START=0;
 int PS2_KEY_GAMING=0;
@@ -97,7 +97,6 @@ uint8_t READ_JY61P_VALUE;//串口陀螺仪数据处理结果
 int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-
    // // JY61P test
    // while (1){
    //    printf("ROLL=%f ; ",(float)((int16_t)(JY61P->JY61P_ROLL ))*180/32768);

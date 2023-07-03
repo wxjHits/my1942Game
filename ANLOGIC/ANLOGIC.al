@@ -907,6 +907,14 @@
                     <Attr Name="CompileOrder" Val="119"/>
                 </FileInfo>
             </File>
+            <File Path="../RTL/src/peripheral/apb_peripheral/key_intr.v">
+                <FileInfo>
+                    <Attr Name="UsedInSyn" Val="true"/>
+                    <Attr Name="UsedInP&R" Val="true"/>
+                    <Attr Name="BelongTo" Val="design_1"/>
+                    <Attr Name="CompileOrder" Val="120"/>
+                </FileInfo>
+            </File>
         </Verilog>
         <ADC_FILE>
             <File Path="constraint.adc">
