@@ -13,3 +13,12 @@ output      wire            APU_OUT     ,   //C12
 修改：还是老老实实的连接FPGA上的3.3V和GND引脚，这样的功率是足够的，发出的声音也是正确的。
 
 222222.按键中断的问题
+
+
+
+333333.时序约束问题
+在7月3号，添加上OV5640的几个控制字之后，游戏背景显示出现了错误（显示图案错误，色彩错误）
+尝试着进行了设置时钟约束：set_clock_groups -exclusive -group [get_clocks {clk_100m clk_100m_shift clk_50m}] -group [get_clocks {hdmi_clk hdmi_clk_5}] -group [get_clocks {clk_100MHz clk_125MHz clk_25p2MHz}] -group [get_clocks {CLK50m}]
+综合结果：保持时间为正，建立时间为负（负得不多），由此显示正确了，而且之前得个别像素错位的现象也没有了
+
+回看错误原因：可能就是保持时间不够（没加约束前的保持时间是-3.0...）

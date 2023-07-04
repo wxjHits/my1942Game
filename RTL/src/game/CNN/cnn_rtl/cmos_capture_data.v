@@ -126,7 +126,7 @@ always @(posedge cam_pclk or negedge rst_n) begin
     else
         byte_flag_d0 <= byte_flag;
 end
-box_select #(10'd200, 10'd100, 10'd280) box_select_u(
+box_select #(10'd200, 10'd100, 10'd224) box_select_u(
     .rst_n       (rst_n        ),
     .cam_pclk    (cam_pclk     ),
     .pos_vsync   (pos_vsync    ),

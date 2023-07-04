@@ -28,11 +28,9 @@ Project File Date:  07/02/2023
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Program Files\Keil_V5\ARM\ARMCC\Bin'
 Rebuild target 'Target 1'
 compiling Retarget.c...
-assembling startup_CM3DS.s...
 compiling uart.c...
+assembling startup_CM3DS.s...
 compiling lcd.c...
-compiling led.c...
-compiling malloc.c...
 compiling handler.c...
 ..\CORE\handler.c(163): warning:  #1278-D: excess initializers are ignored
       CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
@@ -91,7 +89,9 @@ compiling handler.c...
 ..\CORE\handler.c(447): warning:  #223-D: function "set_pulse0_11" declared implicitly
               set_pulse0_11(APU_GAME_END_Array[APU_Array_Ptr][3]);
 ..\CORE\handler.c: 28 warnings, 0 errors
+compiling led.c...
 compiling system.c...
+compiling malloc.c...
 compiling main.c...
 ..\DEVICE\apu.h(65): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -109,106 +109,106 @@ main.c(40): warning:  #3170-D: use of a const variable in a constant expression 
   BULLETType enmeyBullets[ENEMY_BULLETS_NUMMAX];
 main.c(49): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   BOOMType boom[BOOM_NUMMAX];
-main.c(175): warning:  #167-D: argument of type "uint8_t (*)[6]" is incompatible with parameter of type "uint8_t *"
+main.c(185): warning:  #167-D: argument of type "uint8_t (*)[6]" is incompatible with parameter of type "uint8_t *"
               SPI_Flash_Read(&nowFlashGameScore_buffer,saveGameScoreAddr,6);
-main.c(213): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(223): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myPlane_bulletInit(&myBullet);
-main.c(214): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(224): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_planeInit(&s_grey_plane);
-main.c(215): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(225): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               s_green_planeInit(&s_green_plane);
-main.c(216): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+main.c(226): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
               m_straight_planeInit(&m_straight_plane);
-main.c(217): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(227): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               b_green_planeInit(&b_green_plane);
-main.c(218): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(228): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
               enmey_BulletInit(&enmeyBullets);
-main.c(219): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(229): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               new_boomInit(&boom);
-main.c(337): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(347): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                              myPlane_createOneBullet(&myplane,&myBullet);
-main.c(358): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(368): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                              myPlane_createOneBullet(&myplane,&myBullet);
-main.c(431): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(441): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                  myPlane_updateBulletData(&myBullet);
-main.c(432): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(442): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
                  s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-main.c(432): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(442): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
                  s_grey_movePlane(&s_grey_plane,&myplane,&enmeyBullets);
-main.c(433): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(443): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
                  s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
-main.c(433): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(443): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
                  s_green_movePlane(&s_green_plane,&myplane,&enmeyBullets);
-main.c(434): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+main.c(444): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
                  m_straight_movePlane(&m_straight_plane);
-main.c(435): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(445): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
                  b_green_movePlane(&b_green_plane);
-main.c(436): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(446): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
                  updateEnemyBulletData(&enmeyBullets);
-main.c(437): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(447): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
                  new_updateBoomData(&boom);
-main.c(448): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(458): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
                  myBulletsMapCreate(&myBullet,&myBulletsHitMap);
-main.c(450): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(460): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(450): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(460): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(450): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(460): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(450): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(460): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
               enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
-main.c(452): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(462): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
-main.c(453): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(463): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(453): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(463): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(453): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(463): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
-main.c(454): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+main.c(464): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
               isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
-main.c(454): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(464): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
-main.c(455): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(465): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
-main.c(455): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(465): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);
-main.c(456): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(466): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               isHit_myBullets(&myBullet,&enemyPlaneAndBullet_HitMap);
-main.c(480): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
+main.c(490): warning:  #167-D: argument of type "BULLETType (*)[12]" is incompatible with parameter of type "BULLETType *"
               myPlane_bulletDraw(&myBullet,&spriteRamAddr);
-main.c(481): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
+main.c(491): warning:  #167-D: argument of type "BOOMType (*)[5]" is incompatible with parameter of type "BOOMType *"
               new_boomDraw(&boom,&spriteRamAddr);//????????????????
-main.c(483): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
+main.c(493): warning:  #167-D: argument of type "S_GREY_PLANEType (*)[12]" is incompatible with parameter of type "S_GREY_PLANEType *"
               s_grey_drawPlane(&s_grey_plane,&spriteRamAddr);
-main.c(484): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
+main.c(494): warning:  #167-D: argument of type "S_GREEN_PLANEType (*)[8]" is incompatible with parameter of type "S_GREEN_PLANEType *"
               s_green_drawPlane(&s_green_plane,&spriteRamAddr);
-main.c(485): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
+main.c(495): warning:  #167-D: argument of type "M_STRAIGHT_PLANEType (*)[3]" is incompatible with parameter of type "M_STRAIGHT_PLANEType *"
               m_straight_drawPlane(&m_straight_plane,&spriteRamAddr);
-main.c(486): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
+main.c(496): warning:  #167-D: argument of type "B_GREEN_PLANEType (*)[1]" is incompatible with parameter of type "B_GREEN_PLANEType *"
               b_green_drawPlane(&b_green_plane,&spriteRamAddr);
-main.c(487): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
+main.c(497): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
               enmeyBulletDraw(&enmeyBullets,&spriteRamAddr);
 main.c: 48 warnings, 0 errors
 compiling systick.c...
 compiling spi_flash.c...
+compiling jy61p.c...
+..\DEVICE\jy61p.c(32): warning:  #1-D: last line of file ends without a newline
+  }
+..\DEVICE\jy61p.c: 1 warning, 0 errors
+compiling pstwo.c...
 compiling apu.c...
 ..\DEVICE\apu.h(65): warning:  #1-D: last line of file ends without a newline
   #endif
 ..\DEVICE\apu.c(135): warning:  #1-D: last line of file ends without a newline
   }
 ..\DEVICE\apu.c: 2 warnings, 0 errors
-compiling pstwo.c...
-compiling jy61p.c...
-..\DEVICE\jy61p.c(32): warning:  #1-D: last line of file ends without a newline
-  }
-..\DEVICE\jy61p.c: 1 warning, 0 errors
-compiling spriteRam.c...
 compiling boom.c...
 compiling cnn.c...
 ..\DEVICE\cnn.c(11): warning:  #1-D: last line of file ends without a newline
   }
 ..\DEVICE\cnn.c: 1 warning, 0 errors
+compiling spriteRam.c...
 compiling enemyBullet.c...
 ..\MY_GAME\enemyBullet.c(7): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   const int16_t sin_array[ANGLE_NUMMAX]={1,2,2,2,3,4,4,4,5,5};
@@ -217,8 +217,6 @@ compiling enemyBullet.c...
 ..\MY_GAME\enemyBullet.c(9): warning:  #3170-D: use of a const variable in a constant expression is nonstandard in C
   const float tan_array[ANGLE_NUMMAX]={0.00,0.18,0.36,0.58,0.84,1.19,1.73,2.75,5.67,200};
 ..\MY_GAME\enemyBullet.c: 3 warnings, 0 errors
-compiling makeEnemyPlaneArray.c...
-compiling makeMap.c...
 compiling gameHitCheck.c...
 ..\DEVICE\apu.h(65): warning:  #1-D: last line of file ends without a newline
   #endif
@@ -231,6 +229,9 @@ compiling gameInterFace.c...
 ..\MY_GAME\gameInterFace.c(216): warning:  #223-D: function "printf" declared implicitly
       printf("recordNow=%u\n",recordNow);
 ..\MY_GAME\gameInterFace.c: 3 warnings, 0 errors
+compiling makeEnemyPlaneArray.c...
+compiling makeMap.c...
+compiling myPlane.c...
 compiling enemyPlane.c...
 ..\MY_GAME\enemyPlane.c(657): warning:  #167-D: argument of type "BULLETType (*)[10]" is incompatible with parameter of type "BULLETType *"
                           s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
@@ -269,9 +270,8 @@ compiling enemyPlane.c...
 ..\MY_GAME\enemyPlane.c(705): warning:  #167-D: argument of type "B_GREEN_PLANEType *" is incompatible with parameter of type "S_GREY_PLANEType *"
                               s_grey_createOneEnmeyBullet(&enmeyBullets, plane,&myplane);
 ..\MY_GAME\enemyPlane.c: 18 warnings, 0 errors
-compiling myPlane.c...
 linking...
-Program Size: Code=18884 RO-data=240 RW-data=11064 ZI-data=3320  
+Program Size: Code=18944 RO-data=240 RW-data=11064 ZI-data=3320  
 FromELF: creating hex file...
 After Build - User command #1: fromelf -cvf .\Objects\cm3.axf --vhx --32x1 -o image.hex
 After Build - User command #2: fromelf -cvf .\Objects\cm3.axf -o image.txt

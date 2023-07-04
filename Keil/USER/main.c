@@ -58,7 +58,7 @@ GAMECURSORType gameCursor;//游戏开始界面的选择光标
 uint32_t GameScore=0;//游戏分数
 uint8_t saveGameScoreArray[256]={0};
 uint32_t nowFlashGameScore;
-uint32_t saveGameScoreAddr=0x010000;//游戏最高分存储位置
+uint32_t saveGameScoreAddr=0x100000;//游戏最高分存储位置
 uint8_t nowFlashGameScore_buffer[6]={0};
 
 uint32_t GameShootBulletsCnt;//
@@ -124,19 +124,29 @@ int main(void)
    set_frame(0x00);
    set_state(0x0F);
       
-   SPI_Flash_Erase_Block( 0x000000);
-   SPI_Flash_Erase_Block( 0x001000);
-   SPI_Flash_Erase_Block( 0x002000);
-   SPI_Flash_Erase_Block( 0x003000);
-   SPI_Flash_Erase_Block( 0x004000);
-   SPI_Flash_Erase_Block( 0x005000);
-   SPI_Flash_Erase_Block( 0x006000);
-   SPI_Flash_Erase_Block( 0x007000);
+   // SPI_Flash_Erase_Block( 0x000000);
+   // SPI_Flash_Erase_Block( 0x010000);
+   // SPI_Flash_Erase_Block( 0x020000);
+   // SPI_Flash_Erase_Block( 0x030000);
+   // SPI_Flash_Erase_Block( 0x040000);
+   // SPI_Flash_Erase_Block( 0x050000);
+   // SPI_Flash_Erase_Block( 0x060000);
+   // SPI_Flash_Erase_Block( 0x070000);
+
+   SPI_Flash_Erase_Sector( 0x000000);
+   SPI_Flash_Erase_Sector( 0x001000);
+   SPI_Flash_Erase_Sector( 0x002000);
+   SPI_Flash_Erase_Sector( 0x003000);
+   SPI_Flash_Erase_Sector( 0x004000);
+   SPI_Flash_Erase_Sector( 0x005000);
+   SPI_Flash_Erase_Sector( 0x006000);
+   SPI_Flash_Erase_Sector( 0x007000);
+
 
    makeMapFirst(flashAddrBlock_Map1);
    makeMapSecond(flashAddrBlock_Map0);
    
-   // SPI_Flash_Erase_Block(saveGameScoreAddr);
+   // SPI_Flash_Erase_Sector(saveGameScoreAddr);
    // SPI_Flash_Write_Page(saveGameScoreArray,saveGameScoreAddr,256);
 
    while(1)
