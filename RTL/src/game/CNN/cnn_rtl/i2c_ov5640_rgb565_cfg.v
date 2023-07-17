@@ -299,6 +299,8 @@ always @(posedge clk or negedge rst_n) begin
             //时序控制 16'h3800~16'h3821
             8'd208: i2c_data <= {16'h3820,8'h46};
             8'd209: i2c_data <= {16'h3821,8'h01};
+            // 8'd208: i2c_data <= {16'h3820,8'h46&8'hf9};
+            // 8'd209: i2c_data <= {16'h3821,8'h01|8'h06};
             8'd210: i2c_data <= {16'h3814,8'h31};
             8'd211: i2c_data <= {16'h3815,8'h31};
             8'd212: i2c_data <= {16'h3800,8'h00};

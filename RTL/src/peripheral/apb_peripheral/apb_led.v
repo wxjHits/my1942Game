@@ -29,7 +29,7 @@ reg [7:0] LED_r;
 
 assign PREADY = 1'b1;
 assign PSLVERR = 1'b0;
-assign PRDATA = (read_enable & (PADDR[11:2] == 10'h000)) ? 32'd0:{30'd0,LED_r};
+assign PRDATA = (read_enable & (PADDR[11:2] == 10'h000)) ? {24'b0,LED_r}:32'd0;
 
 assign  read_enable  = PSEL & PENABLE & (~PWRITE); // assert for whole APB read transfer
 assign  write_enable = PSEL & (PENABLE) & PWRITE; // assert for 1st cycle of write transfer

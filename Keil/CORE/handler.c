@@ -6,7 +6,7 @@
 #include "makeEnemyPlaneArray.h"
 #include "spriteRam.h"
 #include "stdlib.h"
-
+#include "cnn.h"
 void NMIHandler(void) {
     ;
 }
@@ -59,7 +59,7 @@ void UARTOVRHandler(void) {
 
 bool EN_SHENGYIN;//是否打开背景声音，音效还在
 void KEY0(void){
-    printf("intr!!!\n");
+    printf("intr KEY0!!!\n");
     if(EN_SHENGYIN==true){
         NVIC_EnableIRQ(PULSE0_IRQn);
         EN_SHENGYIN=false;
@@ -72,16 +72,29 @@ void KEY0(void){
     }
 }
 
+extern bool GAME_HIT_CHECK_FLAG;
 void KEY1(void){
-    ;
+    printf("intr KEY1!!!\n");
+    if(GAME_HIT_CHECK_FLAG==true){
+        GAME_HIT_CHECK_FLAG=false;
+        LED_down(1);
+    }
+    else{
+        GAME_HIT_CHECK_FLAG=true;
+        LED_on(1);
+    }
 }
 
+extern uint32_t OV5640_RGB_THRESHOLD;
 void KEY2(void){
-    ;
+    OV5640_RGB_THRESHOLD=OV5640_RGB_THRESHOLD-10;
+    printf("OV5640_RGB_THRESHOLD - 10 =%u\n",OV5640_RGB_THRESHOLD);
+    CNN->bus_bin_rgb_threshold=OV5640_RGB_THRESHOLD;
 }
-
 void KEY3(void){
-    ;
+    OV5640_RGB_THRESHOLD=OV5640_RGB_THRESHOLD+10;
+    printf("OV5640_RGB_THRESHOLD + 10=%u\n",OV5640_RGB_THRESHOLD);
+    CNN->bus_bin_rgb_threshold=OV5640_RGB_THRESHOLD;
 }
 
 void Timer_Handler(void){
@@ -147,13 +160,13 @@ uint32_t create[240]={
     CREATE_B,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
     0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
     CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
-    CREATE_B,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    0,0,CREATE_S_GREEN_2_shuangce,CREATE_B,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
     CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_4_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
     CREATE_M_2_binglie,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
     CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_6,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,0,
 
     //第2关
-    CREATE_S_GREY_6,CREATE_S_GREY_6,CREATE_S_GREY_6,CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREEN_4,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
+    0,0,CREATE_S_GREY_6,CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREEN_4,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,
     CREATE_S_GREEN_4,CREATE_S_GREEN_4,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,CREATE_S_GREY_2_duicheng,0,0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,0,
     0,CREATE_S_GREY_2_zhixia,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
     CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_2_duicheng,0,CREATE_S_GREY_2_duicheng,0,0,0,
@@ -170,9 +183,9 @@ uint32_t gesture_create[240]={
     0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,0,CREATE_S_GREY_1,0,0,0,0,
     0,0,CREATE_S_GREY_2_duicheng,0,0,0,0,0,0,CREATE_S_GREEN_2_tongce,0,CREATE_S_GREY_4_zhixia,0,0,0,
     CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_2_duicheng,0,0,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,
-    0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
-    CREATE_S_GREEN_2_shuangce,0,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_2_zhixia,0,CREATE_S_GREY_1,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
-    CREATE_M_2_binglie,0,0,0,0,CREATE_S_GREY_6,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
+    0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_duicheng,0,0,0,
+    0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREEN_2_shuangce,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_1,0,CREATE_S_GREY_1,0,
+    CREATE_M_2_binglie,0,0,0,0,0,0,0,0,0,0,0,CREATE_S_GREY_2_zhixia,0,0,
     CREATE_S_GREY_6,0,CREATE_S_GREEN_2_shuangce,0,0,0,0,0,0,0,0,0,0,0,0,
     //手势第2关
     CREATE_S_GREY_1,0,CREATE_S_GREEN_2_tongce,0,0,0,0,0,0,CREATE_S_GREY_1,0,0,CREATE_S_GREY_2_zhixia,0,0,CREATE_S_GREY_2_zhixia,

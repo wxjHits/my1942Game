@@ -1,0 +1,2024 @@
+ph1_60
+13 3897 7904 62416 2049783506 7 0
+-0.410 0.115 CortexM3 ph1_60 PH1A60GEG324 Detail 3 46 10
+clock: CLK50m
+13 2000000000 23890 4
+Setup check
+23 3
+Endpoint: ulogic/Rugnz6_reg_syn_7
+23 0.031000 8065604 3
+Timing path: ulogic/H2tnz6_reg_syn_6.clk->ulogic/Rugnz6_reg_syn_7
+ulogic/H2tnz6_reg_syn_6.clk
+ulogic/Rugnz6_reg_syn_7
+25 0.031000 24.392000 24.361000 17 18
+ulogic/H2tnz6 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_80.ic
+ulogic/Aw2nz6_reg_syn_2070 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_89.ic
+ulogic/Aw2nz6_reg_syn_2072 ulogic/Aw2nz6_reg_syn_6252.ia
+ulogic/Aw2nz6_reg_syn_2079 ulogic/Aw2nz6_reg_syn_6782.ima
+ulogic/Aw2nz6_reg_syn_2214 ulogic/Aw2nz6_reg_syn_7148.ia
+ulogic/Zeihw6 ulogic/Oh38v6_syn_235.ie
+ulogic/Kiq6x6 ulogic/Kzi8v6_syn_37.ib
+ulogic/U32ov6 ulogic/Aw2nz6_reg_syn_6714.ic
+ulogic/Aw2nz6_reg_syn_5241 ulogic/Aw2nz6_reg_syn_5616.ia
+ulogic/Aw2nz6_reg_syn_5257 ulogic/Aw2nz6_reg_syn_6953.ib
+ulogic/Aw2nz6_reg_syn_5261 ulogic/Aw2nz6_reg_syn_6800.imf
+ulogic/Aw2nz6_reg_syn_5316 ulogic/Aw2nz6_reg_syn_6373.ic
+ulogic/Aw2nz6_reg_syn_5318 ulogic/Znk8v6_syn_2842.ib
+ulogic/Znk8v6_syn_910 ulogic/Pbgu07_reg_syn_6.ia
+ulogic/Ask8v6_syn_721 ulogic/Ask8v6_syn_1101.ia
+ulogic/Ask8v6_syn_723 ulogic/Vzunz6_reg_syn_6.ic
+ulogic/Zrbet6 ulogic/P9get6_n_syn_29.ic
+ulogic/P9get6_n ulogic/Rugnz6_reg_syn_7.cea
+
+Timing path: ulogic/H2tnz6_reg_syn_6.clk->ulogic/Rugnz6_reg_syn_7
+ulogic/H2tnz6_reg_syn_6.clk
+ulogic/Rugnz6_reg_syn_7
+101 0.070000 24.392000 24.322000 17 18
+ulogic/H2tnz6 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_80.ic
+ulogic/Aw2nz6_reg_syn_2070 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_89.ic
+ulogic/Aw2nz6_reg_syn_2072 ulogic/Aw2nz6_reg_syn_6252.ia
+ulogic/Aw2nz6_reg_syn_2079 ulogic/Aw2nz6_reg_syn_5689.ima
+ulogic/Aw2nz6_reg_syn_2085 ulogic/Aw2nz6_reg_syn_6998.ia
+ulogic/Nfihw6 ulogic/Oh38v6_syn_235.imb
+ulogic/Kiq6x6 ulogic/Kzi8v6_syn_37.ib
+ulogic/U32ov6 ulogic/Aw2nz6_reg_syn_6714.ic
+ulogic/Aw2nz6_reg_syn_5241 ulogic/Aw2nz6_reg_syn_5616.ia
+ulogic/Aw2nz6_reg_syn_5257 ulogic/Aw2nz6_reg_syn_6953.ib
+ulogic/Aw2nz6_reg_syn_5261 ulogic/Aw2nz6_reg_syn_6800.imf
+ulogic/Aw2nz6_reg_syn_5316 ulogic/Aw2nz6_reg_syn_6373.ic
+ulogic/Aw2nz6_reg_syn_5318 ulogic/Znk8v6_syn_2842.ib
+ulogic/Znk8v6_syn_910 ulogic/Pbgu07_reg_syn_6.ia
+ulogic/Ask8v6_syn_721 ulogic/Ask8v6_syn_1101.ia
+ulogic/Ask8v6_syn_723 ulogic/Vzunz6_reg_syn_6.ic
+ulogic/Zrbet6 ulogic/P9get6_n_syn_29.ic
+ulogic/P9get6_n ulogic/Rugnz6_reg_syn_7.cea
+
+Timing path: ulogic/Smvnz6_reg_syn_81.clk->ulogic/Rugnz6_reg_syn_7
+ulogic/Smvnz6_reg_syn_81.clk
+ulogic/Rugnz6_reg_syn_7
+177 0.125000 24.392000 24.267000 18 19
+ulogic/Smvnz6 ulogic/Y3tt07_reg_syn_6.ie
+ulogic/Aw2nz6_reg_syn_207 ulogic/Aw2nz6_reg_syn_5973.imf
+ulogic/R26nv6 ulogic/Fkk8v6_syn_6.ie
+ulogic/Aw2nz6_reg_syn_3988 ulogic/Aw2nz6_reg_syn_6969.ie
+ulogic/Aw2nz6_reg_syn_4027 ulogic/Aw2nz6_reg_syn_7228.ic
+ulogic/Aw2nz6_reg_syn_4037 ulogic/Aw2nz6_reg_syn_7194.imf
+ulogic/Aw2nz6_reg_syn_4066 ulogic/Aw2nz6_reg_syn_7104.imf
+ulogic/U6r6z6 ulogic/Aw2nz6_reg_syn_5912.ie
+ulogic/W9n6z6 ulogic/Aw2nz6_reg_syn_6774.ia
+ulogic/Aw2nz6_reg_syn_4938 ulogic/Aw2nz6_reg_syn_7200.ib
+ulogic/Qga6z6 ulogic/Aw2nz6_reg_syn_7159.ia
+ulogic/Aw2nz6_reg_syn_5010 ulogic/Aw2nz6_reg_syn_7014.ie
+ulogic/Aw2nz6_reg_syn_5038 ulogic/Aw2nz6_reg_syn_6373.ia
+ulogic/Aw2nz6_reg_syn_5318 ulogic/Znk8v6_syn_2842.ib
+ulogic/Znk8v6_syn_910 ulogic/Pbgu07_reg_syn_6.ia
+ulogic/Ask8v6_syn_721 ulogic/Ask8v6_syn_1101.ia
+ulogic/Ask8v6_syn_723 ulogic/Vzunz6_reg_syn_6.ic
+ulogic/Zrbet6 ulogic/P9get6_n_syn_29.ic
+ulogic/P9get6_n ulogic/Rugnz6_reg_syn_7.cea
+
+
+Endpoint: ulogic/Rugnz6_reg_syn_7
+255 0.031000 8065604 3
+Timing path: ulogic/H2tnz6_reg_syn_6.clk->ulogic/Rugnz6_reg_syn_7
+ulogic/H2tnz6_reg_syn_6.clk
+ulogic/Rugnz6_reg_syn_7
+257 0.031000 24.392000 24.361000 17 18
+ulogic/H2tnz6 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_80.ic
+ulogic/Aw2nz6_reg_syn_2070 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_89.ic
+ulogic/Aw2nz6_reg_syn_2072 ulogic/Aw2nz6_reg_syn_6252.ia
+ulogic/Aw2nz6_reg_syn_2079 ulogic/Aw2nz6_reg_syn_6782.ima
+ulogic/Aw2nz6_reg_syn_2214 ulogic/Aw2nz6_reg_syn_7148.ia
+ulogic/Zeihw6 ulogic/Oh38v6_syn_235.ie
+ulogic/Kiq6x6 ulogic/Kzi8v6_syn_37.ib
+ulogic/U32ov6 ulogic/Aw2nz6_reg_syn_6714.ic
+ulogic/Aw2nz6_reg_syn_5241 ulogic/Aw2nz6_reg_syn_5616.ia
+ulogic/Aw2nz6_reg_syn_5257 ulogic/Aw2nz6_reg_syn_6953.ib
+ulogic/Aw2nz6_reg_syn_5261 ulogic/Aw2nz6_reg_syn_6800.imf
+ulogic/Aw2nz6_reg_syn_5316 ulogic/Aw2nz6_reg_syn_6373.ic
+ulogic/Aw2nz6_reg_syn_5318 ulogic/Znk8v6_syn_2842.ib
+ulogic/Znk8v6_syn_910 ulogic/Pbgu07_reg_syn_6.ia
+ulogic/Ask8v6_syn_721 ulogic/Ask8v6_syn_1101.ia
+ulogic/Ask8v6_syn_723 ulogic/Vzunz6_reg_syn_6.ic
+ulogic/Zrbet6 ulogic/P9get6_n_syn_29.ic
+ulogic/P9get6_n ulogic/Rugnz6_reg_syn_7.ceb
+
+Timing path: ulogic/H2tnz6_reg_syn_6.clk->ulogic/Rugnz6_reg_syn_7
+ulogic/H2tnz6_reg_syn_6.clk
+ulogic/Rugnz6_reg_syn_7
+333 0.070000 24.392000 24.322000 17 18
+ulogic/H2tnz6 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_80.ic
+ulogic/Aw2nz6_reg_syn_2070 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/fc1_u/reg6_syn_89.ic
+ulogic/Aw2nz6_reg_syn_2072 ulogic/Aw2nz6_reg_syn_6252.ia
+ulogic/Aw2nz6_reg_syn_2079 ulogic/Aw2nz6_reg_syn_5689.ima
+ulogic/Aw2nz6_reg_syn_2085 ulogic/Aw2nz6_reg_syn_6998.ia
+ulogic/Nfihw6 ulogic/Oh38v6_syn_235.imb
+ulogic/Kiq6x6 ulogic/Kzi8v6_syn_37.ib
+ulogic/U32ov6 ulogic/Aw2nz6_reg_syn_6714.ic
+ulogic/Aw2nz6_reg_syn_5241 ulogic/Aw2nz6_reg_syn_5616.ia
+ulogic/Aw2nz6_reg_syn_5257 ulogic/Aw2nz6_reg_syn_6953.ib
+ulogic/Aw2nz6_reg_syn_5261 ulogic/Aw2nz6_reg_syn_6800.imf
+ulogic/Aw2nz6_reg_syn_5316 ulogic/Aw2nz6_reg_syn_6373.ic
+ulogic/Aw2nz6_reg_syn_5318 ulogic/Znk8v6_syn_2842.ib
+ulogic/Znk8v6_syn_910 ulogic/Pbgu07_reg_syn_6.ia
+ulogic/Ask8v6_syn_721 ulogic/Ask8v6_syn_1101.ia
+ulogic/Ask8v6_syn_723 ulogic/Vzunz6_reg_syn_6.ic
+ulogic/Zrbet6 ulogic/P9get6_n_syn_29.ic
+ulogic/P9get6_n ulogic/Rugnz6_reg_syn_7.ceb
+
+Timing path: ulogic/Smvnz6_reg_syn_81.clk->ulogic/Rugnz6_reg_syn_7
+ulogic/Smvnz6_reg_syn_81.clk
+ulogic/Rugnz6_reg_syn_7
+409 0.125000 24.392000 24.267000 18 19
+ulogic/Smvnz6 ulogic/Y3tt07_reg_syn_6.ie
+ulogic/Aw2nz6_reg_syn_207 ulogic/Aw2nz6_reg_syn_5973.imf
+ulogic/R26nv6 ulogic/Fkk8v6_syn_6.ie
+ulogic/Aw2nz6_reg_syn_3988 ulogic/Aw2nz6_reg_syn_6969.ie
+ulogic/Aw2nz6_reg_syn_4027 ulogic/Aw2nz6_reg_syn_7228.ic
+ulogic/Aw2nz6_reg_syn_4037 ulogic/Aw2nz6_reg_syn_7194.imf
+ulogic/Aw2nz6_reg_syn_4066 ulogic/Aw2nz6_reg_syn_7104.imf
+ulogic/U6r6z6 ulogic/Aw2nz6_reg_syn_5912.ie
+ulogic/W9n6z6 ulogic/Aw2nz6_reg_syn_6774.ia
+ulogic/Aw2nz6_reg_syn_4938 ulogic/Aw2nz6_reg_syn_7200.ib
+ulogic/Qga6z6 ulogic/Aw2nz6_reg_syn_7159.ia
+ulogic/Aw2nz6_reg_syn_5010 ulogic/Aw2nz6_reg_syn_7014.ie
+ulogic/Aw2nz6_reg_syn_5038 ulogic/Aw2nz6_reg_syn_6373.ia
+ulogic/Aw2nz6_reg_syn_5318 ulogic/Znk8v6_syn_2842.ib
+ulogic/Znk8v6_syn_910 ulogic/Pbgu07_reg_syn_6.ia
+ulogic/Ask8v6_syn_721 ulogic/Ask8v6_syn_1101.ia
+ulogic/Ask8v6_syn_723 ulogic/Vzunz6_reg_syn_6.ic
+ulogic/Zrbet6 ulogic/P9get6_n_syn_29.ic
+ulogic/P9get6_n ulogic/Rugnz6_reg_syn_7.ceb
+
+
+Endpoint: ulogic/T04nz6_reg_syn_6
+487 0.031000 55144188 3
+Timing path: ulogic/Egys07_reg_syn_6.clk->ulogic/T04nz6_reg_syn_6
+ulogic/Egys07_reg_syn_6.clk
+ulogic/T04nz6_reg_syn_6
+489 0.031000 24.454000 24.423000 23 32
+ulogic/Egys07 ulogic/add27_syn_211.id
+ulogic/add27_syn_243 ulogic/add27_syn_212.fci_f
+ulogic/add27_syn_244 ulogic/add27_syn_213.fci_f
+ulogic/add27_syn_245 ulogic/add27_syn_214.fci_f
+ulogic/add27_syn_246 ulogic/add27_syn_215.fci_f
+ulogic/add27_syn_247 ulogic/add27_syn_216.fci_f
+ulogic/add27_syn_248 ulogic/add27_syn_217.fci_f
+ulogic/add27_syn_249 ulogic/add27_syn_218.fci_f
+ulogic/add27_syn_250 ulogic/add27_syn_219.fci_f
+ulogic/add27_syn_251 ulogic/add27_syn_220.fci_f
+ulogic/add27_syn_252 ulogic/add27_syn_221.fci_f
+ulogic/add27_syn_253 ulogic/add27_syn_222.fci_f
+ulogic/add27_syn_254 ulogic/add27_syn_223.fci_f
+ulogic/add27_syn_255 ulogic/add27_syn_224.fci_f
+ulogic/add27_syn_191 ulogic/add27_syn_225.fci
+ulogic/add27_syn_4[25] ulogic/Y9g8v6_syn_150.ib
+ulogic/Aw2nz6_reg_syn_2328 ulogic/Aw2nz6_reg_syn_5934.ie
+ulogic/Aw2nz6_reg_syn_2330 ulogic/Aw2nz6_reg_syn_6498.imf
+ulogic/Aw2nz6_reg_syn_2469 ulogic/Aw2nz6_reg_syn_6961.imf
+ulogic/Aw2nz6_reg_syn_2478 ulogic/Fjl8v6_syn_799.ic
+ulogic/Aw2nz6_reg_syn_2484 ulogic/Aw2nz6_reg_syn_5642.ie
+ulogic/Aw2nz6_reg_syn_2486 ulogic/Z6moz6_reg_syn_6.ie
+ulogic/Aw2nz6_reg_syn_3337 ulogic/Aw2nz6_reg_syn_5810.ia
+ulogic/Aw2nz6_reg_syn_5331 ulogic/Aw2nz6_reg_syn_7144.ic
+ulogic/Aw2nz6_reg_syn_5333 ulogic/Aw2nz6_reg_syn_6779.ib
+ulogic/Aw2nz6_reg_syn_5335 ulogic/Ndgu07_reg_syn_6.imb
+ulogic/Aw2nz6_reg_syn_5343 ulogic/Znk8v6_syn_2721.imb
+ulogic/Aw2nz6_reg_syn_5349 ulogic/Axbdt6_syn_57.ie
+ulogic/Hmy7v6_syn_319 ulogic/Wh5et6_syn_5.imb
+ulogic/Hmy7v6_syn_337 ulogic/Xel8v6_syn_12.ie
+ulogic/Qny7v6_syn_335 ulogic/Qny7v6_syn_398.ic
+ulogic/Qny7v6_syn_339 ulogic/T04nz6_reg_syn_6.ia
+
+Timing path: ulogic/Egys07_reg_syn_6.clk->ulogic/T04nz6_reg_syn_6
+ulogic/Egys07_reg_syn_6.clk
+ulogic/T04nz6_reg_syn_6
+593 0.087000 24.454000 24.367000 22 31
+ulogic/Egys07 ulogic/add27_syn_211.id
+ulogic/add27_syn_243 ulogic/add27_syn_212.fci_f
+ulogic/add27_syn_244 ulogic/add27_syn_213.fci_f
+ulogic/add27_syn_245 ulogic/add27_syn_214.fci_f
+ulogic/add27_syn_246 ulogic/add27_syn_215.fci_f
+ulogic/add27_syn_247 ulogic/add27_syn_216.fci_f
+ulogic/add27_syn_248 ulogic/add27_syn_217.fci_f
+ulogic/add27_syn_249 ulogic/add27_syn_218.fci_f
+ulogic/add27_syn_250 ulogic/add27_syn_219.fci_f
+ulogic/add27_syn_251 ulogic/add27_syn_220.fci_f
+ulogic/add27_syn_252 ulogic/add27_syn_221.fci_f
+ulogic/add27_syn_253 ulogic/add27_syn_222.fci_f
+ulogic/add27_syn_254 ulogic/add27_syn_223.fci_f
+ulogic/add27_syn_255 ulogic/add27_syn_224.fci_f
+ulogic/add27_syn_191 ulogic/add27_syn_225.fci
+ulogic/add27_syn_4[25] ulogic/Y9g8v6_syn_150.ib
+ulogic/Aw2nz6_reg_syn_2328 ulogic/Aw2nz6_reg_syn_5934.ie
+ulogic/Aw2nz6_reg_syn_2330 ulogic/Aw2nz6_reg_syn_6498.imf
+ulogic/Aw2nz6_reg_syn_2469 ulogic/Aw2nz6_reg_syn_6961.imf
+ulogic/Aw2nz6_reg_syn_2478 ulogic/Fjl8v6_syn_799.ic
+ulogic/Aw2nz6_reg_syn_2484 ulogic/Aw2nz6_reg_syn_5642.ie
+ulogic/Aw2nz6_reg_syn_2486 ulogic/E27007_reg_syn_6.ic
+ulogic/Aw2nz6_reg_syn_5283 ulogic/Thzf07_reg_syn_6.ic
+ulogic/Aw2nz6_reg_syn_5285 ulogic/Aw2nz6_reg_syn_6779.imb
+ulogic/Aw2nz6_reg_syn_5335 ulogic/Ndgu07_reg_syn_6.imb
+ulogic/Aw2nz6_reg_syn_5343 ulogic/Znk8v6_syn_2721.imb
+ulogic/Aw2nz6_reg_syn_5349 ulogic/Axbdt6_syn_57.ie
+ulogic/Hmy7v6_syn_319 ulogic/Wh5et6_syn_5.imb
+ulogic/Hmy7v6_syn_337 ulogic/Xel8v6_syn_12.ie
+ulogic/Qny7v6_syn_335 ulogic/Qny7v6_syn_398.ic
+ulogic/Qny7v6_syn_339 ulogic/T04nz6_reg_syn_6.ia
+
+Timing path: ulogic/Egys07_reg_syn_6.clk->ulogic/T04nz6_reg_syn_6
+ulogic/Egys07_reg_syn_6.clk
+ulogic/T04nz6_reg_syn_6
+695 0.129000 24.454000 24.325000 23 32
+ulogic/Egys07 ulogic/add27_syn_211.id
+ulogic/add27_syn_243 ulogic/add27_syn_212.fci_f
+ulogic/add27_syn_244 ulogic/add27_syn_213.fci_f
+ulogic/add27_syn_245 ulogic/add27_syn_214.fci_f
+ulogic/add27_syn_246 ulogic/add27_syn_215.fci_f
+ulogic/add27_syn_247 ulogic/add27_syn_216.fci_f
+ulogic/add27_syn_248 ulogic/add27_syn_217.fci_f
+ulogic/add27_syn_249 ulogic/add27_syn_218.fci_f
+ulogic/add27_syn_250 ulogic/add27_syn_219.fci_f
+ulogic/add27_syn_251 ulogic/add27_syn_220.fci_f
+ulogic/add27_syn_252 ulogic/add27_syn_221.fci_f
+ulogic/add27_syn_253 ulogic/add27_syn_222.fci_f
+ulogic/add27_syn_254 ulogic/add27_syn_223.fci_f
+ulogic/add27_syn_255 ulogic/add27_syn_224.fci_f
+ulogic/add27_syn_191 ulogic/add27_syn_225.fci
+ulogic/add27_syn_4[25] ulogic/Y9g8v6_syn_150.ib
+ulogic/Aw2nz6_reg_syn_2328 ulogic/Aw2nz6_reg_syn_5934.ie
+ulogic/Aw2nz6_reg_syn_2330 ulogic/Aw2nz6_reg_syn_6933.ie
+ulogic/Aw2nz6_reg_syn_2464 ulogic/Y9g8v6_syn_143.ie
+ulogic/Aw2nz6_reg_syn_2473 ulogic/Fjl8v6_syn_799.ie
+ulogic/Aw2nz6_reg_syn_2484 ulogic/Aw2nz6_reg_syn_5642.ie
+ulogic/Aw2nz6_reg_syn_2486 ulogic/Z6moz6_reg_syn_6.ie
+ulogic/Aw2nz6_reg_syn_3337 ulogic/Aw2nz6_reg_syn_5810.ia
+ulogic/Aw2nz6_reg_syn_5331 ulogic/Aw2nz6_reg_syn_7144.ic
+ulogic/Aw2nz6_reg_syn_5333 ulogic/Aw2nz6_reg_syn_6779.ib
+ulogic/Aw2nz6_reg_syn_5335 ulogic/Ndgu07_reg_syn_6.imb
+ulogic/Aw2nz6_reg_syn_5343 ulogic/Znk8v6_syn_2721.imb
+ulogic/Aw2nz6_reg_syn_5349 ulogic/Axbdt6_syn_57.ie
+ulogic/Hmy7v6_syn_319 ulogic/Wh5et6_syn_5.imb
+ulogic/Hmy7v6_syn_337 ulogic/Xel8v6_syn_12.ie
+ulogic/Qny7v6_syn_335 ulogic/Qny7v6_syn_398.ic
+ulogic/Qny7v6_syn_339 ulogic/T04nz6_reg_syn_6.ia
+
+
+
+Hold check
+799 3
+Endpoint: ulogic/Jfb917_reg_syn_6
+801 0.182000 23 3
+Timing path: ulogic/Me9g07_reg_syn_6.clk->ulogic/Jfb917_reg_syn_6
+ulogic/Me9g07_reg_syn_6.clk
+ulogic/Jfb917_reg_syn_6
+803 0.182000 2.102000 2.284000 1 1
+ulogic/Me9g07 ulogic/Jfb917_reg_syn_6.imf
+
+Timing path: ulogic/A9b917_reg_syn_6.clk->ulogic/Jfb917_reg_syn_6
+ulogic/A9b917_reg_syn_6.clk
+ulogic/Jfb917_reg_syn_6
+845 0.681000 2.102000 2.783000 3 5
+ulogic/A9b917 ulogic/sub5_syn_147.id
+ulogic/sub5_syn_123 ulogic/sub5_syn_148.fci
+ulogic/sub5_syn_124 ulogic/sub5_syn_149.fci
+ulogic/sub5_syn_125 ulogic/sub5_syn_150.fci
+ulogic/Kfdet6 ulogic/Jfb917_reg_syn_6.id
+
+Timing path: ulogic/Vza917_reg_syn_6.clk->ulogic/Jfb917_reg_syn_6
+ulogic/Vza917_reg_syn_6.clk
+ulogic/Jfb917_reg_syn_6
+895 0.708000 2.102000 2.810000 3 6
+ulogic/Vza917 ulogic/sub5_syn_146.id
+ulogic/sub5_syn_122 ulogic/sub5_syn_147.fci
+ulogic/sub5_syn_123 ulogic/sub5_syn_148.fci
+ulogic/sub5_syn_124 ulogic/sub5_syn_149.fci
+ulogic/sub5_syn_125 ulogic/sub5_syn_150.fci
+ulogic/Kfdet6 ulogic/Jfb917_reg_syn_6.id
+
+
+Endpoint: ulogic/Wxmoz6_reg_syn_7
+947 0.187000 1 1
+Timing path: ulogic/T07g07_reg_syn_6.clk->ulogic/Wxmoz6_reg_syn_7
+ulogic/T07g07_reg_syn_6.clk
+ulogic/Wxmoz6_reg_syn_7
+949 0.187000 2.043000 2.230000 0 1
+ulogic/T07g07 ulogic/Wxmoz6_reg_syn_7.ima
+
+
+Endpoint: ulogic/Uaxf07_reg_syn_10
+991 0.187000 1 1
+Timing path: ulogic/Prvnz6_reg_syn_6.clk->ulogic/Uaxf07_reg_syn_10
+ulogic/Prvnz6_reg_syn_6.clk
+ulogic/Uaxf07_reg_syn_10
+993 0.187000 1.973000 2.160000 0 1
+ulogic/Prvnz6 ulogic/Uaxf07_reg_syn_10.ima
+
+
+
+Recovery check
+1035 3
+Endpoint: ulogic/Hq6t07_reg_syn_6
+1037 5.400000 1 1
+Timing path: ulogic/Sj2nz6_reg_syn_4.clk->ulogic/Hq6t07_reg_syn_6
+ulogic/Sj2nz6_reg_syn_4.clk
+ulogic/Hq6t07_reg_syn_6
+1039 5.400000 24.503000 19.103000 1 2
+ulogic/Ik2nz6 ulogic/Vbd917_reg_syn_3.id
+ulogic/H8bdt6 ulogic/Hq6t07_reg_syn_6.asr
+
+
+Endpoint: ulogic/Gmkt07_reg_syn_7
+1083 5.781000 1 1
+Timing path: ulogic/Sj2nz6_reg_syn_4.clk->ulogic/Gmkt07_reg_syn_7
+ulogic/Sj2nz6_reg_syn_4.clk
+ulogic/Gmkt07_reg_syn_7
+1085 5.781000 24.498000 18.717000 1 2
+ulogic/Ik2nz6 ulogic/Vbd917_reg_syn_3.id
+ulogic/H8bdt6 ulogic/Gmkt07_reg_syn_7.asr
+
+
+Endpoint: ulogic/Yvnt07_reg_syn_6
+1129 5.798000 1 1
+Timing path: ulogic/Sj2nz6_reg_syn_4.clk->ulogic/Yvnt07_reg_syn_6
+ulogic/Sj2nz6_reg_syn_4.clk
+ulogic/Yvnt07_reg_syn_6
+1131 5.798000 24.506000 18.708000 1 2
+ulogic/Ik2nz6 ulogic/Vbd917_reg_syn_3.id
+ulogic/H8bdt6 ulogic/Yvnt07_reg_syn_6.asr
+
+
+
+Removal check
+1175 3
+Endpoint: ulogic/Kmknz6_reg_syn_11
+1177 0.265000 1 1
+Timing path: ulogic/Sj2nz6_reg_syn_4.clk->ulogic/Kmknz6_reg_syn_11
+ulogic/Sj2nz6_reg_syn_4.clk
+ulogic/Kmknz6_reg_syn_11
+1179 0.265000 2.089000 2.354000 0 1
+ulogic/Ik2nz6 ulogic/Kmknz6_reg_syn_11.asr
+
+
+Endpoint: ulogic/Faioz6_reg_syn_10
+1221 0.265000 1 1
+Timing path: ulogic/Sj2nz6_reg_syn_4.clk->ulogic/Faioz6_reg_syn_10
+ulogic/Sj2nz6_reg_syn_4.clk
+ulogic/Faioz6_reg_syn_10
+1223 0.265000 2.089000 2.354000 0 1
+ulogic/Ik2nz6 ulogic/Faioz6_reg_syn_10.asr
+
+
+Endpoint: ulogic/Ikm917_reg_syn_6
+1265 0.367000 1 1
+Timing path: ulogic/Sj2nz6_reg_syn_4.clk->ulogic/Ikm917_reg_syn_6
+ulogic/Sj2nz6_reg_syn_4.clk
+ulogic/Ikm917_reg_syn_6
+1267 0.367000 2.091000 2.458000 0 1
+ulogic/Ik2nz6 ulogic/Ikm917_reg_syn_6.asr
+
+
+
+
+clock: hdmi_clk
+1309 11696 546 4
+Setup check
+1319 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+1319 28.000000 665 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+1321 28.000000 42.974000 14.974000 15 20
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[8] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9.addrb[12]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+1405 28.094000 42.974000 14.880000 16 22
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_65 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_66 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_67 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_68 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_69 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_70 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_61.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_71 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_62.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_63.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[9] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[8] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9.addrb[12]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9
+1493 28.133000 42.974000 14.841000 15 19
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[6] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[8] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/ramread0_syn_9.addrb[12]
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+1575 30.155000 49 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+1577 30.155000 43.259000 13.104000 14 19
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37.imb
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+1659 30.249000 43.259000 13.010000 15 21
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_65 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_66 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_67 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_68 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_69 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_70 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_61.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_71 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_62.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_63.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[9] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37.imb
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37
+1745 30.288000 43.259000 12.971000 14 18
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[6] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_37.imb
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+1825 30.451000 45 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+1827 30.451000 43.309000 12.858000 14 19
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43.ic
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+1909 30.545000 43.309000 12.764000 15 21
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_65 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_66 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_67 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_68 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_69 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_70 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_61.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_71 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_62.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_63.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[9] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43.ic
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_49.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43
+1995 30.584000 43.309000 12.725000 14 18
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr[1] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_55.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_addr_diff[6] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg1_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_12 ulogic/Gomh07_reg_syn_9.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_14 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/addrb[9]_syn_26.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_24 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_43.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_28 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_32 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_46.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.imb
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_40 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/asy_w_rst0_reg_syn_3.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/add2_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/reg0_syn_43.ic
+
+
+
+Hold check
+2075 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_58
+2077 0.187000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg3_syn_40.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_58
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg3_syn_40.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_58
+2079 0.187000 1.522000 1.709000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/sync_r1[4] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_58.ima
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_reg_reg_syn_7
+2125 0.189000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_reg_reg_syn_7.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_reg_reg_syn_7
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_reg_reg_syn_7.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_reg_reg_syn_7
+2127 0.189000 1.524000 1.713000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_q u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_b/c1_reg_reg_syn_7.imb
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_34
+2173 0.192000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg1_syn_34.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_34
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg1_syn_34.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_34
+2175 0.192000 1.520000 1.712000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/sync_r1[5] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg2_syn_34.imb
+
+
+
+Recovery check
+2221 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_73
+2223 37.718000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_73
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_73
+2225 37.718000 43.378000 5.660000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_73.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_75
+2271 37.718000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_75
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_75
+2273 37.718000 43.378000 5.660000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_75.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_61
+2319 37.863000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_61
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_61
+2321 37.863000 43.375000 5.512000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/ram_inst/reg2_syn_61.asr
+
+
+
+Removal check
+2367 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_49
+2369 0.161000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_49
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_49
+2371 0.161000 1.593000 1.754000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_49.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_47
+2417 0.161000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_47
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_47
+2419 0.161000 1.593000 1.754000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_g/reg2_syn_47.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_r/reg2_syn_47
+2465 0.161000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_r/reg2_syn_47
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_r/reg2_syn_47
+2467 0.161000 1.593000 1.754000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/encoder_r/reg2_syn_47.asr
+
+
+
+
+clock: hdmi_clk_5
+2513 392 130 4
+Setup check
+2523 3
+Endpoint: cnn_tmds_data_p[0]_syn_2
+2523 2.912000 2 2
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_b/reg2_syn_22.clk->cnn_tmds_data_p[0]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_b/reg2_syn_22.clk
+cnn_tmds_data_p[0]_syn_2
+2525 2.912000 11.031000 8.119000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_b/datain_rise_shift[0] cnn_tmds_data_p[0]_syn_2.doq[0]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_b/reg2_syn_22.clk->cnn_tmds_data_p[0]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_b/reg2_syn_22.clk
+cnn_tmds_data_p[0]_syn_2
+2571 3.319000 11.031000 7.712000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_b/datain_fall_shift[0] cnn_tmds_data_p[0]_syn_2.doq[1]
+
+
+Endpoint: cnn_tmds_data_p[2]_syn_2
+2617 3.250000 2 2
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_22.clk->cnn_tmds_data_p[2]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_22.clk
+cnn_tmds_data_p[2]_syn_2
+2619 3.250000 11.036000 7.786000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/datain_rise_shift[0] cnn_tmds_data_p[2]_syn_2.doq[0]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21.clk->cnn_tmds_data_p[2]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21.clk
+cnn_tmds_data_p[2]_syn_2
+2665 3.360000 11.036000 7.676000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/datain_fall_shift[0] cnn_tmds_data_p[2]_syn_2.doq[1]
+
+
+Endpoint: cnn_tmds_clk_n_syn_2
+2711 3.382000 2 2
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_clk/reg2_syn_15.clk->cnn_tmds_clk_n_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_clk/reg2_syn_15.clk
+cnn_tmds_clk_n_syn_2
+2713 3.382000 11.130000 7.748000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_clk/datain_rise_shift[0] cnn_tmds_clk_n_syn_2.doq[0]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_clk/reg2_syn_15.clk->cnn_tmds_clk_n_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_clk/reg2_syn_15.clk
+cnn_tmds_clk_n_syn_2
+2759 4.254000 11.130000 6.876000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_clk/datain_fall_shift[0] cnn_tmds_clk_n_syn_2.doq[1]
+
+
+
+Hold check
+2805 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_g/reg2_syn_19
+2807 0.206000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_25.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_g/reg2_syn_19
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_25.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_g/reg2_syn_19
+2809 0.206000 1.523000 1.729000 1 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_g/datain_rise_shift[1] u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_g/reg2_syn_19.ie
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21
+2855 0.206000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21
+2857 0.206000 1.523000 1.729000 1 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/datain_fall_shift[1] u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg1_syn_21.ie
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_31
+2903 0.209000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_28.clk->u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_31
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_28.clk
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_31
+2905 0.209000 1.526000 1.735000 1 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/datain_rise_shift[2] u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/serializer_r/reg2_syn_31.ie
+
+
+
+Recovery check
+2951 3
+Endpoint: cnn_tmds_data_p[0]_syn_2
+2953 2.160000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->cnn_tmds_data_p[0]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+cnn_tmds_data_p[0]_syn_2
+2955 2.160000 11.137000 8.977000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 cnn_tmds_data_p[0]_syn_2.rst
+
+
+Endpoint: cnn_tmds_data_p[2]_syn_2
+3001 2.767000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->cnn_tmds_data_p[2]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+cnn_tmds_data_p[2]_syn_2
+3003 2.767000 11.142000 8.375000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 cnn_tmds_data_p[2]_syn_2.rst
+
+
+Endpoint: cnn_tmds_clk_p_syn_2
+3049 3.143000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->cnn_tmds_clk_p_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+cnn_tmds_clk_p_syn_2
+3051 3.143000 11.139000 7.996000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 cnn_tmds_clk_p_syn_2.rst
+
+
+
+Removal check
+3097 3
+Endpoint: cnn_tmds_data_n[0]_syn_2
+3099 0.438000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->cnn_tmds_data_n[0]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+cnn_tmds_data_n[0]_syn_2
+3101 0.438000 1.513000 1.951000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 cnn_tmds_data_n[0]_syn_2.rst
+
+
+Endpoint: cnn_tmds_data_n[1]_syn_2
+3147 0.880000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->cnn_tmds_data_n[1]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+cnn_tmds_data_n[1]_syn_2
+3149 0.880000 1.513000 2.393000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 cnn_tmds_data_n[1]_syn_2.rst
+
+
+Endpoint: cnn_tmds_data_n[2]_syn_2
+3195 1.340000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk->cnn_tmds_data_n[2]_syn_2
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2_reg_syn_3.clk
+cnn_tmds_data_n[2]_syn_2
+3197 1.340000 1.472000 2.812000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_hdmi_top/u_rgb2dvi_0/reset_syn/reset_2 cnn_tmds_data_n[2]_syn_2.rst
+
+
+
+
+clock: clk_100MHz
+3243 61322 2000 2
+Setup check
+3253 3
+Endpoint: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3253 1.145000 28 3
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3255 1.145000 10.315000 9.170000 4 4
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[1] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_18.ic
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b3_n PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_9.ia
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_4 PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_10.imb
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114.dia_extra[0]
+
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_19.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_19.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3307 1.258000 10.315000 9.057000 4 4
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[0] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_18.ib
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b3_n PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_9.ia
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_4 PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_10.imb
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114.dia_extra[0]
+
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_23.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_23.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3359 1.329000 10.315000 8.986000 4 4
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[3] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_18.ie
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b3_n PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_9.ia
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_4 PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4]_syn_10.imb
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[4] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114.dia_extra[0]
+
+
+Endpoint: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+3411 1.243000 28 3
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+3413 1.243000 10.312000 9.069000 4 4
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[1] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_n_syn_9.ic
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b2_n PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12]_syn_8.ib
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12]_syn_2 PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[20]_syn_8.ic
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96.dia_extra[0]
+
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_23.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_23.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+3465 1.459000 10.312000 8.853000 4 4
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[3] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_n_syn_9.ie
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b2_n PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12]_syn_8.ib
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12]_syn_2 PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[20]_syn_8.ic
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96.dia_extra[0]
+
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_19.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_19.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96
+3517 1.613000 10.312000 8.699000 4 4
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[0] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_n_syn_9.ib
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b2_n PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12]_syn_8.ib
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12]_syn_2 PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[20]_syn_8.ic
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[12] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_96.dia_extra[0]
+
+
+Endpoint: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3569 1.337000 26 3
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3571 1.337000 10.324000 8.987000 5 6
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[1] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_18.ic
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b3_n PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_19.imb
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeEn_n PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg3_syn_48.ic
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeEn[3] PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3]_syn_4.ib
+PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3]_syn_2 u_ahb_cnn/u_ov5640_hdmi/u_i2c_cfg/init_done_reg_syn_6.ima
+PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114.wea
+
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_19.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_19.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3627 1.450000 10.324000 8.874000 5 6
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[0] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_18.ib
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b3_n PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b1[8]_syn_19.imb
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeEn_n PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg3_syn_48.ic
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeEn[3] PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3]_syn_4.ib
+PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3]_syn_2 u_ahb_cnn/u_ov5640_hdmi/u_i2c_cfg/init_done_reg_syn_6.ima
+PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114.wea
+
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk->PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/reg0_syn_25.clk
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114
+3683 1.490000 10.324000 8.834000 6 7
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/nowState[1] PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_n_syn_9.ic
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeAddr_b2_n PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_n_syn_11.imb
+PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeNametableEn_n PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_reg_syn_6.ia
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[28]_syn_4 PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/scroll_spi_cs_n_syn_11.ia
+PPU/u_topBackGroundDraw/u_nameTableRam/dataIn_sel[28]_syn_6 PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3]_syn_4.ia
+PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3]_syn_2 u_ahb_cnn/u_ov5640_hdmi/u_i2c_cfg/init_done_reg_syn_6.ima
+PPU/u_topBackGroundDraw/u_nameTableRam/writeEn_sel[3] PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_114.wea
+
+
+
+Hold check
+3741 3
+Endpoint: PPU/u_topBackGroundDraw/u_backTileDraw/reg2_syn_51
+3743 0.183000 1 1
+Timing path: PPU/u_topBackGroundDraw/u_backTileDraw/reg2_syn_54.clk->PPU/u_topBackGroundDraw/u_backTileDraw/reg2_syn_51
+PPU/u_topBackGroundDraw/u_backTileDraw/reg2_syn_54.clk
+PPU/u_topBackGroundDraw/u_backTileDraw/reg2_syn_51
+3745 0.183000 0.428000 0.611000 0 1
+PPU/u_topBackGroundDraw/vgaPosX_r[2] PPU/u_topBackGroundDraw/u_backTileDraw/reg2_syn_51.ima
+
+
+Endpoint: PPU/u_topSpriteDraw/spriteTileRom_inst/ramread1_syn_89
+3791 0.189000 1 1
+Timing path: PPU/u_topSpriteDraw/eightRam_inst/reg1_syn_1232.clk->PPU/u_topSpriteDraw/spriteTileRom_inst/ramread1_syn_89
+PPU/u_topSpriteDraw/eightRam_inst/reg1_syn_1232.clk
+PPU/u_topSpriteDraw/spriteTileRom_inst/ramread1_syn_89
+3793 0.189000 0.454000 0.643000 1 1
+PPU/u_topSpriteDraw/eightRam_inst/eightRam[7][11] PPU/u_topSpriteDraw/spriteTileRom_inst/ramread1_syn_89.addrb[8]
+
+
+Endpoint: PPU/u_topBackGroundDraw/u_scrollCtrl/reg3_syn_46
+3839 0.194000 1 1
+Timing path: PPU/u_topBackGroundDraw/u_scrollCtrl/reg3_syn_46.clk->PPU/u_topBackGroundDraw/u_scrollCtrl/reg3_syn_46
+PPU/u_topBackGroundDraw/u_scrollCtrl/reg3_syn_46.clk
+PPU/u_topBackGroundDraw/u_scrollCtrl/reg3_syn_46
+3841 0.194000 0.313000 0.507000 0 1
+PPU/u_topBackGroundDraw/u_scrollCtrl/scrollPtr[0] PPU/u_topBackGroundDraw/u_scrollCtrl/reg3_syn_46.imb
+
+
+
+
+clock: clk_25p2MHz
+3887 13607232 362 4
+Setup check
+3897 3
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+3897 -0.410000 1468840 3
+Timing path: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_60.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_60.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+3899 -0.410000 10.691000 11.101000 11 13
+PPU/u_topBackGroundDraw/u_backTileDraw/nameTableRamDataO[29] PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[5]_syn_48.imf
+PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[5]_dup_27 PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_3217.ic
+PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_1195 PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[117]_syn_2.ie
+PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[117] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_147.ib
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_151[1] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_150.muxi[1]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_155 PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_148.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_1[0] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_157.id
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_159[1] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_158.muxi[1]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_161 PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_156.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/twoBitsFlag[0] u_u_syn_1.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_37 PPU/u_topBackGroundDraw/u_backTileDraw/paletteBackground_inst/ramread0_syn_131.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_49 PPU/u_topBackGroundDraw/u_backTileDraw/paletteBackground_inst/ramread0_syn_132.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_51 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12.imf
+
+Timing path: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_78.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_78.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+3969 -0.403000 10.691000 11.094000 11 13
+PPU/u_topBackGroundDraw/u_backTileDraw/nameTableRamDataO[21] PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[5]_syn_48.ie
+PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[5]_dup_27 PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_3217.ic
+PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_1195 PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[117]_syn_2.ie
+PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[117] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_147.ib
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_151[1] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_150.muxi[1]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_155 PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_148.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_1[0] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_157.id
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_159[1] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_158.muxi[1]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_161 PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_156.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/twoBitsFlag[0] u_u_syn_1.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_37 PPU/u_topBackGroundDraw/u_backTileDraw/paletteBackground_inst/ramread0_syn_131.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_49 PPU/u_topBackGroundDraw/u_backTileDraw/paletteBackground_inst/ramread0_syn_132.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_51 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12.imf
+
+Timing path: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_78.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_78.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12
+4039 -0.376000 10.691000 11.067000 11 13
+PPU/u_topBackGroundDraw/u_backTileDraw/nameTableRamDataO[17] PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[1]_syn_44.id
+PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[1]_dup_21 PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_3081.ia
+PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_172 PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[4]_syn_2.id
+PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[4] PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_60.ia
+PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_64[1] PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_63.muxi[1]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_68 PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_61.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_2[3] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_156.ia
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_159[0] PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_158.muxi[0]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_161 PPU/u_topBackGroundDraw/u_backTileDraw/mux1_syn_156.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/twoBitsFlag[0] u_u_syn_1.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_37 PPU/u_topBackGroundDraw/u_backTileDraw/paletteBackground_inst/ramread0_syn_131.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_49 PPU/u_topBackGroundDraw/u_backTileDraw/paletteBackground_inst/ramread0_syn_132.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_51 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg4_syn_12.imf
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+4109 -0.176000 915354 3
+Timing path: PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+4111 -0.176000 10.714000 10.890000 11 13
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/tileDataI[44] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_139.ia
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_141[3] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_140.muxi[3]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_145 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_138.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_1[5] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_116.ic
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_119[0] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_118.muxi[0]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_121 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_116.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/vgaIsZeroFlag_n1 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_462.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_62 PPU/u_topSpriteDraw/tiltDraw_inst[6]$u_tileDraw/paletteSprite_inst/ramread0_syn_218.ie
+PPU/u_topSpriteDraw/spriteVgaRgbOut_n18 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_518.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_392 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_527.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_398 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_53.imb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/din[6]_syn_48 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/din[6]_syn_71.ie
+PPU/vgaRgbSel[4] PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12.imf
+
+Timing path: PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+4181 -0.114000 10.714000 10.828000 11 13
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/tileDataI[44] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_139.ia
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_141[3] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_140.muxi[3]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_145 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_138.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_1[5] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_116.ic
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_119[0] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_118.muxi[0]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_121 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_116.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/vgaIsZeroFlag_n1 PPU/u_topSpriteDraw/tiltDraw_inst[2]$u_tileDraw/paletteSprite_inst/ramread0_syn_217.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_74 PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/paletteSprite_inst/ramread0_syn_230.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_76 PPU/u_topSpriteDraw/tiltDraw_inst[2]$u_tileDraw/paletteSprite_inst/ramread0_syn_225.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_84 u_u17_syn_1.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_107 PPU/u_topSpriteDraw/eightRam_inst/IsGameWindowDealy0_reg_syn_6.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_425 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/din[6]_syn_71.imf
+PPU/vgaRgbSel[4] PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12.imf
+
+Timing path: PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12
+4251 -0.087000 10.714000 10.801000 11 13
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/tileDataI[44] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_139.ia
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_141[3] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_140.muxi[3]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_145 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_138.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_1[5] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_196.ic
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_199[0] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_198.muxi[0]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_201 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_196.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/vgaIsZeroFlag_n PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_462.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_62 PPU/u_topSpriteDraw/tiltDraw_inst[6]$u_tileDraw/paletteSprite_inst/ramread0_syn_218.ie
+PPU/u_topSpriteDraw/spriteVgaRgbOut_n18 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_518.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_392 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_527.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_398 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/din[6]_syn_53.imb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/din[6]_syn_48 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/din[6]_syn_71.ie
+PPU/vgaRgbSel[4] PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg4_syn_12.imf
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+4321 -0.021000 797338 3
+Timing path: PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+PPU/u_topSpriteDraw/spriteTileRom_inst/ramread6_syn_48.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+4323 -0.021000 10.714000 10.735000 11 13
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/tileDataI[44] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_139.ia
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_141[3] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_140.muxi[3]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_145 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_138.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux0_syn_1[5] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_116.ic
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_119[0] PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_118.muxi[0]
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_121 PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/mux1_syn_116.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[4]$u_tileDraw/vgaIsZeroFlag_n1 PPU/u_topSpriteDraw/tiltDraw_inst[2]$u_tileDraw/paletteSprite_inst/ramread0_syn_217.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_74 PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/paletteSprite_inst/ramread0_syn_230.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_76 PPU/u_topSpriteDraw/tiltDraw_inst[2]$u_tileDraw/paletteSprite_inst/ramread0_syn_225.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_84 u_u17_syn_1.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_107 PPU/u_topBackGroundDraw/u_backTileDraw/reg3_syn_26.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_436 u_u23_syn_1.imf
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_444 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12.ie
+
+Timing path: PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_78.clkb->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+PPU/u_topBackGroundDraw/u_nameTableRam/ramread0_syn_78.clkb
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+4393 0.029000 10.714000 10.685000 9 10
+PPU/u_topBackGroundDraw/u_backTileDraw/nameTableRamDataO[18] PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[2]_syn_54.ic
+PPU/u_topBackGroundDraw/u_backGroundTileRom/backTileIndex[2] PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_3314.imf
+PPU/u_topBackGroundDraw/u_backGroundTileRom/ramread0_syn_574 PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[48]_syn_2.imf
+PPU/u_topBackGroundDraw/u_backTileDraw/backTileDataI[48] PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_89.ia
+PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_94[0] PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_93.muxi[0]
+PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_98 PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_91.f78i
+PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_2[0] PPU/u_topBackGroundDraw/u_backTileDraw/mux0_syn_99.id
+PPU/u_topBackGroundDraw/u_backTileDraw/twoBitsFlag[1] PPU/u_topBackGroundDraw/u_backTileDraw/reg3_syn_24.ia
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_432 u_u23_syn_1.id
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_444 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12.ie
+
+Timing path: PPU/u_topSpriteDraw/spriteTileRom_inst/ramread7_syn_130.clka->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+PPU/u_topSpriteDraw/spriteTileRom_inst/ramread7_syn_130.clka
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12
+4457 0.063000 10.714000 10.651000 10 12
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/tileDataI[127] PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_189.id
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_191[3] PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_190.muxi[3]
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_195 PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_188.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_1[0] PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_197.id
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_199[1] PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_198.muxi[1]
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_201 PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/mux0_syn_196.f78i
+PPU/u_topSpriteDraw/tiltDraw_inst[5]$u_tileDraw/vgaIsZeroFlag_n PPU/u_topSpriteDraw/spriteRam_inst/reg0_syn_155.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_119 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_492.ie
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_333 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_536.id
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_349 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg1_syn_30.ic
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/din[6]_syn_372 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg1_syn_25.ie
+PPU/vgaRgbSel[11] PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg4_syn_12.imb
+
+
+
+Hold check
+4525 3
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4
+4527 0.189000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4
+4529 0.189000 0.368000 0.557000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1 PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.imb
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_reg_reg_syn_7
+4575 0.190000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_reg_reg_syn_7.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_reg_reg_syn_7
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_reg_reg_syn_7.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_reg_reg_syn_7
+4577 0.190000 0.312000 0.502000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_q PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/de_reg_reg_syn_7.ima
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+4623 0.214000 7 3
+Timing path: PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.clk->PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.clk
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+4625 0.214000 0.312000 0.526000 1 1
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/cnt_v[6] PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.ie
+
+Timing path: PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.clk->PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.clk
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+4671 0.550000 0.312000 0.862000 2 2
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/cnt_v[5] PPU/u_ppu_hdmi_driver/u_ppu_video_driver/cnt_v_b2[9]_syn_4.imf
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/add1_syn_46 PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.imb
+
+Timing path: PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_53.clk->PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_53.clk
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51
+4719 0.747000 0.312000 1.059000 2 2
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/cnt_v[3] PPU/u_ppu_hdmi_driver/u_ppu_video_driver/cnt_v_b2[9]_syn_4.id
+PPU/u_ppu_hdmi_driver/u_ppu_video_driver/add1_syn_46 PPU/u_ppu_hdmi_driver/u_ppu_video_driver/reg1_syn_51.imb
+
+
+
+Recovery check
+4767 3
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_47
+4769 35.892000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_47
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_47
+4771 35.892000 40.722000 4.830000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_47.asr
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_44
+4817 36.185000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_44
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_44
+4819 36.185000 40.728000 4.543000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_r/reg2_syn_44.asr
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg0_syn_20
+4865 36.185000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg0_syn_20
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg0_syn_20
+4867 36.185000 40.728000 4.543000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_g/reg0_syn_20.asr
+
+
+
+Removal check
+4913 3
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_57
+4915 0.892000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_57
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_57
+4917 0.892000 0.430000 1.322000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_57.asr
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_55
+4963 0.892000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_55
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_55
+4965 0.892000 0.430000 1.322000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_55.asr
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_52
+5011 0.892000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_52
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_52
+5013 0.892000 0.430000 1.322000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 PPU/u_ppu_hdmi_driver/u_rgb2dvi/encoder_b/reg2_syn_52.asr
+
+
+
+
+clock: clk_125MHz
+5059 386 128 4
+Setup check
+5069 3
+Endpoint: tmds_data_n[1]_syn_2
+5069 3.370000 2 2
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19.clk->tmds_data_n[1]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19.clk
+tmds_data_n[1]_syn_2
+5071 3.370000 8.564000 5.194000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/datain_fall_shift[0] tmds_data_n[1]_syn_2.doq[1]
+
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg2_syn_22.clk->tmds_data_n[1]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg2_syn_22.clk
+tmds_data_n[1]_syn_2
+5117 3.501000 8.564000 5.063000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/datain_rise_shift[0] tmds_data_n[1]_syn_2.doq[0]
+
+
+Endpoint: tmds_data_n[2]_syn_2
+5163 4.004000 2 2
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_22.clk->tmds_data_n[2]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_22.clk
+tmds_data_n[2]_syn_2
+5165 4.004000 8.466000 4.462000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/datain_fall_shift[0] tmds_data_n[2]_syn_2.doq[1]
+
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_22.clk->tmds_data_n[2]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_22.clk
+tmds_data_n[2]_syn_2
+5211 4.232000 8.466000 4.234000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/datain_rise_shift[0] tmds_data_n[2]_syn_2.doq[0]
+
+
+Endpoint: tmds_data_p[0]_syn_2
+5257 4.364000 2 2
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_22.clk->tmds_data_p[0]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_22.clk
+tmds_data_p[0]_syn_2
+5259 4.364000 8.467000 4.103000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/datain_rise_shift[0] tmds_data_p[0]_syn_2.doq[0]
+
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_22.clk->tmds_data_p[0]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_22.clk
+tmds_data_p[0]_syn_2
+5305 4.856000 8.467000 3.611000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/datain_fall_shift[0] tmds_data_p[0]_syn_2.doq[1]
+
+
+
+Hold check
+5351 3
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19
+5353 0.206000 2 2
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg2_syn_25.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg2_syn_25.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19
+5355 0.206000 0.314000 0.520000 1 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/datain_fall_shift[1] PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19.ie
+
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_clk/reg1_syn_19.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_clk/reg1_syn_19.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19
+5401 0.513000 0.314000 0.827000 2 2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/bit_cnt[1] PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_clk/reg1_syn_19.ia
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/bit_cnt_b_n PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_g/reg1_syn_19.ia
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_28
+5449 0.209000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_25.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_28
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_25.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_28
+5451 0.209000 0.364000 0.573000 1 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/datain_rise_shift[3] PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_r/reg2_syn_28.ie
+
+
+Endpoint: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_28
+5497 0.209000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_25.clk->PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_28
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_25.clk
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_28
+5499 0.209000 0.314000 0.523000 1 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/datain_rise_shift[3] PPU/u_ppu_hdmi_driver/u_rgb2dvi/serializer_b/reg2_syn_28.ie
+
+
+
+Recovery check
+5545 3
+Endpoint: tmds_data_n[0]_syn_2
+5547 3.052000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->tmds_data_n[0]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+tmds_data_n[0]_syn_2
+5549 3.052000 8.662000 5.610000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 tmds_data_n[0]_syn_2.rst
+
+
+Endpoint: tmds_clk_n_syn_2
+5595 4.326000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->tmds_clk_n_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+tmds_clk_n_syn_2
+5597 4.326000 8.563000 4.237000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 tmds_clk_n_syn_2.rst
+
+
+Endpoint: tmds_clk_p_syn_2
+5643 4.797000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->tmds_clk_p_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+tmds_clk_p_syn_2
+5645 4.797000 8.565000 3.768000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 tmds_clk_p_syn_2.rst
+
+
+
+Removal check
+5691 3
+Endpoint: tmds_data_n[2]_syn_2
+5693 1.128000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->tmds_data_n[2]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+tmds_data_n[2]_syn_2
+5695 1.128000 0.323000 1.451000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 tmds_data_n[2]_syn_2.rst
+
+
+Endpoint: tmds_data_p[1]_syn_2
+5741 1.203000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->tmds_data_p[1]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+tmds_data_p[1]_syn_2
+5743 1.203000 0.322000 1.525000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 tmds_data_p[1]_syn_2.rst
+
+
+Endpoint: tmds_data_n[1]_syn_2
+5789 1.235000 1 1
+Timing path: PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk->tmds_data_n[1]_syn_2
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_1_reg_syn_4.clk
+tmds_data_n[1]_syn_2
+5791 1.235000 0.390000 1.625000 0 1
+PPU/u_ppu_hdmi_driver/u_rgb2dvi/reset_syn/reset_2 tmds_data_n[1]_syn_2.rst
+
+
+
+
+clock: clk_100m
+5837 12346 702 4
+Setup check
+5847 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+5847 1.938000 1155 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+5849 1.938000 10.429000 8.491000 7 11
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[2] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[8] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9.addrb[12]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_37.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_37.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+5915 2.036000 10.429000 8.393000 7 13
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[0] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_54.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_55.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[8] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9.addrb[12]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9
+5985 2.163000 10.429000 8.266000 8 13
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[2] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_66 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_67 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_68 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_69 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_70 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_71 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_62.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_63.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[9] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[8] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/ramread0_syn_9.addrb[12]
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+6055 3.102000 51 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+6057 3.102000 10.688000 7.586000 6 10
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[2] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49.ia
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_37.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_37.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+6121 3.200000 10.688000 7.488000 6 12
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[0] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_54.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_55.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49.ia
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49
+6189 3.327000 10.688000 7.361000 7 12
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[2] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_66 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_67 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_68 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_69 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_70 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_71 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_62.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_63.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[9] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_49.ia
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+6257 3.566000 32 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+6259 3.566000 10.731000 7.165000 6 10
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[2] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.ib
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_37.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_37.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+6323 3.664000 10.731000 7.067000 6 12
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[0] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_54.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_44 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_55.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_45 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_46 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_47 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_48 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_49 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_50 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.ib
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43
+6391 3.791000 10.731000 6.940000 7 12
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr[2] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_56.ic
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_66 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_57.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_67 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_58.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_68 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_59.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_69 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_60.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_70 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_61.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_71 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_62.fci_f
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_52 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/sub1_syn_63.fci
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_addr_diff[9] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_40.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/addrb[9]_syn_9 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_37.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_en_s u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/wr_to_rd_cross_inst/reg2_syn_51.ia
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/add2_syn_36 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_43.ib
+
+
+
+Hold check
+6459 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg0_syn_45
+6461 0.187000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_43.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg0_syn_45
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_43.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg0_syn_45
+6463 0.187000 0.372000 0.559000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/sync_r1[6] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg0_syn_45.ima
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37
+6509 0.187000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_40.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg3_syn_40.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37
+6511 0.187000 0.371000 0.558000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/sync_r1[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rd_to_wr_cross_inst/reg2_syn_37.ima
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+6557 0.189000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+6559 0.189000 0.371000 0.560000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.imb
+
+
+
+Recovery check
+6605 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+6607 7.702000 2 2
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/sw_bank_en_reg_syn_7.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/sw_bank_en_reg_syn_7.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+6609 7.702000 10.795000 3.093000 2 3
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/rd_load_r1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_controller/u_sdram_cmd/sel2_syn_243.id
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/sdram_wr_addr_b[18]_syn_2 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rst_syn_3.ie
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rst u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.asr
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/reg1_syn_65.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/reg1_syn_65.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4
+6659 8.009000 10.795000 2.786000 2 3
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/rd_load_r2 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_controller/u_sdram_cmd/sel2_syn_243.imf
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/sdram_wr_addr_b[18]_syn_2 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rst_syn_3.ie
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/rst u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_67
+6709 8.032000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_67
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_67
+6711 8.032000 10.790000 2.758000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_67.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_73
+6757 8.439000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_73
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_73
+6759 8.439000 10.813000 2.374000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/ram_inst/reg2_syn_73.asr
+
+
+
+Removal check
+6805 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg0_syn_37
+6807 0.123000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg0_syn_37
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg0_syn_37
+6809 0.123000 0.442000 0.565000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/wr_to_rd_cross_inst/reg0_syn_37.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_52
+6855 0.123000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_52
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_52
+6857 0.123000 0.442000 0.565000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_52.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_46
+6903 0.123000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_46
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_46
+6905 0.123000 0.442000 0.565000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_rdfifo/asy_w_rst1 u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/reg0_syn_46.asr
+
+
+
+
+clock: clk_100m_shift
+6953 0 0 0
+
+clock: clk_50m
+6961 36090092 34618 4
+Setup check
+6971 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+6971 25.733000 182800 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add17_syn_90.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add17_syn_90.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+6973 25.733000 40.404000 14.671000 15 18
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add3[1][6] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_90.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_106 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_91.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_107 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_92.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_76 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_93.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_77 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_94.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_78 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_95.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/window_sum_out_2[11] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_68.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_3 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_74.ie
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_5 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_75.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_7 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_79.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_21 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_65.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_27 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_78.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/wr_data[1][9] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_82.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt9_syn_118 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_69.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_45 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[24]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_59 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_69.ie
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_63 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[23]_syn_2.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[23] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9.dib[7]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add17_syn_90.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add17_syn_90.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+7053 25.757000 40.404000 14.647000 15 18
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add3[1][6] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_90.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_106 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_91.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_107 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_92.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_76 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_93.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_77 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_94.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_78 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_95.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/window_sum_out_2[11] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_68.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_3 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_74.ie
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_5 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_75.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_7 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_79.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_21 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_65.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_27 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_78.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/wr_data[1][9] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_82.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt9_syn_118 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_69.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_45 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[24]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_59 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_69.ie
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_63 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[27]_syn_2.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[27] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9.dib[11]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add16_syn_85.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add16_syn_85.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+7133 25.856000 40.404000 14.548000 14 14
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add3[0][1] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_85.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_69 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u2/add18_syn_86.fci
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/window_sum_out_2[2] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_77.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_15 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_78.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_17 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_67.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_19 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_79.ie
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_21 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_65.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_27 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_78.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/wr_data[1][9] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_82.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt9_syn_118 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_69.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_45 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[24]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_59 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_69.ie
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[30]_syn_63 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[23]_syn_2.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[23] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9.dib[7]
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+7205 26.414000 10161 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/reg1_syn_24.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/reg1_syn_24.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+7207 26.414000 40.753000 14.339000 4 4
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/in_channel_cnt[0] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_5.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_2 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_4.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/_mult.x[12]
+M_reg_syn_631[39] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg.d[39]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/reg1_syn_24.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/reg1_syn_24.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+7260 26.421000 40.753000 14.332000 4 4
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/in_channel_cnt[0] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_5.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_2 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_4.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/_mult.x[12]
+M_reg_syn_631[38] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg.d[38]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/reg1_syn_24.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/reg1_syn_24.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg
+7313 26.422000 40.753000 14.331000 4 4
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/in_channel_cnt[0] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_5.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_2 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348]_syn_4.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/window_2d_single[348] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/_mult.x[12]
+M_reg_syn_631[44] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv2_u/mult15_syn_48/M_reg.d[44]
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+7366 26.983000 25486 3
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add16_syn_87.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add16_syn_87.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+7368 26.983000 40.404000 13.421000 14 18
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add3[0][3] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_87.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_103 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_88.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_104 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_89.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_105 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_90.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_106 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_91.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_107 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_92.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/window_sum_out_3[8] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_85.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_9 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_78.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_11 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_69.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_13 u_u15_syn_1.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_29 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_83.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/wr_data[2][6] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[40]_syn_2.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_57 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[37]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt10_syn_116 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[36]_syn_2.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt10_syn_118 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35]_syn_2.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_63 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_72.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_67 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35]_syn_2.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9.dia_extra[3]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add16_syn_87.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add16_syn_87.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+7448 27.119000 40.404000 13.285000 14 18
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add3[0][3] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_87.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_103 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_88.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_104 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_89.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_105 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_90.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_106 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_91.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_107 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_92.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/window_sum_out_3[8] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_85.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_9 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_78.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_11 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_69.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_13 u_u15_syn_1.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_29 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_82.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/wr_data[2][7] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[40]_syn_2.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_57 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[37]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt10_syn_116 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[36]_syn_2.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/lt10_syn_118 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35]_syn_2.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_63 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_72.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_67 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35]_syn_2.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9.dia_extra[3]
+
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add16_syn_87.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add16_syn_87.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9
+7528 27.226000 40.404000 13.178000 15 19
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add3[0][3] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_87.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_103 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_88.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_104 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_89.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_105 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_90.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_106 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_91.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_107 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add18_syn_92.fci_f
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/window_sum_out_3[8] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_85.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_9 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_78.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_11 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_69.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_13 u_u15_syn_1.id
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_29 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_83.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/pool1_u/wr_data[2][0] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[38]_syn_2.ib
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_45 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[43]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_47 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_72.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_49 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[41]_syn_2.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_55 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35]_syn_2.ia
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_63 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_72.ic
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[46]_syn_67 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35]_syn_2.ima
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/data_in[35] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/ram_inst/ramread0_syn_9.dia_extra[3]
+
+
+
+Hold check
+7610 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_284
+7612 0.117000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_299.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_284
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_299.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_284
+7614 0.117000 0.426000 0.543000 0 1
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add1[6][7] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_284.ima
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_287
+7660 0.126000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_296.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_287
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_296.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_287
+7662 0.126000 0.426000 0.552000 0 1
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add1[6][6] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_287.ima
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_263
+7708 0.136000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_302.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_263
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_302.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_263
+7710 0.136000 0.426000 0.562000 0 1
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/add1[6][14] u_ahb_cnn/u_ov5640_hdmi/conv_top_u/conv1_u/add_tree_conv1_u3/reg2_syn_263.ima
+
+
+
+Recovery check
+7756 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg1_syn_37
+7758 35.069000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg1_syn_37
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg1_syn_37
+7760 35.069000 40.631000 5.562000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg1_syn_37.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_40
+7806 35.524000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_40
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_40
+7808 35.524000 40.636000 5.112000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_40.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_45
+7854 35.524000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_45
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_45
+7856 35.524000 40.636000 5.112000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/reg0_syn_45.asr
+
+
+
+Removal check
+7902 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_38
+7904 0.115000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_38
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_38
+7906 0.115000 0.435000 0.550000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_38.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg2_syn_28
+7952 0.165000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg2_syn_28
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg2_syn_28
+7954 0.165000 0.447000 0.612000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg2_syn_28.asr
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_34
+8000 0.165000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk->u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_34
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst0_reg_syn_4.clk
+u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_34
+8002 0.165000 0.447000 0.612000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/asy_r_rst1 u_ahb_cnn/u_ov5640_hdmi/conv_top_u/U2_p1_data_fifo/cnnfifo1_u/reg0_syn_34.asr
+
+
+
+
+Path delay: 5ns max
+8048 40 40 1
+Max path
+8058 3
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_39
+8058 4.035000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg0_syn_36.clk->u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_39
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg0_syn_36.clk
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_39
+8060 4.035000 5.821000 1.786000 0 1
+u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/primary_addr_gray_reg[7] u_ahb_cnn/u_ov5640_hdmi/u_sdram_top/u_sdram_fifo_ctrl/u_wrfifo/rd_to_wr_cross_inst/reg3_syn_39.ima
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_37
+8094 3.982000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg0_syn_37.clk->u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_37
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg0_syn_37.clk
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_37
+8096 3.982000 4.940000 0.958000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/primary_addr_gray_reg[1] u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_37.imb
+
+
+Endpoint: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_40
+8131 4.013000 1 1
+Timing path: u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg0_syn_40.clk->u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_40
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg0_syn_40.clk
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_40
+8133 4.013000 4.940000 0.927000 0 1
+u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/primary_addr_gray_reg[2] u_ahb_cnn/u_ov5640_hdmi/capture_reshape_u/cam_reshape_fifo_u/wr_to_rd_cross_inst/reg3_syn_40.imb
+
+
+
+
+
+Timing group statistics: 
+	Clock constraints: 
+	  Clock Name                                  Min Period     Max Freq           Skew      Fanout            TNS
+	  clk_50m (25.0MHz)                             14.267ns      70.092MHz        0.440ns      9199        0.000ns
+	  CLK50m (50.0MHz)                              19.969ns      50.078MHz        0.309ns      4662        0.000ns
+	  clk_100MHz (100.0MHz)                          8.855ns     112.931MHz        0.285ns       414        0.000ns
+	  clk_100m (100.0MHz)                            8.062ns     124.000MHz        0.279ns       158        0.000ns
+	  hdmi_clk (25.0MHz)                            12.000ns      83.333MHz        0.145ns       117        0.000ns
+	  clk_25p2MHz (25.0MHz)                         40.410ns      24.746MHz        0.192ns        85       -0.607ns
+	  hdmi_clk_5 (125.0MHz)                          5.840ns     171.233MHz        0.322ns        30        0.000ns
+	  clk_125MHz (125.0MHz)                          4.948ns     202.000MHz        0.302ns        29        0.000ns
+	Minimum input arrival time before clock: no constraint path
+	Maximum output required time after clock: no constraint path
+	Maximum combinational path delay: no constraint path
+Warning: No clock constraint on 24 clock net(s): 
+	PPU/u_topBackGroundDraw/u_ahb_nameTableRam_interface/readDataMux_n
+	PPU/u_topBackGroundDraw/u_ahb_nameTableRam_interface/readDataMux_n_syn_51
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux3_syn_3
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux3_syn_4
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux4_syn_3
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux4_syn_4
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux5_syn_3
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux5_syn_4
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux6_syn_3
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/mux6_syn_4
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n1
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n1_syn_33
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n3
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n3_syn_33
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n5
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n5_syn_33
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n7
+	PPU/u_topBackGroundDraw/u_scrollCtrl/u_flashToNametable/writeAttributeData_n7_syn_33
+	SWCLK_dup_1
+	SWCLK_syn_3
+	cam_pclk_dup_4
+	cam_pclk_syn_6
+	u_ahb_cnn/u_ov5640_hdmi/u_i2c_dr/dri_clk
+	u_ahb_cnn/u_ov5640_hdmi/u_i2c_dr/dri_clk_syn_3
+
+	Exceptions:
+
+		Check Type:	MIN
+		----------------------------------------------------------------------------------------------------
+		       Path Num     Constraint                                                                      
+		             40     set_false_path -hold -from [ get_regs {*/primary_addr_gray_reg[*]} ] -to [ get_regs {*/sync_r1[*]} ]
+

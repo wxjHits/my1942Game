@@ -49,6 +49,7 @@ const uint8_t BOOM_NUMMAX=5;
 BOOMType boom[BOOM_NUMMAX];
 
 uint8_t timer_cnt;
+uint8_t timer_cnt_longer;
 uint8_t start;//我方飞机的闪避动作
 bool gameingPause;//游戏暂停标志位
 
@@ -97,11 +98,14 @@ int PS2_KEY_PIFU=0;//???????
 bool GAME_PLAY_MODE = false;//游戏操作模式的标志
 uint32_t read_cnn_out;//手势识别结果：1--“拳头” 2--手势“5” 4--空白或者手势"1" 8--手势“6”
 uint8_t READ_JY61P_VALUE;//串口陀螺仪数据处理结果
+bool GAME_HIT_CHECK_FLAG = true;//是否开启碰撞检测
 
+//OV5640RGB模式下的阈值
+uint32_t OV5640_RGB_THRESHOLD=0x70;
 int main(void)
 {        
    uart_init (UART, (50000000 / 115200), 1,1,0,0,0,0);
-   write_ov5640_config(0,0x70,0x8C878C73);//配置摄像头阈值分割
+   write_ov5640_config(0,OV5640_RGB_THRESHOLD,0x8C878C73);//配置摄像头阈值分割
    printf("OV5640: %x,%x,%x\n",CNN->bus_bin_mode_ctrl,CNN->bus_bin_rgb_threshold,CNN->bus_bin_crbr_threshold);
    // // JY61P test
    // while (1){
@@ -210,6 +214,7 @@ int main(void)
          }
          else if(game_state==1){//??????
             timer_cnt=0;
+            timer_cnt_longer=0;
             start=0;
             gameingPause=0;
             gameRunState=0;
@@ -336,21 +341,17 @@ int main(void)
             PS2_KEY_GAMING=PS2_DataKey();
             READ_JY61P_VALUE = read_JY61P_flag();
             read_cnn_out = read_cnn_result();
-            printf("CNN_RESULT=%u\n",read_cnn_out);
+            // printf("CNN_RESULT=%u\n",read_cnn_out);
 
             timer_cnt++;
-            if(timer_cnt>=24){
-               timer_cnt=0;
+            timer_cnt_longer++;
+            if(timer_cnt_longer>=36){
+               timer_cnt_longer=0;
                if(GAME_PLAY_MODE==false){
-                     if((Data[4]&0x10)==0){//PS2_KEY_GAMING==PSB_GREEN||?????????????发射子弹
-                        if(myplane.actFlag==0){
-                           myPlane_createOneBullet(&myplane,&myBullet);
-                        }
-                     }
-                     else if(PS2_KEY_GAMING==PSB_RED){//闪避动作
+                     if((Data[4]&0x20)==0 && gameingPause==false){//闪避动作PS2_KEY_GAMING==PSB_RED
                         start=1;
                      }
-                     else if (PS2_KEY_GAMING==PSB_PINK){//暂停
+                     else if ((Data[4]&0x80)==0){//暂停PS2_KEY_GAMING==PSB_PINK
                         if(gameingPause==0){
                            NAMETABLE->scrollPause=1;
                            gameingPause=1;
@@ -363,13 +364,9 @@ int main(void)
                      }
                }
                else{
-                  if(read_cnn_out==CNN_FIST){//手势为拳头，发射子弹
-                     if(myplane.actFlag==0)
-                           myPlane_createOneBullet(&myplane,&myBullet);
-                  }
-                  else if(read_cnn_out==CNN_FIVE)//手势为five，开始闪避
+                  if(read_cnn_out==CNN_SIX && gameingPause==false)//手势为five，开始闪避
                      start=1;
-                  else if (PS2_KEY_GAMING==CNN_SIX){//手势六，暂停/取消暂停
+                  else if (read_cnn_out==CNN_FIST){//手势六，暂停/取消暂停
                         if(gameingPause==0){
                            NAMETABLE->scrollPause=1;
                            gameingPause=1;
@@ -381,33 +378,100 @@ int main(void)
                         }
                      }
                }
+            }
+
+            if(timer_cnt>=20){//只是针对发发射子弹的频率
+               timer_cnt=0;
+               if(GAME_PLAY_MODE==false){
+                     if((Data[4]&0x10)==0 && gameingPause==false){//PS2_KEY_GAMING==PSB_GREEN||?????????????发射子弹
+                        if(myplane.actFlag==0){
+                           myPlane_createOneBullet(&myplane,&myBullet);
+                        }
+                     }
+                     // else if((Data[4]&0x20)==0 && gameingPause==false){//闪避动作PS2_KEY_GAMING==PSB_RED
+                     //    start=1;
+                     // }
+                     // else if ((Data[4]&0x80)==0){//暂停PS2_KEY_GAMING==PSB_PINK
+                     //    if(gameingPause==0){
+                     //       NAMETABLE->scrollPause=1;
+                     //       gameingPause=1;
+                     //    }
+                     //    else{
+                     //       NAMETABLE->scrollPause=0;
+                     //       gameingPause=0;
+                     //       apu_Intr_Trigger();
+                     //    }
+                     // }
+               }
+               else{
+                  if(read_cnn_out==CNN_FIVE && gameingPause==false){//手势为拳头，发射子弹
+                     if(myplane.actFlag==0)
+                           myPlane_createOneBullet(&myplane,&myBullet);
+                  }
+                  // else if(read_cnn_out==CNN_SIX && gameingPause==false)//手势为five，开始闪避
+                  //    start=1;
+                  // else if (read_cnn_out==CNN_FIST){//手势六，暂停/取消暂停
+                  //       if(gameingPause==0){
+                  //          NAMETABLE->scrollPause=1;
+                  //          gameingPause=1;
+                  //       }
+                  //       else{
+                  //          NAMETABLE->scrollPause=0;
+                  //          gameingPause=0;
+                  //          apu_Intr_Trigger();
+                  //       }
+                  //    }
+               }
                
                
             }
-            if(timer_cnt%3==1){
+            if(timer_cnt%3==1 && gameingPause==false){
                if(GAME_PLAY_MODE==false){
-                  switch (PS2_KEY_GAMING){
-                     case PSB_PAD_LEFT:
-                        if(myplane.PosX>LEFT_LINE+20)
-                          myplane.PosX-=5;
-                        break;
-                     case PSB_PAD_RIGHT:
-                        if(myplane.PosX<RIGHT_LINE-20)
-                          myplane.PosX+=5;
-                        break;
-                     case PSB_PAD_UP:
-                        if(myplane.PosY>TOP_LINE+20)
-                          myplane.PosY-=5;
-                        break;
-                     case PSB_PAD_DOWN:
-                        if(myplane.PosY<BOTTOM_LINE-20)
-                           myplane.PosY+=5;
-                        break;
-                     default: break;
+   //                PSB_PAD_UP,//5
+   //  PSB_PAD_RIGHT,//6
+   //  PSB_PAD_DOWN,//7
+   //  PSB_PAD_LEFT,//8
+
+                  if((Data[3]&0x10)==0){//PSB_PAD_UP
+                     if(myplane.PosY>TOP_LINE+20)
+                        myplane.PosY-=5;
                   }
+                  else if((Data[3]&0x40)==0){//PSB_PAD_DOWN
+                     if(myplane.PosY<BOTTOM_LINE-20)
+                        myplane.PosY+=5;
+                  }
+
+                  if((Data[3]&0x20)==0){//PSB_PAD_RIGHT
+                     if(myplane.PosX<RIGHT_LINE-20)
+                          myplane.PosX+=5;
+                  }
+                  else if((Data[3]&0x80)==0){//PSB_PAD_LEFT
+                     if(myplane.PosX>LEFT_LINE+20)
+                          myplane.PosX-=5;
+                  }
+
+                  // switch (PS2_KEY_GAMING){
+                  //    case PSB_PAD_LEFT:
+                  //       if(myplane.PosX>LEFT_LINE+20)
+                  //         myplane.PosX-=5;
+                  //       break;
+                  //    case PSB_PAD_RIGHT:
+                  //       if(myplane.PosX<RIGHT_LINE-20)
+                  //         myplane.PosX+=5;
+                  //       break;
+                  //    case PSB_PAD_UP:
+                  //       if(myplane.PosY>TOP_LINE+20)
+                  //         myplane.PosY-=5;
+                  //       break;
+                  //    case PSB_PAD_DOWN:
+                  //       if(myplane.PosY<BOTTOM_LINE-20)
+                  //          myplane.PosY+=5;
+                  //       break;
+                  //    default: break;
+                  // }
                }
                else {
-                  switch (READ_JY61P_VALUE){
+                  switch (READ_JY61P_VALUE & 0x0f){
                      case 1:
                         if(myplane.PosY>TOP_LINE+20)
                           myplane.PosY-=5;
@@ -459,7 +523,9 @@ int main(void)
 
             enemyAndBulletMapCreate(&s_grey_plane,&s_green_plane,&b_green_plane,&enmeyBullets,&enemyPlaneAndBullet_HitMap);
             
-            isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+            if(GAME_HIT_CHECK_FLAG==true)//对我方飞机进行碰撞检测与否
+               isMyPlaneHit(&myplane,&enemyPlaneAndBullet_HitMap,&boom);
+
             isHit_s_EnemyPlane(&s_grey_plane,&s_green_plane,&myBulletsHitMap,&boom);
             isHit_m_straight_EnemyPlane(&m_straight_plane,&myBulletsHitMap,&boom);
             isHit_b_EnemyPlane(&b_green_plane,&myBulletsHitMap,&boom);

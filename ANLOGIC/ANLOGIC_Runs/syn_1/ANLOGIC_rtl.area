@@ -1,0 +1,274 @@
+standard
+***Report Model: CortexM3 Device: PH1A60GEG324***
+
+IO Statistics
+#IO                        99
+  #input                   22
+  #output                  59
+  #inout                   18
+
+Gate Statistics
+#Basic gates            98646
+  #and                  41221
+  #nand                     0
+  #or                    5405
+  #nor                      0
+  #xor                   1254
+  #xnor                    28
+  #buf                      0
+  #not                  28165
+  #bufif1                  19
+  #MX21                  3004
+  #FADD                     0
+  #DFF                  19550
+  #LATCH                    0
+#MACRO_ADD                831
+#MACRO_EQ                 449
+#MACRO_MULT                32
+#MACRO_MUX               9614
+#MACRO_OTHERS             110
+
+Report Hierarchy Area:
++-------------------------------------------------------------------------------------------------------------------+
+|Instance                               |Module                                             |gates  |seq    |macros |
++-------------------------------------------------------------------------------------------------------------------+
+|top                                    |CortexM3                                           |79096  |19550  |1422   |
+|  APU                                  |ahb_apu                                            |322    |292    |88     |
+|    apu_frame_counter_blk              |apu_frame_counter                                  |32     |16     |6      |
+|    apu_mixer_blk                      |apu_mixer                                          |0      |3      |6      |
+|    apu_noise_blk                      |apu_noise                                          |42     |62     |27     |
+|      envelope_generator               |apu_envelope_generator                             |11     |14     |4      |
+|        divider                        |apu_div                                            |1      |4      |2      |
+|      length_counter                   |apu_length_counter                                 |6      |8      |2      |
+|      timer                            |apu_div                                            |3      |12     |2      |
+|    apu_pulse0_blk                     |apu_pulse                                          |97     |63     |16     |
+|      envelope_generator               |apu_envelope_generator                             |10     |14     |4      |
+|        divider                        |apu_div                                            |1      |4      |2      |
+|      length_counter                   |apu_length_counter                                 |6      |8      |2      |
+|      sweep_divider                    |apu_div                                            |2      |3      |2      |
+|      timer                            |apu_div                                            |3      |12     |2      |
+|    apu_pulse1_blk                     |apu_pulse                                          |97     |63     |16     |
+|      envelope_generator               |apu_envelope_generator                             |10     |14     |4      |
+|        divider                        |apu_div                                            |1      |4      |2      |
+|      length_counter                   |apu_length_counter                                 |6      |8      |2      |
+|      sweep_divider                    |apu_div                                            |2      |3      |2      |
+|      timer                            |apu_div                                            |3      |12     |2      |
+|    apu_pulse_gen                      |apu_div                                            |2      |1      |1      |
+|    apu_triangle_blk                   |apu_triangle                                       |28     |51     |7      |
+|      length_counter                   |apu_length_counter                                 |5      |8      |2      |
+|      timer                            |apu_div                                            |1      |11     |2      |
+|  AhbBridge                            |cmsdk_ahb_to_ahb_sync                              |58     |74     |10     |
+|    gen_burst_support$u_ahb_error_canc |cmsdk_ahb_to_ahb_sync_error_canc                   |14     |3      |6      |
+|  ApbBridge                            |cmsdk_ahb_to_apb                                   |12     |51     |4      |
+|  DTCM                                 |Block_RAM                                          |0      |0      |4      |
+|  DTCM_Interface                       |AHBlite_Block_RAM                                  |18     |19     |0      |
+|  ITCM                                 |Block_RAM                                          |0      |0      |4      |
+|  ITCM_Interface                       |AHBlite_Block_RAM                                  |18     |19     |0      |
+|  JY61P                                |apb_JY61P                                          |97     |103    |17     |
+|    u_JY61P_uart_data                  |JY61P_uart_data                                    |78     |87     |15     |
+|      u_uart_recv                      |uart_recv                                          |59     |33     |13     |
+|  L1AhbMtx                             |L1AhbMtx                                           |455    |140    |41     |
+|    u_L1AhbMtxInStg_0                  |L1AhbMtxInStg                                      |15     |34     |0      |
+|    u_L1AhbMtxInStg_1                  |L1AhbMtxInStg                                      |14     |30     |0      |
+|    u_L1AhbMtxInStg_2                  |L1AhbMtxInStg                                      |22     |42     |4      |
+|    u_l1ahbmtxdecs0                    |L1AhbMtxDecS0                                      |41     |3      |4      |
+|      u_L1AhbMtx_default_slave         |L1AhbMtx_default_slave                             |4      |2      |0      |
+|    u_l1ahbmtxdecs1                    |L1AhbMtxDecS1                                      |41     |3      |4      |
+|      u_L1AhbMtx_default_slave         |L1AhbMtx_default_slave                             |4      |2      |0      |
+|    u_l1ahbmtxdecs2                    |L1AhbMtxDecS2                                      |35     |6      |14     |
+|      u_L1AhbMtx_default_slave         |L1AhbMtx_default_slave                             |4      |2      |0      |
+|    u_l1ahbmtxdecs3                    |L1AhbMtxDecS3                                      |0      |1      |0      |
+|    u_l1ahbmtxoutstgm0_0               |L1AhbMtxOutStgM0                                   |73     |3      |4      |
+|      u_output_arb                     |L1AhbMtxArbM0                                      |11     |2      |1      |
+|    u_l1ahbmtxoutstgm1_1               |L1AhbMtxOutStgM1                                   |74     |4      |3      |
+|      u_output_arb                     |L1AhbMtxArbM1                                      |9      |2      |1      |
+|    u_l1ahbmtxoutstgm2_2               |L1AhbMtxOutStgM2                                   |24     |5      |3      |
+|      u_output_arb                     |L1AhbMtxArbM2                                      |9      |2      |1      |
+|    u_l1ahbmtxoutstgm3_3               |L1AhbMtxOutStgM3                                   |63     |4      |3      |
+|      u_output_arb                     |L1AhbMtxArbM3                                      |9      |2      |1      |
+|    u_l1ahbmtxoutstgm4_4               |L1AhbMtxOutStgM4                                   |53     |5      |2      |
+|      u_output_arb                     |L1AhbMtxArbM4                                      |9      |2      |1      |
+|  L2AhbMtx                             |L2AhbMtx                                           |147    |62     |30     |
+|    u_L2AhbInStg_0                     |L2AhbInStg                                         |22     |35     |4      |
+|    u_l2ahbdecs0                       |L2AhbDecS0                                         |41     |5      |9      |
+|      u_L2AhbMtx_default_slave         |L2AhbMtx_default_slave                             |4      |2      |0      |
+|    u_l2ahboutstg_0                    |L2AhbOutStg                                        |19     |4      |2      |
+|      u_output_arb                     |L2AhbArb                                           |8      |2      |2      |
+|    u_l2ahboutstg_1                    |L2AhbOutStg                                        |22     |6      |5      |
+|      u_output_arb                     |L2AhbArb                                           |11     |5      |5      |
+|    u_l2ahboutstg_2                    |L2AhbOutStg                                        |22     |6      |5      |
+|      u_output_arb                     |L2AhbArb                                           |11     |5      |5      |
+|    u_l2ahboutstg_3                    |L2AhbOutStg                                        |21     |6      |5      |
+|      u_output_arb                     |L2AhbArb                                           |11     |5      |5      |
+|  PPU                                  |topPPU                                             |753    |917    |323    |
+|    u_ppu_hdmi_driver                  |ppu_hdmi_driver                                    |80     |174    |112    |
+|      u_ppu_video_driver               |ppu_video_driver                                   |17     |20     |15     |
+|      u_rgb2dvi                        |dvi_transmitter                                    |63     |154    |97     |
+|        encoder_b                      |dvi_encoder                                        |21     |41     |29     |
+|        encoder_g                      |dvi_encoder                                        |21     |35     |29     |
+|        encoder_r                      |dvi_encoder                                        |21     |35     |29     |
+|        reset_syn                      |asyn_rst_syn                                       |0      |2      |0      |
+|        serializer_b                   |serializer_10_to_1                                 |0      |13     |4      |
+|        serializer_clk                 |serializer_10_to_1                                 |0      |8      |2      |
+|        serializer_g                   |serializer_10_to_1                                 |0      |10     |2      |
+|        serializer_r                   |serializer_10_to_1                                 |0      |10     |2      |
+|    u_topBackGroundDraw                |topBackGroundDraw                                  |296    |317    |69     |
+|      u_ahb_nameTableRam_interface     |ahb_nameTableRam_interface                         |138    |83     |18     |
+|      u_backGroundTileRom              |backGroundTileRom                                  |0      |0      |0      |
+|      u_backTileDraw                   |backTileDraw                                       |12     |31     |7      |
+|        paletteBackground_inst         |paletteBackground                                  |5      |0      |0      |
+|      u_nameTableRam                   |nameTableRam                                       |0      |0      |10     |
+|      u_scrollCtrl                     |scrollCtrl                                         |139    |182    |31     |
+|        u_flashToNametable             |flashToNametable                                   |121    |147    |15     |
+|          scroll_spi                   |spi                                                |48     |29     |7      |
+|    u_topSpriteDraw                    |topSpriteDraw                                      |373    |424    |137    |
+|      ahb_spriteRam_interface_inst     |ahb_spriteRam_interface                            |17     |11     |0      |
+|      eightRam_inst                    |eightRam                                           |42     |255    |8      |
+|      spriteRam_inst                   |spriteRam                                          |0      |61     |8      |
+|      spriteTileRom_inst               |spriteTileRom                                      |0      |0      |8      |
+|      tiltDraw_inst[0]$u_tileDraw      |tileDraw                                           |11     |20     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[1]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[2]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[3]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[4]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[5]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[6]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|      tiltDraw_inst[7]$u_tileDraw      |tileDraw                                           |11     |11     |14     |
+|        paletteSprite_inst             |paletteSprite                                      |5      |0      |0      |
+|  UART                                 |cmsdk_apb_uart                                     |98     |116    |23     |
+|  led                                  |apb_led                                            |5      |8      |0      |
+|  pll_hdmi_inst                        |pll_hdmi                                           |0      |0      |1      |
+|  u_ahb_cnn                            |ahb_cnn                                            |1741   |12656  |775    |
+|    u_ov5640_hdmi                      |ov5640_hdmi                                        |1692   |12604  |773    |
+|      capture_reshape_u                |capture_reshape_pool                               |59     |146    |20     |
+|        cam_reshape_fifo_u             |cam_reshape_fifo                                   |38     |105    |7      |
+|          ram_inst                     |ram_infer_cam_reshape_fifo                         |0      |0      |1      |
+|          rd_to_wr_cross_inst          |fifo_cross_domain_addr_process_al_cam_reshape_fifo |17     |40     |0      |
+|          wr_to_rd_cross_inst          |fifo_cross_domain_addr_process_al_cam_reshape_fifo |17     |40     |0      |
+|        maxpool1                       |poolsingle                                         |4      |10     |3      |
+|        maxpool2                       |poolsingle                                         |4      |9      |3      |
+|        maxpool3                       |poolsingle                                         |4      |8      |3      |
+|      conv_top_u                       |conv_top                                           |460    |11598  |503    |
+|        U2_p1_data_fifo                |p1_data_fifo                                       |9      |55     |14     |
+|          cnnfifo1_u                   |cnnfifo1                                           |4      |25     |7      |
+|            ram_inst                   |ram_infer_cnnfifo1                                 |0      |0      |1      |
+|        U_p2_data_fifo                 |p2_data_fifo                                       |12     |46     |13     |
+|          cnnfifo2_u                   |fcfifo                                             |4      |25     |7      |
+|            ram_inst                   |ram_infer_fcfifo                                   |0      |0      |1      |
+|        conv1_u                        |conv1                                              |33     |5061   |218    |
+|          [0]$graylinebuffer_U         |linebuffer                                         |0      |1      |1      |
+|          [1]$graylinebuffer_U         |linebuffer                                         |0      |1      |1      |
+|          [2]$graylinebuffer_U         |linebuffer                                         |0      |1      |1      |
+|          [3]$graylinebuffer_U         |linebuffer                                         |0      |1      |1      |
+|          add_tree_conv1_u1            |add_tree_conv1                                     |0      |416    |25     |
+|          add_tree_conv1_u2            |add_tree_conv1                                     |0      |416    |25     |
+|          add_tree_conv1_u3            |add_tree_conv1                                     |0      |416    |25     |
+|          add_tree_conv1_u4            |add_tree_conv1                                     |0      |416    |25     |
+|          add_tree_conv1_u5            |add_tree_conv1                                     |0      |416    |25     |
+|          add_tree_conv1_u6            |add_tree_conv1                                     |0      |416    |25     |
+|          bias_rom_u                   |c1bias_rom                                         |0      |0      |1      |
+|          weights_rom_u1               |c1weights_rom                                      |0      |0      |1      |
+|          weights_rom_u2               |c1weights_rom                                      |0      |0      |1      |
+|          weights_rom_u3               |c1weights_rom                                      |0      |0      |1      |
+|          weights_rom_u4               |c1weights_rom                                      |0      |0      |1      |
+|          weights_rom_u5               |c1weights_rom                                      |0      |0      |1      |
+|          weights_rom_u6               |c1weights_rom                                      |0      |0      |1      |
+|        conv2_u                        |conv2                                              |129    |3175   |90     |
+|          [0]$conv2linebuffer_U        |linebuffer                                         |0      |0      |1      |
+|          [1]$conv2linebuffer_U        |linebuffer                                         |0      |0      |1      |
+|          [2]$conv2linebuffer_U        |linebuffer                                         |0      |0      |1      |
+|          [3]$conv2linebuffer_U        |linebuffer                                         |0      |0      |1      |
+|          c2weights_rom_row0           |c2weights_rom                                      |0      |0      |1      |
+|        fc1_u                          |fc1                                                |40     |1506   |11     |
+|          fc1weights_rom_u             |fcweights_rom                                      |0      |0      |1      |
+|        fc2_u                          |fc2                                                |154    |709    |20     |
+|          fc1weights_rom_u             |fcweights_rom                                      |0      |0      |1      |
+|        pool1_u                        |pool1                                              |2      |197    |25     |
+|          [0]$pool1_data_linebuffer_U  |linebuffer                                         |0      |16     |1      |
+|          [1]$pool1_data_linebuffer_U  |linebuffer                                         |0      |16     |1      |
+|          [2]$pool1_data_linebuffer_U  |linebuffer                                         |0      |16     |1      |
+|          [3]$pool1_data_linebuffer_U  |linebuffer                                         |0      |16     |1      |
+|          [4]$pool1_data_linebuffer_U  |linebuffer                                         |0      |16     |1      |
+|          [5]$pool1_data_linebuffer_U  |linebuffer                                         |0      |16     |1      |
+|        pool2_u                        |pool2                                              |81     |849    |112    |
+|          [0]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [10]$poolsingle_u            |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [11]$poolsingle_u            |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [12]$poolsingle_u            |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [13]$poolsingle_u            |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [14]$poolsingle_u            |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [15]$poolsingle_u            |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [1]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [2]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [3]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [4]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [5]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [6]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [7]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [8]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|          [9]$poolsingle_u             |poolsingle                                         |4      |52     |6      |
+|            pool1_data_linebuffer_U    |linebuffer                                         |0      |16     |1      |
+|      u_cmos_capture_data              |cmos_capture_data                                  |32     |230    |32     |
+|        box_select_u                   |box_select                                         |18     |32     |14     |
+|        u_rgb2ycbcr                    |imgbin                                             |4      |163    |15     |
+|      u_hdmi_top                       |hdmi_top                                           |73     |178    |111    |
+|        u_rgb2dvi_0                    |dvi_transmitter_top                                |67     |158    |98     |
+|          encoder_b                    |dvi_encoder                                        |22     |42     |29     |
+|          encoder_g                    |dvi_encoder                                        |23     |37     |30     |
+|          encoder_r                    |dvi_encoder                                        |22     |36     |29     |
+|          reset_syn                    |asyn_rst_syn                                       |0      |2      |0      |
+|          serializer_b                 |serializer_10_to_1                                 |0      |13     |4      |
+|          serializer_clk               |serializer_10_to_1                                 |0      |8      |2      |
+|          serializer_g                 |serializer_10_to_1                                 |0      |10     |2      |
+|          serializer_r                 |serializer_10_to_1                                 |0      |10     |2      |
+|        u_video_driver                 |video_driver                                       |6      |20     |13     |
+|      u_i2c_cfg                        |i2c_ov5640_rgb565_cfg                              |3      |24     |8      |
+|      u_i2c_dr                         |i2c_dri                                            |882    |56     |44     |
+|      u_sdram_top                      |sdram_top                                          |179    |372    |54     |
+|        u_sdram_controller             |sdram_controller                                   |79     |99     |32     |
+|          u_sdram_cmd                  |sdram_cmd                                          |19     |18     |10     |
+|          u_sdram_ctrl                 |sdram_ctrl                                         |43     |48     |22     |
+|          u_sdram_data                 |sdram_data                                         |17     |33     |0      |
+|        u_sdram_fifo_ctrl              |sdram_fifo_ctrl                                    |100    |273    |22     |
+|          u_rdfifo                     |FIFO                                               |38     |121    |8      |
+|            ram_inst                   |ram_infer_FIFO                                     |0      |16     |1      |
+|            rd_to_wr_cross_inst        |fifo_cross_domain_addr_process_al_FIFO             |17     |40     |0      |
+|            wr_to_rd_cross_inst        |fifo_cross_domain_addr_process_al_FIFO             |17     |40     |0      |
+|          u_wrfifo                     |FIFO                                               |39     |119    |8      |
+|            ram_inst                   |ram_infer_FIFO                                     |0      |16     |1      |
+|            rd_to_wr_cross_inst        |fifo_cross_domain_addr_process_al_FIFO             |17     |40     |0      |
+|            wr_to_rd_cross_inst        |fifo_cross_domain_addr_process_al_FIFO             |17     |40     |0      |
+|  u_apb_pstwo                          |apb_pstwo                                          |7      |5      |0      |
+|  u_apb_spi                            |apb_spi                                            |39     |65     |7      |
+|    u_spi                              |spi                                                |32     |39     |7      |
+|  u_clk_pll                            |clk_pll                                            |0      |0      |1      |
+|  u_cmsdk_apb_slave_mux                |cmsdk_apb_slave_mux                                |107    |0      |15     |
+|  u_key_intr_0                         |key_intr                                           |6      |23     |3      |
+|  u_key_intr_1                         |key_intr                                           |6      |23     |3      |
+|  u_key_intr_2                         |key_intr                                           |6      |23     |3      |
+|  u_key_intr_3                         |key_intr                                           |6      |23     |3      |
+|  u_pll                                |pll                                                |0      |0      |1      |
+|  ulogic                               |cortexm3ds_logic                                   |75182  |4929   |66     |
++-------------------------------------------------------------------------------------------------------------------+

@@ -71,7 +71,6 @@ void myPlane_Act(MYPLANEType* myPlane,uint8_t* start){
             myPlane->actFpsCnt=0;
             myPlane->attitude=1;
             *start=0;
-            LED_toggle(3);
         }
     }
     else{

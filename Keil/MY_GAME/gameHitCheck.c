@@ -79,6 +79,11 @@ void isMyPlaneHit(MYPLANEType* myPlane,hitMapType* enemyPlaneAndBullet_HitMap,BO
             myPlane->PosX=255;
             myPlane->PosY=239;
             myPlane->liveFlag=0;
+            //爆炸音效
+                set_noise_00(0x8F);
+                set_noise_01(0x00);
+                set_noise_10(0x95);
+                set_noise_11(0x98);
         }
     }
 }

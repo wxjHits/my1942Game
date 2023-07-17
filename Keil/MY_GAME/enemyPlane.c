@@ -526,7 +526,7 @@ void m_straight_createOnePlane(M_STRAIGHT_PLANEType* plane,int16_t occurPosX){
     for (int i = 0; i < M_STRAIGHT_NUMMAX; i++){
         if((plane+i)->liveFlag==0){
             (plane+i)->liveFlag=1;
-            (plane+i)->hp=20;
+            (plane+i)->hp=16;
             (plane+i)->FpsCnt=0;
             (plane+i)->PosX = occurPosX ;
             (plane+i)->PosY = BOTTOM_LINE-5-20*rand()%2;
@@ -617,7 +617,7 @@ void b_green_createOnePlane(B_GREEN_PLANEType* plane){
     for (int i = 0; i < B_GREEN_NUMMAX; i++){
         if((plane+i)->liveFlag==0){
             (plane+i)->liveFlag=1;
-            (plane+i)->hp=30;
+            (plane+i)->hp=25;
             (plane+i)->FpsCnt=0;
             (plane+i)->PosX=100*rand()%2+100;
             (plane+i)->PosY=180;

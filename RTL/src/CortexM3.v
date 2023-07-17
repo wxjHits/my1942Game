@@ -22,7 +22,11 @@ module CortexM3 #(
     output      wire            PS2_DO      ,
     input       wire            PS2_DI      ,
     //KEY 
-    input       wire            KEY_IN      ,//L15
+    input       wire            KEY_IN_0    ,//T9 ,用于开关背景音效
+    input       wire            KEY_IN_1    ,//T10,用于开关我方飞机碰撞检测
+    input       wire            BUTTON_IN_L15   ,//L15,用于调节阈值减
+    input       wire            BUTTON_IN_R11   ,//R11,用于调节阈值加
+    
     //LED
     output      wire    [3:0]   OUTLED      ,
     //JY61P
@@ -167,10 +171,12 @@ module CortexM3 #(
     wire            TRIANGLEINT     ;
     wire            NOISEINT        ;
 
-    wire            KEY_INTR        ;
-    assign     GPIOINT[0] = KEY_INTR;//对应软件中的KEY0中断
+    wire            KEY_INTR_0      ;
+    wire            KEY_INTR_1      ;
+    wire            KEY_INTR_2      ;
+    wire            KEY_INTR_3      ;
 
-    assign IRQ = {226'b0,NOISEINT,TRIANGLEINT,PULSE1INT,PULSE0INT,createPlaneIntr,VGA_Intr,TIMERINT,GPIOINT[3:1],KEY_INTR,RXOVRINT,RXINT,TXINT};
+    assign IRQ = {226'b0,NOISEINT,TRIANGLEINT,PULSE1INT,PULSE0INT,createPlaneIntr,VGA_Intr,TIMERINT,KEY_INTR_3,KEY_INTR_2,KEY_INTR_1,KEY_INTR_0,RXOVRINT,RXINT,TXINT};
 //
 
 /***************GLOBAL BUF********************/
@@ -1473,12 +1479,33 @@ module CortexM3 #(
     assign APU_GND = 1'b0 ;
 //
 
-/***添加的一个按键中断***/
-key_intr  u_key_intr(
+/***添加的2个按键中断***/
+key_intr  u_key_intr_0(
     .clk        (clk        )   ,//系统时钟50Mhz
-    .rstn       (cpuresetn  )   ,//全局复位
-    .key_in     (KEY_IN     )   ,//按键输入信号
-    .key_intr   (KEY_INTR   )    //按键产生的中断
+    .rstn       (RSTn       )   ,//全局复位
+    .key_in     (KEY_IN_0   )   ,//按键输入信号
+    .key_intr   (KEY_INTR_0 )    //按键产生的中断
+);
+
+key_intr  u_key_intr_1(
+    .clk        (clk        )   ,//系统时钟50Mhz
+    .rstn       (RSTn       )   ,//全局复位
+    .key_in     (KEY_IN_1   )   ,//按键输入信号
+    .key_intr   (KEY_INTR_1 )    //按键产生的中断
+);
+
+key_intr  u_key_intr_2(
+    .clk        (clk        )   ,//系统时钟50Mhz
+    .rstn       (RSTn       )   ,//全局复位
+    .key_in     (BUTTON_IN_L15  )   ,//按键输入信号
+    .key_intr   (KEY_INTR_2 )    //按键产生的中断
+);
+
+key_intr  u_key_intr_3(
+    .clk        (clk        )   ,//系统时钟50Mhz
+    .rstn       (RSTn       )   ,//全局复位
+    .key_in     (BUTTON_IN_R11  )   ,//按键输入信号
+    .key_intr   (KEY_INTR_3 )    //按键产生的中断
 );
 //
 endmodule

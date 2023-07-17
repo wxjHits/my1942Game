@@ -21,12 +21,11 @@ uint8_t read_JY61P_flag(void){
         return_value = 0x01;
     else if(jy61p_roll>DOWN)
         return_value = 0x02;
-    else if (jy61p_pitch<LEFT)
+    
+    if (jy61p_pitch<LEFT)
         return_value = return_value|0x30;
     else if(jy61p_pitch>RIGHT)
         return_value = return_value|0x40;
-    else
-        return_value = return_value;
 
     return return_value;
 }

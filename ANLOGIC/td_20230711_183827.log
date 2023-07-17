@@ -1,0 +1,311 @@
+============================================================
+   Tang Dynasty, V5.6.56362
+   Copyright (c) 2012-2022 Anlogic
+   Executable = D:/Anlogic/TD5.6.56362/bin/td.exe
+   Built at =   19:51:00 Jul 25 2022
+   Run by =     hp
+   Run Date =   Tue Jul 11 18:38:27 2023
+
+   Run on =     LAPTOP-E2CVF122
+============================================================
+RUN-001 : GUI based run...
+RUN-1002 : start command "open_project ANLOGIC.al -update"
+RUN-1001 : Print Global Property
+RUN-1001 : ---------------------------------------------------------------
+RUN-1001 :        Parameters        |  Settings  |  Default Values  |  Note  
+RUN-1001 : ---------------------------------------------------------------
+RUN-1001 :          message         |  standard  |     standard     |        
+RUN-1001 :   mixed_pack_place_flow  |     on     |        on        |        
+RUN-1001 :        syn_ip_flow       |    off     |       off        |        
+RUN-1001 :          thread          |    auto    |       auto       |        
+RUN-1001 : ---------------------------------------------------------------
+RUN-1001 : Print Design Property
+RUN-1001 : --------------------------------------------------------------
+RUN-1001 :        Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------------
+RUN-1001 :   default_reg_initial   |    auto    |       auto       |        
+RUN-1001 :        infer_add        |     on     |        on        |        
+RUN-1001 :        infer_fsm        |    off     |       off        |        
+RUN-1001 :        infer_mult       |     on     |        on        |        
+RUN-1001 :        infer_ram        |     on     |        on        |        
+RUN-1001 :        infer_reg        |     on     |        on        |        
+RUN-1001 :   infer_reg_init_value  |     on     |        on        |        
+RUN-1001 :        infer_rom        |     on     |        on        |        
+RUN-1001 :      infer_shifter      |     on     |        on        |        
+RUN-1001 : --------------------------------------------------------------
+RUN-1001 : Print Rtl Property
+RUN-1001 : --------------------------------------------------------------
+RUN-1001 :        Parameters       |  Settings  |  Default Values  |  Note  
+RUN-1001 : --------------------------------------------------------------
+RUN-1001 :       compress_add      |   ripple   |      ripple      |        
+RUN-1001 :        elf_sload        |    off     |       off        |        
+RUN-1001 :       fix_undriven      |     0      |        0         |        
+RUN-1001 :         flatten         |    off     |       off        |        
+RUN-1001 :       gate_sharing      |     on     |        on        |        
+RUN-1001 :    hdl_warning_level    |   normal   |      normal      |        
+RUN-1001 :   impl_internal_tribuf  |     on     |        on        |        
+RUN-1001 :      impl_set_reset     |     on     |        on        |        
+RUN-1001 :        infer_gsr        |    off     |       off        |        
+RUN-1001 :      keep_hierarchy     |    auto    |       auto       |        
+RUN-1001 :        max_fanout       |    9999    |       9999       |        
+RUN-1001 :      max_oh2bin_len     |     10     |        10        |        
+RUN-1001 :       merge_equal       |     on     |        on        |        
+RUN-1001 :       merge_equiv       |     on     |        on        |        
+RUN-1001 :        merge_mux        |    off     |       off        |        
+RUN-1001 :     min_control_set     |     8      |        8         |        
+RUN-1001 :      min_ripple_len     |    auto    |       auto       |        
+RUN-1001 :       oh2bin_ratio      |    0.08    |       0.08       |        
+RUN-1001 :     opt_adder_fanout    |     on     |        on        |        
+RUN-1001 :        opt_arith        |     on     |        on        |        
+RUN-1001 :       opt_big_gate      |    off     |       off        |        
+RUN-1001 :        opt_const        |     on     |        on        |        
+RUN-1001 :      opt_const_mult     |     on     |        on        |        
+RUN-1001 :       opt_lessthan      |     on     |        on        |        
+RUN-1001 :         opt_mux         |    off     |       off        |        
+RUN-1001 :         opt_ram         |    high    |       high       |        
+RUN-1001 :      rtl_sim_model      |    off     |       off        |        
+RUN-1001 :         seq_syn         |     on     |        on        |        
+RUN-1001 : --------------------------------------------------------------
+HDL-1007 : analyze verilog file al_ip/clk_pll.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in al_ip/clk_pll.v(104)
+HDL-1007 : analyze verilog file al_ip/pll.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in al_ip/pll.v(106)
+HDL-1007 : analyze verilog file al_ip/pll_hdmi.v
+HDL-1007 : undeclared symbol 'open', assumed default net type 'wire' in al_ip/pll_hdmi.v(96)
+HDL-1007 : analyze verilog file al_ip/FIFO.v
+HDL-1007 : analyze verilog file al_ip/cam_reshape_fifo.v
+HDL-1007 : analyze verilog file al_ip/cnnfifo1.v
+HDL-1007 : analyze verilog file al_ip/fcfifo.v
+HDL-1007 : analyze verilog file ../RTL/src/CortexM3.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/CortexM3.v(1)
+HDL-1007 : back to file '../RTL/src/CortexM3.v' in ../RTL/src/CortexM3.v(1)
+HDL-1007 : undeclared symbol 'locked', assumed default net type 'wire' in ../RTL/src/CortexM3.v(124)
+HDL-1007 : undeclared symbol 'locked_hdmi', assumed default net type 'wire' in ../RTL/src/CortexM3.v(132)
+HDL-1007 : undeclared symbol 'HWRITER', assumed default net type 'wire' in ../RTL/src/CortexM3.v(450)
+HDL-1007 : undeclared symbol 'HREADYOUT_AHBL2M', assumed default net type 'wire' in ../RTL/src/CortexM3.v(740)
+HDL-1007 : undeclared symbol 'TXEN', assumed default net type 'wire' in ../RTL/src/CortexM3.v(1159)
+HDL-1007 : undeclared symbol 'BAUDTICK', assumed default net type 'wire' in ../RTL/src/CortexM3.v(1160)
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtx.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxArbM0.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxArbM1.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxArbM2.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxArbM3.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxArbM4.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxDecS0.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxDecS1.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxDecS2.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxDecS3.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxDecS4.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v
+HDL-5007 WARNING: macro 'TRN_IDLE' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(113)
+HDL-5007 WARNING: macro 'TRN_BUSY' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(114)
+HDL-5007 WARNING: macro 'TRN_NONSEQ' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(115)
+HDL-5007 WARNING: macro 'TRN_SEQ' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(116)
+HDL-5007 WARNING: macro 'BUR_SINGLE' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(119)
+HDL-5007 WARNING: macro 'BUR_INCR' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(120)
+HDL-5007 WARNING: macro 'BUR_WRAP4' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(121)
+HDL-5007 WARNING: macro 'BUR_INCR4' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(122)
+HDL-5007 WARNING: macro 'BUR_WRAP8' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(123)
+HDL-5007 WARNING: macro 'BUR_INCR8' is redefined in ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxInStg.v(124)
+HDL-5007 Similar messages will be suppressed.
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxOutStgM0.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxOutStgM1.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxOutStgM2.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxOutStgM3.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtxOutStgM4.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/L1AhbMtx/L1AhbMtx_default_slave.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/cmsdk_ahb_to_ahb_sync.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/cmsdk_ahb_to_ahb_sync_error_canc.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v
+HDL-5007 WARNING: macro 'TRN_IDLE' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(78)
+HDL-5007 WARNING: macro 'TRN_BUSY' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(79)
+HDL-5007 WARNING: macro 'TRN_NONSEQ' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(80)
+HDL-5007 WARNING: macro 'TRN_SEQ' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(81)
+HDL-5007 WARNING: macro 'BUR_SINGLE' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(84)
+HDL-5007 WARNING: macro 'BUR_INCR' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(85)
+HDL-5007 WARNING: macro 'BUR_WRAP4' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(86)
+HDL-5007 WARNING: macro 'BUR_INCR4' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(87)
+HDL-5007 WARNING: macro 'BUR_WRAP8' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(88)
+HDL-5007 WARNING: macro 'BUR_INCR8' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbArb.v(89)
+HDL-5007 Similar messages will be suppressed.
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbDecS0.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v
+HDL-5007 WARNING: macro 'TRN_IDLE' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(113)
+HDL-5007 WARNING: macro 'TRN_BUSY' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(114)
+HDL-5007 WARNING: macro 'TRN_NONSEQ' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(115)
+HDL-5007 WARNING: macro 'TRN_SEQ' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(116)
+HDL-5007 WARNING: macro 'BUR_SINGLE' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(119)
+HDL-5007 WARNING: macro 'BUR_INCR' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(120)
+HDL-5007 WARNING: macro 'BUR_WRAP4' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(121)
+HDL-5007 WARNING: macro 'BUR_INCR4' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(122)
+HDL-5007 WARNING: macro 'BUR_WRAP8' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(123)
+HDL-5007 WARNING: macro 'BUR_INCR8' is redefined in ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbInStg.v(124)
+HDL-5007 Similar messages will be suppressed.
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbMtx.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbMtx_default_slave.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_ahb/my_L2AhbMtx/L2AhbOutStg.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_apb/cmsdk_ahb_to_apb.v
+HDL-1007 : analyze verilog file ../RTL/src/bus/sys_apb/cmsdk_apb_slave_mux.v
+HDL-1007 : analyze verilog file ../RTL/src/core/cortexm3ds_logic.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/ahb_apu.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_div.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_envelope_generator.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_frame_counter.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_length_counter.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_mixer.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_noise.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_pulse.v
+HDL-1007 : analyze verilog file ../RTL/src/game/APU/apu_triangle.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/ahb_nameTableRam_interface.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/backGround/ahb_nameTableRam_interface.v(1)
+HDL-1007 : back to file '../RTL/src/game/PPU/backGround/ahb_nameTableRam_interface.v' in ../RTL/src/game/PPU/backGround/ahb_nameTableRam_interface.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/backGroundTileRom.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/backGround/backGroundTileRom.v(4)
+HDL-1007 : back to file '../RTL/src/game/PPU/backGround/backGroundTileRom.v' in ../RTL/src/game/PPU/backGround/backGroundTileRom.v(4)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/backTileDraw.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/backGround/backTileDraw.v(4)
+HDL-1007 : back to file '../RTL/src/game/PPU/backGround/backTileDraw.v' in ../RTL/src/game/PPU/backGround/backTileDraw.v(4)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/flashToNametable.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/nameTableRam.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/backGround/nameTableRam.v(6)
+HDL-1007 : back to file '../RTL/src/game/PPU/backGround/nameTableRam.v' in ../RTL/src/game/PPU/backGround/nameTableRam.v(6)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/paletteBackground.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/backGround/paletteBackground.v(5)
+HDL-1007 : back to file '../RTL/src/game/PPU/backGround/paletteBackground.v' in ../RTL/src/game/PPU/backGround/paletteBackground.v(5)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/scrollCtrl.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/spi.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/backGround/topBackGroundDraw.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/backGround/topBackGroundDraw.v(1)
+HDL-1007 : back to file '../RTL/src/game/PPU/backGround/topBackGroundDraw.v' in ../RTL/src/game/PPU/backGround/topBackGroundDraw.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/hdmi_driver/asyn_rst_syn.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/hdmi_driver/dvi_encoder.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/hdmi_driver/dvi_transmitter.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/hdmi_driver/serializer_10_to_1.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/ahb_spriteRam_interface.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/eightRam.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/spriteDraw/eightRam.v(6)
+HDL-1007 : back to file '../RTL/src/game/PPU/spriteDraw/eightRam.v' in ../RTL/src/game/PPU/spriteDraw/eightRam.v(6)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/paletteSprite.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/spriteDraw/paletteSprite.v(5)
+HDL-1007 : back to file '../RTL/src/game/PPU/spriteDraw/paletteSprite.v' in ../RTL/src/game/PPU/spriteDraw/paletteSprite.v(5)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/spriteRam.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/spriteDraw/spriteRam.v(15)
+HDL-1007 : back to file '../RTL/src/game/PPU/spriteDraw/spriteRam.v' in ../RTL/src/game/PPU/spriteDraw/spriteRam.v(15)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/spriteTileRom.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/spriteDraw/spriteTileRom.v(4)
+HDL-1007 : back to file '../RTL/src/game/PPU/spriteDraw/spriteTileRom.v' in ../RTL/src/game/PPU/spriteDraw/spriteTileRom.v(4)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/titlDraw.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/spriteDraw/titlDraw.v(5)
+HDL-1007 : back to file '../RTL/src/game/PPU/spriteDraw/titlDraw.v' in ../RTL/src/game/PPU/spriteDraw/titlDraw.v(5)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/spriteDraw/topSpriteDraw.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/spriteDraw/topSpriteDraw.v(1)
+HDL-1007 : back to file '../RTL/src/game/PPU/spriteDraw/topSpriteDraw.v' in ../RTL/src/game/PPU/spriteDraw/topSpriteDraw.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/topPPU.v
+HDL-1007 : analyze included file C:/Users/hp/Desktop/my1942Game/RTL/src/game/PPU/define.v in ../RTL/src/game/PPU/topPPU.v(2)
+HDL-1007 : back to file '../RTL/src/game/PPU/topPPU.v' in ../RTL/src/game/PPU/topPPU.v(2)
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/ahb_peripheral/AHBlite_Block_RAM.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/ahb_peripheral/Block_RAM.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/apb_led.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/apb_pstwo.v
+HDL-1007 : undeclared symbol 'read_enable', assumed default net type 'wire' in ../RTL/src/peripheral/apb_peripheral/apb_pstwo.v(75)
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/apb_spi.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/cmsdk_apb_uart.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/spi.v
+HDL-5007 WARNING: overwrite current module 'spi' in ../RTL/src/peripheral/apb_peripheral/spi.v(8)
+HDL-1007 : previous definition of design element 'spi' is here in ../RTL/src/game/PPU/backGround/spi.v(8)
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/apb_JY61P/JY61P_uart_data.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/apb_JY61P/apb_JY61P.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/apb_JY61P/uart_recv.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/hdmi_driver/ppu_hdmi_driver.v
+HDL-1007 : analyze verilog file ../RTL/src/game/PPU/hdmi_driver/ppu_video_driver.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/asyn_rst_syn.v
+HDL-5007 WARNING: overwrite current module 'asyn_rst_syn' in ../RTL/src/game/CNN/cnn_rtl/asyn_rst_syn.v(1)
+HDL-1007 : previous definition of design element 'asyn_rst_syn' is here in ../RTL/src/game/PPU/hdmi_driver/asyn_rst_syn.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/dvi_encoder.v
+HDL-5007 WARNING: overwrite current module 'dvi_encoder' in ../RTL/src/game/CNN/cnn_rtl/dvi_encoder.v(4)
+HDL-1007 : previous definition of design element 'dvi_encoder' is here in ../RTL/src/game/PPU/hdmi_driver/dvi_encoder.v(4)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/serializer_10_to_1.v
+HDL-5007 WARNING: overwrite current module 'serializer_10_to_1' in ../RTL/src/game/CNN/cnn_rtl/serializer_10_to_1.v(3)
+HDL-1007 : previous definition of design element 'serializer_10_to_1' is here in ../RTL/src/game/PPU/hdmi_driver/serializer_10_to_1.v(3)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/add_tree_conv1.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/box_select.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/c1bias_rom.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/cnn_defines.v in ../RTL/src/game/CNN/cnn_rtl/c1bias_rom.v(1)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/c1bias_rom.v' in ../RTL/src/game/CNN/cnn_rtl/c1bias_rom.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/c1weights_rom.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/cnn_defines.v in ../RTL/src/game/CNN/cnn_rtl/c1weights_rom.v(1)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/c1weights_rom.v' in ../RTL/src/game/CNN/cnn_rtl/c1weights_rom.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/c2weights_rom.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/capture_reshape_pool.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/cmos_capture_data.v
+HDL-1007 : undeclared symbol 'cmos_frame_hsync', assumed default net type 'wire' in ../RTL/src/game/CNN/cnn_rtl/cmos_capture_data.v(156)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/conv1.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/cnn_defines.v in ../RTL/src/game/CNN/cnn_rtl/conv1.v(1)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/conv1.v' in ../RTL/src/game/CNN/cnn_rtl/conv1.v(1)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv1.v(51)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv1.v(60)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/conv2.v
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv2.v(47)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv2.v(54)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv2.v(81)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv2.v(91)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv2.v(90)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/conv2.v(269)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/conv_top.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/cnn_defines.v in ../RTL/src/game/CNN/cnn_rtl/conv_top.v(1)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/conv_top.v' in ../RTL/src/game/CNN/cnn_rtl/conv_top.v(1)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/dvi_transmitter_top.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/fc1.v
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/fc1.v(209)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/fc1.v(218)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/fc2.v
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/fc2.v(28)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/fcweights_rom.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/hdmi_top.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/i2c_dri.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/i2c_ov5640_rgb565_cfg.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/imgbin.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/linebuffer.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/ov5640_hdmi.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/p1_data_fifo.v
+HDL-1007 : undeclared symbol 'valid', assumed default net type 'wire' in ../RTL/src/game/CNN/cnn_rtl/p1_data_fifo.v(77)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/p2_data_fifo.v
+HDL-1007 : undeclared symbol 'valid', assumed default net type 'wire' in ../RTL/src/game/CNN/cnn_rtl/p2_data_fifo.v(78)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/pool1.v
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/pool1.v(45)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/pool1.v(70)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/pool1.v(89)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/pool2.v
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/pool2.v(21)
+HDL-5007 WARNING: block identifier is required on this block in ../RTL/src/game/CNN/cnn_rtl/pool2.v(32)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/poolsingle.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/sdram_cmd.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/sdram_para.v in ../RTL/src/game/CNN/cnn_rtl/sdram_cmd.v(24)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/sdram_cmd.v' in ../RTL/src/game/CNN/cnn_rtl/sdram_cmd.v(24)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/sdram_controller.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/sdram_ctrl.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/sdram_para.v in ../RTL/src/game/CNN/cnn_rtl/sdram_ctrl.v(19)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/sdram_ctrl.v' in ../RTL/src/game/CNN/cnn_rtl/sdram_ctrl.v(19)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/sdram_data.v
+HDL-1007 : analyze included file ../RTL/src/game/CNN/cnn_rtl/sdram_para.v in ../RTL/src/game/CNN/cnn_rtl/sdram_data.v(13)
+HDL-1007 : back to file '../RTL/src/game/CNN/cnn_rtl/sdram_data.v' in ../RTL/src/game/CNN/cnn_rtl/sdram_data.v(13)
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/sdram_fifo_ctrl.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/sdram_top.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/video_driver.v
+HDL-1007 : analyze verilog file ../RTL/src/game/CNN/cnn_rtl/ahb_cnn.v
+HDL-1007 : analyze verilog file ../RTL/src/peripheral/apb_peripheral/key_intr.v
+RUN-1001 : Project manager successfully analyzed 119 source files.
+RUN-1003 : finish command "open_project ANLOGIC.al -update" in  4.278445s wall, 2.765625s user + 0.515625s system = 3.281250s CPU (76.7%)
+
+RUN-1004 : used memory is 162 MB, reserved memory is 136 MB, peak memory is 162 MB
+RUN-1002 : start command "import_device ph1_60.db -package PH1A60GEG324"
+ARC-1001 : Device Initialization.
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :           OPTION          |          IO          |   SETTING   
+ARC-1001 : ---------------------------------------------------------------
+ARC-1001 :   non_jtag_persist(none)  |        36 IOs        |    gpio    
+ARC-1001 :            jtag           |  P8/E10/E12/E11/E13  |  dedicate  
+ARC-1001 : ---------------------------------------------------------------
+RUN-1003 : finish command "import_device ph1_60.db -package PH1A60GEG324" in  17.310567s wall, 15.640625s user + 0.328125s system = 15.968750s CPU (92.2%)
+
+RUN-1004 : used memory is 719 MB, reserved memory is 713 MB, peak memory is 719 MB
